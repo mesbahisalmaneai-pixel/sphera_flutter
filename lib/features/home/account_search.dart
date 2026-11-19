@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/l10n.dart';
 import '../../core/format.dart';
 import '../../core/theme.dart';
 import '../../data/dashboard.dart';
@@ -12,13 +13,13 @@ import '../games/game_accounts_screen.dart' show StatusBadge;
 /// Searches every gaming account (name, ID compte, game name, notes).
 /// Same scope as the dashboard: not trashed, game not archived.
 class AccountSearchDelegate extends SearchDelegate<void> {
-  AccountSearchDelegate() : super(searchFieldLabel: 'Search accounts');
+  AccountSearchDelegate() : super(searchFieldLabel: appL10n.searchAccounts);
 
   @override
   List<Widget>? buildActions(BuildContext context) => [
         if (query.isNotEmpty)
           IconButton(
-            tooltip: 'Clear',
+            tooltip: context.l10n.clear,
             icon: Icon(Icons.clear),
             onPressed: () => query = '',
           ),
@@ -26,7 +27,7 @@ class AccountSearchDelegate extends SearchDelegate<void> {
 
   @override
   Widget? buildLeading(BuildContext context) => IconButton(
-        tooltip: 'Back',
+        tooltip: context.l10n.back,
         icon: Icon(Icons.arrow_back),
         onPressed: () => close(context, null),
       );
@@ -66,7 +67,7 @@ class _Results extends ConsumerWidget {
       return Center(
         child: Padding(
           padding: EdgeInsets.all(32),
-          child: Text(q.isEmpty ? 'No accounts yet' : 'No account found for "$query"',
+          child: Text(q.isEmpty ? context.l10n.noAccountsYetShort : context.l10n.noAccountFoundFor(query),
               textAlign: TextAlign.center, style: TextStyle(color: SpheraColors.muted)),
         ),
       );

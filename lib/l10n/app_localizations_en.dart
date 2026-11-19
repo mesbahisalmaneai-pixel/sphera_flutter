@@ -766,4 +766,388 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get removeGame => 'Remove game';
+
+  @override
+  String get accountNoLongerAvailable => 'Account no longer available';
+
+  @override
+  String couldNotSetPhoto(String error) {
+    return 'Could not set photo: $error';
+  }
+
+  @override
+  String get changePhoto => 'Change photo';
+
+  @override
+  String get reset => 'Reset';
+
+  @override
+  String get game => 'Game';
+
+  @override
+  String get removedGame => 'Removed game';
+
+  @override
+  String get idCompte => 'ID compte';
+
+  @override
+  String get purchasePrice => 'Purchase price';
+
+  @override
+  String get salePrice => 'Sale price';
+
+  @override
+  String get profit => 'Profit';
+
+  @override
+  String get loss => 'Loss';
+
+  @override
+  String get enterNumber => 'Enter a number';
+
+  @override
+  String get mustBeZeroOrMore => 'Must be 0 or more';
+
+  @override
+  String get chooseGame => 'Choose a game';
+
+  @override
+  String get editAccount => 'Edit account';
+
+  @override
+  String get idCompteRequired => 'ID compte is required';
+
+  @override
+  String get accountName => 'Account name';
+
+  @override
+  String get nameRequired => 'Name is required';
+
+  @override
+  String get status => 'Status';
+
+  @override
+  String get notesOptional => 'Notes (optional)';
+
+  @override
+  String get noAccountsYetShort => 'No accounts yet';
+
+  @override
+  String get gameName => 'Game name';
+
+  @override
+  String get save => 'Save';
+
+  @override
+  String get addGame => 'Add game';
+
+  @override
+  String get renameGame => 'Rename game';
+
+  @override
+  String couldNotSetImage(String error) {
+    return 'Could not set image: $error';
+  }
+
+  @override
+  String removeGameKeepsAccounts(String name, int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count accounts',
+      one: '1 account',
+    );
+    return '$name has $_temp0. They are kept, but the game is hidden from the lists.';
+  }
+
+  @override
+  String get removeGameHidden => 'The game will be hidden from the lists.';
+
+  @override
+  String get noGamesYet => 'No games yet';
+
+  @override
+  String get rename => 'Rename';
+
+  @override
+  String get changeGameImage => 'Change game image';
+
+  @override
+  String get changeAccountPhoto => 'Change account photo';
+
+  @override
+  String get resetImages => 'Reset images';
+
+  @override
+  String get today => 'today';
+
+  @override
+  String daysCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count days',
+      one: '1 day',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String accountsForSaleList(int count) {
+    return 'Accounts for sale ($count):';
+  }
+
+  @override
+  String get listCopied => 'List copied (no prices)';
+
+  @override
+  String forSaleCount(int count) {
+    return 'For Sale ($count)';
+  }
+
+  @override
+  String get copyListNoPrices => 'Copy list without prices';
+
+  @override
+  String get nothingForSale =>
+      'Nothing is listed for sale.\nOpen an account and choose \"List for sale\".';
+
+  @override
+  String get listed => 'Listed';
+
+  @override
+  String gamesWord(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Games',
+      one: 'Game',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get longestWait => 'Longest wait';
+
+  @override
+  String get searchNameIdGame => 'Search name, ID or game';
+
+  @override
+  String allCount(int count) {
+    return 'All ($count)';
+  }
+
+  @override
+  String get noMatch => 'No match';
+
+  @override
+  String waitingFor(String time) {
+    return 'waiting $time';
+  }
+
+  @override
+  String get searchAccounts => 'Search accounts';
+
+  @override
+  String get clear => 'Clear';
+
+  @override
+  String noAccountFoundFor(String query) {
+    return 'No account found for \"$query\"';
+  }
+
+  @override
+  String marginPct(String pct) {
+    return '$pct% margin';
+  }
+
+  @override
+  String get salesSalePrice => 'Sales (Sale Price)';
+
+  @override
+  String get expensesPurchasePrice => 'Expenses (Purchase Price)';
+
+  @override
+  String get perGame => 'Per game';
+
+  @override
+  String salesAndExpenses(String sales, String expenses) {
+    return 'Sales $sales · Expenses $expenses';
+  }
+
+  @override
+  String get topProfit => 'Top profit';
+
+  @override
+  String get losses => 'Losses';
+
+  @override
+  String get todayCap => 'Today';
+
+  @override
+  String get typeGoogle => 'Google';
+
+  @override
+  String get typeGaming => 'Gaming';
+
+  @override
+  String get typeGames => 'Games';
+
+  @override
+  String get typeSystem => 'System';
+
+  @override
+  String get last7Days => '7 days';
+
+  @override
+  String get last30Days => '30 days';
+
+  @override
+  String get allTypes => 'All types';
+
+  @override
+  String get noActivityFromNow =>
+      'No activity yet.\nNew actions will appear here from now on.';
+
+  @override
+  String perfAddedVsPrev(int added, int prev, String prevLabel) {
+    return '$added added · $prev $prevLabel';
+  }
+
+  @override
+  String perfSameProfit(String prevLabel) {
+    return 'Same profit as $prevLabel';
+  }
+
+  @override
+  String perfVsPrev(String amount, String prevLabel) {
+    return '$amount vs $prevLabel';
+  }
+
+  @override
+  String get thisWeek => 'This week';
+
+  @override
+  String get thisMonth => 'This month';
+
+  @override
+  String get prevYesterday => 'yesterday';
+
+  @override
+  String get prevLastWeek => 'last week';
+
+  @override
+  String get prevLastMonth => 'last month';
+
+  @override
+  String get goalReached => 'Reached';
+
+  @override
+  String get goalOnTrack => 'On track';
+
+  @override
+  String get goalBehind => 'Behind pace';
+
+  @override
+  String goalProgress(String current, String target, String pct) {
+    return '$current of $target · $pct%';
+  }
+
+  @override
+  String get performanceCenterTitle => 'Performance Center';
+
+  @override
+  String get monthlyGoals => 'Monthly goals';
+
+  @override
+  String get setGoals => 'Set goals';
+
+  @override
+  String get noGoalsYet =>
+      'No goals yet. Set a monthly profit or accounts goal to track your pace.';
+
+  @override
+  String get accountsAdded => 'Accounts added';
+
+  @override
+  String get highlights => 'Highlights';
+
+  @override
+  String get addStreak => 'Add streak';
+
+  @override
+  String get addStreakSub => 'Days in a row with a new account';
+
+  @override
+  String get bestDay30 => 'Best day (30 days)';
+
+  @override
+  String get bestWeek12 => 'Best week (12 weeks)';
+
+  @override
+  String get bestMonth12 => 'Best month (12 months)';
+
+  @override
+  String get perfNote =>
+      'Accounts count in the period they were added. FOR SALE accounts have no profit yet.';
+
+  @override
+  String profitGoalCurrency(String currency) {
+    return 'Profit goal ($currency)';
+  }
+
+  @override
+  String get emptyNoGoal => 'Empty = no goal';
+
+  @override
+  String get accountsToAdd => 'Accounts to add';
+
+  @override
+  String googleAccountsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Google accounts',
+      one: '1 Google account',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get googlePlayBoxes => 'Google Play boxes';
+
+  @override
+  String get gamingAccounts => 'Gaming accounts';
+
+  @override
+  String get totalProfitLoss => 'Total profit / loss';
+
+  @override
+  String get pricePerGame => 'Price per game';
+
+  @override
+  String accountsIncluded(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count accounts included',
+      one: '1 account included',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get accountsPerGame => 'Number of accounts per game';
+
+  @override
+  String get statusPerGame => 'Account status per game';
+
+  @override
+  String get noAccountsInGrade => 'No accounts in this grade';
+
+  @override
+  String get noAccounts => 'No accounts';
+
+  @override
+  String get nothingHere => 'Nothing here';
 }

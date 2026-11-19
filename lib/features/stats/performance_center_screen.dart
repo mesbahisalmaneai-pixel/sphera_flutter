@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/l10n.dart';
 import '../../core/format.dart';
 import '../../core/theme.dart';
 import '../../data/dashboard.dart';
@@ -13,8 +14,7 @@ import '../home/dashboard_widgets.dart' show PerformanceCard;
 class PerformanceCenterScreen extends ConsumerWidget {
   const PerformanceCenterScreen({super.key});
 
-  static const _months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  static String _day(DateTime d) => '${d.day} ${_months[d.month - 1]}';
+  static String _day(DateTime d) => '${d.day} ${shortMonth(d)}';
 
   Widget _section(String t) => Padding(
         padding: const EdgeInsets.fromLTRB(4, 22, 0, 10),
@@ -48,21 +48,21 @@ class PerformanceCenterScreen extends ConsumerWidget {
               Flexible(
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
-                  alignment: Alignment.centerRight,
+                  alignment: AlignmentDirectional.centerEnd,
                   child: Text(signedMoney(s.profit, currency: cur),
                       style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: _c(s.profit))),
                 ),
               ),
             ]),
             const SizedBox(height: 4),
-            Text('${s.added} added · ${s.prevAdded} $prevLabel',
+            Text(context.l10n.perfAddedVsPrev(s.added, s.prevAdded, prevLabel),
                 style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
             const SizedBox(height: 2),
             Text(
               delta == 0
-                  ? 'Same profit as $prevLabel'
-                  : '${signedMoney(delta, currency: cur)} vs $prevLabel'
-                      '${pct == null ? '' : ' (${pct >= 0 ? '+' : ''}${pct.toStringAsFixed(0)}%)'}',
+                  ? context.l10n.perfSameProfit(prevLabel)
+                  : context.l10n.perfVsPrev(signedMoney(delta, currency: cur), prevLabel) +
+                      (pct == null ? '' : ' (${pct >= 0 ? '+' : ''}${pct.toStringAsFixed(0)}%)'),
               style: TextStyle(color: delta == 0 ? SpheraColors.muted : _c(delta), fontSize: 12),
             ),
           ]),
@@ -77,10 +77,10 @@ class PerformanceCenterScreen extends ConsumerWidget {
               ? SpheraColors.gold
               : SpheraColors.coming;
       final status = g.reached
-          ? 'Reached'
+          ? context.l10n.goalReached
           : g.onTrack
-              ? 'On track'
-              : 'Behind pace';
+              ? context.l10n.goalOnTrack
+              : context.l10n.goalBehind;
       return Padding(
         padding: const EdgeInsets.symmetric(vertical: 8),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -102,14 +102,14 @@ class PerformanceCenterScreen extends ConsumerWidget {
                 decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(4)),
               ),
               // Where you should be by today.
-              Positioned(
-                left: (c.maxWidth * g.expectedFraction - 1).clamp(0.0, c.maxWidth - 2).toDouble(),
+              PositionedDirectional(
+                start: (c.maxWidth * g.expectedFraction - 1).clamp(0.0, c.maxWidth - 2).toDouble(),
                 child: Container(width: 2, height: 8, color: SpheraColors.ivory.withValues(alpha: 0.6)),
               ),
             ]);
           }),
           const SizedBox(height: 6),
-          Text('${fmt(g.current)} of ${fmt(g.target)} · ${(g.fraction * 100).toStringAsFixed(0)}%',
+          Text(context.l10n.goalProgress(fmt(g.current), fmt(g.target), (g.fraction * 100).toStringAsFixed(0)),
               style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
         ]),
       );
@@ -132,19 +132,19 @@ class PerformanceCenterScreen extends ConsumerWidget {
         );
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Performance Center')),
+      appBar: AppBar(title: Text(context.l10n.performanceCenterTitle)),
       body: loading
           ? const Center(child: CircularProgressIndicator())
           : ListView(padding: const EdgeInsets.all(16), children: [
-              periodCard(PerfPeriod.today, 'Today', 'yesterday'),
-              periodCard(PerfPeriod.week, 'This week', 'last week'),
-              periodCard(PerfPeriod.month, 'This month', 'last month'),
+              periodCard(PerfPeriod.today, context.l10n.todayCap, context.l10n.prevYesterday),
+              periodCard(PerfPeriod.week, context.l10n.thisWeek, context.l10n.prevLastWeek),
+              periodCard(PerfPeriod.month, context.l10n.thisMonth, context.l10n.prevLastMonth),
               Row(children: [
-                Expanded(child: _section('Monthly goals')),
+                Expanded(child: _section(context.l10n.monthlyGoals)),
                 TextButton.icon(
                   onPressed: () => _editGoals(context, ref, goals, cur),
                   icon: const Icon(Icons.edit_outlined, size: 18),
-                  label: Text(goals.any ? 'Edit' : 'Set goals'),
+                  label: Text(goals.any ? context.l10n.edit : context.l10n.setGoals),
                 ),
               ]),
               Card(
@@ -154,35 +154,35 @@ class PerformanceCenterScreen extends ConsumerWidget {
                       ? Padding(
                           padding: const EdgeInsets.symmetric(vertical: 12),
                           child: Text(
-                              'No goals yet. Set a monthly profit or accounts goal to track your pace.',
+                              context.l10n.noGoalsYet,
                               style: TextStyle(color: SpheraColors.muted)),
                         )
                       : Column(children: [
                           if (profitGoal != null)
-                            goalRow('Profit', profitGoal, (v) => money(v, currency: cur)),
+                            goalRow(context.l10n.profit, profitGoal, (v) => money(v, currency: cur)),
                           if (accountsGoal != null)
-                            goalRow('Accounts added', accountsGoal, (v) => v.toStringAsFixed(0)),
+                            goalRow(context.l10n.accountsAdded, accountsGoal, (v) => v.toStringAsFixed(0)),
                         ]),
                 ),
               ),
               const SizedBox(height: 14),
               const PerformanceCard(),
-              _section('Highlights'),
-              highlight(Icons.local_fire_department_outlined, 'Add streak',
-                  streak == 0 ? '-' : '$streak day${streak == 1 ? '' : 's'}',
-                  'Days in a row with a new account'),
-              highlight(Icons.today_outlined, 'Best day (30 days)',
+              _section(context.l10n.highlights),
+              highlight(Icons.local_fire_department_outlined, context.l10n.addStreak,
+                  streak == 0 ? '-' : context.l10n.daysCount(streak),
+                  context.l10n.addStreakSub),
+              highlight(Icons.today_outlined, context.l10n.bestDay30,
                   bestDay == null ? '-' : signedMoney(bestDay.profit, currency: cur),
                   bestDay == null ? null : _day(bestDay.start)),
-              highlight(Icons.date_range_outlined, 'Best week (12 weeks)',
+              highlight(Icons.date_range_outlined, context.l10n.bestWeek12,
                   bestWeek == null ? '-' : signedMoney(bestWeek.profit, currency: cur),
-                  bestWeek == null ? null : 'Week of ${_day(bestWeek.start)}'),
-              highlight(Icons.calendar_month_outlined, 'Best month (12 months)',
+                  bestWeek == null ? null : context.l10n.weekOf(_day(bestWeek.start))),
+              highlight(Icons.calendar_month_outlined, context.l10n.bestMonth12,
                   bestMonth == null ? '-' : signedMoney(bestMonth.profit, currency: cur),
-                  bestMonth == null ? null : '${_months[bestMonth.start.month - 1]} ${bestMonth.start.year}'),
+                  bestMonth == null ? null : '${shortMonth(bestMonth.start)} ${bestMonth.start.year}'),
               Padding(
                 padding: const EdgeInsets.fromLTRB(4, 12, 4, 0),
-                child: Text('Accounts count in the period they were added. FOR SALE accounts have no profit yet.',
+                child: Text(context.l10n.perfNote,
                     style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
               ),
             ]),
@@ -198,25 +198,25 @@ class PerformanceCenterScreen extends ConsumerWidget {
     final saved = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Monthly goals'),
+        title: Text(context.l10n.monthlyGoals),
         content: Column(mainAxisSize: MainAxisSize.min, children: [
           TextField(
             controller: profitCtl,
             keyboardType: const TextInputType.numberWithOptions(decimal: true),
             inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[0-9.,]'))],
-            decoration: InputDecoration(labelText: 'Profit goal (${cur.code})', hintText: 'Empty = no goal'),
+            decoration: InputDecoration(labelText: context.l10n.profitGoalCurrency(cur.code), hintText: context.l10n.emptyNoGoal),
           ),
           const SizedBox(height: 12),
           TextField(
             controller: accountsCtl,
             keyboardType: TextInputType.number,
             inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-            decoration: const InputDecoration(labelText: 'Accounts to add', hintText: 'Empty = no goal'),
+            decoration: InputDecoration(labelText: context.l10n.accountsToAdd, hintText: context.l10n.emptyNoGoal),
           ),
         ]),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(ctx, false), child: const Text('Cancel')),
-          FilledButton(onPressed: () => Navigator.pop(ctx, true), child: const Text('Save')),
+          TextButton(onPressed: () => Navigator.pop(ctx, false), child: Text(context.l10n.cancel)),
+          FilledButton(onPressed: () => Navigator.pop(ctx, true), child: Text(context.l10n.save)),
         ],
       ),
     );

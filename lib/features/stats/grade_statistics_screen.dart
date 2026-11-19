@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/l10n.dart';
 import '../../core/status_style.dart';
 import '../../core/theme.dart';
 import '../../core/tile_grid.dart';
@@ -15,9 +16,9 @@ class GradeStatisticsScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final st = ref.watch(googleStatsProvider);
     return Scaffold(
-      appBar: AppBar(title: Text('Grade Statistics')),
+      appBar: AppBar(title: Text(context.l10n.gradeStatistics)),
       body: ListView(padding: EdgeInsets.all(16), children: [
-        Text('${st.total} Google account${st.total == 1 ? '' : 's'}',
+        Text(context.l10n.googleAccountsCount(st.total),
             style: TextStyle(color: SpheraColors.muted)),
         SizedBox(height: 14),
         TileGrid(

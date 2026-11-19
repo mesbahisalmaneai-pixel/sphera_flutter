@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/l10n.dart';
 import '../../core/game_logo.dart';
 import '../../core/theme.dart';
 import '../../data/dashboard.dart';
@@ -11,9 +12,8 @@ import '../games/game_accounts_screen.dart' show statusColor;
 
 String _days(DateTime t) {
   final d = DateTime.now().difference(t).inDays;
-  if (d <= 0) return 'today';
-  if (d == 1) return '1 day';
-  return '$d days';
+  if (d <= 0) return appL10n.today;
+  return appL10n.daysCount(d);
 }
 
 /// Every account listed FOR SALE. Prices are never shown here: this is a
@@ -57,22 +57,22 @@ class _ForSaleScreenState extends ConsumerState<ForSaleScreen> {
     }
 
     void copyList() {
-      final b = StringBuffer('Accounts for sale (${shown.length}):\n');
+      final b = StringBuffer('${context.l10n.accountsForSaleList(shown.length)}\n');
       for (final a in shown) {
         b.writeln('• ${games[a.gameId]?.name ?? ''} — ${a.name} (ID ${a.idCompte})');
       }
       Clipboard.setData(ClipboardData(text: b.toString().trimRight()));
       ScaffoldMessenger.of(context)
         ..hideCurrentSnackBar()
-        ..showSnackBar(SnackBar(content: Text('List copied (no prices)')));
+        ..showSnackBar(SnackBar(content: Text(context.l10n.listCopied)));
     }
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('For Sale (${all.length})'),
+        title: Text(context.l10n.forSaleCount(all.length)),
         actions: [
           IconButton(
-            tooltip: 'Copy list without prices',
+            tooltip: context.l10n.copyListNoPrices,
             icon: Icon(Icons.copy_rounded),
             onPressed: shown.isEmpty ? null : copyList,
           ),
@@ -83,7 +83,7 @@ class _ForSaleScreenState extends ConsumerState<ForSaleScreen> {
               child: Padding(
                 padding: EdgeInsets.all(32),
                 child: Text(
-                    'Nothing is listed for sale.\nOpen an account and choose "List for sale".',
+                    context.l10n.nothingForSale,
                     textAlign: TextAlign.center,
                     style: TextStyle(color: SpheraColors.muted)),
               ),
@@ -94,9 +94,9 @@ class _ForSaleScreenState extends ConsumerState<ForSaleScreen> {
                 child: Padding(
                   padding: EdgeInsets.all(14),
                   child: Row(children: [
-                    _stat('${all.length}', 'Listed'),
-                    _stat('${perGame.length}', perGame.length == 1 ? 'Game' : 'Games'),
-                    _stat(waiting == null ? '-' : _days(waiting.updatedAt), 'Longest wait'),
+                    _stat('${all.length}', context.l10n.listed),
+                    _stat('${perGame.length}', context.l10n.gamesWord(perGame.length)),
+                    _stat(waiting == null ? '-' : _days(waiting.updatedAt), context.l10n.longestWait),
                   ]),
                 ),
               ),
@@ -104,7 +104,7 @@ class _ForSaleScreenState extends ConsumerState<ForSaleScreen> {
               TextField(
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.search_rounded),
-                  hintText: 'Search name, ID or game',
+                  hintText: context.l10n.searchNameIdGame,
                 ),
                 onChanged: (v) => setState(() => _query = v),
               ),
@@ -115,7 +115,7 @@ class _ForSaleScreenState extends ConsumerState<ForSaleScreen> {
                   Padding(
                     padding: EdgeInsets.only(right: 8),
                     child: ChoiceChip(
-                      label: Text('All (${all.length})'),
+                      label: Text(context.l10n.allCount(all.length)),
                       selected: _gameId == null,
                       onSelected: (_) => setState(() => _gameId = null),
                     ),
@@ -136,7 +136,7 @@ class _ForSaleScreenState extends ConsumerState<ForSaleScreen> {
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 32),
                   child: Center(
-                      child: Text('No match', style: TextStyle(color: SpheraColors.muted))),
+                      child: Text(context.l10n.noMatch, style: TextStyle(color: SpheraColors.muted))),
                 )
               else
                 for (final a in shown)
@@ -153,7 +153,7 @@ class _ForSaleScreenState extends ConsumerState<ForSaleScreen> {
                               radius: 8),
                       title: Text(a.name, maxLines: 1, overflow: TextOverflow.ellipsis),
                       subtitle: Text(
-                          '${games[a.gameId]?.name ?? ''} · ID ${a.idCompte} · waiting ${_days(a.updatedAt)}',
+                          '${games[a.gameId]?.name ?? ''} · ID ${a.idCompte} · ${context.l10n.waitingFor(_days(a.updatedAt))}',
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(color: SpheraColors.muted, fontSize: 12)),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/l10n.dart';
 import '../../core/format.dart';
 import '../../core/status_style.dart';
 import '../../core/theme.dart';
@@ -28,7 +29,7 @@ class GradeAccountsScreen extends ConsumerWidget {
         ]),
       ),
       body: list.isEmpty
-          ? Center(child: Text('No accounts in this grade', style: TextStyle(color: SpheraColors.muted)))
+          ? Center(child: Text(context.l10n.noAccountsInGrade, style: TextStyle(color: SpheraColors.muted)))
           : ListView.builder(
               padding: EdgeInsets.all(16),
               itemCount: list.length,
@@ -65,7 +66,7 @@ class _GameStatusAccountsScreenState extends ConsumerState<GameStatusAccountsScr
       appBar: AppBar(title: Text(widget.game.name)),
       body: accounts.when(
         loading: () => Center(child: CircularProgressIndicator()),
-        error: (e, _) => Center(child: Text('Could not load accounts: $e')),
+        error: (e, _) => Center(child: Text(context.l10n.couldNotLoadAccounts('$e'))),
         data: (all) {
           final live = all.where((a) => a.deletedAt == null).toList();
           final nActive = live.where((a) => a.status == GameAccountStatus.active).length;
@@ -91,7 +92,7 @@ class _GameStatusAccountsScreenState extends ConsumerState<GameStatusAccountsScr
             ),
             Expanded(
               child: list.isEmpty
-                  ? Center(child: Text('No accounts', style: TextStyle(color: SpheraColors.muted)))
+                  ? Center(child: Text(context.l10n.noAccounts, style: TextStyle(color: SpheraColors.muted)))
                   : ListView.builder(
                       padding: EdgeInsets.fromLTRB(16, 0, 16, 24),
                       itemCount: list.length,

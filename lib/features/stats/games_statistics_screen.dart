@@ -37,7 +37,7 @@ class GamesStatisticsScreen extends ConsumerWidget {
 
     Widget body;
     if (stats.isEmpty) {
-      body = Center(child: Text('No games yet', style: TextStyle(color: SpheraColors.muted)));
+      body = Center(child: Text(context.l10n.noGamesYet, style: TextStyle(color: SpheraColors.muted)));
     } else {
       final maxCount = stats.fold<int>(1, (m, s) => s.count > m ? s.count : m);
       final total = stats.fold<double>(0, (t, s) => t + s.profit);
@@ -49,7 +49,7 @@ class GamesStatisticsScreen extends ConsumerWidget {
           child: Padding(
             padding: EdgeInsets.all(16),
             child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-              Text('Total profit / loss', style: TextStyle(color: SpheraColors.muted)),
+              Text(context.l10n.totalProfitLoss, style: TextStyle(color: SpheraColors.muted)),
               Text(signedMoney(total, currency: cur),
                   style: TextStyle(
                       fontSize: 20,
@@ -58,13 +58,13 @@ class GamesStatisticsScreen extends ConsumerWidget {
             ]),
           ),
         ),
-        _section('Price per game'),
+        _section(context.l10n.pricePerGame),
         for (final s in stats)
           Card(
             child: ListTile(
               leading: GameLogo(s.game, size: 44),
               title: Text(s.game.name),
-              subtitle: Text('${s.count} account${s.count == 1 ? '' : 's'} included',
+              subtitle: Text(context.l10n.accountsIncluded(s.count),
                   style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
               trailing: Text(signedMoney(s.profit, currency: cur),
                   style: TextStyle(
@@ -73,7 +73,7 @@ class GamesStatisticsScreen extends ConsumerWidget {
               onTap: () => openGame(s.game),
             ),
           ),
-        _section('Number of accounts per game'),
+        _section(context.l10n.accountsPerGame),
         Card(
           child: Padding(
             padding: EdgeInsets.all(16),
@@ -103,7 +103,7 @@ class GamesStatisticsScreen extends ConsumerWidget {
             ]),
           ),
         ),
-        _section('Account status per game'),
+        _section(context.l10n.statusPerGame),
         for (final s in stats)
           Card(
             child: Padding(
@@ -119,6 +119,6 @@ class GamesStatisticsScreen extends ConsumerWidget {
       ]);
     }
 
-    return Scaffold(appBar: AppBar(title: Text('Games Statistics')), body: body);
+    return Scaffold(appBar: AppBar(title: Text(context.l10n.gamesStatistics)), body: body);
   }
 }

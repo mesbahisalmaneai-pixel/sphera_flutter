@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/l10n.dart';
 import '../../core/game_logo.dart';
 import '../../core/theme.dart';
 import '../../data/database.dart';
@@ -19,10 +20,10 @@ class GamesScreen extends ConsumerWidget {
         title: Text(title),
         content: TextField(
             controller: c, autofocus: true, textCapitalization: TextCapitalization.words,
-            decoration: InputDecoration(hintText: 'Game name')),
+            decoration: InputDecoration(hintText: context.l10n.gameName)),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(ctx), child: Text('Cancel')),
-          TextButton(onPressed: () => Navigator.pop(ctx, c.text.trim()), child: Text('Save')),
+          TextButton(onPressed: () => Navigator.pop(ctx), child: Text(context.l10n.cancel)),
+          TextButton(onPressed: () => Navigator.pop(ctx, c.text.trim()), child: Text(context.l10n.save)),
         ],
       ),
     );
@@ -32,7 +33,7 @@ class GamesScreen extends ConsumerWidget {
       ScaffoldMessenger.of(context)..hideCurrentSnackBar()..showSnackBar(SnackBar(content: Text(msg)));
 
   Future<void> _add(BuildContext context, WidgetRef ref) async {
-    final name = await _askName(context, 'Add game');
+    final name = await _askName(context, context.l10n.addGame);
     if (name == null || name.isEmpty || !context.mounted) return;
     try {
       await ref.read(gameRepoProvider).addGame(name);
@@ -42,7 +43,7 @@ class GamesScreen extends ConsumerWidget {
   }
 
   Future<void> _rename(BuildContext context, WidgetRef ref, Game g) async {
-    final name = await _askName(context, 'Rename game', initial: g.name);
+    final name = await _askName(context, context.l10n.renameGame, initial: g.name);
     if (name == null || name.isEmpty || !context.mounted) return;
     try {
       await ref.read(gameRepoProvider).renameGame(g.id, name);
@@ -65,7 +66,7 @@ class GamesScreen extends ConsumerWidget {
       }
       await store.deleteIfOurs(old);
     } catch (e) {
-      if (context.mounted) _toast(context, 'Could not set image: $e');
+      if (context.mounted) _toast(context, context.l10n.couldNotSetImage('$e'));
     }
   }
 
@@ -85,15 +86,15 @@ class GamesScreen extends ConsumerWidget {
     final ok = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text('Remove ${g.name}?'),
+        title: Text(context.l10n.removeGameTitle(g.name)),
         content: Text(count > 0
-            ? '${g.name} has $count account(s). They are kept, but the game is hidden from the lists.'
-            : 'The game will be hidden from the lists.'),
+            ? context.l10n.removeGameKeepsAccounts(g.name, count)
+            : context.l10n.removeGameHidden),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(ctx, false), child: Text('Cancel')),
+          TextButton(onPressed: () => Navigator.pop(ctx, false), child: Text(context.l10n.cancel)),
           TextButton(
               onPressed: () => Navigator.pop(ctx, true),
-              child: Text('Remove', style: TextStyle(color: SpheraColors.danger))),
+              child: Text(context.l10n.remove, style: TextStyle(color: SpheraColors.danger))),
         ],
       ),
     );
@@ -105,16 +106,16 @@ class GamesScreen extends ConsumerWidget {
     final games = ref.watch(activeGamesProvider).value ?? <Game>[];
     final counts = ref.watch(gameAccountCountsProvider).value ?? <String, int>{};
     return Scaffold(
-      appBar: AppBar(title: Text('Games')),
+      appBar: AppBar(title: Text(context.l10n.games)),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => _add(context, ref),
         backgroundColor: SpheraColors.gold,
         foregroundColor: Theme.of(context).colorScheme.onPrimary,
         icon: Icon(Icons.add),
-        label: Text('Add game'),
+        label: Text(context.l10n.addGame),
       ),
       body: games.isEmpty
-          ? Center(child: Text('No games yet', style: TextStyle(color: SpheraColors.muted)))
+          ? Center(child: Text(context.l10n.noGamesYet, style: TextStyle(color: SpheraColors.muted)))
           : GridView.builder(
               padding: EdgeInsets.fromLTRB(16, 8, 16, 96),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -143,7 +144,7 @@ class GamesScreen extends ConsumerWidget {
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(fontWeight: FontWeight.w600)),
                             SizedBox(height: 2),
-                            Text('$n account${n == 1 ? '' : 's'}',
+                            Text(context.l10n.accountsCount(n),
                                 style: TextStyle(color: SpheraColors.gold, fontSize: 12)),
                           ]),
                         ),
@@ -167,11 +168,11 @@ class GamesScreen extends ConsumerWidget {
                             }
                           },
                           itemBuilder: (_) => [
-                            PopupMenuItem(value: 'rename', child: Text('Rename')),
-                            PopupMenuItem(value: 'card', child: Text('Change game image')),
-                            PopupMenuItem(value: 'account', child: Text('Change account photo')),
-                            PopupMenuItem(value: 'reset', child: Text('Reset images')),
-                            PopupMenuItem(value: 'remove', child: Text('Remove')),
+                            PopupMenuItem(value: 'rename', child: Text(context.l10n.rename)),
+                            PopupMenuItem(value: 'card', child: Text(context.l10n.changeGameImage)),
+                            PopupMenuItem(value: 'account', child: Text(context.l10n.changeAccountPhoto)),
+                            PopupMenuItem(value: 'reset', child: Text(context.l10n.resetImages)),
+                            PopupMenuItem(value: 'remove', child: Text(context.l10n.remove)),
                           ],
                         ),
                       ),

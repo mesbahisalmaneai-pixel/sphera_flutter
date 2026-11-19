@@ -64,17 +64,17 @@ class GameAccountsScreen extends ConsumerWidget {
         backgroundColor: SpheraColors.gold,
         foregroundColor: Colors.black,
         icon: Icon(Icons.add),
-        label: Text('Add account'),
+        label: Text(context.l10n.addAccountShort),
       ),
       body: accounts.when(
         loading: () => Center(child: CircularProgressIndicator()),
-        error: (e, _) => Center(child: Text('Could not load accounts: $e')),
+        error: (e, _) => Center(child: Text(context.l10n.couldNotLoadAccounts('$e'))),
         data: (list) => list.isEmpty
             ? Center(
                 child: Column(mainAxisSize: MainAxisSize.min, children: [
                   GameImage(g, width: 160, height: 100),
                   SizedBox(height: 12),
-                  Text('No accounts yet', style: TextStyle(color: SpheraColors.muted)),
+                  Text(context.l10n.noAccountsYetShort, style: TextStyle(color: SpheraColors.muted)),
                 ]),
               )
             : GridView.builder(

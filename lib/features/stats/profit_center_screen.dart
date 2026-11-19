@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/l10n.dart';
 import '../../core/format.dart';
 import '../../core/game_logo.dart';
 import '../../core/theme.dart';
@@ -79,7 +80,7 @@ class _ProfitCenterScreenState extends ConsumerState<ProfitCenterScreen> {
         );
 
     return Scaffold(
-      appBar: AppBar(title: Text('Profit Center')),
+      appBar: AppBar(title: Text(context.l10n.profitCenter)),
       body: ListView(padding: EdgeInsets.all(16), children: [
         SegmentedButton<String>(
           segments: [
@@ -96,15 +97,15 @@ class _ProfitCenterScreenState extends ConsumerState<ProfitCenterScreen> {
             padding: EdgeInsets.all(18),
             child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text('Net Profit', style: TextStyle(color: SpheraColors.muted)),
+                Text(context.l10n.netProfit, style: TextStyle(color: SpheraColors.muted)),
                 SizedBox(height: 2),
-                Text('${all.length} account${all.length == 1 ? '' : 's'}',
+                Text(context.l10n.accountsCount(all.length),
                     style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
               ]),
               Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
                 Text(signedMoney(net, currency: cur),
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: _c(net))),
-                Text('${margin >= 0 ? '+' : ''}${margin.toStringAsFixed(1)}% margin',
+                Text(context.l10n.marginPct('${margin >= 0 ? '+' : ''}${margin.toStringAsFixed(1)}'),
                     style: TextStyle(color: _c(net), fontSize: 12)),
               ]),
             ]),
@@ -118,15 +119,15 @@ class _ProfitCenterScreenState extends ConsumerState<ProfitCenterScreen> {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Expanded(child: _stat('Sales (Sale Price)', money(sales, currency: cur), SpheraColors.gold)),
+              Expanded(child: _stat(context.l10n.salesSalePrice, money(sales, currency: cur), SpheraColors.gold)),
               SizedBox(width: 10),
-              Expanded(child: _stat('Expenses (Purchase Price)', money(expenses, currency: cur), SpheraColors.muted)),
+              Expanded(child: _stat(context.l10n.expensesPurchasePrice, money(expenses, currency: cur), SpheraColors.muted)),
             ],
           ),
         ),
-        _section('Per game'),
+        _section(context.l10n.perGame),
         if (games.isEmpty)
-          Text('No games yet', style: TextStyle(color: SpheraColors.muted))
+          Text(context.l10n.noGamesYet, style: TextStyle(color: SpheraColors.muted))
         else
           for (final g in games)
             () {
@@ -138,7 +139,7 @@ class _ProfitCenterScreenState extends ConsumerState<ProfitCenterScreen> {
                   leading: GameLogo(g, size: 40),
                   title: Text(g.name),
                   subtitle: Text(
-                      'Sales ${money(s, currency: cur)} · Expenses ${money(e, currency: cur)}',
+                      context.l10n.salesAndExpenses(money(s, currency: cur), money(e, currency: cur)),
                       style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
                   trailing: Text(signedMoney(s - e, currency: cur),
                       style: TextStyle(fontWeight: FontWeight.w700, color: _c(s - e))),
@@ -148,11 +149,11 @@ class _ProfitCenterScreenState extends ConsumerState<ProfitCenterScreen> {
               );
             }(),
         if (top.isNotEmpty) ...[
-          _section('Top profit'),
+          _section(context.l10n.topProfit),
           for (final a in top) accountTile(a),
         ],
         if (losses.isNotEmpty) ...[
-          _section('Losses'),
+          _section(context.l10n.losses),
           for (final a in losses) accountTile(a),
         ],
       ]),

@@ -414,5 +414,263 @@
   "remove": "Remove",
   "newGameName": "New game name",
   "add": "Add",
-  "removeGame": "Remove game"
+  "removeGame": "Remove game",
+  "accountNoLongerAvailable": "Account no longer available",
+  "couldNotSetPhoto": "Could not set photo: {error}",
+  "@couldNotSetPhoto": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "changePhoto": "Change photo",
+  "reset": "Reset",
+  "game": "Game",
+  "removedGame": "Removed game",
+  "idCompte": "ID compte",
+  "purchasePrice": "Purchase price",
+  "salePrice": "Sale price",
+  "profit": "Profit",
+  "loss": "Loss",
+  "enterNumber": "Enter a number",
+  "mustBeZeroOrMore": "Must be 0 or more",
+  "chooseGame": "Choose a game",
+  "editAccount": "Edit account",
+  "idCompteRequired": "ID compte is required",
+  "accountName": "Account name",
+  "nameRequired": "Name is required",
+  "status": "Status",
+  "notesOptional": "Notes (optional)",
+  "noAccountsYetShort": "No accounts yet",
+  "gameName": "Game name",
+  "save": "Save",
+  "addGame": "Add game",
+  "renameGame": "Rename game",
+  "couldNotSetImage": "Could not set image: {error}",
+  "@couldNotSetImage": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "removeGameKeepsAccounts": "{name} has {count, plural, =1{1 account} other{{count} accounts}}. They are kept, but the game is hidden from the lists.",
+  "@removeGameKeepsAccounts": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "removeGameHidden": "The game will be hidden from the lists.",
+  "noGamesYet": "No games yet",
+  "rename": "Rename",
+  "changeGameImage": "Change game image",
+  "changeAccountPhoto": "Change account photo",
+  "resetImages": "Reset images",
+  "today": "today",
+  "daysCount": "{count, plural, =1{1 day} other{{count} days}}",
+  "@daysCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "accountsForSaleList": "Accounts for sale ({count}):",
+  "@accountsForSaleList": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "listCopied": "List copied (no prices)",
+  "forSaleCount": "For Sale ({count})",
+  "@forSaleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "copyListNoPrices": "Copy list without prices",
+  "nothingForSale": "Nothing is listed for sale.\nOpen an account and choose \"List for sale\".",
+  "listed": "Listed",
+  "gamesWord": "{count, plural, =1{Game} other{Games}}",
+  "@gamesWord": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "longestWait": "Longest wait",
+  "searchNameIdGame": "Search name, ID or game",
+  "allCount": "All ({count})",
+  "@allCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "noMatch": "No match",
+  "waitingFor": "waiting {time}",
+  "@waitingFor": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "searchAccounts": "Search accounts",
+  "clear": "Clear",
+  "noAccountFoundFor": "No account found for \"{query}\"",
+  "@noAccountFoundFor": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "marginPct": "{pct}% margin",
+  "@marginPct": {
+    "placeholders": {
+      "pct": {
+        "type": "String"
+      }
+    }
+  },
+  "salesSalePrice": "Sales (Sale Price)",
+  "expensesPurchasePrice": "Expenses (Purchase Price)",
+  "perGame": "Per game",
+  "salesAndExpenses": "Sales {sales} · Expenses {expenses}",
+  "@salesAndExpenses": {
+    "placeholders": {
+      "sales": {
+        "type": "String"
+      },
+      "expenses": {
+        "type": "String"
+      }
+    }
+  },
+  "topProfit": "Top profit",
+  "losses": "Losses",
+  "todayCap": "Today",
+  "typeGoogle": "Google",
+  "typeGaming": "Gaming",
+  "typeGames": "Games",
+  "typeSystem": "System",
+  "last7Days": "7 days",
+  "last30Days": "30 days",
+  "allTypes": "All types",
+  "noActivityFromNow": "No activity yet.\nNew actions will appear here from now on.",
+  "perfAddedVsPrev": "{added} added · {prev} {prevLabel}",
+  "@perfAddedVsPrev": {
+    "placeholders": {
+      "added": {
+        "type": "int"
+      },
+      "prev": {
+        "type": "int"
+      },
+      "prevLabel": {
+        "type": "String"
+      }
+    }
+  },
+  "perfSameProfit": "Same profit as {prevLabel}",
+  "@perfSameProfit": {
+    "placeholders": {
+      "prevLabel": {
+        "type": "String"
+      }
+    }
+  },
+  "perfVsPrev": "{amount} vs {prevLabel}",
+  "@perfVsPrev": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      },
+      "prevLabel": {
+        "type": "String"
+      }
+    }
+  },
+  "thisWeek": "This week",
+  "thisMonth": "This month",
+  "prevYesterday": "yesterday",
+  "prevLastWeek": "last week",
+  "prevLastMonth": "last month",
+  "goalReached": "Reached",
+  "goalOnTrack": "On track",
+  "goalBehind": "Behind pace",
+  "goalProgress": "{current} of {target} · {pct}%",
+  "@goalProgress": {
+    "placeholders": {
+      "current": {
+        "type": "String"
+      },
+      "target": {
+        "type": "String"
+      },
+      "pct": {
+        "type": "String"
+      }
+    }
+  },
+  "performanceCenterTitle": "Performance Center",
+  "monthlyGoals": "Monthly goals",
+  "setGoals": "Set goals",
+  "noGoalsYet": "No goals yet. Set a monthly profit or accounts goal to track your pace.",
+  "accountsAdded": "Accounts added",
+  "highlights": "Highlights",
+  "addStreak": "Add streak",
+  "addStreakSub": "Days in a row with a new account",
+  "bestDay30": "Best day (30 days)",
+  "bestWeek12": "Best week (12 weeks)",
+  "bestMonth12": "Best month (12 months)",
+  "perfNote": "Accounts count in the period they were added. FOR SALE accounts have no profit yet.",
+  "profitGoalCurrency": "Profit goal ({currency})",
+  "@profitGoalCurrency": {
+    "placeholders": {
+      "currency": {
+        "type": "String"
+      }
+    }
+  },
+  "emptyNoGoal": "Empty = no goal",
+  "accountsToAdd": "Accounts to add",
+  "googleAccountsCount": "{count, plural, =1{1 Google account} other{{count} Google accounts}}",
+  "@googleAccountsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "googlePlayBoxes": "Google Play boxes",
+  "gamingAccounts": "Gaming accounts",
+  "totalProfitLoss": "Total profit / loss",
+  "pricePerGame": "Price per game",
+  "accountsIncluded": "{count, plural, =1{1 account included} other{{count} accounts included}}",
+  "@accountsIncluded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "accountsPerGame": "Number of accounts per game",
+  "statusPerGame": "Account status per game",
+  "noAccountsInGrade": "No accounts in this grade",
+  "noAccounts": "No accounts",
+  "nothingHere": "Nothing here"
 }

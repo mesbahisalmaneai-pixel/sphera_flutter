@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/l10n.dart';
 import '../../core/format.dart';
 import '../../core/game_logo.dart';
 import '../../core/theme.dart';
@@ -19,7 +20,7 @@ class GameAccountDetailScreen extends ConsumerWidget {
     final a = ref.watch(gameAccountProvider(accountId)).value;
     final games = ref.watch(activeGamesProvider).value ?? <Game>[];
     if (a == null || a.deletedAt != null) {
-      return Scaffold(appBar: AppBar(), body: Center(child: Text('Account no longer available')));
+      return Scaffold(appBar: AppBar(), body: Center(child: Text(context.l10n.accountNoLongerAvailable)));
     }
     final game = games.where((g) => g.id == a.gameId).firstOrNull;
     final profit = profitOf(a);
@@ -30,6 +31,7 @@ class GameAccountDetailScreen extends ConsumerWidget {
       final store = ref.read(gameImageStoreProvider);
       final repo = ref.read(gameAccountRepoProvider);
       final messenger = ScaffoldMessenger.of(context);
+      final l = context.l10n;
       try {
         final path = await store.pickAndSaveForAccount(a.id);
         if (path == null) return;
@@ -37,7 +39,7 @@ class GameAccountDetailScreen extends ConsumerWidget {
         await repo.setPhoto(a.id, path);
         await store.deleteIfOurs(old);
       } catch (e) {
-        messenger.showSnackBar(SnackBar(content: Text('Could not set photo: $e')));
+        messenger.showSnackBar(SnackBar(content: Text(l.couldNotSetPhoto('$e'))));
       }
     }
 
@@ -58,7 +60,7 @@ class GameAccountDetailScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(title: Text(a.name), actions: [
         IconButton(
-          tooltip: 'Edit',
+          tooltip: context.l10n.edit,
           icon: Icon(Icons.edit_outlined),
           onPressed: () => Navigator.of(context).push(MaterialPageRoute(
               builder: (_) => GameAccountForm(game: game, account: a))),
@@ -74,10 +76,10 @@ class GameAccountDetailScreen extends ConsumerWidget {
           TextButton.icon(
             onPressed: pickPhoto,
             icon: Icon(Icons.photo_library_outlined, size: 18),
-            label: Text('Change photo'),
+            label: Text(context.l10n.changePhoto),
           ),
           if (a.photoPath != null)
-            TextButton(onPressed: resetPhoto, child: Text('Reset')),
+            TextButton(onPressed: resetPhoto, child: Text(context.l10n.reset)),
         ]),
         SizedBox(height: 4),
         Center(child: StatusBadge(a.status)),
@@ -86,12 +88,12 @@ class GameAccountDetailScreen extends ConsumerWidget {
           child: Padding(
             padding: EdgeInsets.all(16),
             child: Column(children: [
-              row('Game', game?.name ?? 'Removed game'),
-              row('ID compte', a.idCompte),
-              row('Purchase price', money(a.purchasePrice, currency: cur)),
-              row('Sale price', money(a.salePrice, currency: cur)),
+              row(context.l10n.game, game?.name ?? context.l10n.removedGame),
+              row(context.l10n.idCompte, a.idCompte),
+              row(context.l10n.purchasePrice, money(a.purchasePrice, currency: cur)),
+              row(context.l10n.salePrice, money(a.salePrice, currency: cur)),
               Divider(color: SpheraColors.border),
-              row(profit >= 0 ? 'Profit' : 'Loss', signedMoney(profit, currency: cur)),
+              row(profit >= 0 ? context.l10n.profit : context.l10n.loss, signedMoney(profit, currency: cur)),
             ]),
           ),
         ),
@@ -108,18 +110,19 @@ class GameAccountDetailScreen extends ConsumerWidget {
           style: OutlinedButton.styleFrom(
               foregroundColor: SpheraColors.danger, minimumSize: Size(48, 48)),
           icon: Icon(Icons.delete_outline),
-          label: Text('Move to Trash'),
+          label: Text(context.l10n.moveToTrash),
           onPressed: () async {
             final repo = ref.read(gameAccountRepoProvider);
             final messenger = ScaffoldMessenger.of(context);
             final nav = Navigator.of(context);
+            final l = context.l10n;
             await repo.moveToTrash(a.id);
             nav.pop();
             messenger
               ..hideCurrentSnackBar()
               ..showSnackBar(SnackBar(
-                  content: Text('${a.name} moved to Trash'),
-                  action: SnackBarAction(label: 'UNDO', onPressed: () => repo.restore(a.id))));
+                  content: Text(l.movedToTrash(a.name)),
+                  action: SnackBarAction(label: l.undo, onPressed: () => repo.restore(a.id))));
           },
         ),
       ]),

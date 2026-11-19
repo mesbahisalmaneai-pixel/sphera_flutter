@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/l10n.dart';
 import '../../core/format.dart';
 import '../../core/theme.dart';
 import '../../data/database.dart';
@@ -59,15 +60,15 @@ class _GameAccountFormState extends ConsumerState<GameAccountForm> {
 
   String? _priceValidator(String? v) {
     final n = _parse(v ?? '');
-    if (n == null) return 'Enter a number';
-    if (n < 0) return 'Must be 0 or more';
+    if (n == null) return context.l10n.enterNumber;
+    if (n < 0) return context.l10n.mustBeZeroOrMore;
     return null;
   }
 
   Future<void> _save() async {
     if (_saving || !_key.currentState!.validate()) return;
     if (_gameId == null) {
-      setState(() => _error = 'Choose a game');
+      setState(() => _error = context.l10n.chooseGame);
       return;
     }
     setState(() {
@@ -94,7 +95,7 @@ class _GameAccountFormState extends ConsumerState<GameAccountForm> {
       }
       if (mounted) Navigator.of(context).pop();
     } catch (e) {
-      setState(() => _error = 'Could not save: $e');
+      setState(() => _error = context.l10n.couldNotSave('$e'));
     } finally {
       if (mounted) setState(() => _saving = false);
     }
@@ -104,27 +105,27 @@ class _GameAccountFormState extends ConsumerState<GameAccountForm> {
   Widget build(BuildContext context) {
     final games = ref.watch(activeGamesProvider).value ?? <Game>[];
     return Scaffold(
-      appBar: AppBar(title: Text(_isEdit ? 'Edit account' : 'Add account')),
+      appBar: AppBar(title: Text(_isEdit ? context.l10n.editAccount : context.l10n.addAccountShort)),
       body: Form(
         key: _key,
         child: ListView(padding: EdgeInsets.all(20), children: [
           DropdownButtonFormField<String>(
             initialValue: games.any((g) => g.id == _gameId) ? _gameId : null,
-            decoration: InputDecoration(labelText: 'Game'),
+            decoration: InputDecoration(labelText: context.l10n.game),
             items: [for (final g in games) DropdownMenuItem(value: g.id, child: Text(g.name))],
             onChanged: (v) => setState(() => _gameId = v),
           ),
           SizedBox(height: 14),
           TextFormField(
             controller: _idCompte,
-            decoration: InputDecoration(labelText: 'ID compte'),
-            validator: (v) => (v ?? '').trim().isEmpty ? 'ID compte is required' : null,
+            decoration: InputDecoration(labelText: context.l10n.idCompte),
+            validator: (v) => (v ?? '').trim().isEmpty ? context.l10n.idCompteRequired : null,
           ),
           SizedBox(height: 14),
           TextFormField(
             controller: _name,
-            decoration: InputDecoration(labelText: 'Account name'),
-            validator: (v) => (v ?? '').trim().isEmpty ? 'Name is required' : null,
+            decoration: InputDecoration(labelText: context.l10n.accountName),
+            validator: (v) => (v ?? '').trim().isEmpty ? context.l10n.nameRequired : null,
           ),
           SizedBox(height: 14),
           Row(children: [
@@ -132,7 +133,7 @@ class _GameAccountFormState extends ConsumerState<GameAccountForm> {
               child: TextFormField(
                 controller: _purchase,
                 keyboardType: TextInputType.numberWithOptions(decimal: true),
-                decoration: InputDecoration(labelText: 'Purchase price', suffixText: ref.watch(currencyProvider).code),
+                decoration: InputDecoration(labelText: context.l10n.purchasePrice, suffixText: ref.watch(currencyProvider).code),
                 validator: _priceValidator,
               ),
             ),
@@ -141,13 +142,13 @@ class _GameAccountFormState extends ConsumerState<GameAccountForm> {
               child: TextFormField(
                 controller: _sale,
                 keyboardType: TextInputType.numberWithOptions(decimal: true),
-                decoration: InputDecoration(labelText: 'Sale price', suffixText: ref.watch(currencyProvider).code),
+                decoration: InputDecoration(labelText: context.l10n.salePrice, suffixText: ref.watch(currencyProvider).code),
                 validator: _priceValidator,
               ),
             ),
           ]),
           SizedBox(height: 18),
-          Text('Status', style: TextStyle(color: SpheraColors.muted)),
+          Text(context.l10n.status, style: TextStyle(color: SpheraColors.muted)),
           SizedBox(height: 8),
           Wrap(spacing: 10, children: [
             for (final s in GameAccountStatus.values)
@@ -163,7 +164,7 @@ class _GameAccountFormState extends ConsumerState<GameAccountForm> {
           TextFormField(
             controller: _notes,
             maxLines: 3,
-            decoration: InputDecoration(labelText: 'Notes (optional)'),
+            decoration: InputDecoration(labelText: context.l10n.notesOptional),
           ),
           if (_error != null)
             Padding(
@@ -177,7 +178,7 @@ class _GameAccountFormState extends ConsumerState<GameAccountForm> {
                 ? SizedBox(
                     height: 20, width: 20,
                     child: CircularProgressIndicator(strokeWidth: 2, color: Colors.black))
-                : Text(_isEdit ? 'Save changes' : 'Add account'),
+                : Text(_isEdit ? context.l10n.saveChanges : context.l10n.addAccountShort),
           ),
         ]),
       ),

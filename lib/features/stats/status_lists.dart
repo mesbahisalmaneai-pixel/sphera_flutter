@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/l10n.dart';
 import '../../core/format.dart';
 import '../../core/status_style.dart';
 import '../../core/theme.dart';
@@ -27,7 +28,7 @@ class BoxStatusListScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(title: Text('${boxLabel(status)} (${boxes.length})')),
       body: boxes.isEmpty
-          ? Center(child: Text('Nothing here', style: TextStyle(color: SpheraColors.muted)))
+          ? Center(child: Text(context.l10n.nothingHere, style: TextStyle(color: SpheraColors.muted)))
           : ListView.builder(
               padding: EdgeInsets.all(16),
               itemCount: boxes.length,
@@ -63,7 +64,7 @@ class GameAccountsByStatusScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(title: Text('$label (${list.length})')),
       body: list.isEmpty
-          ? Center(child: Text('No accounts', style: TextStyle(color: SpheraColors.muted)))
+          ? Center(child: Text(context.l10n.noAccounts, style: TextStyle(color: SpheraColors.muted)))
           : ListView.builder(
               padding: EdgeInsets.all(16),
               itemCount: list.length,

@@ -789,4 +789,404 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get removeGame => 'إزالة اللعبة';
+
+  @override
+  String get accountNoLongerAvailable => 'لم يعد هذا الحساب متاحًا';
+
+  @override
+  String couldNotSetPhoto(String error) {
+    return 'تعذّر تعيين الصورة: $error';
+  }
+
+  @override
+  String get changePhoto => 'تغيير الصورة';
+
+  @override
+  String get reset => 'إعادة تعيين';
+
+  @override
+  String get game => 'اللعبة';
+
+  @override
+  String get removedGame => 'لعبة محذوفة';
+
+  @override
+  String get idCompte => 'معرّف الحساب';
+
+  @override
+  String get purchasePrice => 'سعر الشراء';
+
+  @override
+  String get salePrice => 'سعر البيع';
+
+  @override
+  String get profit => 'الربح';
+
+  @override
+  String get loss => 'الخسارة';
+
+  @override
+  String get enterNumber => 'أدخل رقمًا';
+
+  @override
+  String get mustBeZeroOrMore => 'يجب أن يكون 0 أو أكثر';
+
+  @override
+  String get chooseGame => 'اختر لعبة';
+
+  @override
+  String get editAccount => 'تعديل الحساب';
+
+  @override
+  String get idCompteRequired => 'معرّف الحساب مطلوب';
+
+  @override
+  String get accountName => 'اسم الحساب';
+
+  @override
+  String get nameRequired => 'الاسم مطلوب';
+
+  @override
+  String get status => 'الحالة';
+
+  @override
+  String get notesOptional => 'ملاحظات (اختيارية)';
+
+  @override
+  String get noAccountsYetShort => 'لا توجد حسابات بعد';
+
+  @override
+  String get gameName => 'اسم اللعبة';
+
+  @override
+  String get save => 'حفظ';
+
+  @override
+  String get addGame => 'إضافة لعبة';
+
+  @override
+  String get renameGame => 'إعادة تسمية اللعبة';
+
+  @override
+  String couldNotSetImage(String error) {
+    return 'تعذّر تعيين الصورة: $error';
+  }
+
+  @override
+  String removeGameKeepsAccounts(String name, int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count حساب',
+      many: '$count حسابًا',
+      few: '$count حسابات',
+      two: 'حسابان',
+      one: 'حساب واحد',
+    );
+    return 'لدى $name $_temp0. ستبقى محفوظة، لكن اللعبة ستُخفى من القوائم.';
+  }
+
+  @override
+  String get removeGameHidden => 'ستُخفى اللعبة من القوائم.';
+
+  @override
+  String get noGamesYet => 'لا توجد ألعاب بعد';
+
+  @override
+  String get rename => 'إعادة التسمية';
+
+  @override
+  String get changeGameImage => 'تغيير صورة اللعبة';
+
+  @override
+  String get changeAccountPhoto => 'تغيير صورة الحسابات';
+
+  @override
+  String get resetImages => 'إعادة تعيين الصور';
+
+  @override
+  String get today => 'اليوم';
+
+  @override
+  String daysCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count يوم',
+      many: '$count يومًا',
+      few: '$count أيام',
+      two: 'يومان',
+      one: 'يوم واحد',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String accountsForSaleList(int count) {
+    return 'الحسابات المعروضة للبيع ($count):';
+  }
+
+  @override
+  String get listCopied => 'تم نسخ القائمة (بدون أسعار)';
+
+  @override
+  String forSaleCount(int count) {
+    return 'للبيع ($count)';
+  }
+
+  @override
+  String get copyListNoPrices => 'نسخ القائمة بدون أسعار';
+
+  @override
+  String get nothingForSale =>
+      'لا يوجد شيء معروض للبيع.\nافتح حسابًا واختر «عرض للبيع».';
+
+  @override
+  String get listed => 'معروض';
+
+  @override
+  String gamesWord(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'لعبة',
+      few: 'ألعاب',
+      two: 'لعبتان',
+      one: 'لعبة',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get longestWait => 'أطول انتظار';
+
+  @override
+  String get searchNameIdGame => 'ابحث بالاسم أو المعرّف أو اللعبة';
+
+  @override
+  String allCount(int count) {
+    return 'الكل ($count)';
+  }
+
+  @override
+  String get noMatch => 'لا توجد نتائج';
+
+  @override
+  String waitingFor(String time) {
+    return 'في الانتظار منذ $time';
+  }
+
+  @override
+  String get searchAccounts => 'البحث في الحسابات';
+
+  @override
+  String get clear => 'مسح';
+
+  @override
+  String noAccountFoundFor(String query) {
+    return 'لم يُعثر على حساب لـ «$query»';
+  }
+
+  @override
+  String marginPct(String pct) {
+    return 'هامش $pct%';
+  }
+
+  @override
+  String get salesSalePrice => 'المبيعات (سعر البيع)';
+
+  @override
+  String get expensesPurchasePrice => 'المصاريف (سعر الشراء)';
+
+  @override
+  String get perGame => 'حسب اللعبة';
+
+  @override
+  String salesAndExpenses(String sales, String expenses) {
+    return 'المبيعات $sales · المصاريف $expenses';
+  }
+
+  @override
+  String get topProfit => 'أعلى الأرباح';
+
+  @override
+  String get losses => 'الخسائر';
+
+  @override
+  String get todayCap => 'اليوم';
+
+  @override
+  String get typeGoogle => 'Google';
+
+  @override
+  String get typeGaming => 'الألعاب';
+
+  @override
+  String get typeGames => 'قائمة الألعاب';
+
+  @override
+  String get typeSystem => 'النظام';
+
+  @override
+  String get last7Days => '7 أيام';
+
+  @override
+  String get last30Days => '30 يومًا';
+
+  @override
+  String get allTypes => 'كل الأنواع';
+
+  @override
+  String get noActivityFromNow =>
+      'لا يوجد نشاط بعد.\nستظهر هنا الإجراءات الجديدة من الآن فصاعدًا.';
+
+  @override
+  String perfAddedVsPrev(int added, int prev, String prevLabel) {
+    return '$added مضافة · $prev $prevLabel';
+  }
+
+  @override
+  String perfSameProfit(String prevLabel) {
+    return 'نفس الربح ($prevLabel)';
+  }
+
+  @override
+  String perfVsPrev(String amount, String prevLabel) {
+    return '$amount مقارنة مع $prevLabel';
+  }
+
+  @override
+  String get thisWeek => 'هذا الأسبوع';
+
+  @override
+  String get thisMonth => 'هذا الشهر';
+
+  @override
+  String get prevYesterday => 'أمس';
+
+  @override
+  String get prevLastWeek => 'الأسبوع الماضي';
+
+  @override
+  String get prevLastMonth => 'الشهر الماضي';
+
+  @override
+  String get goalReached => 'تحقق';
+
+  @override
+  String get goalOnTrack => 'على المسار';
+
+  @override
+  String get goalBehind => 'متأخر';
+
+  @override
+  String goalProgress(String current, String target, String pct) {
+    return '$current من $target · $pct%';
+  }
+
+  @override
+  String get performanceCenterTitle => 'مركز الأداء';
+
+  @override
+  String get monthlyGoals => 'الأهداف الشهرية';
+
+  @override
+  String get setGoals => 'تحديد الأهداف';
+
+  @override
+  String get noGoalsYet =>
+      'لا توجد أهداف بعد. حدّد هدفًا شهريًا للربح أو لعدد الحسابات لتتابع وتيرتك.';
+
+  @override
+  String get accountsAdded => 'الحسابات المضافة';
+
+  @override
+  String get highlights => 'أبرز النتائج';
+
+  @override
+  String get addStreak => 'سلسلة الإضافة';
+
+  @override
+  String get addStreakSub => 'أيام متتالية بحساب جديد';
+
+  @override
+  String get bestDay30 => 'أفضل يوم (30 يومًا)';
+
+  @override
+  String get bestWeek12 => 'أفضل أسبوع (12 أسبوعًا)';
+
+  @override
+  String get bestMonth12 => 'أفضل شهر (12 شهرًا)';
+
+  @override
+  String get perfNote =>
+      'تُحتسب الحسابات في الفترة التي أُضيفت فيها. الحسابات المعروضة للبيع ليس لها ربح بعد.';
+
+  @override
+  String profitGoalCurrency(String currency) {
+    return 'هدف الربح ($currency)';
+  }
+
+  @override
+  String get emptyNoGoal => 'فارغ = بدون هدف';
+
+  @override
+  String get accountsToAdd => 'حسابات للإضافة';
+
+  @override
+  String googleAccountsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count حساب Google',
+      many: '$count حساب Google',
+      few: '$count حسابات Google',
+      two: 'حسابا Google',
+      one: 'حساب Google واحد',
+      zero: 'لا حسابات Google',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get googlePlayBoxes => 'صناديق Google Play';
+
+  @override
+  String get gamingAccounts => 'حسابات الألعاب';
+
+  @override
+  String get totalProfitLoss => 'إجمالي الربح / الخسارة';
+
+  @override
+  String get pricePerGame => 'السعر حسب اللعبة';
+
+  @override
+  String accountsIncluded(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count حساب مشمول',
+      many: '$count حسابًا مشمولًا',
+      few: '$count حسابات مشمولة',
+      two: 'حسابان مشمولان',
+      one: 'حساب واحد مشمول',
+      zero: 'لا حسابات مشمولة',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get accountsPerGame => 'عدد الحسابات حسب اللعبة';
+
+  @override
+  String get statusPerGame => 'حالة الحسابات حسب اللعبة';
+
+  @override
+  String get noAccountsInGrade => 'لا توجد حسابات في هذه الدرجة';
+
+  @override
+  String get noAccounts => 'لا توجد حسابات';
+
+  @override
+  String get nothingHere => 'لا شيء هنا';
 }

@@ -49,14 +49,14 @@ class StatusStatisticsScreen extends ConsumerWidget {
     const boxStatuses = [BoxStatus.done, BoxStatus.notYet, BoxStatus.coming];
 
     return Scaffold(
-      appBar: AppBar(title: Text('Status Statistics')),
+      appBar: AppBar(title: Text(context.l10n.statusStatistics)),
       body: ListView(padding: EdgeInsets.all(16), children: [
-        _section('Google Play boxes'),
+        _section(context.l10n.googlePlayBoxes),
         _grid([
           for (final s in boxStatuses)
             _statusCard(context, boxLabel(s), g.byStatus[s] ?? 0, boxColor(s), BoxStatusListScreen(status: s)),
         ]),
-        _section('Gaming accounts'),
+        _section(context.l10n.gamingAccounts),
         _grid([
           _statusCard(context, appL10n.statusActive, active, SpheraColors.done,
               GameAccountsByStatusScreen(status: GameAccountStatus.active)),

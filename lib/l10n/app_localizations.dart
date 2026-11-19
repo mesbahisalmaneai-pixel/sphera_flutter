@@ -1401,6 +1401,630 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Remove game'**
   String get removeGame;
+
+  /// No description provided for @accountNoLongerAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Account no longer available'**
+  String get accountNoLongerAvailable;
+
+  /// No description provided for @couldNotSetPhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not set photo: {error}'**
+  String couldNotSetPhoto(String error);
+
+  /// No description provided for @changePhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Change photo'**
+  String get changePhoto;
+
+  /// No description provided for @reset.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset'**
+  String get reset;
+
+  /// No description provided for @game.
+  ///
+  /// In en, this message translates to:
+  /// **'Game'**
+  String get game;
+
+  /// No description provided for @removedGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Removed game'**
+  String get removedGame;
+
+  /// No description provided for @idCompte.
+  ///
+  /// In en, this message translates to:
+  /// **'ID compte'**
+  String get idCompte;
+
+  /// No description provided for @purchasePrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Purchase price'**
+  String get purchasePrice;
+
+  /// No description provided for @salePrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Sale price'**
+  String get salePrice;
+
+  /// No description provided for @profit.
+  ///
+  /// In en, this message translates to:
+  /// **'Profit'**
+  String get profit;
+
+  /// No description provided for @loss.
+  ///
+  /// In en, this message translates to:
+  /// **'Loss'**
+  String get loss;
+
+  /// No description provided for @enterNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a number'**
+  String get enterNumber;
+
+  /// No description provided for @mustBeZeroOrMore.
+  ///
+  /// In en, this message translates to:
+  /// **'Must be 0 or more'**
+  String get mustBeZeroOrMore;
+
+  /// No description provided for @chooseGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a game'**
+  String get chooseGame;
+
+  /// No description provided for @editAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit account'**
+  String get editAccount;
+
+  /// No description provided for @idCompteRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'ID compte is required'**
+  String get idCompteRequired;
+
+  /// No description provided for @accountName.
+  ///
+  /// In en, this message translates to:
+  /// **'Account name'**
+  String get accountName;
+
+  /// No description provided for @nameRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Name is required'**
+  String get nameRequired;
+
+  /// No description provided for @status.
+  ///
+  /// In en, this message translates to:
+  /// **'Status'**
+  String get status;
+
+  /// No description provided for @notesOptional.
+  ///
+  /// In en, this message translates to:
+  /// **'Notes (optional)'**
+  String get notesOptional;
+
+  /// No description provided for @noAccountsYetShort.
+  ///
+  /// In en, this message translates to:
+  /// **'No accounts yet'**
+  String get noAccountsYetShort;
+
+  /// No description provided for @gameName.
+  ///
+  /// In en, this message translates to:
+  /// **'Game name'**
+  String get gameName;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
+
+  /// No description provided for @addGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Add game'**
+  String get addGame;
+
+  /// No description provided for @renameGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename game'**
+  String get renameGame;
+
+  /// No description provided for @couldNotSetImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not set image: {error}'**
+  String couldNotSetImage(String error);
+
+  /// No description provided for @removeGameKeepsAccounts.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} has {count, plural, =1{1 account} other{{count} accounts}}. They are kept, but the game is hidden from the lists.'**
+  String removeGameKeepsAccounts(String name, int count);
+
+  /// No description provided for @removeGameHidden.
+  ///
+  /// In en, this message translates to:
+  /// **'The game will be hidden from the lists.'**
+  String get removeGameHidden;
+
+  /// No description provided for @noGamesYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No games yet'**
+  String get noGamesYet;
+
+  /// No description provided for @rename.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename'**
+  String get rename;
+
+  /// No description provided for @changeGameImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Change game image'**
+  String get changeGameImage;
+
+  /// No description provided for @changeAccountPhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Change account photo'**
+  String get changeAccountPhoto;
+
+  /// No description provided for @resetImages.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset images'**
+  String get resetImages;
+
+  /// No description provided for @today.
+  ///
+  /// In en, this message translates to:
+  /// **'today'**
+  String get today;
+
+  /// No description provided for @daysCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 day} other{{count} days}}'**
+  String daysCount(int count);
+
+  /// No description provided for @accountsForSaleList.
+  ///
+  /// In en, this message translates to:
+  /// **'Accounts for sale ({count}):'**
+  String accountsForSaleList(int count);
+
+  /// No description provided for @listCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'List copied (no prices)'**
+  String get listCopied;
+
+  /// No description provided for @forSaleCount.
+  ///
+  /// In en, this message translates to:
+  /// **'For Sale ({count})'**
+  String forSaleCount(int count);
+
+  /// No description provided for @copyListNoPrices.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy list without prices'**
+  String get copyListNoPrices;
+
+  /// No description provided for @nothingForSale.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing is listed for sale.\nOpen an account and choose \"List for sale\".'**
+  String get nothingForSale;
+
+  /// No description provided for @listed.
+  ///
+  /// In en, this message translates to:
+  /// **'Listed'**
+  String get listed;
+
+  /// No description provided for @gamesWord.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{Game} other{Games}}'**
+  String gamesWord(int count);
+
+  /// No description provided for @longestWait.
+  ///
+  /// In en, this message translates to:
+  /// **'Longest wait'**
+  String get longestWait;
+
+  /// No description provided for @searchNameIdGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Search name, ID or game'**
+  String get searchNameIdGame;
+
+  /// No description provided for @allCount.
+  ///
+  /// In en, this message translates to:
+  /// **'All ({count})'**
+  String allCount(int count);
+
+  /// No description provided for @noMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'No match'**
+  String get noMatch;
+
+  /// No description provided for @waitingFor.
+  ///
+  /// In en, this message translates to:
+  /// **'waiting {time}'**
+  String waitingFor(String time);
+
+  /// No description provided for @searchAccounts.
+  ///
+  /// In en, this message translates to:
+  /// **'Search accounts'**
+  String get searchAccounts;
+
+  /// No description provided for @clear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get clear;
+
+  /// No description provided for @noAccountFoundFor.
+  ///
+  /// In en, this message translates to:
+  /// **'No account found for \"{query}\"'**
+  String noAccountFoundFor(String query);
+
+  /// No description provided for @marginPct.
+  ///
+  /// In en, this message translates to:
+  /// **'{pct}% margin'**
+  String marginPct(String pct);
+
+  /// No description provided for @salesSalePrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Sales (Sale Price)'**
+  String get salesSalePrice;
+
+  /// No description provided for @expensesPurchasePrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Expenses (Purchase Price)'**
+  String get expensesPurchasePrice;
+
+  /// No description provided for @perGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Per game'**
+  String get perGame;
+
+  /// No description provided for @salesAndExpenses.
+  ///
+  /// In en, this message translates to:
+  /// **'Sales {sales} · Expenses {expenses}'**
+  String salesAndExpenses(String sales, String expenses);
+
+  /// No description provided for @topProfit.
+  ///
+  /// In en, this message translates to:
+  /// **'Top profit'**
+  String get topProfit;
+
+  /// No description provided for @losses.
+  ///
+  /// In en, this message translates to:
+  /// **'Losses'**
+  String get losses;
+
+  /// No description provided for @todayCap.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get todayCap;
+
+  /// No description provided for @typeGoogle.
+  ///
+  /// In en, this message translates to:
+  /// **'Google'**
+  String get typeGoogle;
+
+  /// No description provided for @typeGaming.
+  ///
+  /// In en, this message translates to:
+  /// **'Gaming'**
+  String get typeGaming;
+
+  /// No description provided for @typeGames.
+  ///
+  /// In en, this message translates to:
+  /// **'Games'**
+  String get typeGames;
+
+  /// No description provided for @typeSystem.
+  ///
+  /// In en, this message translates to:
+  /// **'System'**
+  String get typeSystem;
+
+  /// No description provided for @last7Days.
+  ///
+  /// In en, this message translates to:
+  /// **'7 days'**
+  String get last7Days;
+
+  /// No description provided for @last30Days.
+  ///
+  /// In en, this message translates to:
+  /// **'30 days'**
+  String get last30Days;
+
+  /// No description provided for @allTypes.
+  ///
+  /// In en, this message translates to:
+  /// **'All types'**
+  String get allTypes;
+
+  /// No description provided for @noActivityFromNow.
+  ///
+  /// In en, this message translates to:
+  /// **'No activity yet.\nNew actions will appear here from now on.'**
+  String get noActivityFromNow;
+
+  /// No description provided for @perfAddedVsPrev.
+  ///
+  /// In en, this message translates to:
+  /// **'{added} added · {prev} {prevLabel}'**
+  String perfAddedVsPrev(int added, int prev, String prevLabel);
+
+  /// No description provided for @perfSameProfit.
+  ///
+  /// In en, this message translates to:
+  /// **'Same profit as {prevLabel}'**
+  String perfSameProfit(String prevLabel);
+
+  /// No description provided for @perfVsPrev.
+  ///
+  /// In en, this message translates to:
+  /// **'{amount} vs {prevLabel}'**
+  String perfVsPrev(String amount, String prevLabel);
+
+  /// No description provided for @thisWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'This week'**
+  String get thisWeek;
+
+  /// No description provided for @thisMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'This month'**
+  String get thisMonth;
+
+  /// No description provided for @prevYesterday.
+  ///
+  /// In en, this message translates to:
+  /// **'yesterday'**
+  String get prevYesterday;
+
+  /// No description provided for @prevLastWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'last week'**
+  String get prevLastWeek;
+
+  /// No description provided for @prevLastMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'last month'**
+  String get prevLastMonth;
+
+  /// No description provided for @goalReached.
+  ///
+  /// In en, this message translates to:
+  /// **'Reached'**
+  String get goalReached;
+
+  /// No description provided for @goalOnTrack.
+  ///
+  /// In en, this message translates to:
+  /// **'On track'**
+  String get goalOnTrack;
+
+  /// No description provided for @goalBehind.
+  ///
+  /// In en, this message translates to:
+  /// **'Behind pace'**
+  String get goalBehind;
+
+  /// No description provided for @goalProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'{current} of {target} · {pct}%'**
+  String goalProgress(String current, String target, String pct);
+
+  /// No description provided for @performanceCenterTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Performance Center'**
+  String get performanceCenterTitle;
+
+  /// No description provided for @monthlyGoals.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly goals'**
+  String get monthlyGoals;
+
+  /// No description provided for @setGoals.
+  ///
+  /// In en, this message translates to:
+  /// **'Set goals'**
+  String get setGoals;
+
+  /// No description provided for @noGoalsYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No goals yet. Set a monthly profit or accounts goal to track your pace.'**
+  String get noGoalsYet;
+
+  /// No description provided for @accountsAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Accounts added'**
+  String get accountsAdded;
+
+  /// No description provided for @highlights.
+  ///
+  /// In en, this message translates to:
+  /// **'Highlights'**
+  String get highlights;
+
+  /// No description provided for @addStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'Add streak'**
+  String get addStreak;
+
+  /// No description provided for @addStreakSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Days in a row with a new account'**
+  String get addStreakSub;
+
+  /// No description provided for @bestDay30.
+  ///
+  /// In en, this message translates to:
+  /// **'Best day (30 days)'**
+  String get bestDay30;
+
+  /// No description provided for @bestWeek12.
+  ///
+  /// In en, this message translates to:
+  /// **'Best week (12 weeks)'**
+  String get bestWeek12;
+
+  /// No description provided for @bestMonth12.
+  ///
+  /// In en, this message translates to:
+  /// **'Best month (12 months)'**
+  String get bestMonth12;
+
+  /// No description provided for @perfNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Accounts count in the period they were added. FOR SALE accounts have no profit yet.'**
+  String get perfNote;
+
+  /// No description provided for @profitGoalCurrency.
+  ///
+  /// In en, this message translates to:
+  /// **'Profit goal ({currency})'**
+  String profitGoalCurrency(String currency);
+
+  /// No description provided for @emptyNoGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'Empty = no goal'**
+  String get emptyNoGoal;
+
+  /// No description provided for @accountsToAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Accounts to add'**
+  String get accountsToAdd;
+
+  /// No description provided for @googleAccountsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 Google account} other{{count} Google accounts}}'**
+  String googleAccountsCount(int count);
+
+  /// No description provided for @googlePlayBoxes.
+  ///
+  /// In en, this message translates to:
+  /// **'Google Play boxes'**
+  String get googlePlayBoxes;
+
+  /// No description provided for @gamingAccounts.
+  ///
+  /// In en, this message translates to:
+  /// **'Gaming accounts'**
+  String get gamingAccounts;
+
+  /// No description provided for @totalProfitLoss.
+  ///
+  /// In en, this message translates to:
+  /// **'Total profit / loss'**
+  String get totalProfitLoss;
+
+  /// No description provided for @pricePerGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Price per game'**
+  String get pricePerGame;
+
+  /// No description provided for @accountsIncluded.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 account included} other{{count} accounts included}}'**
+  String accountsIncluded(int count);
+
+  /// No description provided for @accountsPerGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Number of accounts per game'**
+  String get accountsPerGame;
+
+  /// No description provided for @statusPerGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Account status per game'**
+  String get statusPerGame;
+
+  /// No description provided for @noAccountsInGrade.
+  ///
+  /// In en, this message translates to:
+  /// **'No accounts in this grade'**
+  String get noAccountsInGrade;
+
+  /// No description provided for @noAccounts.
+  ///
+  /// In en, this message translates to:
+  /// **'No accounts'**
+  String get noAccounts;
+
+  /// No description provided for @nothingHere.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing here'**
+  String get nothingHere;
 }
 
 class _AppLocalizationsDelegate
