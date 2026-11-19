@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/format.dart';
 import '../../core/progress.dart';
 import '../../core/theme.dart';
+import '../../core/tile_grid.dart';
 import '../../data/achievements.dart';
 import '../../data/profile.dart';
 import '../../data/providers.dart';
@@ -170,13 +171,8 @@ class ProfileScreen extends ConsumerWidget {
 
         // ---------- Activity summary ----------
         _section('Activity summary'),
-        GridView.count(
-          crossAxisCount: 2,
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          childAspectRatio: 1.9,
+        TileGrid(
+          columns: 2,
           children: [
             _StatTile(icon: Icons.mail_outline, label: 'Google accounts', value: '$google'),
             _StatTile(icon: Icons.sports_esports_outlined, label: 'Games', value: '$games'),

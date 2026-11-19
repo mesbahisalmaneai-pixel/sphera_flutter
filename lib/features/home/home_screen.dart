@@ -22,16 +22,24 @@ class HomeScreen extends StatelessWidget {
               Row(children: [
                 LogoForSaleButton(),
                 SizedBox(width: 10),
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Text('SPHERA',
-                      style: TextStyle(
-                          color: SpheraColors.gold,
-                          fontSize: 20,
-                          letterSpacing: 5,
-                          fontWeight: FontWeight.w600)),
-                  Text(context.l10n.welcomeBack, style: TextStyle(color: SpheraColors.muted)),
-                ]),
-                Spacer(),
+                // Takes the room left by the logo and the buttons, so a large
+                // system font shrinks the title instead of pushing the buttons out.
+                Expanded(
+                  child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                    FittedBox(
+                      fit: BoxFit.scaleDown,
+                      alignment: AlignmentDirectional.centerStart,
+                      child: Text('SPHERA',
+                          style: TextStyle(
+                              color: SpheraColors.gold,
+                              fontSize: 20,
+                              letterSpacing: 5,
+                              fontWeight: FontWeight.w600)),
+                    ),
+                    Text(context.l10n.welcomeBack,
+                        maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(color: SpheraColors.muted)),
+                  ]),
+                ),
                 HeaderActions(),
               ]),
               SizedBox(height: 20),

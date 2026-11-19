@@ -33,12 +33,20 @@ class OrbitNavigationBar extends StatelessWidget {
             child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               Icon(selected ? selectedIcon : icon, color: color, size: 24),
               const SizedBox(height: 3),
-              Text(
-                label,
-                style: TextStyle(
-                  fontSize: 11,
-                  color: color,
-                  fontWeight: selected ? FontWeight.w700 : FontWeight.w500,
+              // Shrinks a long label ("الملف الشخصي") or a large system font
+              // to fit the fixed-height bar instead of overflowing it.
+              Flexible(
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    label,
+                    maxLines: 1,
+                    style: TextStyle(
+                      fontSize: 11,
+                      color: color,
+                      fontWeight: selected ? FontWeight.w700 : FontWeight.w500,
+                    ),
+                  ),
                 ),
               ),
             ]),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/status_style.dart';
 import '../../core/theme.dart';
+import '../../core/tile_grid.dart';
 import '../../data/database.dart';
 import '../../data/providers.dart';
 import 'stats_drilldown.dart';
@@ -19,13 +20,8 @@ class GradeStatisticsScreen extends ConsumerWidget {
         Text('${st.total} Google account${st.total == 1 ? '' : 's'}',
             style: TextStyle(color: SpheraColors.muted)),
         SizedBox(height: 14),
-        GridView.count(
-          crossAxisCount: 3,
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          childAspectRatio: 0.95,
+        TileGrid(
+          columns: 3,
           children: [
             for (final g in Grade.values)
               Card(
