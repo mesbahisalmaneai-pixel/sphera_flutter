@@ -2,6 +2,7 @@ import 'dart:math' as math;
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import '../../../core/l10n.dart';
 
 import '../models/orbit_destination.dart';
 import '../orbit_insights.dart';
@@ -261,7 +262,7 @@ class OrbitSearchBar extends StatelessWidget {
             Expanded(
               child: Semantics(
                 button: true,
-                label: 'Search every screen',
+                label: appL10n.searchEveryScreen,
                 child: ExcludeSemantics(
                   child: Material(
                     type: MaterialType.transparency,
@@ -284,9 +285,9 @@ class OrbitSearchBar extends StatelessWidget {
                 ),
               ),
             ),
-            _roundButton(Icons.help_outline_rounded, 'How the globe works', onHelp),
+            _roundButton(Icons.help_outline_rounded, appL10n.howGlobeWorks, onHelp),
             const SizedBox(width: 8),
-            _roundButton(Icons.apps_rounded, 'All sections', onMenu),
+            _roundButton(Icons.apps_rounded, appL10n.allSections, onMenu),
             const SizedBox(width: 8),
           ],
         ),
@@ -387,7 +388,7 @@ class RingGauge extends StatelessWidget {
     final f = fraction.clamp(0.0, 1.0).toDouble();
     final pct = (f * 100).round();
     return Semantics(
-      label: '$label $pct percent',
+      label: appL10n.percentSemantics(label, '$pct'),
       child: ExcludeSemantics(
         child: SizedBox(
           width: size + 10,
@@ -721,7 +722,7 @@ class DestinationCard extends StatelessWidget {
                                   decoration: const BoxDecoration(shape: BoxShape.circle, color: OrbitPalette.gold),
                                 ),
                                 const SizedBox(width: 5),
-                                Text('Open', style: OrbitText.label(size: 10, color: OrbitPalette.text)),
+                                Text(appL10n.open, style: OrbitText.label(size: 10, color: OrbitPalette.text)),
                               ],
                             ),
                           ),

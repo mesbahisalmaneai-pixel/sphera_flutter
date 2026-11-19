@@ -2038,4 +2038,371 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get analysisOnDevice =>
       'يجري التحليل على هذا الجهاز من بياناتك ويتحدّث كلما عدّلت الحسابات.';
+
+  @override
+  String get contNorthAmerica => 'أمريكا الشمالية';
+
+  @override
+  String get contSouthAmerica => 'أمريكا الجنوبية';
+
+  @override
+  String get contEurope => 'أوروبا';
+
+  @override
+  String get contAfrica => 'أفريقيا';
+
+  @override
+  String get contAsia => 'آسيا';
+
+  @override
+  String get contOceania => 'أوقيانوسيا';
+
+  @override
+  String get globeSemantics =>
+      'الكرة الأرضية. كل قارة قسم من أقسام التطبيق. استعمل زر «كل الأقسام» لعرضها.';
+
+  @override
+  String get backToGlobe => 'العودة إلى الكرة الأرضية';
+
+  @override
+  String get allSections => 'كل الأقسام';
+
+  @override
+  String get close => 'إغلاق';
+
+  @override
+  String get purpose => 'الغرض';
+
+  @override
+  String get tellWhereToGo => 'أخبرني إلى أين تريد الذهاب';
+
+  @override
+  String get explore => 'استكشاف';
+
+  @override
+  String get seeAll => 'عرض الكل';
+
+  @override
+  String openScreen(String name) {
+    return 'فتح $name';
+  }
+
+  @override
+  String get screens => 'الشاشات';
+
+  @override
+  String get smallerPanel => 'لوحة أصغر';
+
+  @override
+  String get biggerPanel => 'لوحة أكبر';
+
+  @override
+  String get nothingHereYetDot => 'لا شيء هنا بعد.';
+
+  @override
+  String get noStatsForSection => 'لا توجد إحصائيات لهذا القسم.';
+
+  @override
+  String get secStatsTagline => 'التحليلات والأداء';
+
+  @override
+  String get destPerformanceSub => 'اليوم وهذا الأسبوع وهذا الشهر والأهداف';
+
+  @override
+  String get destGradeStatsSub => 'من البرونزي إلى الماسي والممنوع';
+
+  @override
+  String get secCardsTagline => 'الأدوات الذكية والساحة';
+
+  @override
+  String get secGamesTagline => 'حسابات ألعابك';
+
+  @override
+  String get destAllGames => 'كل الألعاب';
+
+  @override
+  String get destForSaleSub => 'الحسابات المعروضة للبيع حاليًا';
+
+  @override
+  String get destGameSub => 'حسابات هذه اللعبة وحالاتها';
+
+  @override
+  String get secGoogle => 'Google';
+
+  @override
+  String get secGoogleTagline => 'حسابات Google Play';
+
+  @override
+  String get destGoogleAddSub => 'إضافة حساب Google Play جديد';
+
+  @override
+  String get destGrades => 'الدرجات';
+
+  @override
+  String get destGradesSub => 'إحصائيات حسب الدرجة';
+
+  @override
+  String get destBoxStatus => 'حالة الصناديق';
+
+  @override
+  String get destBoxStatusSub => 'إحصائيات حسب حالة صندوق اللعبة';
+
+  @override
+  String get secProfileTagline => 'أنت وتقدّمك';
+
+  @override
+  String get destMyProfile => 'ملفي الشخصي';
+
+  @override
+  String get destMyProfileSub => 'الصورة والمعلومات والرتبة والجلسة';
+
+  @override
+  String get destAchievementsSub => 'الشارات والتقدم وتواريخ الفتح';
+
+  @override
+  String get secSettingsTagline => 'التفضيلات والأمان';
+
+  @override
+  String get destSettingsSub => 'المظهر واللغة والعملة والبيانات';
+
+  @override
+  String get destNotificationsSub => 'التحذيرات والتذكيرات';
+
+  @override
+  String get destTrashSub => 'استعادة الحسابات المحذوفة';
+
+  @override
+  String get orbScreens => 'الشاشات';
+
+  @override
+  String get orbSystem => 'النظام';
+
+  @override
+  String get orbNetProfit => 'صافي الربح';
+
+  @override
+  String get orbAccounts => 'الحسابات';
+
+  @override
+  String get orbSold => 'المبيعة';
+
+  @override
+  String get orbForSale => 'للبيع';
+
+  @override
+  String get orbActive => 'النشطة';
+
+  @override
+  String get orbAddedThisMonth => 'المضافة هذا الشهر';
+
+  @override
+  String get orbGoogleAccounts => 'حسابات Google';
+
+  @override
+  String get orbGamingAccounts => 'حسابات الألعاب';
+
+  @override
+  String get orbDuplicates => 'التكرارات';
+
+  @override
+  String get orbInVault => 'في الخزنة';
+
+  @override
+  String get orbClean => 'سليمة';
+
+  @override
+  String get orbGoogleDuplicates => 'تكرارات Google';
+
+  @override
+  String get orbSameAccountId => 'نفس معرّف الحساب';
+
+  @override
+  String get orbGames => 'الألعاب';
+
+  @override
+  String get orbListed => 'معروضة';
+
+  @override
+  String get orbBoxesSet => 'صناديق محددة';
+
+  @override
+  String get orbDone => 'منجزة';
+
+  @override
+  String get orbPremium => 'مميزة';
+
+  @override
+  String get orbName => 'الاسم';
+
+  @override
+  String get orbNotSet => 'غير محدد';
+
+  @override
+  String get orbUnlocked => 'مفتوحة';
+
+  @override
+  String get orbPoints => 'النقاط';
+
+  @override
+  String get orbNextGoal => 'الهدف التالي';
+
+  @override
+  String get orbAllDone => 'اكتمل كل شيء';
+
+  @override
+  String get orbTheme => 'السمة';
+
+  @override
+  String get orbMode => 'الوضع';
+
+  @override
+  String get orbCurrency => 'العملة';
+
+  @override
+  String get orbLanguage => 'اللغة';
+
+  @override
+  String get orbAlerts => 'التنبيهات';
+
+  @override
+  String get orbReminders => 'التذكيرات';
+
+  @override
+  String get orbNotifications => 'الإشعارات';
+
+  @override
+  String get orbOn => 'مفعّل';
+
+  @override
+  String get orbOff => 'متوقف';
+
+  @override
+  String get orbInTrash => 'في المهملات';
+
+  @override
+  String get orbDataIssues => 'مشاكل البيانات';
+
+  @override
+  String get orbNoMonthToCompare => 'لا يوجد شهر للمقارنة بعد';
+
+  @override
+  String orbPctOnLastMonth(String pct) {
+    return '⁦$pct%⁩ مقارنة بالشهر الماضي';
+  }
+
+  @override
+  String get orbNothingListed => 'لا شيء معروض الآن';
+
+  @override
+  String get orbListedNoPrice => 'معروض، دون سعر بعد';
+
+  @override
+  String get orbBestGame => 'أفضل لعبة';
+
+  @override
+  String get orbNoDataYet => 'لا توجد بيانات بعد';
+
+  @override
+  String get orbAddToRank => 'أضف حساب ألعاب لترتيب الألعاب';
+
+  @override
+  String orbFromAccounts(String amount, int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count حساب',
+      many: '$count حسابًا',
+      few: '$count حسابات',
+      two: 'حسابين',
+      one: 'حساب واحد',
+    );
+    return '$amount من $_temp0';
+  }
+
+  @override
+  String get orbDiamondAccounts => 'الحسابات الماسية';
+
+  @override
+  String orbOutOfGoogle(int count) {
+    return 'من أصل $count حساب Google';
+  }
+
+  @override
+  String get orbDataHealth => 'سلامة البيانات';
+
+  @override
+  String get orbAllClear => 'لا مشاكل';
+
+  @override
+  String orbToReview(int count) {
+    return '$count للمراجعة';
+  }
+
+  @override
+  String get orbNoDuplicatesOrIds => 'لا تكرار ولا معرّفات ناقصة';
+
+  @override
+  String get orbDuplicatesEmailsIds =>
+      'تكرارات أو بريد غير صالح أو معرّفات ناقصة';
+
+  @override
+  String get orbAchievements => 'الإنجازات';
+
+  @override
+  String get orbEveryBadge => 'تم فتح كل الشارات';
+
+  @override
+  String orbNext(String title) {
+    return 'التالي: $title';
+  }
+
+  @override
+  String get searchEveryScreen => 'البحث في كل الشاشات';
+
+  @override
+  String get howGlobeWorks => 'كيف تعمل الكرة الأرضية';
+
+  @override
+  String percentSemantics(String label, String pct) {
+    return '$label $pct بالمئة';
+  }
+
+  @override
+  String get open => 'فتح';
+
+  @override
+  String get whereToGo => 'إلى أين تريد الذهاب؟';
+
+  @override
+  String get searchScreenHint => 'ابحث عن شاشة، مثل الربح أو الخزنة';
+
+  @override
+  String get noScreenMatches => 'لا توجد شاشة مطابقة.';
+
+  @override
+  String screensCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count شاشة',
+      many: '$count شاشة',
+      few: '$count شاشات',
+      two: 'شاشتان',
+      one: 'شاشة واحدة',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get globeHelpDrag => 'اسحب الكرة الأرضية لتدويرها.';
+
+  @override
+  String get globeHelpTap => 'اضغط على نقطة مضيئة لترى محتوى تلك القارة.';
+
+  @override
+  String get globeHelpExplore =>
+      'اضغط «استكشاف» للدخول، ثم اضغط على بطاقة لفتح الشاشة.';
+
+  @override
+  String get globeHelpSearch => 'الشريط في الأسفل يجد أي شاشة باسمها.';
 }

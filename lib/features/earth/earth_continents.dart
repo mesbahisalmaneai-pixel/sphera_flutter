@@ -1,5 +1,7 @@
 import 'dart:ui' show Color;
 
+import '../../core/l10n.dart';
+
 // The land mask lives in its own file; it is re-exported here so everything that
 // imports the continents also gets `earthIsLand`.
 export 'earth_land.dart';
@@ -33,6 +35,17 @@ class ContinentInfo {
 
   /// Accent of the continent (land dots, pin, glow). No green: black + gold brand.
   final Color color;
+
+  /// [name] in the app language.
+  String get localName => switch (name) {
+        'North America' => appL10n.contNorthAmerica,
+        'South America' => appL10n.contSouthAmerica,
+        'Europe' => appL10n.contEurope,
+        'Africa' => appL10n.contAfrica,
+        'Asia' => appL10n.contAsia,
+        'Oceania' => appL10n.contOceania,
+        _ => name,
+      };
 }
 
 const List<ContinentInfo> kContinentInfo = [

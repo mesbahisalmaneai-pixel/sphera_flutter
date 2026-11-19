@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/l10n.dart';
 
 import '../models/orbit_destination.dart';
 import '../orbit_insights.dart';
@@ -97,7 +98,7 @@ class _SearchSheetState extends State<_SearchSheet> {
     return Padding(
       padding: EdgeInsets.only(bottom: MediaQuery.viewInsetsOf(context).bottom),
       child: _SheetFrame(
-        title: 'Where do you want to go?',
+        title: appL10n.whereToGo,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -109,7 +110,7 @@ class _SearchSheetState extends State<_SearchSheet> {
                 style: OrbitText.value(size: 14, weight: FontWeight.w400),
                 cursorColor: OrbitPalette.gold,
                 decoration: InputDecoration(
-                  hintText: 'Search a screen, like profit or vault',
+                  hintText: appL10n.searchScreenHint,
                   hintStyle: OrbitText.label(size: 13),
                   prefixIcon: const Icon(Icons.search_rounded, color: OrbitPalette.champagne),
                   filled: true,
@@ -133,7 +134,7 @@ class _SearchSheetState extends State<_SearchSheet> {
               child: results.isEmpty
                   ? Padding(
                       padding: const EdgeInsets.all(28),
-                      child: Text('No screen matches that.', style: OrbitText.label(size: 13)),
+                      child: Text(appL10n.noScreenMatches, style: OrbitText.label(size: 13)),
                     )
                   : ListView.builder(
                       shrinkWrap: true,
@@ -169,7 +170,7 @@ Future<int?> showOrbitMenu(
   return _show<int>(
     context,
     (_) => _SheetFrame(
-      title: 'All sections',
+      title: appL10n.allSections,
       child: GridView.builder(
         shrinkWrap: true,
         padding: const EdgeInsets.fromLTRB(16, 4, 16, 20),
@@ -186,7 +187,7 @@ Future<int?> showOrbitMenu(
           final n = s.destinations.length;
           return Semantics(
             button: true,
-            label: '${s.label}, ${hub.info.name}, $n screens',
+            label: '${s.label}, ${hub.info.localName}, ${appL10n.screensCount(n)}',
             child: ExcludeSemantics(
               child: OrbitGlass(
                 radius: 18,
@@ -203,8 +204,8 @@ Future<int?> showOrbitMenu(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(s.label, maxLines: 1, overflow: TextOverflow.ellipsis, style: OrbitText.value(size: 14)),
-                          Text(hub.info.name, maxLines: 1, overflow: TextOverflow.ellipsis, style: OrbitText.label(size: 11, color: OrbitPalette.gold)),
-                          Text('$n ${n == 1 ? 'screen' : 'screens'}', style: OrbitText.label(size: 10.5)),
+                          Text(hub.info.localName, maxLines: 1, overflow: TextOverflow.ellipsis, style: OrbitText.label(size: 11, color: OrbitPalette.gold)),
+                          Text(appL10n.screensCount(n), style: OrbitText.label(size: 10.5)),
                         ],
                       ),
                     ),
@@ -226,7 +227,7 @@ Future<String?> showOrbitInsights(BuildContext context, List<OrbitInsight> insig
   return _show<String>(
     context,
     (_) => _SheetFrame(
-      title: 'Insights',
+      title: appL10n.insights,
       child: ListView.separated(
         shrinkWrap: true,
         padding: const EdgeInsets.fromLTRB(16, 4, 16, 20),
@@ -246,16 +247,16 @@ Future<String?> showOrbitInsights(BuildContext context, List<OrbitInsight> insig
 // ------------------------------------------------------------------ help
 
 Future<void> showOrbitHelp(BuildContext context) {
-  const lines = <(IconData, String)>[
-    (Icons.swipe_rounded, 'Drag the globe to turn it.'),
-    (Icons.touch_app_rounded, 'Tap a glowing node to see what is inside that continent.'),
-    (Icons.explore_outlined, 'Press Explore to dive in, then tap a card to open the screen.'),
-    (Icons.search_rounded, 'The bar at the bottom finds any screen by name.'),
+  final lines = <(IconData, String)>[
+    (Icons.swipe_rounded, appL10n.globeHelpDrag),
+    (Icons.touch_app_rounded, appL10n.globeHelpTap),
+    (Icons.explore_outlined, appL10n.globeHelpExplore),
+    (Icons.search_rounded, appL10n.globeHelpSearch),
   ];
   return _show<void>(
     context,
     (_) => _SheetFrame(
-      title: 'How the globe works',
+      title: appL10n.howGlobeWorks,
       child: ListView(
         shrinkWrap: true,
         padding: const EdgeInsets.fromLTRB(20, 4, 20, 24),

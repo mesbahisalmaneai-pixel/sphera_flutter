@@ -2008,4 +2008,369 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get analysisOnDevice =>
       'L\'analyse se fait sur cet appareil à partir de vos données et se met à jour quand vous modifiez des comptes.';
+
+  @override
+  String get contNorthAmerica => 'Amérique du Nord';
+
+  @override
+  String get contSouthAmerica => 'Amérique du Sud';
+
+  @override
+  String get contEurope => 'Europe';
+
+  @override
+  String get contAfrica => 'Afrique';
+
+  @override
+  String get contAsia => 'Asie';
+
+  @override
+  String get contOceania => 'Océanie';
+
+  @override
+  String get globeSemantics =>
+      'Globe. Chaque continent est une section de l\'application. Utilisez le bouton « Toutes les sections » pour les lister.';
+
+  @override
+  String get backToGlobe => 'Retour au globe';
+
+  @override
+  String get allSections => 'Toutes les sections';
+
+  @override
+  String get close => 'Fermer';
+
+  @override
+  String get purpose => 'Rôle';
+
+  @override
+  String get tellWhereToGo => 'Dites-moi où vous voulez aller';
+
+  @override
+  String get explore => 'Explorer';
+
+  @override
+  String get seeAll => 'Tout voir';
+
+  @override
+  String openScreen(String name) {
+    return 'Ouvrir $name';
+  }
+
+  @override
+  String get screens => 'Écrans';
+
+  @override
+  String get smallerPanel => 'Panneau plus petit';
+
+  @override
+  String get biggerPanel => 'Panneau plus grand';
+
+  @override
+  String get nothingHereYetDot => 'Rien ici pour l\'instant.';
+
+  @override
+  String get noStatsForSection => 'Pas de statistiques pour cette section.';
+
+  @override
+  String get secStatsTagline => 'Analyses et performance';
+
+  @override
+  String get destPerformanceSub =>
+      'Aujourd\'hui, cette semaine, ce mois-ci et objectifs';
+
+  @override
+  String get destGradeStatsSub => 'De Bronze à Diamant et Interdit';
+
+  @override
+  String get secCardsTagline => 'Outils intelligents et arène';
+
+  @override
+  String get secGamesTagline => 'Vos comptes de jeu';
+
+  @override
+  String get destAllGames => 'Tous les jeux';
+
+  @override
+  String get destForSaleSub => 'Comptes actuellement en vente';
+
+  @override
+  String get destGameSub => 'Comptes et statuts de ce jeu';
+
+  @override
+  String get secGoogle => 'Google';
+
+  @override
+  String get secGoogleTagline => 'Comptes Google Play';
+
+  @override
+  String get destGoogleAddSub => 'Ajouter un nouveau compte Google Play';
+
+  @override
+  String get destGrades => 'Grades';
+
+  @override
+  String get destGradesSub => 'Statistiques par grade';
+
+  @override
+  String get destBoxStatus => 'Statut des boîtes';
+
+  @override
+  String get destBoxStatusSub => 'Statistiques par statut de boîte';
+
+  @override
+  String get secProfileTagline => 'Vous et votre progression';
+
+  @override
+  String get destMyProfile => 'Mon profil';
+
+  @override
+  String get destMyProfileSub => 'Photo, infos, rang et session';
+
+  @override
+  String get destAchievementsSub => 'Badges, progression et dates de déblocage';
+
+  @override
+  String get secSettingsTagline => 'Préférences et sécurité';
+
+  @override
+  String get destSettingsSub => 'Apparence, langue, devise et données';
+
+  @override
+  String get destNotificationsSub => 'Alertes et rappels';
+
+  @override
+  String get destTrashSub => 'Restaurer les comptes retirés';
+
+  @override
+  String get orbScreens => 'Écrans';
+
+  @override
+  String get orbSystem => 'Système';
+
+  @override
+  String get orbNetProfit => 'Bénéfice net';
+
+  @override
+  String get orbAccounts => 'Comptes';
+
+  @override
+  String get orbSold => 'Vendus';
+
+  @override
+  String get orbForSale => 'À vendre';
+
+  @override
+  String get orbActive => 'Actifs';
+
+  @override
+  String get orbAddedThisMonth => 'Ajoutés ce mois-ci';
+
+  @override
+  String get orbGoogleAccounts => 'Comptes Google';
+
+  @override
+  String get orbGamingAccounts => 'Comptes de jeu';
+
+  @override
+  String get orbDuplicates => 'Doublons';
+
+  @override
+  String get orbInVault => 'Dans le coffre';
+
+  @override
+  String get orbClean => 'Sains';
+
+  @override
+  String get orbGoogleDuplicates => 'Doublons Google';
+
+  @override
+  String get orbSameAccountId => 'Même ID compte';
+
+  @override
+  String get orbGames => 'Jeux';
+
+  @override
+  String get orbListed => 'En vente';
+
+  @override
+  String get orbBoxesSet => 'Boîtes définies';
+
+  @override
+  String get orbDone => 'Faites';
+
+  @override
+  String get orbPremium => 'Premium';
+
+  @override
+  String get orbName => 'Nom';
+
+  @override
+  String get orbNotSet => 'Non défini';
+
+  @override
+  String get orbUnlocked => 'Débloqués';
+
+  @override
+  String get orbPoints => 'Points';
+
+  @override
+  String get orbNextGoal => 'Prochain objectif';
+
+  @override
+  String get orbAllDone => 'Tout est fait';
+
+  @override
+  String get orbTheme => 'Thème';
+
+  @override
+  String get orbMode => 'Mode';
+
+  @override
+  String get orbCurrency => 'Devise';
+
+  @override
+  String get orbLanguage => 'Langue';
+
+  @override
+  String get orbAlerts => 'Alertes';
+
+  @override
+  String get orbReminders => 'Rappels';
+
+  @override
+  String get orbNotifications => 'Notifications';
+
+  @override
+  String get orbOn => 'Activé';
+
+  @override
+  String get orbOff => 'Désactivé';
+
+  @override
+  String get orbInTrash => 'Dans la corbeille';
+
+  @override
+  String get orbDataIssues => 'Problèmes de données';
+
+  @override
+  String get orbNoMonthToCompare => 'Pas encore de mois à comparer';
+
+  @override
+  String orbPctOnLastMonth(String pct) {
+    return '$pct % par rapport au mois dernier';
+  }
+
+  @override
+  String get orbNothingListed => 'Rien en vente pour l\'instant';
+
+  @override
+  String get orbListedNoPrice => 'En vente, sans prix pour l\'instant';
+
+  @override
+  String get orbBestGame => 'Meilleur jeu';
+
+  @override
+  String get orbNoDataYet => 'Pas encore de données';
+
+  @override
+  String get orbAddToRank => 'Ajoutez un compte de jeu pour classer les jeux';
+
+  @override
+  String orbFromAccounts(String amount, int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count comptes',
+      one: '1 compte',
+    );
+    return '$amount sur $_temp0';
+  }
+
+  @override
+  String get orbDiamondAccounts => 'Comptes Diamant';
+
+  @override
+  String orbOutOfGoogle(int count) {
+    return 'Sur $count comptes Google';
+  }
+
+  @override
+  String get orbDataHealth => 'Santé des données';
+
+  @override
+  String get orbAllClear => 'Tout est en ordre';
+
+  @override
+  String orbToReview(int count) {
+    return '$count à vérifier';
+  }
+
+  @override
+  String get orbNoDuplicatesOrIds => 'Aucun doublon ni ID manquant';
+
+  @override
+  String get orbDuplicatesEmailsIds =>
+      'Doublons, e-mails invalides ou ID manquants';
+
+  @override
+  String get orbAchievements => 'Succès';
+
+  @override
+  String get orbEveryBadge => 'Tous les badges débloqués';
+
+  @override
+  String orbNext(String title) {
+    return 'Suivant : $title';
+  }
+
+  @override
+  String get searchEveryScreen => 'Rechercher dans tous les écrans';
+
+  @override
+  String get howGlobeWorks => 'Comment fonctionne le globe';
+
+  @override
+  String percentSemantics(String label, String pct) {
+    return '$label $pct pour cent';
+  }
+
+  @override
+  String get open => 'Ouvrir';
+
+  @override
+  String get whereToGo => 'Où voulez-vous aller ?';
+
+  @override
+  String get searchScreenHint =>
+      'Cherchez un écran, par exemple bénéfice ou coffre';
+
+  @override
+  String get noScreenMatches => 'Aucun écran ne correspond.';
+
+  @override
+  String screensCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count écrans',
+      one: '1 écran',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get globeHelpDrag => 'Faites glisser le globe pour le tourner.';
+
+  @override
+  String get globeHelpTap =>
+      'Touchez un point lumineux pour voir le contenu de ce continent.';
+
+  @override
+  String get globeHelpExplore =>
+      'Appuyez sur Explorer pour plonger, puis touchez une carte pour ouvrir l\'écran.';
+
+  @override
+  String get globeHelpSearch =>
+      'La barre du bas trouve n\'importe quel écran par son nom.';
 }

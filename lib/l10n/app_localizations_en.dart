@@ -1982,4 +1982,366 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get analysisOnDevice =>
       'Analysis runs on this device from your own data and updates as you edit accounts.';
+
+  @override
+  String get contNorthAmerica => 'North America';
+
+  @override
+  String get contSouthAmerica => 'South America';
+
+  @override
+  String get contEurope => 'Europe';
+
+  @override
+  String get contAfrica => 'Africa';
+
+  @override
+  String get contAsia => 'Asia';
+
+  @override
+  String get contOceania => 'Oceania';
+
+  @override
+  String get globeSemantics =>
+      'Globe. Every continent is a section of the app. Use the all sections button to list them.';
+
+  @override
+  String get backToGlobe => 'Back to the globe';
+
+  @override
+  String get allSections => 'All sections';
+
+  @override
+  String get close => 'Close';
+
+  @override
+  String get purpose => 'Purpose';
+
+  @override
+  String get tellWhereToGo => 'Tell me where you want to go';
+
+  @override
+  String get explore => 'Explore';
+
+  @override
+  String get seeAll => 'See all';
+
+  @override
+  String openScreen(String name) {
+    return 'Open $name';
+  }
+
+  @override
+  String get screens => 'Screens';
+
+  @override
+  String get smallerPanel => 'Smaller panel';
+
+  @override
+  String get biggerPanel => 'Bigger panel';
+
+  @override
+  String get nothingHereYetDot => 'Nothing here yet.';
+
+  @override
+  String get noStatsForSection => 'No stats for this section.';
+
+  @override
+  String get secStatsTagline => 'Analytics & performance';
+
+  @override
+  String get destPerformanceSub => 'Today, this week, this month & goals';
+
+  @override
+  String get destGradeStatsSub => 'Bronze to Diamond & Interdit';
+
+  @override
+  String get secCardsTagline => 'Smart tools & arena';
+
+  @override
+  String get secGamesTagline => 'Your gaming accounts';
+
+  @override
+  String get destAllGames => 'All Games';
+
+  @override
+  String get destForSaleSub => 'Accounts currently listed for sale';
+
+  @override
+  String get destGameSub => 'Accounts and statuses of this game';
+
+  @override
+  String get secGoogle => 'Google';
+
+  @override
+  String get secGoogleTagline => 'Google Play accounts';
+
+  @override
+  String get destGoogleAddSub => 'Add a new Google Play account';
+
+  @override
+  String get destGrades => 'Grades';
+
+  @override
+  String get destGradesSub => 'Statistics by grade';
+
+  @override
+  String get destBoxStatus => 'Box Status';
+
+  @override
+  String get destBoxStatusSub => 'Statistics by game box status';
+
+  @override
+  String get secProfileTagline => 'You & your progress';
+
+  @override
+  String get destMyProfile => 'My Profile';
+
+  @override
+  String get destMyProfileSub => 'Picture, info, rank & session';
+
+  @override
+  String get destAchievementsSub => 'Badges, progress & unlock dates';
+
+  @override
+  String get secSettingsTagline => 'Preferences & safety';
+
+  @override
+  String get destSettingsSub => 'Appearance, language, currency & data';
+
+  @override
+  String get destNotificationsSub => 'Warnings and reminders';
+
+  @override
+  String get destTrashSub => 'Restore removed accounts';
+
+  @override
+  String get orbScreens => 'Screens';
+
+  @override
+  String get orbSystem => 'System';
+
+  @override
+  String get orbNetProfit => 'Net profit';
+
+  @override
+  String get orbAccounts => 'Accounts';
+
+  @override
+  String get orbSold => 'Sold';
+
+  @override
+  String get orbForSale => 'For sale';
+
+  @override
+  String get orbActive => 'Active';
+
+  @override
+  String get orbAddedThisMonth => 'Added this month';
+
+  @override
+  String get orbGoogleAccounts => 'Google accounts';
+
+  @override
+  String get orbGamingAccounts => 'Gaming accounts';
+
+  @override
+  String get orbDuplicates => 'Duplicates';
+
+  @override
+  String get orbInVault => 'In vault';
+
+  @override
+  String get orbClean => 'Clean';
+
+  @override
+  String get orbGoogleDuplicates => 'Google duplicates';
+
+  @override
+  String get orbSameAccountId => 'Same account ID';
+
+  @override
+  String get orbGames => 'Games';
+
+  @override
+  String get orbListed => 'Listed';
+
+  @override
+  String get orbBoxesSet => 'Boxes set';
+
+  @override
+  String get orbDone => 'Done';
+
+  @override
+  String get orbPremium => 'Premium';
+
+  @override
+  String get orbName => 'Name';
+
+  @override
+  String get orbNotSet => 'Not set';
+
+  @override
+  String get orbUnlocked => 'Unlocked';
+
+  @override
+  String get orbPoints => 'Points';
+
+  @override
+  String get orbNextGoal => 'Next goal';
+
+  @override
+  String get orbAllDone => 'All done';
+
+  @override
+  String get orbTheme => 'Theme';
+
+  @override
+  String get orbMode => 'Mode';
+
+  @override
+  String get orbCurrency => 'Currency';
+
+  @override
+  String get orbLanguage => 'Language';
+
+  @override
+  String get orbAlerts => 'Alerts';
+
+  @override
+  String get orbReminders => 'Reminders';
+
+  @override
+  String get orbNotifications => 'Notifications';
+
+  @override
+  String get orbOn => 'On';
+
+  @override
+  String get orbOff => 'Off';
+
+  @override
+  String get orbInTrash => 'In trash';
+
+  @override
+  String get orbDataIssues => 'Data issues';
+
+  @override
+  String get orbNoMonthToCompare => 'No month to compare yet';
+
+  @override
+  String orbPctOnLastMonth(String pct) {
+    return '$pct% on last month';
+  }
+
+  @override
+  String get orbNothingListed => 'Nothing listed right now';
+
+  @override
+  String get orbListedNoPrice => 'Listed, no price set yet';
+
+  @override
+  String get orbBestGame => 'Best game';
+
+  @override
+  String get orbNoDataYet => 'No data yet';
+
+  @override
+  String get orbAddToRank => 'Add a game account to rank games';
+
+  @override
+  String orbFromAccounts(String amount, int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count accounts',
+      one: '1 account',
+    );
+    return '$amount from $_temp0';
+  }
+
+  @override
+  String get orbDiamondAccounts => 'Diamond accounts';
+
+  @override
+  String orbOutOfGoogle(int count) {
+    return 'Out of $count Google accounts';
+  }
+
+  @override
+  String get orbDataHealth => 'Data health';
+
+  @override
+  String get orbAllClear => 'All clear';
+
+  @override
+  String orbToReview(int count) {
+    return '$count to review';
+  }
+
+  @override
+  String get orbNoDuplicatesOrIds => 'No duplicates or missing IDs';
+
+  @override
+  String get orbDuplicatesEmailsIds => 'Duplicates, bad emails or missing IDs';
+
+  @override
+  String get orbAchievements => 'Achievements';
+
+  @override
+  String get orbEveryBadge => 'Every badge unlocked';
+
+  @override
+  String orbNext(String title) {
+    return 'Next: $title';
+  }
+
+  @override
+  String get searchEveryScreen => 'Search every screen';
+
+  @override
+  String get howGlobeWorks => 'How the globe works';
+
+  @override
+  String percentSemantics(String label, String pct) {
+    return '$label $pct percent';
+  }
+
+  @override
+  String get open => 'Open';
+
+  @override
+  String get whereToGo => 'Where do you want to go?';
+
+  @override
+  String get searchScreenHint => 'Search a screen, like profit or vault';
+
+  @override
+  String get noScreenMatches => 'No screen matches that.';
+
+  @override
+  String screensCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count screens',
+      one: '1 screen',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get globeHelpDrag => 'Drag the globe to turn it.';
+
+  @override
+  String get globeHelpTap =>
+      'Tap a glowing node to see what is inside that continent.';
+
+  @override
+  String get globeHelpExplore =>
+      'Press Explore to dive in, then tap a card to open the screen.';
+
+  @override
+  String get globeHelpSearch =>
+      'The bar at the bottom finds any screen by name.';
 }

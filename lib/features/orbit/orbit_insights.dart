@@ -2,6 +2,8 @@ import 'package:flutter/material.dart' show IconData, Icons;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/format.dart';
+import '../../core/l10n.dart';
+import '../../core/status_style.dart' show gradeLabel;
 import '../../core/theme.dart' show kThemeStyles;
 import '../../data/achievements.dart';
 import '../../data/dashboard.dart';
@@ -42,12 +44,12 @@ class OrbitSectionInfo {
 
   /// Used when a section has no entry (a section added later).
   factory OrbitSectionInfo.fallback(int screens) => OrbitSectionInfo(
-        cells: [OrbitMetric('Screens', '$screens')],
+        cells: [OrbitMetric(appL10n.orbScreens, '$screens')],
         gaugeA: 0,
         gaugeALabel: '',
         gaugeB: 0,
         gaugeBLabel: '',
-        bigLabel: 'Screens',
+        bigLabel: appL10n.orbScreens,
         bigValue: '$screens',
         bars: const [],
       );
@@ -103,8 +105,6 @@ OrbitDestination? findDestination(List<OrbitSection> sections, String id) {
 double _frac(num part, num whole) =>
     whole <= 0 ? 0.0 : (part / whole).clamp(0.0, 1.0).toDouble();
 
-String _gradeName(Grade g) => g.name[0].toUpperCase() + g.name.substring(1);
-
 final orbitDataProvider = Provider<OrbitData>((ref) {
   final kpis = ref.watch(dashboardKpisProvider);
   final google = ref.watch(googleStatsProvider);
@@ -115,6 +115,7 @@ final orbitDataProvider = Provider<OrbitData>((ref) {
   final look = ref.watch(appearanceProvider);
   final cur = ref.watch(currencyProvider);
   final lang = ref.watch(languageProvider);
+  final l = l10nFor(lang);
   final notif = ref.watch(notificationPrefsProvider);
   final profile = ref.watch(profileProvider);
 
@@ -139,9 +140,9 @@ final orbitDataProvider = Provider<OrbitData>((ref) {
 
   final styleName = kThemeStyles[look.style] ?? look.style;
   final modeName = switch (look.mode) {
-    ThemeModeSetting.dark => 'Dark',
-    ThemeModeSetting.light => 'Light',
-    ThemeModeSetting.system => 'System',
+    ThemeModeSetting.dark => l.dark,
+    ThemeModeSetting.light => l.light,
+    ThemeModeSetting.system => l.orbSystem,
   };
   final alertsOn = notif.enabled;
   final remindersOn = notif.enabled && notif.reminders;
@@ -149,55 +150,55 @@ final orbitDataProvider = Provider<OrbitData>((ref) {
   final sections = <String, OrbitSectionInfo>{
     'stats': OrbitSectionInfo(
       cells: [
-        OrbitMetric('Net profit', profitText),
-        OrbitMetric('Accounts', '${kpis.total}'),
-        OrbitMetric('Sold', '${kpis.sold}'),
-        OrbitMetric('For sale', '${kpis.forSale}'),
+        OrbitMetric(l.orbNetProfit, profitText),
+        OrbitMetric(l.orbAccounts, '${kpis.total}'),
+        OrbitMetric(l.orbSold, '${kpis.sold}'),
+        OrbitMetric(l.orbForSale, '${kpis.forSale}'),
       ],
       gaugeA: _frac(kpis.active, kpis.total),
-      gaugeALabel: 'Active',
+      gaugeALabel: l.orbActive,
       gaugeB: _frac(kpis.sold, kpis.total),
-      gaugeBLabel: 'Sold',
-      bigLabel: 'Net profit',
+      gaugeBLabel: l.orbSold,
+      bigLabel: l.orbNetProfit,
       bigValue: profitText,
       bars: [
-        OrbitBar('Active', '${kpis.active}', _frac(kpis.active, kpis.total)),
-        OrbitBar('Sold', '${kpis.sold}', _frac(kpis.sold, kpis.total)),
-        OrbitBar('For sale', '${kpis.forSale}', _frac(kpis.forSale, kpis.total)),
-        OrbitBar('Added this month', '${kpis.addedThisMonth}', _frac(kpis.addedThisMonth, kpis.total)),
+        OrbitBar(l.orbActive, '${kpis.active}', _frac(kpis.active, kpis.total)),
+        OrbitBar(l.orbSold, '${kpis.sold}', _frac(kpis.sold, kpis.total)),
+        OrbitBar(l.orbForSale, '${kpis.forSale}', _frac(kpis.forSale, kpis.total)),
+        OrbitBar(l.orbAddedThisMonth, '${kpis.addedThisMonth}', _frac(kpis.addedThisMonth, kpis.total)),
       ],
     ),
     'cards': OrbitSectionInfo(
       cells: [
-        OrbitMetric('Google accounts', '${google.total}'),
-        OrbitMetric('Gaming accounts', '${kpis.total}'),
-        OrbitMetric('Duplicates', '$duplicates'),
-        OrbitMetric('In vault', '${vault.length}'),
+        OrbitMetric(l.orbGoogleAccounts, '${google.total}'),
+        OrbitMetric(l.orbGamingAccounts, '${kpis.total}'),
+        OrbitMetric(l.orbDuplicates, '$duplicates'),
+        OrbitMetric(l.orbInVault, '${vault.length}'),
       ],
       gaugeA: accountsAll == 0 ? 1.0 : 1.0 - _frac(health.issues, accountsAll),
-      gaugeALabel: 'Clean',
+      gaugeALabel: l.orbClean,
       gaugeB: _frac(vault.length, accountsAll),
-      gaugeBLabel: 'In vault',
-      bigLabel: 'Duplicates',
+      gaugeBLabel: l.orbInVault,
+      bigLabel: l.orbDuplicates,
       bigValue: '$duplicates',
       bars: [
-        OrbitBar('Google duplicates', '${health.duplicates}', _frac(health.duplicates, google.total)),
-        OrbitBar('Same account ID', '${health.gameDuplicates}', _frac(health.gameDuplicates, kpis.total)),
-        OrbitBar('In vault', '${vault.length}', _frac(vault.length, accountsAll)),
+        OrbitBar(l.orbGoogleDuplicates, '${health.duplicates}', _frac(health.duplicates, google.total)),
+        OrbitBar(l.orbSameAccountId, '${health.gameDuplicates}', _frac(health.gameDuplicates, kpis.total)),
+        OrbitBar(l.orbInVault, '${vault.length}', _frac(vault.length, accountsAll)),
       ],
     ),
     'games': OrbitSectionInfo(
       cells: [
-        OrbitMetric('Games', '${games.length}'),
-        OrbitMetric('Accounts', '${kpis.total}'),
-        OrbitMetric('Active', '${kpis.active}'),
-        OrbitMetric('For sale', '${kpis.forSale}'),
+        OrbitMetric(l.orbGames, '${games.length}'),
+        OrbitMetric(l.orbAccounts, '${kpis.total}'),
+        OrbitMetric(l.orbActive, '${kpis.active}'),
+        OrbitMetric(l.orbForSale, '${kpis.forSale}'),
       ],
       gaugeA: _frac(kpis.active, kpis.total),
-      gaugeALabel: 'Active',
+      gaugeALabel: l.orbActive,
       gaugeB: _frac(kpis.forSale, kpis.total),
-      gaugeBLabel: 'Listed',
-      bigLabel: 'Gaming accounts',
+      gaugeBLabel: l.orbListed,
+      bigLabel: l.orbGamingAccounts,
       bigValue: '${kpis.total}',
       bars: [
         for (final g in byCount.take(6)) OrbitBar(g.game.name, '${g.count}', _frac(g.count, maxCount)),
@@ -205,62 +206,62 @@ final orbitDataProvider = Provider<OrbitData>((ref) {
     ),
     'google': OrbitSectionInfo(
       cells: [
-        OrbitMetric('Accounts', '${google.total}'),
-        OrbitMetric('Boxes set', '$boxesSet'),
-        OrbitMetric('Diamond', '$diamonds'),
-        OrbitMetric('Interdit', '${google.byGrade[Grade.interdit] ?? 0}'),
+        OrbitMetric(l.orbAccounts, '${google.total}'),
+        OrbitMetric(l.orbBoxesSet, '$boxesSet'),
+        OrbitMetric(l.gradeDiamond, '$diamonds'),
+        OrbitMetric(l.gradeInterdit, '${google.byGrade[Grade.interdit] ?? 0}'),
       ],
       gaugeA: _frac(boxesDone, boxesTotal),
-      gaugeALabel: 'Done',
+      gaugeALabel: l.orbDone,
       gaugeB: _frac(premium, google.total),
-      gaugeBLabel: 'Premium',
-      bigLabel: 'Google accounts',
+      gaugeBLabel: l.orbPremium,
+      bigLabel: l.orbGoogleAccounts,
       bigValue: '${google.total}',
       bars: [
         for (final g in Grade.values)
-          OrbitBar(_gradeName(g), '${google.byGrade[g] ?? 0}', _frac(google.byGrade[g] ?? 0, google.total)),
+          OrbitBar(gradeLabel(g), '${google.byGrade[g] ?? 0}', _frac(google.byGrade[g] ?? 0, google.total)),
       ],
     ),
     'profile': OrbitSectionInfo(
       cells: [
-        OrbitMetric('Name', profile.name.trim().isEmpty ? 'Not set' : profile.name.trim()),
-        OrbitMetric('Unlocked', '$achDone / ${ach.length}'),
-        OrbitMetric('Points', '$points'),
-        OrbitMetric('Next goal', pending.isEmpty ? 'All done' : pending.first.title),
+        OrbitMetric(l.orbName, profile.name.trim().isEmpty ? l.orbNotSet : profile.name.trim()),
+        OrbitMetric(l.orbUnlocked, l.fraction(achDone, ach.length)),
+        OrbitMetric(l.orbPoints, '$points'),
+        OrbitMetric(l.orbNextGoal, pending.isEmpty ? l.orbAllDone : pending.first.title),
       ],
       gaugeA: _frac(achDone, ach.length),
-      gaugeALabel: 'Unlocked',
+      gaugeALabel: l.orbUnlocked,
       gaugeB: _frac(points, pointsAll),
-      gaugeBLabel: 'Points',
-      bigLabel: 'Points',
+      gaugeBLabel: l.orbPoints,
+      bigLabel: l.orbPoints,
       bigValue: '$points',
       bars: [
         for (final cat in AchievementCategory.values)
           () {
             final list = ach.where((a) => a.category == cat).toList();
             final done = list.where((a) => a.done).length;
-            return OrbitBar(cat.label, '$done / ${list.length}', _frac(done, list.length));
+            return OrbitBar(cat.label, l.fraction(done, list.length), _frac(done, list.length));
           }(),
       ],
     ),
     'settings': OrbitSectionInfo(
       cells: [
-        OrbitMetric('Theme', styleName),
-        OrbitMetric('Mode', modeName),
-        OrbitMetric('Currency', cur.code),
-        OrbitMetric('Language', kLanguages[lang] ?? lang),
+        OrbitMetric(l.orbTheme, styleName),
+        OrbitMetric(l.orbMode, modeName),
+        OrbitMetric(l.orbCurrency, cur.code),
+        OrbitMetric(l.orbLanguage, kLanguages[lang] ?? lang),
       ],
       gaugeA: alertsOn ? 1.0 : 0.0,
-      gaugeALabel: 'Alerts',
+      gaugeALabel: l.orbAlerts,
       gaugeB: remindersOn ? 1.0 : 0.0,
-      gaugeBLabel: 'Reminders',
-      bigLabel: 'Currency',
+      gaugeBLabel: l.orbReminders,
+      bigLabel: l.orbCurrency,
       bigValue: cur.code,
       bars: [
-        OrbitBar('Notifications', alertsOn ? 'On' : 'Off', alertsOn ? 1.0 : 0.0),
-        OrbitBar('Reminders', remindersOn ? 'On' : 'Off', remindersOn ? 1.0 : 0.0),
-        OrbitBar('In trash', '${health.trashed}', _frac(health.trashed, accountsAll + health.trashed)),
-        OrbitBar('Data issues', '${health.issues}', _frac(health.issues, accountsAll)),
+        OrbitBar(l.orbNotifications, alertsOn ? l.orbOn : l.orbOff, alertsOn ? 1.0 : 0.0),
+        OrbitBar(l.orbReminders, remindersOn ? l.orbOn : l.orbOff, remindersOn ? 1.0 : 0.0),
+        OrbitBar(l.orbInTrash, '${health.trashed}', _frac(health.trashed, accountsAll + health.trashed)),
+        OrbitBar(l.orbDataIssues, '${health.issues}', _frac(health.issues, accountsAll)),
       ],
     ),
   };
@@ -274,55 +275,55 @@ final orbitDataProvider = Provider<OrbitData>((ref) {
   final insights = <OrbitInsight>[
     OrbitInsight(
       icon: Icons.payments_outlined,
-      label: 'Net profit',
+      label: l.orbNetProfit,
       value: profitText,
       caption: pct == null
-          ? 'No month to compare yet'
-          : '${pct >= 0 ? '+' : ''}${pct.toStringAsFixed(0)}% on last month',
+          ? l.orbNoMonthToCompare
+          : l.orbPctOnLastMonth('${pct >= 0 ? '+' : ''}${pct.toStringAsFixed(0)}'),
       captionIcon: pct != null && pct < 0 ? Icons.trending_down_rounded : Icons.trending_up_rounded,
       destId: 'profit',
     ),
     OrbitInsight(
       icon: Icons.sell_outlined,
-      label: 'For sale',
-      value: '${kpis.forSale} ${kpis.forSale == 1 ? 'account' : 'accounts'}',
-      caption: kpis.forSale == 0 ? 'Nothing listed right now' : 'Listed, no price set yet',
+      label: l.orbForSale,
+      value: l.accountsCount(kpis.forSale),
+      caption: kpis.forSale == 0 ? l.orbNothingListed : l.orbListedNoPrice,
       captionIcon: Icons.info_outline_rounded,
       destId: 'for-sale',
     ),
     OrbitInsight(
       icon: Icons.sports_esports_outlined,
-      label: 'Best game',
-      value: top == null ? 'No data yet' : top.game.name,
+      label: l.orbBestGame,
+      value: top == null ? l.orbNoDataYet : top.game.name,
       caption: top == null
-          ? 'Add a game account to rank games'
-          : '${money(top.profit, currency: cur)} from ${top.count} accounts',
+          ? l.orbAddToRank
+          : l.orbFromAccounts(money(top.profit, currency: cur), top.count),
       captionIcon: Icons.info_outline_rounded,
       destId: 'games-stats',
     ),
     OrbitInsight(
       icon: Icons.workspace_premium_outlined,
-      label: 'Diamond accounts',
+      label: l.orbDiamondAccounts,
       value: '$diamonds',
-      caption: 'Out of ${google.total} Google accounts',
+      caption: l.orbOutOfGoogle(google.total),
       captionIcon: Icons.info_outline_rounded,
       destId: 'grades',
     ),
     OrbitInsight(
       icon: Icons.shield_outlined,
-      label: 'Data health',
-      value: health.issues == 0 ? 'All clear' : '${health.issues} to review',
+      label: l.orbDataHealth,
+      value: health.issues == 0 ? l.orbAllClear : l.orbToReview(health.issues),
       caption: health.issues == 0
-          ? 'No duplicates or missing IDs'
-          : 'Duplicates, bad emails or missing IDs',
+          ? l.orbNoDuplicatesOrIds
+          : l.orbDuplicatesEmailsIds,
       captionIcon: health.issues == 0 ? Icons.check_circle_outline_rounded : Icons.warning_amber_rounded,
       destId: 'security',
     ),
     OrbitInsight(
       icon: Icons.military_tech_outlined,
-      label: 'Achievements',
-      value: '$achDone / ${ach.length}',
-      caption: pending.isEmpty ? 'Every badge unlocked' : 'Next: ${pending.first.title}',
+      label: l.orbAchievements,
+      value: l.fraction(achDone, ach.length),
+      caption: pending.isEmpty ? l.orbEveryBadge : l.orbNext(pending.first.title),
       captionIcon: Icons.info_outline_rounded,
       destId: 'achievements',
     ),

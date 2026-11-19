@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import '../../core/l10n.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -416,8 +417,7 @@ class _OrbitScreenState extends ConsumerState<OrbitScreen> with TickerProviderSt
                 children: [
                   Positioned.fill(
                     child: Semantics(
-                      label: 'Globe. Every continent is a section of the app. '
-                          'Use the all sections button to list them.',
+                      label: context.l10n.globeSemantics,
                       child: GestureDetector(
                         behavior: HitTestBehavior.opaque,
                         onTapUp: (d) => _onTap(d.localPosition),
@@ -460,7 +460,7 @@ class _OrbitScreenState extends ConsumerState<OrbitScreen> with TickerProviderSt
         children: [
           GlassIconButton(
             icon: inSection ? Icons.arrow_back_rounded : Icons.menu_rounded,
-            tooltip: inSection ? 'Back to the globe' : 'All sections',
+            tooltip: inSection ? context.l10n.backToGlobe : context.l10n.allSections,
             onTap: inSection ? _close : _openMenu,
           ),
           const SizedBox(width: 52), // balances the two buttons on the right
@@ -478,9 +478,9 @@ class _OrbitScreenState extends ConsumerState<OrbitScreen> with TickerProviderSt
               ),
             ),
           ),
-          GlassIconButton(icon: Icons.settings_outlined, tooltip: 'Settings', onTap: _openSettings),
+          GlassIconButton(icon: Icons.settings_outlined, tooltip: context.l10n.settings, onTap: _openSettings),
           const SizedBox(width: 8),
-          GlassIconButton(icon: Icons.notifications_none_rounded, tooltip: 'Notifications', onTap: _openNotifications),
+          GlassIconButton(icon: Icons.notifications_none_rounded, tooltip: context.l10n.notifications, onTap: _openNotifications),
         ],
       ),
     );
@@ -528,7 +528,7 @@ class _OrbitScreenState extends ConsumerState<OrbitScreen> with TickerProviderSt
                         Row(
                           children: [
                             Expanded(
-                              child: Text(hub.info.name,
+                              child: Text(hub.info.localName,
                                   maxLines: 1, overflow: TextOverflow.ellipsis, style: OrbitText.label(size: 11)),
                             ),
                             SizedBox(
@@ -536,7 +536,7 @@ class _OrbitScreenState extends ConsumerState<OrbitScreen> with TickerProviderSt
                               height: 32,
                               child: IconButton(
                                 padding: EdgeInsets.zero,
-                                tooltip: 'Close',
+                                tooltip: context.l10n.close,
                                 onPressed: _close,
                                 style: IconButton.styleFrom(
                                   backgroundColor: const Color(0x26FFFFFF),
@@ -563,7 +563,7 @@ class _OrbitScreenState extends ConsumerState<OrbitScreen> with TickerProviderSt
                             ),
                           ),
                         const SizedBox(height: 2),
-                        Text('Purpose', style: OrbitText.label(size: 10)),
+                        Text(context.l10n.purpose, style: OrbitText.label(size: 10)),
                         const SizedBox(height: 1),
                         Text(sec.tagline,
                             maxLines: 2, overflow: TextOverflow.ellipsis, style: OrbitText.value(size: 12.5, weight: FontWeight.w500)),
@@ -623,7 +623,7 @@ class _OrbitScreenState extends ConsumerState<OrbitScreen> with TickerProviderSt
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: OrbitSearchBar(
-        hint: 'Tell me where you want to go',
+        hint: context.l10n.tellWhereToGo,
         onTap: _openSearch,
         onHelp: () => showOrbitHelp(context),
         onMenu: _openMenu,
@@ -639,7 +639,7 @@ class _OrbitScreenState extends ConsumerState<OrbitScreen> with TickerProviderSt
         if (_phase == _Phase.selected)
           Padding(
             padding: const EdgeInsets.only(bottom: 14),
-            child: GlowButton(label: 'Explore', onTap: _explore),
+            child: GlowButton(label: context.l10n.explore, onTap: _explore),
           ),
         _searchBar(),
         if (showInsights) ...[
@@ -649,7 +649,7 @@ class _OrbitScreenState extends ConsumerState<OrbitScreen> with TickerProviderSt
               children: [
                 const Icon(Icons.auto_awesome, size: 17, color: OrbitPalette.champagne),
                 const SizedBox(width: 8),
-                Text('Insights', style: OrbitText.value(size: 14)),
+                Text(context.l10n.insights, style: OrbitText.value(size: 14)),
                 const Spacer(),
                 TextButton(
                   onPressed: () => _openInsights(data),
@@ -657,7 +657,7 @@ class _OrbitScreenState extends ConsumerState<OrbitScreen> with TickerProviderSt
                     foregroundColor: OrbitPalette.gold,
                     minimumSize: const Size(56, 40),
                   ),
-                  child: Text('See all', style: OrbitText.label(size: 12, color: OrbitPalette.gold)),
+                  child: Text(context.l10n.seeAll, style: OrbitText.label(size: 12, color: OrbitPalette.gold)),
                 ),
               ],
             ),
@@ -722,7 +722,7 @@ class _OrbitScreenState extends ConsumerState<OrbitScreen> with TickerProviderSt
                   children: [
                     OrbitDial(
                       icon: sec.icon,
-                      tooltip: first == null ? sec.label : 'Open ${first.title}',
+                      tooltip: first == null ? sec.label : context.l10n.openScreen(first.title),
                       onTap: first == null ? () {} : () => _openDest(first),
                     ),
                     const SizedBox(width: 6),
@@ -752,13 +752,13 @@ class _OrbitScreenState extends ConsumerState<OrbitScreen> with TickerProviderSt
                 padding: const EdgeInsets.fromLTRB(16, 10, 16, 0),
                 child: Row(
                   children: [
-                    GlassChip(label: 'Screens', selected: _tab == 0, onTap: () => setState(() => _tab = 0)),
+                    GlassChip(label: context.l10n.screens, selected: _tab == 0, onTap: () => setState(() => _tab = 0)),
                     const SizedBox(width: 8),
-                    GlassChip(label: 'Stats', selected: _tab == 1, onTap: () => setState(() => _tab = 1)),
+                    GlassChip(label: context.l10n.navStats, selected: _tab == 1, onTap: () => setState(() => _tab = 1)),
                     const Spacer(),
                     GlassIconButton(
                       icon: _expanded ? Icons.fullscreen_exit_rounded : Icons.fullscreen_rounded,
-                      tooltip: _expanded ? 'Smaller panel' : 'Bigger panel',
+                      tooltip: _expanded ? context.l10n.smallerPanel : context.l10n.biggerPanel,
                       size: 40,
                       onTap: () => setState(() => _expanded = !_expanded),
                     ),
@@ -777,7 +777,7 @@ class _OrbitScreenState extends ConsumerState<OrbitScreen> with TickerProviderSt
   Widget _screensList(OrbitSection sec) {
     final dests = sec.destinations;
     if (dests.isEmpty) {
-      return Center(child: Text('Nothing here yet.', style: OrbitText.label(size: 13)));
+      return Center(child: Text(context.l10n.nothingHereYetDot, style: OrbitText.label(size: 13)));
     }
     if (_expanded) {
       return ListView.separated(
@@ -804,7 +804,7 @@ class _OrbitScreenState extends ConsumerState<OrbitScreen> with TickerProviderSt
 
   Widget _statsList(OrbitSectionInfo info) {
     if (info.bars.isEmpty) {
-      return Center(child: Text('No stats for this section.', style: OrbitText.label(size: 13)));
+      return Center(child: Text(context.l10n.noStatsForSection, style: OrbitText.label(size: 13)));
     }
     return ListView(
       padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),

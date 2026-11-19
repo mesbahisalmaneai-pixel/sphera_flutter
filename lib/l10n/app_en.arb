@@ -1188,5 +1188,177 @@
     }
   },
   "nothingHereNow": "Nothing here right now.",
-  "analysisOnDevice": "Analysis runs on this device from your own data and updates as you edit accounts."
+  "analysisOnDevice": "Analysis runs on this device from your own data and updates as you edit accounts.",
+  "contNorthAmerica": "North America",
+  "contSouthAmerica": "South America",
+  "contEurope": "Europe",
+  "contAfrica": "Africa",
+  "contAsia": "Asia",
+  "contOceania": "Oceania",
+  "globeSemantics": "Globe. Every continent is a section of the app. Use the all sections button to list them.",
+  "backToGlobe": "Back to the globe",
+  "allSections": "All sections",
+  "close": "Close",
+  "purpose": "Purpose",
+  "tellWhereToGo": "Tell me where you want to go",
+  "explore": "Explore",
+  "seeAll": "See all",
+  "openScreen": "Open {name}",
+  "@openScreen": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "screens": "Screens",
+  "smallerPanel": "Smaller panel",
+  "biggerPanel": "Bigger panel",
+  "nothingHereYetDot": "Nothing here yet.",
+  "noStatsForSection": "No stats for this section.",
+  "secStatsTagline": "Analytics & performance",
+  "destPerformanceSub": "Today, this week, this month & goals",
+  "destGradeStatsSub": "Bronze to Diamond & Interdit",
+  "secCardsTagline": "Smart tools & arena",
+  "secGamesTagline": "Your gaming accounts",
+  "destAllGames": "All Games",
+  "destForSaleSub": "Accounts currently listed for sale",
+  "destGameSub": "Accounts and statuses of this game",
+  "secGoogle": "Google",
+  "secGoogleTagline": "Google Play accounts",
+  "destGoogleAddSub": "Add a new Google Play account",
+  "destGrades": "Grades",
+  "destGradesSub": "Statistics by grade",
+  "destBoxStatus": "Box Status",
+  "destBoxStatusSub": "Statistics by game box status",
+  "secProfileTagline": "You & your progress",
+  "destMyProfile": "My Profile",
+  "destMyProfileSub": "Picture, info, rank & session",
+  "destAchievementsSub": "Badges, progress & unlock dates",
+  "secSettingsTagline": "Preferences & safety",
+  "destSettingsSub": "Appearance, language, currency & data",
+  "destNotificationsSub": "Warnings and reminders",
+  "destTrashSub": "Restore removed accounts",
+  "orbScreens": "Screens",
+  "orbSystem": "System",
+  "orbNetProfit": "Net profit",
+  "orbAccounts": "Accounts",
+  "orbSold": "Sold",
+  "orbForSale": "For sale",
+  "orbActive": "Active",
+  "orbAddedThisMonth": "Added this month",
+  "orbGoogleAccounts": "Google accounts",
+  "orbGamingAccounts": "Gaming accounts",
+  "orbDuplicates": "Duplicates",
+  "orbInVault": "In vault",
+  "orbClean": "Clean",
+  "orbGoogleDuplicates": "Google duplicates",
+  "orbSameAccountId": "Same account ID",
+  "orbGames": "Games",
+  "orbListed": "Listed",
+  "orbBoxesSet": "Boxes set",
+  "orbDone": "Done",
+  "orbPremium": "Premium",
+  "orbName": "Name",
+  "orbNotSet": "Not set",
+  "orbUnlocked": "Unlocked",
+  "orbPoints": "Points",
+  "orbNextGoal": "Next goal",
+  "orbAllDone": "All done",
+  "orbTheme": "Theme",
+  "orbMode": "Mode",
+  "orbCurrency": "Currency",
+  "orbLanguage": "Language",
+  "orbAlerts": "Alerts",
+  "orbReminders": "Reminders",
+  "orbNotifications": "Notifications",
+  "orbOn": "On",
+  "orbOff": "Off",
+  "orbInTrash": "In trash",
+  "orbDataIssues": "Data issues",
+  "orbNoMonthToCompare": "No month to compare yet",
+  "orbPctOnLastMonth": "{pct}% on last month",
+  "@orbPctOnLastMonth": {
+    "placeholders": {
+      "pct": {
+        "type": "String"
+      }
+    }
+  },
+  "orbNothingListed": "Nothing listed right now",
+  "orbListedNoPrice": "Listed, no price set yet",
+  "orbBestGame": "Best game",
+  "orbNoDataYet": "No data yet",
+  "orbAddToRank": "Add a game account to rank games",
+  "orbFromAccounts": "{amount} from {count, plural, =1{1 account} other{{count} accounts}}",
+  "@orbFromAccounts": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "orbDiamondAccounts": "Diamond accounts",
+  "orbOutOfGoogle": "Out of {count} Google accounts",
+  "@orbOutOfGoogle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "orbDataHealth": "Data health",
+  "orbAllClear": "All clear",
+  "orbToReview": "{count} to review",
+  "@orbToReview": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "orbNoDuplicatesOrIds": "No duplicates or missing IDs",
+  "orbDuplicatesEmailsIds": "Duplicates, bad emails or missing IDs",
+  "orbAchievements": "Achievements",
+  "orbEveryBadge": "Every badge unlocked",
+  "orbNext": "Next: {title}",
+  "@orbNext": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "searchEveryScreen": "Search every screen",
+  "howGlobeWorks": "How the globe works",
+  "percentSemantics": "{label} {pct} percent",
+  "@percentSemantics": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "pct": {
+        "type": "String"
+      }
+    }
+  },
+  "open": "Open",
+  "whereToGo": "Where do you want to go?",
+  "searchScreenHint": "Search a screen, like profit or vault",
+  "noScreenMatches": "No screen matches that.",
+  "screensCount": "{count, plural, =1{1 screen} other{{count} screens}}",
+  "@screensCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "globeHelpDrag": "Drag the globe to turn it.",
+  "globeHelpTap": "Tap a glowing node to see what is inside that continent.",
+  "globeHelpExplore": "Press Explore to dive in, then tap a card to open the screen.",
+  "globeHelpSearch": "The bar at the bottom finds any screen by name."
 }

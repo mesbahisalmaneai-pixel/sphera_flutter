@@ -3435,6 +3435,666 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Analysis runs on this device from your own data and updates as you edit accounts.'**
   String get analysisOnDevice;
+
+  /// No description provided for @contNorthAmerica.
+  ///
+  /// In en, this message translates to:
+  /// **'North America'**
+  String get contNorthAmerica;
+
+  /// No description provided for @contSouthAmerica.
+  ///
+  /// In en, this message translates to:
+  /// **'South America'**
+  String get contSouthAmerica;
+
+  /// No description provided for @contEurope.
+  ///
+  /// In en, this message translates to:
+  /// **'Europe'**
+  String get contEurope;
+
+  /// No description provided for @contAfrica.
+  ///
+  /// In en, this message translates to:
+  /// **'Africa'**
+  String get contAfrica;
+
+  /// No description provided for @contAsia.
+  ///
+  /// In en, this message translates to:
+  /// **'Asia'**
+  String get contAsia;
+
+  /// No description provided for @contOceania.
+  ///
+  /// In en, this message translates to:
+  /// **'Oceania'**
+  String get contOceania;
+
+  /// No description provided for @globeSemantics.
+  ///
+  /// In en, this message translates to:
+  /// **'Globe. Every continent is a section of the app. Use the all sections button to list them.'**
+  String get globeSemantics;
+
+  /// No description provided for @backToGlobe.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to the globe'**
+  String get backToGlobe;
+
+  /// No description provided for @allSections.
+  ///
+  /// In en, this message translates to:
+  /// **'All sections'**
+  String get allSections;
+
+  /// No description provided for @close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
+  /// No description provided for @purpose.
+  ///
+  /// In en, this message translates to:
+  /// **'Purpose'**
+  String get purpose;
+
+  /// No description provided for @tellWhereToGo.
+  ///
+  /// In en, this message translates to:
+  /// **'Tell me where you want to go'**
+  String get tellWhereToGo;
+
+  /// No description provided for @explore.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore'**
+  String get explore;
+
+  /// No description provided for @seeAll.
+  ///
+  /// In en, this message translates to:
+  /// **'See all'**
+  String get seeAll;
+
+  /// No description provided for @openScreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Open {name}'**
+  String openScreen(String name);
+
+  /// No description provided for @screens.
+  ///
+  /// In en, this message translates to:
+  /// **'Screens'**
+  String get screens;
+
+  /// No description provided for @smallerPanel.
+  ///
+  /// In en, this message translates to:
+  /// **'Smaller panel'**
+  String get smallerPanel;
+
+  /// No description provided for @biggerPanel.
+  ///
+  /// In en, this message translates to:
+  /// **'Bigger panel'**
+  String get biggerPanel;
+
+  /// No description provided for @nothingHereYetDot.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing here yet.'**
+  String get nothingHereYetDot;
+
+  /// No description provided for @noStatsForSection.
+  ///
+  /// In en, this message translates to:
+  /// **'No stats for this section.'**
+  String get noStatsForSection;
+
+  /// No description provided for @secStatsTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'Analytics & performance'**
+  String get secStatsTagline;
+
+  /// No description provided for @destPerformanceSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Today, this week, this month & goals'**
+  String get destPerformanceSub;
+
+  /// No description provided for @destGradeStatsSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Bronze to Diamond & Interdit'**
+  String get destGradeStatsSub;
+
+  /// No description provided for @secCardsTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'Smart tools & arena'**
+  String get secCardsTagline;
+
+  /// No description provided for @secGamesTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'Your gaming accounts'**
+  String get secGamesTagline;
+
+  /// No description provided for @destAllGames.
+  ///
+  /// In en, this message translates to:
+  /// **'All Games'**
+  String get destAllGames;
+
+  /// No description provided for @destForSaleSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Accounts currently listed for sale'**
+  String get destForSaleSub;
+
+  /// No description provided for @destGameSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Accounts and statuses of this game'**
+  String get destGameSub;
+
+  /// No description provided for @secGoogle.
+  ///
+  /// In en, this message translates to:
+  /// **'Google'**
+  String get secGoogle;
+
+  /// No description provided for @secGoogleTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'Google Play accounts'**
+  String get secGoogleTagline;
+
+  /// No description provided for @destGoogleAddSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a new Google Play account'**
+  String get destGoogleAddSub;
+
+  /// No description provided for @destGrades.
+  ///
+  /// In en, this message translates to:
+  /// **'Grades'**
+  String get destGrades;
+
+  /// No description provided for @destGradesSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Statistics by grade'**
+  String get destGradesSub;
+
+  /// No description provided for @destBoxStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Box Status'**
+  String get destBoxStatus;
+
+  /// No description provided for @destBoxStatusSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Statistics by game box status'**
+  String get destBoxStatusSub;
+
+  /// No description provided for @secProfileTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'You & your progress'**
+  String get secProfileTagline;
+
+  /// No description provided for @destMyProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'My Profile'**
+  String get destMyProfile;
+
+  /// No description provided for @destMyProfileSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Picture, info, rank & session'**
+  String get destMyProfileSub;
+
+  /// No description provided for @destAchievementsSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Badges, progress & unlock dates'**
+  String get destAchievementsSub;
+
+  /// No description provided for @secSettingsTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'Preferences & safety'**
+  String get secSettingsTagline;
+
+  /// No description provided for @destSettingsSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Appearance, language, currency & data'**
+  String get destSettingsSub;
+
+  /// No description provided for @destNotificationsSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Warnings and reminders'**
+  String get destNotificationsSub;
+
+  /// No description provided for @destTrashSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore removed accounts'**
+  String get destTrashSub;
+
+  /// No description provided for @orbScreens.
+  ///
+  /// In en, this message translates to:
+  /// **'Screens'**
+  String get orbScreens;
+
+  /// No description provided for @orbSystem.
+  ///
+  /// In en, this message translates to:
+  /// **'System'**
+  String get orbSystem;
+
+  /// No description provided for @orbNetProfit.
+  ///
+  /// In en, this message translates to:
+  /// **'Net profit'**
+  String get orbNetProfit;
+
+  /// No description provided for @orbAccounts.
+  ///
+  /// In en, this message translates to:
+  /// **'Accounts'**
+  String get orbAccounts;
+
+  /// No description provided for @orbSold.
+  ///
+  /// In en, this message translates to:
+  /// **'Sold'**
+  String get orbSold;
+
+  /// No description provided for @orbForSale.
+  ///
+  /// In en, this message translates to:
+  /// **'For sale'**
+  String get orbForSale;
+
+  /// No description provided for @orbActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Active'**
+  String get orbActive;
+
+  /// No description provided for @orbAddedThisMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'Added this month'**
+  String get orbAddedThisMonth;
+
+  /// No description provided for @orbGoogleAccounts.
+  ///
+  /// In en, this message translates to:
+  /// **'Google accounts'**
+  String get orbGoogleAccounts;
+
+  /// No description provided for @orbGamingAccounts.
+  ///
+  /// In en, this message translates to:
+  /// **'Gaming accounts'**
+  String get orbGamingAccounts;
+
+  /// No description provided for @orbDuplicates.
+  ///
+  /// In en, this message translates to:
+  /// **'Duplicates'**
+  String get orbDuplicates;
+
+  /// No description provided for @orbInVault.
+  ///
+  /// In en, this message translates to:
+  /// **'In vault'**
+  String get orbInVault;
+
+  /// No description provided for @orbClean.
+  ///
+  /// In en, this message translates to:
+  /// **'Clean'**
+  String get orbClean;
+
+  /// No description provided for @orbGoogleDuplicates.
+  ///
+  /// In en, this message translates to:
+  /// **'Google duplicates'**
+  String get orbGoogleDuplicates;
+
+  /// No description provided for @orbSameAccountId.
+  ///
+  /// In en, this message translates to:
+  /// **'Same account ID'**
+  String get orbSameAccountId;
+
+  /// No description provided for @orbGames.
+  ///
+  /// In en, this message translates to:
+  /// **'Games'**
+  String get orbGames;
+
+  /// No description provided for @orbListed.
+  ///
+  /// In en, this message translates to:
+  /// **'Listed'**
+  String get orbListed;
+
+  /// No description provided for @orbBoxesSet.
+  ///
+  /// In en, this message translates to:
+  /// **'Boxes set'**
+  String get orbBoxesSet;
+
+  /// No description provided for @orbDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get orbDone;
+
+  /// No description provided for @orbPremium.
+  ///
+  /// In en, this message translates to:
+  /// **'Premium'**
+  String get orbPremium;
+
+  /// No description provided for @orbName.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get orbName;
+
+  /// No description provided for @orbNotSet.
+  ///
+  /// In en, this message translates to:
+  /// **'Not set'**
+  String get orbNotSet;
+
+  /// No description provided for @orbUnlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlocked'**
+  String get orbUnlocked;
+
+  /// No description provided for @orbPoints.
+  ///
+  /// In en, this message translates to:
+  /// **'Points'**
+  String get orbPoints;
+
+  /// No description provided for @orbNextGoal.
+  ///
+  /// In en, this message translates to:
+  /// **'Next goal'**
+  String get orbNextGoal;
+
+  /// No description provided for @orbAllDone.
+  ///
+  /// In en, this message translates to:
+  /// **'All done'**
+  String get orbAllDone;
+
+  /// No description provided for @orbTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get orbTheme;
+
+  /// No description provided for @orbMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Mode'**
+  String get orbMode;
+
+  /// No description provided for @orbCurrency.
+  ///
+  /// In en, this message translates to:
+  /// **'Currency'**
+  String get orbCurrency;
+
+  /// No description provided for @orbLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get orbLanguage;
+
+  /// No description provided for @orbAlerts.
+  ///
+  /// In en, this message translates to:
+  /// **'Alerts'**
+  String get orbAlerts;
+
+  /// No description provided for @orbReminders.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders'**
+  String get orbReminders;
+
+  /// No description provided for @orbNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get orbNotifications;
+
+  /// No description provided for @orbOn.
+  ///
+  /// In en, this message translates to:
+  /// **'On'**
+  String get orbOn;
+
+  /// No description provided for @orbOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Off'**
+  String get orbOff;
+
+  /// No description provided for @orbInTrash.
+  ///
+  /// In en, this message translates to:
+  /// **'In trash'**
+  String get orbInTrash;
+
+  /// No description provided for @orbDataIssues.
+  ///
+  /// In en, this message translates to:
+  /// **'Data issues'**
+  String get orbDataIssues;
+
+  /// No description provided for @orbNoMonthToCompare.
+  ///
+  /// In en, this message translates to:
+  /// **'No month to compare yet'**
+  String get orbNoMonthToCompare;
+
+  /// No description provided for @orbPctOnLastMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'{pct}% on last month'**
+  String orbPctOnLastMonth(String pct);
+
+  /// No description provided for @orbNothingListed.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing listed right now'**
+  String get orbNothingListed;
+
+  /// No description provided for @orbListedNoPrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Listed, no price set yet'**
+  String get orbListedNoPrice;
+
+  /// No description provided for @orbBestGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Best game'**
+  String get orbBestGame;
+
+  /// No description provided for @orbNoDataYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No data yet'**
+  String get orbNoDataYet;
+
+  /// No description provided for @orbAddToRank.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a game account to rank games'**
+  String get orbAddToRank;
+
+  /// No description provided for @orbFromAccounts.
+  ///
+  /// In en, this message translates to:
+  /// **'{amount} from {count, plural, =1{1 account} other{{count} accounts}}'**
+  String orbFromAccounts(String amount, int count);
+
+  /// No description provided for @orbDiamondAccounts.
+  ///
+  /// In en, this message translates to:
+  /// **'Diamond accounts'**
+  String get orbDiamondAccounts;
+
+  /// No description provided for @orbOutOfGoogle.
+  ///
+  /// In en, this message translates to:
+  /// **'Out of {count} Google accounts'**
+  String orbOutOfGoogle(int count);
+
+  /// No description provided for @orbDataHealth.
+  ///
+  /// In en, this message translates to:
+  /// **'Data health'**
+  String get orbDataHealth;
+
+  /// No description provided for @orbAllClear.
+  ///
+  /// In en, this message translates to:
+  /// **'All clear'**
+  String get orbAllClear;
+
+  /// No description provided for @orbToReview.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} to review'**
+  String orbToReview(int count);
+
+  /// No description provided for @orbNoDuplicatesOrIds.
+  ///
+  /// In en, this message translates to:
+  /// **'No duplicates or missing IDs'**
+  String get orbNoDuplicatesOrIds;
+
+  /// No description provided for @orbDuplicatesEmailsIds.
+  ///
+  /// In en, this message translates to:
+  /// **'Duplicates, bad emails or missing IDs'**
+  String get orbDuplicatesEmailsIds;
+
+  /// No description provided for @orbAchievements.
+  ///
+  /// In en, this message translates to:
+  /// **'Achievements'**
+  String get orbAchievements;
+
+  /// No description provided for @orbEveryBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'Every badge unlocked'**
+  String get orbEveryBadge;
+
+  /// No description provided for @orbNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next: {title}'**
+  String orbNext(String title);
+
+  /// No description provided for @searchEveryScreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Search every screen'**
+  String get searchEveryScreen;
+
+  /// No description provided for @howGlobeWorks.
+  ///
+  /// In en, this message translates to:
+  /// **'How the globe works'**
+  String get howGlobeWorks;
+
+  /// No description provided for @percentSemantics.
+  ///
+  /// In en, this message translates to:
+  /// **'{label} {pct} percent'**
+  String percentSemantics(String label, String pct);
+
+  /// No description provided for @open.
+  ///
+  /// In en, this message translates to:
+  /// **'Open'**
+  String get open;
+
+  /// No description provided for @whereToGo.
+  ///
+  /// In en, this message translates to:
+  /// **'Where do you want to go?'**
+  String get whereToGo;
+
+  /// No description provided for @searchScreenHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search a screen, like profit or vault'**
+  String get searchScreenHint;
+
+  /// No description provided for @noScreenMatches.
+  ///
+  /// In en, this message translates to:
+  /// **'No screen matches that.'**
+  String get noScreenMatches;
+
+  /// No description provided for @screensCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 screen} other{{count} screens}}'**
+  String screensCount(int count);
+
+  /// No description provided for @globeHelpDrag.
+  ///
+  /// In en, this message translates to:
+  /// **'Drag the globe to turn it.'**
+  String get globeHelpDrag;
+
+  /// No description provided for @globeHelpTap.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap a glowing node to see what is inside that continent.'**
+  String get globeHelpTap;
+
+  /// No description provided for @globeHelpExplore.
+  ///
+  /// In en, this message translates to:
+  /// **'Press Explore to dive in, then tap a card to open the screen.'**
+  String get globeHelpExplore;
+
+  /// No description provided for @globeHelpSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'The bar at the bottom finds any screen by name.'**
+  String get globeHelpSearch;
 }
 
 class _AppLocalizationsDelegate
