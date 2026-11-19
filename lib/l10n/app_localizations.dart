@@ -4095,6 +4095,1008 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The bar at the bottom finds any screen by name.'**
   String get globeHelpSearch;
+
+  /// No description provided for @arenaStructSingleLeague.
+  ///
+  /// In en, this message translates to:
+  /// **'Single League'**
+  String get arenaStructSingleLeague;
+
+  /// No description provided for @arenaStructMultipleLeagues.
+  ///
+  /// In en, this message translates to:
+  /// **'Multiple Leagues'**
+  String get arenaStructMultipleLeagues;
+
+  /// No description provided for @arenaStructGroupsOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'Groups Only'**
+  String get arenaStructGroupsOnly;
+
+  /// No description provided for @arenaStructGroupsKnockout.
+  ///
+  /// In en, this message translates to:
+  /// **'Groups + Knockout'**
+  String get arenaStructGroupsKnockout;
+
+  /// No description provided for @arenaStructLeaguesGroupsKnockout.
+  ///
+  /// In en, this message translates to:
+  /// **'Leagues + Groups + Knockout'**
+  String get arenaStructLeaguesGroupsKnockout;
+
+  /// No description provided for @arenaStructKnockoutOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'Knockout Only'**
+  String get arenaStructKnockoutOnly;
+
+  /// No description provided for @arenaHintSingleLeague.
+  ///
+  /// In en, this message translates to:
+  /// **'Everyone plays everyone in one table.'**
+  String get arenaHintSingleLeague;
+
+  /// No description provided for @arenaHintMultipleLeagues.
+  ///
+  /// In en, this message translates to:
+  /// **'Participants are split into several independent leagues.'**
+  String get arenaHintMultipleLeagues;
+
+  /// No description provided for @arenaHintGroupsOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'One league divided into groups, each with its own table.'**
+  String get arenaHintGroupsOnly;
+
+  /// No description provided for @arenaHintGroupsKnockout.
+  ///
+  /// In en, this message translates to:
+  /// **'Group stage, then the best qualify for a knockout bracket.'**
+  String get arenaHintGroupsKnockout;
+
+  /// No description provided for @arenaHintLeaguesGroupsKnockout.
+  ///
+  /// In en, this message translates to:
+  /// **'Several leagues, each with groups; qualifiers meet in one knockout.'**
+  String get arenaHintLeaguesGroupsKnockout;
+
+  /// No description provided for @arenaHintKnockoutOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'Single-elimination bracket with byes when needed.'**
+  String get arenaHintKnockoutOnly;
+
+  /// No description provided for @arenaDetailUpTo48Players.
+  ///
+  /// In en, this message translates to:
+  /// **'up to 48 players'**
+  String get arenaDetailUpTo48Players;
+
+  /// No description provided for @arenaDetailDuo.
+  ///
+  /// In en, this message translates to:
+  /// **'up to 24 teams · 2 players each'**
+  String get arenaDetailDuo;
+
+  /// No description provided for @arenaDetailSquad.
+  ///
+  /// In en, this message translates to:
+  /// **'up to 12 teams · 4 players each'**
+  String get arenaDetailSquad;
+
+  /// No description provided for @arenaDetailOnePerTeam.
+  ///
+  /// In en, this message translates to:
+  /// **'1 player per team'**
+  String get arenaDetailOnePerTeam;
+
+  /// No description provided for @arenaDetailUpTo2.
+  ///
+  /// In en, this message translates to:
+  /// **'up to 2 players per team'**
+  String get arenaDetailUpTo2;
+
+  /// No description provided for @arenaDetailUpTo4.
+  ///
+  /// In en, this message translates to:
+  /// **'up to 4 players per team'**
+  String get arenaDetailUpTo4;
+
+  /// No description provided for @arenaDetailUpTo8.
+  ///
+  /// In en, this message translates to:
+  /// **'up to 8 players per team'**
+  String get arenaDetailUpTo8;
+
+  /// No description provided for @arenaDetail1v1.
+  ///
+  /// In en, this message translates to:
+  /// **'1 vs 1'**
+  String get arenaDetail1v1;
+
+  /// No description provided for @arenaDetailCoop.
+  ///
+  /// In en, this message translates to:
+  /// **'team vs team · up to 3 players per team'**
+  String get arenaDetailCoop;
+
+  /// No description provided for @arenaDetailCustom.
+  ///
+  /// In en, this message translates to:
+  /// **'custom team size'**
+  String get arenaDetailCustom;
+
+  /// No description provided for @arenaTbHeadToHead.
+  ///
+  /// In en, this message translates to:
+  /// **'Head-to-head'**
+  String get arenaTbHeadToHead;
+
+  /// No description provided for @arenaTbGoalDifference.
+  ///
+  /// In en, this message translates to:
+  /// **'Goal difference'**
+  String get arenaTbGoalDifference;
+
+  /// No description provided for @arenaTbGoalsScored.
+  ///
+  /// In en, this message translates to:
+  /// **'Goals scored'**
+  String get arenaTbGoalsScored;
+
+  /// No description provided for @arenaTbGoalsAgainst.
+  ///
+  /// In en, this message translates to:
+  /// **'Goals against'**
+  String get arenaTbGoalsAgainst;
+
+  /// No description provided for @arenaTbShortH2h.
+  ///
+  /// In en, this message translates to:
+  /// **'H2H'**
+  String get arenaTbShortH2h;
+
+  /// No description provided for @arenaTbShortGd.
+  ///
+  /// In en, this message translates to:
+  /// **'GD'**
+  String get arenaTbShortGd;
+
+  /// No description provided for @arenaTbShortGf.
+  ///
+  /// In en, this message translates to:
+  /// **'GF'**
+  String get arenaTbShortGf;
+
+  /// No description provided for @arenaTbShortGa.
+  ///
+  /// In en, this message translates to:
+  /// **'GA'**
+  String get arenaTbShortGa;
+
+  /// No description provided for @arenaTbExplainH2h.
+  ///
+  /// In en, this message translates to:
+  /// **'Teams level on points are ranked by the matches they played against each other: points first, then goal difference in those matches.'**
+  String get arenaTbExplainH2h;
+
+  /// No description provided for @arenaTbExplainGd.
+  ///
+  /// In en, this message translates to:
+  /// **'Goals scored minus goals conceded over all matches.'**
+  String get arenaTbExplainGd;
+
+  /// No description provided for @arenaTbExplainGf.
+  ///
+  /// In en, this message translates to:
+  /// **'The team that scored more goals ranks higher.'**
+  String get arenaTbExplainGf;
+
+  /// No description provided for @arenaTbExplainGa.
+  ///
+  /// In en, this message translates to:
+  /// **'The team that conceded fewer goals ranks higher.'**
+  String get arenaTbExplainGa;
+
+  /// No description provided for @arenaKoPenalties.
+  ///
+  /// In en, this message translates to:
+  /// **'Penalties'**
+  String get arenaKoPenalties;
+
+  /// No description provided for @arenaKoExtraTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Extra time'**
+  String get arenaKoExtraTime;
+
+  /// No description provided for @arenaKoReplay.
+  ///
+  /// In en, this message translates to:
+  /// **'Replay'**
+  String get arenaKoReplay;
+
+  /// No description provided for @arenaKoHintPenalties.
+  ///
+  /// In en, this message translates to:
+  /// **'Level after normal time: decided by a penalty shoot-out.'**
+  String get arenaKoHintPenalties;
+
+  /// No description provided for @arenaKoHintExtraTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Level after normal time: extra time is played. If still level, penalties decide.'**
+  String get arenaKoHintExtraTime;
+
+  /// No description provided for @arenaKoHintReplay.
+  ///
+  /// In en, this message translates to:
+  /// **'Level after normal time: the match is played again until there is a winner.'**
+  String get arenaKoHintReplay;
+
+  /// No description provided for @arenaAet.
+  ///
+  /// In en, this message translates to:
+  /// **'a.e.t.'**
+  String get arenaAet;
+
+  /// No description provided for @arenaPens.
+  ///
+  /// In en, this message translates to:
+  /// **'pens'**
+  String get arenaPens;
+
+  /// No description provided for @arenaColPldShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Pld'**
+  String get arenaColPldShort;
+
+  /// No description provided for @arenaColWShort.
+  ///
+  /// In en, this message translates to:
+  /// **'W'**
+  String get arenaColWShort;
+
+  /// No description provided for @arenaColDShort.
+  ///
+  /// In en, this message translates to:
+  /// **'D'**
+  String get arenaColDShort;
+
+  /// No description provided for @arenaColLShort.
+  ///
+  /// In en, this message translates to:
+  /// **'L'**
+  String get arenaColLShort;
+
+  /// No description provided for @arenaColGfShort.
+  ///
+  /// In en, this message translates to:
+  /// **'GF'**
+  String get arenaColGfShort;
+
+  /// No description provided for @arenaColGaShort.
+  ///
+  /// In en, this message translates to:
+  /// **'GA'**
+  String get arenaColGaShort;
+
+  /// No description provided for @arenaColGdShort.
+  ///
+  /// In en, this message translates to:
+  /// **'GD'**
+  String get arenaColGdShort;
+
+  /// No description provided for @arenaColPtsShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Pts'**
+  String get arenaColPtsShort;
+
+  /// No description provided for @arenaColPlayed.
+  ///
+  /// In en, this message translates to:
+  /// **'Played'**
+  String get arenaColPlayed;
+
+  /// No description provided for @arenaColWins.
+  ///
+  /// In en, this message translates to:
+  /// **'Wins'**
+  String get arenaColWins;
+
+  /// No description provided for @arenaColDraws.
+  ///
+  /// In en, this message translates to:
+  /// **'Draws'**
+  String get arenaColDraws;
+
+  /// No description provided for @arenaColLosses.
+  ///
+  /// In en, this message translates to:
+  /// **'Losses'**
+  String get arenaColLosses;
+
+  /// No description provided for @arenaColGoalsFor.
+  ///
+  /// In en, this message translates to:
+  /// **'Goals for'**
+  String get arenaColGoalsFor;
+
+  /// No description provided for @arenaColGoalsAgainst.
+  ///
+  /// In en, this message translates to:
+  /// **'Goals against'**
+  String get arenaColGoalsAgainst;
+
+  /// No description provided for @arenaColGoalDifference.
+  ///
+  /// In en, this message translates to:
+  /// **'Goal difference'**
+  String get arenaColGoalDifference;
+
+  /// No description provided for @arenaColPoints.
+  ///
+  /// In en, this message translates to:
+  /// **'Points'**
+  String get arenaColPoints;
+
+  /// No description provided for @arenaScorePens.
+  ///
+  /// In en, this message translates to:
+  /// **'{score} ({pens} pens)'**
+  String arenaScorePens(String score, String pens);
+
+  /// No description provided for @arenaErrKillPoints.
+  ///
+  /// In en, this message translates to:
+  /// **'Kill points cannot be negative.'**
+  String get arenaErrKillPoints;
+
+  /// No description provided for @arenaErrPlacementRows.
+  ///
+  /// In en, this message translates to:
+  /// **'The placement table needs exactly {slots} rows (one per participant or team); it has {count}.'**
+  String arenaErrPlacementRows(int slots, int count);
+
+  /// No description provided for @arenaErrPlacementNegative.
+  ///
+  /// In en, this message translates to:
+  /// **'Placement points cannot be negative.'**
+  String get arenaErrPlacementNegative;
+
+  /// No description provided for @arenaErrPlacementOrder.
+  ///
+  /// In en, this message translates to:
+  /// **'A lower placement cannot score more than a higher one (#{lower} scores more than #{higher}).'**
+  String arenaErrPlacementOrder(int lower, int higher);
+
+  /// No description provided for @arenaErrFirstPlace.
+  ///
+  /// In en, this message translates to:
+  /// **'1st place must score more than 0.'**
+  String get arenaErrFirstPlace;
+
+  /// No description provided for @arenaErrZeroTail.
+  ///
+  /// In en, this message translates to:
+  /// **'The last {count} placements must score 0 placement points.'**
+  String arenaErrZeroTail(int count);
+
+  /// No description provided for @arenaTbd.
+  ///
+  /// In en, this message translates to:
+  /// **'TBD'**
+  String get arenaTbd;
+
+  /// No description provided for @arenaUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown'**
+  String get arenaUnknown;
+
+  /// No description provided for @arenaErrNameRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Tournament name is required.'**
+  String get arenaErrNameRequired;
+
+  /// No description provided for @arenaErrMin2.
+  ///
+  /// In en, this message translates to:
+  /// **'Add at least 2 participants.'**
+  String get arenaErrMin2;
+
+  /// No description provided for @arenaErrTooMany.
+  ///
+  /// In en, this message translates to:
+  /// **'Participants ({count}) exceed the maximum ({max}).'**
+  String arenaErrTooMany(int count, int max);
+
+  /// No description provided for @arenaErrDeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'Registration deadline must be on or before the start date.'**
+  String get arenaErrDeadline;
+
+  /// No description provided for @arenaErrWinPoints.
+  ///
+  /// In en, this message translates to:
+  /// **'Win points must be at least the draw points.'**
+  String get arenaErrWinPoints;
+
+  /// No description provided for @arenaErrMinColumns.
+  ///
+  /// In en, this message translates to:
+  /// **'Show at least 1 column in the standings table.'**
+  String get arenaErrMinColumns;
+
+  /// No description provided for @arenaErrMaxColumns.
+  ///
+  /// In en, this message translates to:
+  /// **'The standings table can show at most {max} columns.'**
+  String arenaErrMaxColumns(int max);
+
+  /// No description provided for @arenaErrMinRounds.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan at least 1 round.'**
+  String get arenaErrMinRounds;
+
+  /// No description provided for @arenaErrMinLeagues.
+  ///
+  /// In en, this message translates to:
+  /// **'Use at least 2 leagues.'**
+  String get arenaErrMinLeagues;
+
+  /// No description provided for @arenaErrMinGroups.
+  ///
+  /// In en, this message translates to:
+  /// **'Use at least 2 groups per league.'**
+  String get arenaErrMinGroups;
+
+  /// No description provided for @arenaErrNotEnough.
+  ///
+  /// In en, this message translates to:
+  /// **'Not enough participants: {leagues} league(s) x {groups} group(s) need at least {min}.'**
+  String arenaErrNotEnough(int leagues, int groups, int min);
+
+  /// No description provided for @arenaErrMinQualifier.
+  ///
+  /// In en, this message translates to:
+  /// **'At least 1 qualifier per group is required.'**
+  String get arenaErrMinQualifier;
+
+  /// No description provided for @arenaErrQualifiersExceed.
+  ///
+  /// In en, this message translates to:
+  /// **'Qualifiers per group ({q}) exceed the smallest group size ({min}).'**
+  String arenaErrQualifiersExceed(int q, int min);
+
+  /// No description provided for @arenaErrMin2Qualify.
+  ///
+  /// In en, this message translates to:
+  /// **'At least 2 participants must qualify for the knockout.'**
+  String get arenaErrMin2Qualify;
+
+  /// No description provided for @arenaErrWinnerColumns.
+  ///
+  /// In en, this message translates to:
+  /// **'{mode} is decided by the winner: pick at least one of {columns}.'**
+  String arenaErrWinnerColumns(String mode, String columns);
+
+  /// No description provided for @arenaErrMaxTeams.
+  ///
+  /// In en, this message translates to:
+  /// **'{mode} allows at most {cap} teams (you have {count}).'**
+  String arenaErrMaxTeams(String mode, int cap, int count);
+
+  /// No description provided for @arenaErrMaxPlayers.
+  ///
+  /// In en, this message translates to:
+  /// **'{mode} allows at most {cap} players (you have {count}).'**
+  String arenaErrMaxPlayers(String mode, int cap, int count);
+
+  /// No description provided for @arenaErrMinTeamsBr.
+  ///
+  /// In en, this message translates to:
+  /// **'{mode} needs at least {min} teams (placement points are not awarded to the last {tail} places).'**
+  String arenaErrMinTeamsBr(String mode, int min, int tail);
+
+  /// No description provided for @arenaErrMinPlayersBr.
+  ///
+  /// In en, this message translates to:
+  /// **'{mode} needs at least {min} players (placement points are not awarded to the last {tail} places).'**
+  String arenaErrMinPlayersBr(String mode, int min, int tail);
+
+  /// No description provided for @arenaErrExactPlayers.
+  ///
+  /// In en, this message translates to:
+  /// **'\"{name}\" must have exactly {size} players.'**
+  String arenaErrExactPlayers(String name, int size);
+
+  /// No description provided for @arenaErrBetweenPlayers.
+  ///
+  /// In en, this message translates to:
+  /// **'\"{name}\" must have between 1 and {size} players.'**
+  String arenaErrBetweenPlayers(String name, int size);
+
+  /// No description provided for @arenaErrAssignedTwice.
+  ///
+  /// In en, this message translates to:
+  /// **'Player \"{name}\" is assigned twice.'**
+  String arenaErrAssignedTwice(String name);
+
+  /// No description provided for @arenaErrAppearsTwice.
+  ///
+  /// In en, this message translates to:
+  /// **'Player \"{name}\" appears more than once.'**
+  String arenaErrAppearsTwice(String name);
+
+  /// No description provided for @arenaErrMinTotalPlayers.
+  ///
+  /// In en, this message translates to:
+  /// **'At least {min} players must be registered in total (currently {total}).'**
+  String arenaErrMinTotalPlayers(int min, int total);
+
+  /// No description provided for @arenaLogCreatedBr.
+  ///
+  /// In en, this message translates to:
+  /// **'Tournament created: {count} Battle Royale round(s)'**
+  String arenaLogCreatedBr(int count);
+
+  /// No description provided for @arenaLogCreatedKo.
+  ///
+  /// In en, this message translates to:
+  /// **'Tournament created: knockout bracket generated'**
+  String get arenaLogCreatedKo;
+
+  /// No description provided for @arenaLogCreatedFixtures.
+  ///
+  /// In en, this message translates to:
+  /// **'Tournament created: {count} fixtures generated'**
+  String arenaLogCreatedFixtures(int count);
+
+  /// No description provided for @arenaLeague.
+  ///
+  /// In en, this message translates to:
+  /// **'League'**
+  String get arenaLeague;
+
+  /// No description provided for @arenaLeagueLetter.
+  ///
+  /// In en, this message translates to:
+  /// **'League {letter}'**
+  String arenaLeagueLetter(String letter);
+
+  /// No description provided for @arenaGroupName.
+  ///
+  /// In en, this message translates to:
+  /// **'Group {name}'**
+  String arenaGroupName(String name);
+
+  /// No description provided for @arenaFinal.
+  ///
+  /// In en, this message translates to:
+  /// **'Final'**
+  String get arenaFinal;
+
+  /// No description provided for @arenaSemiFinals.
+  ///
+  /// In en, this message translates to:
+  /// **'Semi-finals'**
+  String get arenaSemiFinals;
+
+  /// No description provided for @arenaQuarterFinals.
+  ///
+  /// In en, this message translates to:
+  /// **'Quarter-finals'**
+  String get arenaQuarterFinals;
+
+  /// No description provided for @arenaRoundOf.
+  ///
+  /// In en, this message translates to:
+  /// **'Round of {count}'**
+  String arenaRoundOf(int count);
+
+  /// No description provided for @arenaCritPoints.
+  ///
+  /// In en, this message translates to:
+  /// **'Points'**
+  String get arenaCritPoints;
+
+  /// No description provided for @arenaCritAllLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Level on all criteria (name order)'**
+  String get arenaCritAllLevel;
+
+  /// No description provided for @arenaNoteMorePoints.
+  ///
+  /// In en, this message translates to:
+  /// **'{a} has more points ({pa} vs {pb}).'**
+  String arenaNoteMorePoints(String a, int pa, int pb);
+
+  /// No description provided for @arenaNoteH2hBeat.
+  ///
+  /// In en, this message translates to:
+  /// **'Level on {points} pts. Head-to-head: {a} beat {b} {score} in their direct match.'**
+  String arenaNoteH2hBeat(int points, String a, String b, String score);
+
+  /// No description provided for @arenaNoteH2hRecord.
+  ///
+  /// In en, this message translates to:
+  /// **'Level on {points} pts. Head-to-head: {a} has the better record in the matches between the tied teams.'**
+  String arenaNoteH2hRecord(int points, String a);
+
+  /// No description provided for @arenaNoteGd.
+  ///
+  /// In en, this message translates to:
+  /// **'Level on {points} pts. Goal difference: {a} {va} vs {b} {vb}.'**
+  String arenaNoteGd(int points, String a, String va, String b, String vb);
+
+  /// No description provided for @arenaNoteGf.
+  ///
+  /// In en, this message translates to:
+  /// **'Level on {points} pts. Goals scored: {a} {va} vs {b} {vb}.'**
+  String arenaNoteGf(int points, String a, int va, String b, int vb);
+
+  /// No description provided for @arenaNoteGa.
+  ///
+  /// In en, this message translates to:
+  /// **'Level on {points} pts. Goals against: {a} {va} vs {b} {vb} (fewer is better).'**
+  String arenaNoteGa(int points, String a, int va, String b, int vb);
+
+  /// No description provided for @arenaNoteByName.
+  ///
+  /// In en, this message translates to:
+  /// **'Level on every criterion: ranked by name.'**
+  String get arenaNoteByName;
+
+  /// No description provided for @arenaErrNoGroupStage.
+  ///
+  /// In en, this message translates to:
+  /// **'This tournament has no group stage to qualify from.'**
+  String get arenaErrNoGroupStage;
+
+  /// No description provided for @arenaErrKoAlready.
+  ///
+  /// In en, this message translates to:
+  /// **'The knockout stage was already generated.'**
+  String get arenaErrKoAlready;
+
+  /// No description provided for @arenaErrConfirmGroups.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm every group match before generating the knockout.'**
+  String get arenaErrConfirmGroups;
+
+  /// No description provided for @arenaErrMin2Qualified.
+  ///
+  /// In en, this message translates to:
+  /// **'At least 2 participants must qualify.'**
+  String get arenaErrMin2Qualified;
+
+  /// No description provided for @arenaLogKoGenerated.
+  ///
+  /// In en, this message translates to:
+  /// **'Knockout generated from group standings ({count} qualifiers)'**
+  String arenaLogKoGenerated(int count);
+
+  /// No description provided for @arenaErrScoredMode.
+  ///
+  /// In en, this message translates to:
+  /// **'This mode is scored with a result, not by picking a winner.'**
+  String get arenaErrScoredMode;
+
+  /// No description provided for @arenaErrMatchNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Match not found.'**
+  String get arenaErrMatchNotFound;
+
+  /// No description provided for @arenaErrWinnerSide.
+  ///
+  /// In en, this message translates to:
+  /// **'The winner must be one of the two sides.'**
+  String get arenaErrWinnerSide;
+
+  /// No description provided for @arenaErrByeNoResult.
+  ///
+  /// In en, this message translates to:
+  /// **'A bye has no result.'**
+  String get arenaErrByeNoResult;
+
+  /// No description provided for @arenaErrCancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'This match was cancelled.'**
+  String get arenaErrCancelled;
+
+  /// No description provided for @arenaErrBothKnown.
+  ///
+  /// In en, this message translates to:
+  /// **'Both participants must be known first.'**
+  String get arenaErrBothKnown;
+
+  /// No description provided for @arenaErrNegativeScore.
+  ///
+  /// In en, this message translates to:
+  /// **'Scores cannot be negative.'**
+  String get arenaErrNegativeScore;
+
+  /// No description provided for @arenaErrKoLocksGroups.
+  ///
+  /// In en, this message translates to:
+  /// **'The knockout stage is already generated. Reset results to change group scores.'**
+  String get arenaErrKoLocksGroups;
+
+  /// No description provided for @arenaErrNextRoundPlayed.
+  ///
+  /// In en, this message translates to:
+  /// **'The next round was already played. Reset results to change this score.'**
+  String get arenaErrNextRoundPlayed;
+
+  /// No description provided for @arenaLogReplay.
+  ///
+  /// In en, this message translates to:
+  /// **'Draw {score}: {home} vs {away} will be replayed (replay #{n})'**
+  String arenaLogReplay(String score, String home, String away, int n);
+
+  /// No description provided for @arenaErrEnterPensAfterNormal.
+  ///
+  /// In en, this message translates to:
+  /// **'Level after normal time: enter the penalty shoot-out score.'**
+  String get arenaErrEnterPensAfterNormal;
+
+  /// No description provided for @arenaErrEnterPensAfterExtra.
+  ///
+  /// In en, this message translates to:
+  /// **'Level after extra time: enter the penalty shoot-out score.'**
+  String get arenaErrEnterPensAfterExtra;
+
+  /// No description provided for @arenaErrNegativePens.
+  ///
+  /// In en, this message translates to:
+  /// **'Penalty scores cannot be negative.'**
+  String get arenaErrNegativePens;
+
+  /// No description provided for @arenaErrPensWinner.
+  ///
+  /// In en, this message translates to:
+  /// **'A penalty shoot-out needs a winner.'**
+  String get arenaErrPensWinner;
+
+  /// No description provided for @arenaLogAmended.
+  ///
+  /// In en, this message translates to:
+  /// **'Result amended: {names}'**
+  String arenaLogAmended(String names);
+
+  /// No description provided for @arenaLogConfirmed.
+  ///
+  /// In en, this message translates to:
+  /// **'Result confirmed: {names}'**
+  String arenaLogConfirmed(String names);
+
+  /// No description provided for @arenaLockBrConfirmed.
+  ///
+  /// In en, this message translates to:
+  /// **'A Battle Royale round is already confirmed. Reset results to change rosters.'**
+  String get arenaLockBrConfirmed;
+
+  /// No description provided for @arenaLockPlayed.
+  ///
+  /// In en, this message translates to:
+  /// **'A match of these teams was already played. Reset results to make this change.'**
+  String get arenaLockPlayed;
+
+  /// No description provided for @arenaErrParticipantNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Participant not found.'**
+  String get arenaErrParticipantNotFound;
+
+  /// No description provided for @arenaErrNameEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'The name cannot be empty.'**
+  String get arenaErrNameEmpty;
+
+  /// No description provided for @arenaLogRenamed.
+  ///
+  /// In en, this message translates to:
+  /// **'Renamed: {old} -> {name}'**
+  String arenaLogRenamed(String old, String name);
+
+  /// No description provided for @arenaErrNoRosters.
+  ///
+  /// In en, this message translates to:
+  /// **'This mode has no team rosters.'**
+  String get arenaErrNoRosters;
+
+  /// No description provided for @arenaErrTeamNeedsPlayer.
+  ///
+  /// In en, this message translates to:
+  /// **'A team needs at least 1 player.'**
+  String get arenaErrTeamNeedsPlayer;
+
+  /// No description provided for @arenaErrMaxPerTeam.
+  ///
+  /// In en, this message translates to:
+  /// **'{mode} allows at most {size} players per team.'**
+  String arenaErrMaxPerTeam(String mode, int size);
+
+  /// No description provided for @arenaErrExactPerTeam.
+  ///
+  /// In en, this message translates to:
+  /// **'Every team must have exactly {size} players.'**
+  String arenaErrExactPerTeam(int size);
+
+  /// No description provided for @arenaErrPlayerNameEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Player names cannot be empty.'**
+  String get arenaErrPlayerNameEmpty;
+
+  /// No description provided for @arenaErrAlreadyInTeam.
+  ///
+  /// In en, this message translates to:
+  /// **'\"{name}\" is already assigned to a team.'**
+  String arenaErrAlreadyInTeam(String name);
+
+  /// No description provided for @arenaErrAlreadyRegistered.
+  ///
+  /// In en, this message translates to:
+  /// **'\"{name}\" is already registered.'**
+  String arenaErrAlreadyRegistered(String name);
+
+  /// No description provided for @arenaLogRoster.
+  ///
+  /// In en, this message translates to:
+  /// **'Roster updated: {team} ({count} players)'**
+  String arenaLogRoster(String team, int count);
+
+  /// No description provided for @arenaErrChooseTwo.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose two different ones.'**
+  String get arenaErrChooseTwo;
+
+  /// No description provided for @arenaLogSwapped.
+  ///
+  /// In en, this message translates to:
+  /// **'Swapped: {a} <-> {b}'**
+  String arenaLogSwapped(String a, String b);
+
+  /// No description provided for @arenaErrChooseTwoPlayers.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose two different players.'**
+  String get arenaErrChooseTwoPlayers;
+
+  /// No description provided for @arenaErrPlayerNotInTeam.
+  ///
+  /// In en, this message translates to:
+  /// **'Player not found in that team.'**
+  String get arenaErrPlayerNotInTeam;
+
+  /// No description provided for @arenaLogPlayersSwapped.
+  ///
+  /// In en, this message translates to:
+  /// **'Players swapped: {a} ({ta}) <-> {b} ({tb})'**
+  String arenaLogPlayersSwapped(String a, String ta, String b, String tb);
+
+  /// No description provided for @arenaErrOnlyBrRounds.
+  ///
+  /// In en, this message translates to:
+  /// **'Only Battle Royale tournaments have rounds.'**
+  String get arenaErrOnlyBrRounds;
+
+  /// No description provided for @arenaLogRoundAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Round {n} added'**
+  String arenaLogRoundAdded(int n);
+
+  /// No description provided for @arenaErrRoundNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Round not found.'**
+  String get arenaErrRoundNotFound;
+
+  /// No description provided for @arenaErrUnknownInResults.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown participant in results.'**
+  String get arenaErrUnknownInResults;
+
+  /// No description provided for @arenaErrEnterPlacements.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a placement for every participant.'**
+  String get arenaErrEnterPlacements;
+
+  /// No description provided for @arenaErrPlacementRange.
+  ///
+  /// In en, this message translates to:
+  /// **'Placements must be between 1 and {n}.'**
+  String arenaErrPlacementRange(int n);
+
+  /// No description provided for @arenaErrSamePlacement.
+  ///
+  /// In en, this message translates to:
+  /// **'Two participants have placement {n}.'**
+  String arenaErrSamePlacement(int n);
+
+  /// No description provided for @arenaErrNegativeKills.
+  ///
+  /// In en, this message translates to:
+  /// **'Kills cannot be negative.'**
+  String get arenaErrNegativeKills;
+
+  /// No description provided for @arenaLogRoundAmended.
+  ///
+  /// In en, this message translates to:
+  /// **'Round {n} amended'**
+  String arenaLogRoundAmended(int n);
+
+  /// No description provided for @arenaLogRoundConfirmed.
+  ///
+  /// In en, this message translates to:
+  /// **'Round {n} confirmed'**
+  String arenaLogRoundConfirmed(int n);
+
+  /// No description provided for @arenaCritWins.
+  ///
+  /// In en, this message translates to:
+  /// **'Wins'**
+  String get arenaCritWins;
+
+  /// No description provided for @arenaCritKills.
+  ///
+  /// In en, this message translates to:
+  /// **'Kills'**
+  String get arenaCritKills;
+
+  /// No description provided for @arenaCritLastRound.
+  ///
+  /// In en, this message translates to:
+  /// **'Last round placement'**
+  String get arenaCritLastRound;
+
+  /// No description provided for @arenaCritNameOrder.
+  ///
+  /// In en, this message translates to:
+  /// **'Name order'**
+  String get arenaCritNameOrder;
+
+  /// No description provided for @arenaBrNoteWins.
+  ///
+  /// In en, this message translates to:
+  /// **'Level on {points} pts. Wins (1st places): {a} {wa} vs {b} {wb}.'**
+  String arenaBrNoteWins(int points, String a, int wa, String b, int wb);
+
+  /// No description provided for @arenaBrNoteKills.
+  ///
+  /// In en, this message translates to:
+  /// **'Level on {points} pts and wins. Kills: {a} {ka} vs {b} {kb}.'**
+  String arenaBrNoteKills(int points, String a, int ka, String b, int kb);
+
+  /// No description provided for @arenaBrNoteLastRound.
+  ///
+  /// In en, this message translates to:
+  /// **'Level on points, wins and kills. Better placement in the latest round: {a}.'**
+  String arenaBrNoteLastRound(String a);
+
+  /// No description provided for @arenaLogReset.
+  ///
+  /// In en, this message translates to:
+  /// **'All results were reset by the organizer'**
+  String get arenaLogReset;
 }
 
 class _AppLocalizationsDelegate

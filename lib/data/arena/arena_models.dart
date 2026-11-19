@@ -3,6 +3,7 @@
 // Hierarchy: Tournament -> Leagues -> Groups -> Participants -> Matches.
 // Standings are NEVER stored: they are derived from confirmed match results
 // (see arena_engine.dart), so they cannot drift out of sync with the results.
+import '../../core/l10n.dart';
 
 enum ArenaStructure {
   singleLeague,
@@ -15,22 +16,21 @@ enum ArenaStructure {
 
 extension ArenaStructureX on ArenaStructure {
   String get label => switch (this) {
-        ArenaStructure.singleLeague => 'Single League',
-        ArenaStructure.multipleLeagues => 'Multiple Leagues',
-        ArenaStructure.groupsOnly => 'Groups Only',
-        ArenaStructure.groupsKnockout => 'Groups + Knockout',
-        ArenaStructure.multiLeaguesGroupsKnockout => 'Leagues + Groups + Knockout',
-        ArenaStructure.knockoutOnly => 'Knockout Only',
+        ArenaStructure.singleLeague => appL10n.arenaStructSingleLeague,
+        ArenaStructure.multipleLeagues => appL10n.arenaStructMultipleLeagues,
+        ArenaStructure.groupsOnly => appL10n.arenaStructGroupsOnly,
+        ArenaStructure.groupsKnockout => appL10n.arenaStructGroupsKnockout,
+        ArenaStructure.multiLeaguesGroupsKnockout => appL10n.arenaStructLeaguesGroupsKnockout,
+        ArenaStructure.knockoutOnly => appL10n.arenaStructKnockoutOnly,
       };
 
   String get hint => switch (this) {
-        ArenaStructure.singleLeague => 'Everyone plays everyone in one table.',
-        ArenaStructure.multipleLeagues => 'Participants are split into several independent leagues.',
-        ArenaStructure.groupsOnly => 'One league divided into groups, each with its own table.',
-        ArenaStructure.groupsKnockout => 'Group stage, then the best qualify for a knockout bracket.',
-        ArenaStructure.multiLeaguesGroupsKnockout =>
-          'Several leagues, each with groups; qualifiers meet in one knockout.',
-        ArenaStructure.knockoutOnly => 'Single-elimination bracket with byes when needed.',
+        ArenaStructure.singleLeague => appL10n.arenaHintSingleLeague,
+        ArenaStructure.multipleLeagues => appL10n.arenaHintMultipleLeagues,
+        ArenaStructure.groupsOnly => appL10n.arenaHintGroupsOnly,
+        ArenaStructure.groupsKnockout => appL10n.arenaHintGroupsKnockout,
+        ArenaStructure.multiLeaguesGroupsKnockout => appL10n.arenaHintLeaguesGroupsKnockout,
+        ArenaStructure.knockoutOnly => appL10n.arenaHintKnockoutOnly,
       };
 
   bool get hasKnockout =>
@@ -297,28 +297,25 @@ const kTiebreakClassic = [
 
 extension TiebreakerX on Tiebreaker {
   String get label => switch (this) {
-        Tiebreaker.headToHead => 'Head-to-head',
-        Tiebreaker.goalDifference => 'Goal difference',
-        Tiebreaker.goalsScored => 'Goals scored',
-        Tiebreaker.goalsAgainst => 'Goals against',
+        Tiebreaker.headToHead => appL10n.arenaTbHeadToHead,
+        Tiebreaker.goalDifference => appL10n.arenaTbGoalDifference,
+        Tiebreaker.goalsScored => appL10n.arenaTbGoalsScored,
+        Tiebreaker.goalsAgainst => appL10n.arenaTbGoalsAgainst,
       };
 
   String get short => switch (this) {
-        Tiebreaker.headToHead => 'H2H',
-        Tiebreaker.goalDifference => 'GD',
-        Tiebreaker.goalsScored => 'GF',
-        Tiebreaker.goalsAgainst => 'GA',
+        Tiebreaker.headToHead => appL10n.arenaTbShortH2h,
+        Tiebreaker.goalDifference => appL10n.arenaTbShortGd,
+        Tiebreaker.goalsScored => appL10n.arenaTbShortGf,
+        Tiebreaker.goalsAgainst => appL10n.arenaTbShortGa,
       };
 
   /// Plain-language rule, shown on the rules screen and in the standings.
   String get explanation => switch (this) {
-        Tiebreaker.headToHead =>
-          'Teams level on points are ranked by the matches they played against each other: '
-              'points first, then goal difference in those matches.',
-        Tiebreaker.goalDifference =>
-          'Goals scored minus goals conceded over all matches.',
-        Tiebreaker.goalsScored => 'The team that scored more goals ranks higher.',
-        Tiebreaker.goalsAgainst => 'The team that conceded fewer goals ranks higher.',
+        Tiebreaker.headToHead => appL10n.arenaTbExplainH2h,
+        Tiebreaker.goalDifference => appL10n.arenaTbExplainGd,
+        Tiebreaker.goalsScored => appL10n.arenaTbExplainGf,
+        Tiebreaker.goalsAgainst => appL10n.arenaTbExplainGa,
       };
 }
 
@@ -328,16 +325,15 @@ enum KnockoutDraw { penalties, extraTime, replay }
 
 extension KnockoutDrawX on KnockoutDraw {
   String get label => switch (this) {
-        KnockoutDraw.penalties => 'Penalties',
-        KnockoutDraw.extraTime => 'Extra time',
-        KnockoutDraw.replay => 'Replay',
+        KnockoutDraw.penalties => appL10n.arenaKoPenalties,
+        KnockoutDraw.extraTime => appL10n.arenaKoExtraTime,
+        KnockoutDraw.replay => appL10n.arenaKoReplay,
       };
 
   String get hint => switch (this) {
-        KnockoutDraw.penalties => 'Level after normal time: decided by a penalty shoot-out.',
-        KnockoutDraw.extraTime =>
-          'Level after normal time: extra time is played. If still level, penalties decide.',
-        KnockoutDraw.replay => 'Level after normal time: the match is played again until there is a winner.',
+        KnockoutDraw.penalties => appL10n.arenaKoHintPenalties,
+        KnockoutDraw.extraTime => appL10n.arenaKoHintExtraTime,
+        KnockoutDraw.replay => appL10n.arenaKoHintReplay,
       };
 }
 
@@ -347,8 +343,8 @@ enum MatchDecider { regular, extraTime, penalties }
 extension MatchDeciderX on MatchDecider {
   String get label => switch (this) {
         MatchDecider.regular => '',
-        MatchDecider.extraTime => 'a.e.t.',
-        MatchDecider.penalties => 'pens',
+        MatchDecider.extraTime => appL10n.arenaAet,
+        MatchDecider.penalties => appL10n.arenaPens,
       };
 }
 
@@ -381,25 +377,25 @@ const kDefaultStandingColumns = [
 
 extension StatColumnX on StatColumn {
   String get short => switch (this) {
-        StatColumn.played => 'Pld',
-        StatColumn.won => 'W',
-        StatColumn.drawn => 'D',
-        StatColumn.lost => 'L',
-        StatColumn.goalsFor => 'GF',
-        StatColumn.goalsAgainst => 'GA',
-        StatColumn.goalDifference => 'GD',
-        StatColumn.points => 'Pts',
+        StatColumn.played => appL10n.arenaColPldShort,
+        StatColumn.won => appL10n.arenaColWShort,
+        StatColumn.drawn => appL10n.arenaColDShort,
+        StatColumn.lost => appL10n.arenaColLShort,
+        StatColumn.goalsFor => appL10n.arenaColGfShort,
+        StatColumn.goalsAgainst => appL10n.arenaColGaShort,
+        StatColumn.goalDifference => appL10n.arenaColGdShort,
+        StatColumn.points => appL10n.arenaColPtsShort,
       };
 
   String get label => switch (this) {
-        StatColumn.played => 'Played',
-        StatColumn.won => 'Wins',
-        StatColumn.drawn => 'Draws',
-        StatColumn.lost => 'Losses',
-        StatColumn.goalsFor => 'Goals for',
-        StatColumn.goalsAgainst => 'Goals against',
-        StatColumn.goalDifference => 'Goal difference',
-        StatColumn.points => 'Points',
+        StatColumn.played => appL10n.arenaColPlayed,
+        StatColumn.won => appL10n.arenaColWins,
+        StatColumn.drawn => appL10n.arenaColDraws,
+        StatColumn.lost => appL10n.arenaColLosses,
+        StatColumn.goalsFor => appL10n.arenaColGoalsFor,
+        StatColumn.goalsAgainst => appL10n.arenaColGoalsAgainst,
+        StatColumn.goalDifference => appL10n.arenaColGoalDifference,
+        StatColumn.points => appL10n.arenaColPoints,
       };
 }
 
@@ -607,8 +603,8 @@ class ArenaMatch {
     if (h == null || a == null) return '';
     return switch (decidedBy) {
       MatchDecider.penalties when homePens != null && awayPens != null =>
-        '$h-$a ($homePens-$awayPens pens)',
-      MatchDecider.extraTime => '$h-$a a.e.t.',
+        appL10n.arenaScorePens('$h-$a', '$homePens-$awayPens'),
+      MatchDecider.extraTime => '$h-$a ${appL10n.arenaAet}',
       _ => '$h-$a',
     };
   }
@@ -746,25 +742,24 @@ class BrScoring {
   /// Problems that must be fixed before the tournament can start.
   List<String> validate(int slots) {
     final errors = <String>[];
-    if (killPoints < 0) errors.add('Kill points cannot be negative.');
+    if (killPoints < 0) errors.add(appL10n.arenaErrKillPoints);
     if (placementPoints.length != slots) {
-      errors.add('The placement table needs exactly $slots rows (one per participant or team); '
-          'it has ${placementPoints.length}.');
+      errors.add(appL10n.arenaErrPlacementRows(slots, placementPoints.length));
       return errors;
     }
-    if (placementPoints.any((p) => p < 0)) errors.add('Placement points cannot be negative.');
+    if (placementPoints.any((p) => p < 0)) errors.add(appL10n.arenaErrPlacementNegative);
     for (var i = 1; i < placementPoints.length; i++) {
       if (placementPoints[i] > placementPoints[i - 1]) {
-        errors.add('A lower placement cannot score more than a higher one (#${i + 1} scores more than #$i).');
+        errors.add(appL10n.arenaErrPlacementOrder(i + 1, i));
         break;
       }
     }
     if (slots > zeroTail && placementPoints.first <= 0) {
-      errors.add('1st place must score more than 0.');
+      errors.add(appL10n.arenaErrFirstPlace);
     }
     final tail = placementPoints.skip(slots - zeroTail < 0 ? 0 : slots - zeroTail);
     if (tail.any((p) => p != 0)) {
-      errors.add('The last $zeroTail placements must score 0 placement points.');
+      errors.add(appL10n.arenaErrZeroTail(zeroTail));
     }
     return errors;
   }
@@ -920,11 +915,11 @@ class Tournament {
       matches.any((m) => m.isConfirmed && !m.bye) || brRounds.any((r) => r.confirmed);
 
   String participantName(String? id) {
-    if (id == null) return 'TBD';
+    if (id == null) return appL10n.arenaTbd;
     for (final p in participants) {
       if (p.id == id) return p.display;
     }
-    return 'Unknown';
+    return appL10n.arenaUnknown;
   }
 
   Tournament copyWith({
@@ -1054,4 +1049,23 @@ class Tournament {
             ],
     );
   }
+}
+
+/// [ArenaGameMode.detail] in the app language. The English [detail] stays the
+/// stable source; mode labels (Battle Royale Squad, PvP...) are game terms and
+/// are not translated.
+extension ArenaGameModeL10n on ArenaGameMode {
+  String get localDetail => switch (detail) {
+        'up to 48 players' => appL10n.arenaDetailUpTo48Players,
+        'up to 24 teams · 2 players each' => appL10n.arenaDetailDuo,
+        'up to 12 teams · 4 players each' => appL10n.arenaDetailSquad,
+        '1 player per team' => appL10n.arenaDetailOnePerTeam,
+        'up to 2 players per team' => appL10n.arenaDetailUpTo2,
+        'up to 4 players per team' => appL10n.arenaDetailUpTo4,
+        'up to 8 players per team' => appL10n.arenaDetailUpTo8,
+        '1 vs 1' => appL10n.arenaDetail1v1,
+        'team vs team · up to 3 players per team' => appL10n.arenaDetailCoop,
+        'custom team size' => appL10n.arenaDetailCustom,
+        _ => detail,
+      };
 }

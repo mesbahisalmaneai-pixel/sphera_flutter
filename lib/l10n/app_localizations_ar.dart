@@ -2405,4 +2405,625 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get globeHelpSearch => 'الشريط في الأسفل يجد أي شاشة باسمها.';
+
+  @override
+  String get arenaStructSingleLeague => 'دوري واحد';
+
+  @override
+  String get arenaStructMultipleLeagues => 'عدة دوريات';
+
+  @override
+  String get arenaStructGroupsOnly => 'مجموعات فقط';
+
+  @override
+  String get arenaStructGroupsKnockout => 'مجموعات + إقصائيات';
+
+  @override
+  String get arenaStructLeaguesGroupsKnockout => 'دوريات + مجموعات + إقصائيات';
+
+  @override
+  String get arenaStructKnockoutOnly => 'إقصائيات فقط';
+
+  @override
+  String get arenaHintSingleLeague => 'الجميع يلعب ضد الجميع في جدول واحد.';
+
+  @override
+  String get arenaHintMultipleLeagues =>
+      'يُوزَّع المشاركون على عدة دوريات مستقلة.';
+
+  @override
+  String get arenaHintGroupsOnly =>
+      'دوري واحد مقسّم إلى مجموعات، لكل منها جدولها.';
+
+  @override
+  String get arenaHintGroupsKnockout =>
+      'دور المجموعات، ثم يتأهل الأفضل إلى الأدوار الإقصائية.';
+
+  @override
+  String get arenaHintLeaguesGroupsKnockout =>
+      'عدة دوريات، لكل منها مجموعات؛ يلتقي المتأهلون في أدوار إقصائية واحدة.';
+
+  @override
+  String get arenaHintKnockoutOnly =>
+      'أدوار إقصائية مباشرة مع إعفاءات عند الحاجة.';
+
+  @override
+  String get arenaDetailUpTo48Players => 'حتى 48 لاعبًا';
+
+  @override
+  String get arenaDetailDuo => 'حتى 24 فريقًا · لاعبان لكل فريق';
+
+  @override
+  String get arenaDetailSquad => 'حتى 12 فريقًا · 4 لاعبين لكل فريق';
+
+  @override
+  String get arenaDetailOnePerTeam => 'لاعب واحد لكل فريق';
+
+  @override
+  String get arenaDetailUpTo2 => 'حتى لاعبَين لكل فريق';
+
+  @override
+  String get arenaDetailUpTo4 => 'حتى 4 لاعبين لكل فريق';
+
+  @override
+  String get arenaDetailUpTo8 => 'حتى 8 لاعبين لكل فريق';
+
+  @override
+  String get arenaDetail1v1 => '1 ضد 1';
+
+  @override
+  String get arenaDetailCoop => 'فريق ضد فريق · حتى 3 لاعبين لكل فريق';
+
+  @override
+  String get arenaDetailCustom => 'حجم فريق مخصص';
+
+  @override
+  String get arenaTbHeadToHead => 'المواجهة المباشرة';
+
+  @override
+  String get arenaTbGoalDifference => 'فارق الأهداف';
+
+  @override
+  String get arenaTbGoalsScored => 'الأهداف المسجلة';
+
+  @override
+  String get arenaTbGoalsAgainst => 'الأهداف المستقبلة';
+
+  @override
+  String get arenaTbShortH2h => 'مواجهة';
+
+  @override
+  String get arenaTbShortGd => 'فارق';
+
+  @override
+  String get arenaTbShortGf => 'له';
+
+  @override
+  String get arenaTbShortGa => 'عليه';
+
+  @override
+  String get arenaTbExplainH2h =>
+      'تُرتَّب الفرق المتساوية في النقاط حسب مبارياتها فيما بينها: النقاط أولًا، ثم فارق الأهداف في تلك المباريات.';
+
+  @override
+  String get arenaTbExplainGd =>
+      'الأهداف المسجلة ناقص الأهداف المستقبلة في كل المباريات.';
+
+  @override
+  String get arenaTbExplainGf => 'الفريق الذي سجّل أهدافًا أكثر يُرتَّب أعلى.';
+
+  @override
+  String get arenaTbExplainGa => 'الفريق الذي استقبل أهدافًا أقل يُرتَّب أعلى.';
+
+  @override
+  String get arenaKoPenalties => 'ركلات الترجيح';
+
+  @override
+  String get arenaKoExtraTime => 'الوقت الإضافي';
+
+  @override
+  String get arenaKoReplay => 'إعادة المباراة';
+
+  @override
+  String get arenaKoHintPenalties =>
+      'تعادل بعد الوقت الأصلي: تُحسم بركلات الترجيح.';
+
+  @override
+  String get arenaKoHintExtraTime =>
+      'تعادل بعد الوقت الأصلي: يُلعب وقت إضافي. وإن استمر التعادل تُحسم بركلات الترجيح.';
+
+  @override
+  String get arenaKoHintReplay =>
+      'تعادل بعد الوقت الأصلي: تُعاد المباراة حتى يظهر فائز.';
+
+  @override
+  String get arenaAet => 'بعد التمديد';
+
+  @override
+  String get arenaPens => 'ترجيح';
+
+  @override
+  String get arenaColPldShort => 'لعب';
+
+  @override
+  String get arenaColWShort => 'ف';
+
+  @override
+  String get arenaColDShort => 'ت';
+
+  @override
+  String get arenaColLShort => 'خ';
+
+  @override
+  String get arenaColGfShort => 'له';
+
+  @override
+  String get arenaColGaShort => 'عليه';
+
+  @override
+  String get arenaColGdShort => 'فارق';
+
+  @override
+  String get arenaColPtsShort => 'نقاط';
+
+  @override
+  String get arenaColPlayed => 'الملعوبة';
+
+  @override
+  String get arenaColWins => 'الانتصارات';
+
+  @override
+  String get arenaColDraws => 'التعادلات';
+
+  @override
+  String get arenaColLosses => 'الهزائم';
+
+  @override
+  String get arenaColGoalsFor => 'الأهداف له';
+
+  @override
+  String get arenaColGoalsAgainst => 'الأهداف عليه';
+
+  @override
+  String get arenaColGoalDifference => 'فارق الأهداف';
+
+  @override
+  String get arenaColPoints => 'النقاط';
+
+  @override
+  String arenaScorePens(String score, String pens) {
+    return '⁦$score⁩ (ترجيح ⁦$pens⁩)';
+  }
+
+  @override
+  String get arenaErrKillPoints => 'نقاط القتل لا يمكن أن تكون سالبة.';
+
+  @override
+  String arenaErrPlacementRows(int slots, int count) {
+    return 'جدول المراكز يحتاج بالضبط $slots صفًا (صف لكل مشارك أو فريق)؛ وفيه $count.';
+  }
+
+  @override
+  String get arenaErrPlacementNegative => 'نقاط المراكز لا يمكن أن تكون سالبة.';
+
+  @override
+  String arenaErrPlacementOrder(int lower, int higher) {
+    return 'لا يمكن أن يحصل مركز أدنى على نقاط أكثر من مركز أعلى (المركز $lower أكثر من المركز $higher).';
+  }
+
+  @override
+  String get arenaErrFirstPlace => 'المركز الأول يجب أن يحصل على أكثر من 0.';
+
+  @override
+  String arenaErrZeroTail(int count) {
+    return 'آخر $count مراكز يجب أن تحصل على 0 نقطة.';
+  }
+
+  @override
+  String get arenaTbd => 'يُحدَّد لاحقًا';
+
+  @override
+  String get arenaUnknown => 'غير معروف';
+
+  @override
+  String get arenaErrNameRequired => 'اسم البطولة مطلوب.';
+
+  @override
+  String get arenaErrMin2 => 'أضف مشاركَين على الأقل.';
+
+  @override
+  String arenaErrTooMany(int count, int max) {
+    return 'عدد المشاركين ($count) يتجاوز الحد الأقصى ($max).';
+  }
+
+  @override
+  String get arenaErrDeadline =>
+      'يجب أن يكون آخر موعد للتسجيل في تاريخ البدء أو قبله.';
+
+  @override
+  String get arenaErrWinPoints => 'نقاط الفوز يجب ألا تقل عن نقاط التعادل.';
+
+  @override
+  String get arenaErrMinColumns =>
+      'اعرض عمودًا واحدًا على الأقل في جدول الترتيب.';
+
+  @override
+  String arenaErrMaxColumns(int max) {
+    return 'يمكن لجدول الترتيب عرض $max أعمدة كحد أقصى.';
+  }
+
+  @override
+  String get arenaErrMinRounds => 'خطّط لجولة واحدة على الأقل.';
+
+  @override
+  String get arenaErrMinLeagues => 'استعمل دوريَين على الأقل.';
+
+  @override
+  String get arenaErrMinGroups => 'استعمل مجموعتين على الأقل لكل دوري.';
+
+  @override
+  String arenaErrNotEnough(int leagues, int groups, int min) {
+    return 'عدد المشاركين غير كافٍ: $leagues دوري × $groups مجموعة يحتاج $min على الأقل.';
+  }
+
+  @override
+  String get arenaErrMinQualifier => 'يلزم متأهل واحد على الأقل من كل مجموعة.';
+
+  @override
+  String arenaErrQualifiersExceed(int q, int min) {
+    return 'عدد المتأهلين من كل مجموعة ($q) يتجاوز حجم أصغر مجموعة ($min).';
+  }
+
+  @override
+  String get arenaErrMin2Qualify =>
+      'يجب أن يتأهل مشاركان على الأقل إلى الأدوار الإقصائية.';
+
+  @override
+  String arenaErrWinnerColumns(String mode, String columns) {
+    return '$mode يُحسم بالفائز: اختر واحدًا على الأقل من $columns.';
+  }
+
+  @override
+  String arenaErrMaxTeams(String mode, int cap, int count) {
+    return '$mode يسمح بـ $cap فريقًا كحد أقصى (لديك $count).';
+  }
+
+  @override
+  String arenaErrMaxPlayers(String mode, int cap, int count) {
+    return '$mode يسمح بـ $cap لاعبًا كحد أقصى (لديك $count).';
+  }
+
+  @override
+  String arenaErrMinTeamsBr(String mode, int min, int tail) {
+    return '$mode يحتاج $min فرق على الأقل (آخر $tail مراكز لا تحصل على نقاط).';
+  }
+
+  @override
+  String arenaErrMinPlayersBr(String mode, int min, int tail) {
+    return '$mode يحتاج $min لاعبين على الأقل (آخر $tail مراكز لا تحصل على نقاط).';
+  }
+
+  @override
+  String arenaErrExactPlayers(String name, int size) {
+    return 'يجب أن يضم «$name» $size لاعبين بالضبط.';
+  }
+
+  @override
+  String arenaErrBetweenPlayers(String name, int size) {
+    return 'يجب أن يضم «$name» بين 1 و$size لاعبين.';
+  }
+
+  @override
+  String arenaErrAssignedTwice(String name) {
+    return 'اللاعب «$name» مسجَّل مرتين.';
+  }
+
+  @override
+  String arenaErrAppearsTwice(String name) {
+    return 'اللاعب «$name» يظهر أكثر من مرة.';
+  }
+
+  @override
+  String arenaErrMinTotalPlayers(int min, int total) {
+    return 'يجب تسجيل $min لاعبين على الأقل إجمالًا (حاليًا $total).';
+  }
+
+  @override
+  String arenaLogCreatedBr(int count) {
+    return 'أُنشئت البطولة: $count جولة Battle Royale';
+  }
+
+  @override
+  String get arenaLogCreatedKo => 'أُنشئت البطولة: تم توليد جدول الإقصائيات';
+
+  @override
+  String arenaLogCreatedFixtures(int count) {
+    return 'أُنشئت البطولة: تم توليد $count مباراة';
+  }
+
+  @override
+  String get arenaLeague => 'الدوري';
+
+  @override
+  String arenaLeagueLetter(String letter) {
+    return 'الدوري $letter';
+  }
+
+  @override
+  String arenaGroupName(String name) {
+    return 'المجموعة $name';
+  }
+
+  @override
+  String get arenaFinal => 'النهائي';
+
+  @override
+  String get arenaSemiFinals => 'نصف النهائي';
+
+  @override
+  String get arenaQuarterFinals => 'ربع النهائي';
+
+  @override
+  String arenaRoundOf(int count) {
+    return 'دور الـ$count';
+  }
+
+  @override
+  String get arenaCritPoints => 'النقاط';
+
+  @override
+  String get arenaCritAllLevel => 'تعادل في كل المعايير (ترتيب أبجدي)';
+
+  @override
+  String arenaNoteMorePoints(String a, int pa, int pb) {
+    return 'لدى $a نقاط أكثر (⁦$pa⁩ مقابل ⁦$pb⁩).';
+  }
+
+  @override
+  String arenaNoteH2hBeat(int points, String a, String b, String score) {
+    return 'تعادل بـ$points نقطة. المواجهة المباشرة: فاز $a على $b ⁦$score⁩ في مباراتهما.';
+  }
+
+  @override
+  String arenaNoteH2hRecord(int points, String a) {
+    return 'تعادل بـ$points نقطة. المواجهة المباشرة: لدى $a سجل أفضل في المباريات بين الفرق المتعادلة.';
+  }
+
+  @override
+  String arenaNoteGd(int points, String a, String va, String b, String vb) {
+    return 'تعادل بـ$points نقطة. فارق الأهداف: $a ⁦$va⁩ مقابل $b ⁦$vb⁩.';
+  }
+
+  @override
+  String arenaNoteGf(int points, String a, int va, String b, int vb) {
+    return 'تعادل بـ$points نقطة. الأهداف المسجلة: $a ⁦$va⁩ مقابل $b ⁦$vb⁩.';
+  }
+
+  @override
+  String arenaNoteGa(int points, String a, int va, String b, int vb) {
+    return 'تعادل بـ$points نقطة. الأهداف المستقبلة: $a ⁦$va⁩ مقابل $b ⁦$vb⁩ (الأقل أفضل).';
+  }
+
+  @override
+  String get arenaNoteByName => 'تعادل في كل المعايير: الترتيب حسب الاسم.';
+
+  @override
+  String get arenaErrNoGroupStage =>
+      'هذه البطولة ليس فيها دور مجموعات للتأهل منه.';
+
+  @override
+  String get arenaErrKoAlready => 'تم توليد الأدوار الإقصائية بالفعل.';
+
+  @override
+  String get arenaErrConfirmGroups =>
+      'أكّد كل مباريات المجموعات قبل توليد الأدوار الإقصائية.';
+
+  @override
+  String get arenaErrMin2Qualified => 'يجب أن يتأهل مشاركان على الأقل.';
+
+  @override
+  String arenaLogKoGenerated(int count) {
+    return 'تم توليد الإقصائيات من ترتيب المجموعات ($count متأهلين)';
+  }
+
+  @override
+  String get arenaErrScoredMode =>
+      'هذا الوضع يُسجَّل بنتيجة، وليس باختيار فائز.';
+
+  @override
+  String get arenaErrMatchNotFound => 'المباراة غير موجودة.';
+
+  @override
+  String get arenaErrWinnerSide => 'يجب أن يكون الفائز أحد الطرفين.';
+
+  @override
+  String get arenaErrByeNoResult => 'الإعفاء ليس له نتيجة.';
+
+  @override
+  String get arenaErrCancelled => 'أُلغيت هذه المباراة.';
+
+  @override
+  String get arenaErrBothKnown => 'يجب معرفة المشاركَين أولًا.';
+
+  @override
+  String get arenaErrNegativeScore => 'لا يمكن أن تكون النتائج سالبة.';
+
+  @override
+  String get arenaErrKoLocksGroups =>
+      'تم توليد الإقصائيات بالفعل. أعد تعيين النتائج لتغيير نتائج المجموعات.';
+
+  @override
+  String get arenaErrNextRoundPlayed =>
+      'الدور التالي لُعب بالفعل. أعد تعيين النتائج لتغيير هذه النتيجة.';
+
+  @override
+  String arenaLogReplay(String score, String home, String away, int n) {
+    return 'تعادل ⁦$score⁩: ستُعاد مباراة $home ضد $away (إعادة رقم $n)';
+  }
+
+  @override
+  String get arenaErrEnterPensAfterNormal =>
+      'تعادل بعد الوقت الأصلي: أدخل نتيجة ركلات الترجيح.';
+
+  @override
+  String get arenaErrEnterPensAfterExtra =>
+      'تعادل بعد الوقت الإضافي: أدخل نتيجة ركلات الترجيح.';
+
+  @override
+  String get arenaErrNegativePens => 'لا يمكن أن تكون نتائج الترجيح سالبة.';
+
+  @override
+  String get arenaErrPensWinner => 'ركلات الترجيح تحتاج فائزًا.';
+
+  @override
+  String arenaLogAmended(String names) {
+    return 'عُدّلت النتيجة: $names';
+  }
+
+  @override
+  String arenaLogConfirmed(String names) {
+    return 'أُكّدت النتيجة: $names';
+  }
+
+  @override
+  String get arenaLockBrConfirmed =>
+      'جولة Battle Royale مؤكدة بالفعل. أعد تعيين النتائج لتغيير التشكيلات.';
+
+  @override
+  String get arenaLockPlayed =>
+      'لُعبت بالفعل مباراة لهذه الفرق. أعد تعيين النتائج لإجراء هذا التغيير.';
+
+  @override
+  String get arenaErrParticipantNotFound => 'المشارك غير موجود.';
+
+  @override
+  String get arenaErrNameEmpty => 'لا يمكن أن يكون الاسم فارغًا.';
+
+  @override
+  String arenaLogRenamed(String old, String name) {
+    return 'أُعيدت التسمية: $old ← $name';
+  }
+
+  @override
+  String get arenaErrNoRosters => 'هذا الوضع ليس فيه تشكيلات فرق.';
+
+  @override
+  String get arenaErrTeamNeedsPlayer => 'يحتاج الفريق لاعبًا واحدًا على الأقل.';
+
+  @override
+  String arenaErrMaxPerTeam(String mode, int size) {
+    return '$mode يسمح بـ $size لاعبين لكل فريق كحد أقصى.';
+  }
+
+  @override
+  String arenaErrExactPerTeam(int size) {
+    return 'يجب أن يضم كل فريق $size لاعبين بالضبط.';
+  }
+
+  @override
+  String get arenaErrPlayerNameEmpty => 'لا يمكن أن تكون أسماء اللاعبين فارغة.';
+
+  @override
+  String arenaErrAlreadyInTeam(String name) {
+    return '«$name» مسجَّل بالفعل في فريق.';
+  }
+
+  @override
+  String arenaErrAlreadyRegistered(String name) {
+    return '«$name» مسجَّل بالفعل.';
+  }
+
+  @override
+  String arenaLogRoster(String team, int count) {
+    return 'حُدّثت التشكيلة: $team ($count لاعبين)';
+  }
+
+  @override
+  String get arenaErrChooseTwo => 'اختر عنصرين مختلفين.';
+
+  @override
+  String arenaLogSwapped(String a, String b) {
+    return 'تم التبديل: $a ↔ $b';
+  }
+
+  @override
+  String get arenaErrChooseTwoPlayers => 'اختر لاعبَين مختلفَين.';
+
+  @override
+  String get arenaErrPlayerNotInTeam => 'اللاعب غير موجود في ذلك الفريق.';
+
+  @override
+  String arenaLogPlayersSwapped(String a, String ta, String b, String tb) {
+    return 'تم تبديل اللاعبَين: $a ($ta) ↔ $b ($tb)';
+  }
+
+  @override
+  String get arenaErrOnlyBrRounds => 'بطولات Battle Royale وحدها فيها جولات.';
+
+  @override
+  String arenaLogRoundAdded(int n) {
+    return 'أُضيفت الجولة $n';
+  }
+
+  @override
+  String get arenaErrRoundNotFound => 'الجولة غير موجودة.';
+
+  @override
+  String get arenaErrUnknownInResults => 'مشارك غير معروف في النتائج.';
+
+  @override
+  String get arenaErrEnterPlacements => 'أدخل مركزًا لكل مشارك.';
+
+  @override
+  String arenaErrPlacementRange(int n) {
+    return 'يجب أن تكون المراكز بين 1 و$n.';
+  }
+
+  @override
+  String arenaErrSamePlacement(int n) {
+    return 'لمشاركَين نفس المركز $n.';
+  }
+
+  @override
+  String get arenaErrNegativeKills => 'لا يمكن أن يكون عدد القتلى سالبًا.';
+
+  @override
+  String arenaLogRoundAmended(int n) {
+    return 'عُدّلت الجولة $n';
+  }
+
+  @override
+  String arenaLogRoundConfirmed(int n) {
+    return 'أُكّدت الجولة $n';
+  }
+
+  @override
+  String get arenaCritWins => 'الانتصارات';
+
+  @override
+  String get arenaCritKills => 'القتلى';
+
+  @override
+  String get arenaCritLastRound => 'مركز الجولة الأخيرة';
+
+  @override
+  String get arenaCritNameOrder => 'الترتيب الأبجدي';
+
+  @override
+  String arenaBrNoteWins(int points, String a, int wa, String b, int wb) {
+    return 'تعادل بـ$points نقطة. الانتصارات (المراكز الأولى): $a ⁦$wa⁩ مقابل $b ⁦$wb⁩.';
+  }
+
+  @override
+  String arenaBrNoteKills(int points, String a, int ka, String b, int kb) {
+    return 'تعادل بـ$points نقطة وفي الانتصارات. القتلى: $a ⁦$ka⁩ مقابل $b ⁦$kb⁩.';
+  }
+
+  @override
+  String arenaBrNoteLastRound(String a) {
+    return 'تعادل في النقاط والانتصارات والقتلى. مركز أفضل في الجولة الأخيرة: $a.';
+  }
+
+  @override
+  String get arenaLogReset => 'أعاد المنظّم تعيين كل النتائج';
 }

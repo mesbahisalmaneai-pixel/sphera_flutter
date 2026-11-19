@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:uuid/uuid.dart';
 
+import '../../core/l10n.dart';
 import 'arena_models.dart';
 
 const _uuid = Uuid();
@@ -67,46 +68,44 @@ class ArenaEngine {
   static List<String> validate(Tournament d) {
     final errors = <String>[];
     final n = d.participants.length;
-    if (d.name.trim().isEmpty) errors.add('Tournament name is required.');
-    if (n < 2) errors.add('Add at least 2 participants.');
+    if (d.name.trim().isEmpty) errors.add(appL10n.arenaErrNameRequired);
+    if (n < 2) errors.add(appL10n.arenaErrMin2);
     if (n > d.maxParticipants) {
-      errors.add('Participants ($n) exceed the maximum (${d.maxParticipants}).');
+      errors.add(appL10n.arenaErrTooMany(n, d.maxParticipants));
     }
     if (d.startDate != null &&
         d.registrationDeadline != null &&
         d.registrationDeadline!.isAfter(d.startDate!)) {
-      errors.add('Registration deadline must be on or before the start date.');
+      errors.add(appL10n.arenaErrDeadline);
     }
     if (d.rules.pointsWin < d.rules.pointsDraw) {
-      errors.add('Win points must be at least the draw points.');
+      errors.add(appL10n.arenaErrWinPoints);
     }
-    if (d.standingsColumns.isEmpty) errors.add('Show at least 1 column in the standings table.');
+    if (d.standingsColumns.isEmpty) errors.add(appL10n.arenaErrMinColumns);
     if (d.standingsColumns.length > kMaxStandingColumns) {
-      errors.add('The standings table can show at most $kMaxStandingColumns columns.');
+      errors.add(appL10n.arenaErrMaxColumns(kMaxStandingColumns));
     }
     errors.addAll(_validateMode(d));
     final s = d.structure;
     if (d.isBattleRoyale && d.brRoundsPlanned < 1) {
-      errors.add('Plan at least 1 round.');
+      errors.add(appL10n.arenaErrMinRounds);
     }
     if (!d.isBattleRoyale && s != ArenaStructure.knockoutOnly && n >= 2) {
       final leagues = s.usesLeagues ? d.leaguesCount : 1;
       final groups = s.usesGroups ? d.groupsPerLeague : 1;
-      if (s.usesLeagues && leagues < 2) errors.add('Use at least 2 leagues.');
-      if (s.usesGroups && groups < 2) errors.add('Use at least 2 groups per league.');
+      if (s.usesLeagues && leagues < 2) errors.add(appL10n.arenaErrMinLeagues);
+      if (s.usesGroups && groups < 2) errors.add(appL10n.arenaErrMinGroups);
       final totalGroups = leagues * groups;
       if (n < totalGroups * 2) {
-        errors.add('Not enough participants: $leagues league(s) x $groups group(s) '
-            'need at least ${totalGroups * 2}.');
+        errors.add(appL10n.arenaErrNotEnough(leagues, groups, totalGroups * 2));
       } else if (s.hasKnockout) {
         final minGroup = n ~/ totalGroups;
-        if (d.qualifiersPerGroup < 1) errors.add('At least 1 qualifier per group is required.');
+        if (d.qualifiersPerGroup < 1) errors.add(appL10n.arenaErrMinQualifier);
         if (d.qualifiersPerGroup > minGroup) {
-          errors.add('Qualifiers per group (${d.qualifiersPerGroup}) exceed the smallest '
-              'group size ($minGroup).');
+          errors.add(appL10n.arenaErrQualifiersExceed(d.qualifiersPerGroup, minGroup));
         }
         if (totalGroups * d.qualifiersPerGroup < 2) {
-          errors.add('At least 2 participants must qualify for the knockout.');
+          errors.add(appL10n.arenaErrMin2Qualify);
         }
       }
     }
@@ -124,27 +123,29 @@ class ArenaEngine {
       // Only refuse when nothing displayable would remain.
       final usable = d.standingsColumns.where(mode.standingColumns.contains);
       if (d.standingsColumns.isNotEmpty && usable.isEmpty) {
-        errors.add('${mode.label} is decided by the winner: pick at least one of '
-            '${mode.standingColumns.map((c) => c.label.toLowerCase()).join(', ')}.');
+        errors.add(appL10n.arenaErrWinnerColumns(
+            mode.label, mode.standingColumns.map((c) => c.label.toLowerCase()).join(', ')));
       }
     }
     final n = d.participants.length;
-    final unit = mode.isTeamMode ? 'teams' : 'players';
     final cap = mode.maxParticipants;
     if (cap != null && n > cap) {
-      errors.add('${mode.label} allows at most $cap $unit (you have $n).');
+      errors.add(mode.isTeamMode
+          ? appL10n.arenaErrMaxTeams(mode.label, cap, n)
+          : appL10n.arenaErrMaxPlayers(mode.label, cap, n));
     }
     if (n >= 2 && n < mode.minParticipants) {
-      errors.add('${mode.label} needs at least ${mode.minParticipants} $unit '
-          '(placement points are not awarded to the last ${BrScoring.zeroTail} places).');
+      errors.add(mode.isTeamMode
+          ? appL10n.arenaErrMinTeamsBr(mode.label, mode.minParticipants, BrScoring.zeroTail)
+          : appL10n.arenaErrMinPlayersBr(mode.label, mode.minParticipants, BrScoring.zeroTail));
     }
     for (final p in d.participants) {
       if (mode.fixedTeamSize) {
         if (p.players != mode.teamSize) {
-          errors.add('"${p.name}" must have exactly ${mode.teamSize} players.');
+          errors.add(appL10n.arenaErrExactPlayers(p.name, mode.teamSize));
         }
       } else if (p.players < 1 || p.players > mode.teamSize) {
-        errors.add('"${p.name}" must have between 1 and ${mode.teamSize} players.');
+        errors.add(appL10n.arenaErrBetweenPlayers(p.name, mode.teamSize));
       }
     }
     final seenIds = <String>{};
@@ -152,17 +153,16 @@ class ArenaEngine {
     for (final p in d.participants) {
       for (final pl in p.roster) {
         if (!seenIds.add(pl.id)) {
-          errors.add('Player "${pl.name}" is assigned twice.');
+          errors.add(appL10n.arenaErrAssignedTwice(pl.name));
         } else if (!seenNames.add(pl.name.trim().toLowerCase())) {
-          errors.add('Player "${pl.name}" appears more than once.');
+          errors.add(appL10n.arenaErrAppearsTwice(pl.name));
         }
       }
     }
     if (mode.minTotalPlayers > 0) {
       final total = d.participants.fold<int>(0, (sum, p) => sum + p.players);
       if (total < mode.minTotalPlayers) {
-        errors.add('At least ${mode.minTotalPlayers} players must be registered in total '
-            '(currently $total).');
+        errors.add(appL10n.arenaErrMinTotalPlayers(mode.minTotalPlayers, total));
       }
     }
     if (mode.isBattleRoyale && n >= 2) {
@@ -186,7 +186,7 @@ class ArenaEngine {
         brRounds: [
           for (var i = 1; i <= draft.brRoundsPlanned; i++) BrRound(id: _uuid.v4(), number: i),
         ],
-        audit: [_event('Tournament created: ${draft.brRoundsPlanned} Battle Royale round(s)')],
+        audit: [_event(appL10n.arenaLogCreatedBr(draft.brRoundsPlanned))],
       );
     }
     final ids = draft.participants.map((p) => p.id).toList();
@@ -198,7 +198,7 @@ class ArenaEngine {
         leagues: const [],
         matches: ko,
         knockoutGenerated: true,
-        audit: [_event('Tournament created: knockout bracket generated')],
+        audit: [_event(appL10n.arenaLogCreatedKo)],
       );
     }
 
@@ -212,7 +212,7 @@ class ArenaEngine {
       leagues: leagues,
       matches: matches,
       knockoutGenerated: false,
-      audit: [_event('Tournament created: ${matches.length} fixtures generated')],
+      audit: [_event(appL10n.arenaLogCreatedFixtures(matches.length))],
     );
   }
 
@@ -230,16 +230,16 @@ class ArenaEngine {
       for (var i = 0; i < perLeague[l].length; i++) {
         perGroup[i % groupsPerLeague].add(perLeague[l][i]);
       }
-      final leagueName = leagues == 1 ? 'League' : 'League $letter';
+      final leagueName = leagues == 1 ? appL10n.arenaLeague : appL10n.arenaLeagueLetter(letter);
       final groups = <ArenaGroup>[];
       for (var g = 0; g < groupsPerLeague; g++) {
         final String name;
         if (groupsPerLeague == 1) {
           name = leagueName;
         } else if (leagues == 1) {
-          name = 'Group ${String.fromCharCode(65 + g)}';
+          name = appL10n.arenaGroupName(String.fromCharCode(65 + g));
         } else {
-          name = 'Group $letter${g + 1}';
+          name = appL10n.arenaGroupName('$letter${g + 1}');
         }
         groups.add(ArenaGroup(id: _uuid.v4(), name: name, participantIds: perGroup[g]));
       }
@@ -330,10 +330,10 @@ class ArenaEngine {
   }
 
   static String _roundLabel(int roundsLeft) => switch (roundsLeft) {
-        1 => 'Final',
-        2 => 'Semi-finals',
-        3 => 'Quarter-finals',
-        _ => 'Round of ${1 << roundsLeft}',
+        1 => appL10n.arenaFinal,
+        2 => appL10n.arenaSemiFinals,
+        3 => appL10n.arenaQuarterFinals,
+        _ => appL10n.arenaRoundOf(1 << roundsLeft),
       };
 
   /// [slots] length must be a power of two (>= 2); null = bye.
@@ -487,7 +487,7 @@ class ArenaEngine {
     }
 
     final reason = <String, String>{};
-    var buckets = _split(rows.values.toList(), (r) => r.points, 'Points', reason);
+    var buckets = _split(rows.values.toList(), (r) => r.points, appL10n.arenaCritPoints, reason);
     for (final c in rules.tiebreakers) {
       final next = <List<StandingRow>>[];
       for (final b in buckets) {
@@ -525,7 +525,7 @@ class ArenaEngine {
           return nx.toLowerCase().compareTo(ny.toLowerCase());
         });
         for (var i = 1; i < b.length; i++) {
-          reason[b[i].id] = 'Level on all criteria (name order)';
+          reason[b[i].id] = appL10n.arenaCritAllLevel;
         }
       }
       out.addAll(b);
@@ -552,30 +552,29 @@ class ArenaEngine {
     String Function(String id) nameOf,
   ) {
     final a = nameOf(above.id), b = nameOf(row.id);
-    if (criterion == 'Points') return '$a has more points (${above.points} vs ${row.points}).';
+    if (criterion == appL10n.arenaCritPoints) return appL10n.arenaNoteMorePoints(a, above.points, row.points);
     if (criterion == Tiebreaker.headToHead.label) {
       final direct = counted.where((m) =>
           (m.homeId == above.id && m.awayId == row.id) || (m.homeId == row.id && m.awayId == above.id));
-      final lead = 'Level on ${above.points} pts. Head-to-head: ';
       if (direct.length == 1) {
         final m = direct.first;
         final aHome = m.homeId == above.id;
         final ag = aHome ? m.homeScore! : m.awayScore!;
         final bg = aHome ? m.awayScore! : m.homeScore!;
-        if (ag > bg) return '$lead$a beat $b $ag-$bg in their direct match.';
+        if (ag > bg) return appL10n.arenaNoteH2hBeat(above.points, a, b, '$ag-$bg');
       }
-      return '$lead$a has the better record in the matches between the tied teams.';
+      return appL10n.arenaNoteH2hRecord(above.points, a);
     }
     if (criterion == Tiebreaker.goalDifference.label) {
-      return 'Level on ${above.points} pts. Goal difference: $a ${_signed(above.gd)} vs $b ${_signed(row.gd)}.';
+      return appL10n.arenaNoteGd(above.points, a, _signed(above.gd), b, _signed(row.gd));
     }
     if (criterion == Tiebreaker.goalsScored.label) {
-      return 'Level on ${above.points} pts. Goals scored: $a ${above.gf} vs $b ${row.gf}.';
+      return appL10n.arenaNoteGf(above.points, a, above.gf, b, row.gf);
     }
     if (criterion == Tiebreaker.goalsAgainst.label) {
-      return 'Level on ${above.points} pts. Goals against: $a ${above.ga} vs $b ${row.ga} (fewer is better).';
+      return appL10n.arenaNoteGa(above.points, a, above.ga, b, row.ga);
     }
-    if (criterion.isNotEmpty) return 'Level on every criterion: ranked by name.';
+    if (criterion.isNotEmpty) return appL10n.arenaNoteByName;
     return '';
   }
 
@@ -631,11 +630,11 @@ class ArenaEngine {
   /// of every group). Only allowed once every group match is confirmed.
   static Tournament generateKnockout(Tournament t) {
     if (!t.structure.hasKnockout || t.structure == ArenaStructure.knockoutOnly) {
-      throw ArenaError('This tournament has no group stage to qualify from.');
+      throw ArenaError(appL10n.arenaErrNoGroupStage);
     }
-    if (t.knockoutGenerated) throw ArenaError('The knockout stage was already generated.');
+    if (t.knockoutGenerated) throw ArenaError(appL10n.arenaErrKoAlready);
     if (!groupStageComplete(t)) {
-      throw ArenaError('Confirm every group match before generating the knockout.');
+      throw ArenaError(appL10n.arenaErrConfirmGroups);
     }
     final byGroup = <List<String>>[];
     final ranked = <StandingRow>[];
@@ -646,7 +645,7 @@ class ArenaEngine {
         ranked.addAll(table);
       }
     }
-    if (ranked.length < 2) throw ArenaError('At least 2 participants must qualify.');
+    if (ranked.length < 2) throw ArenaError(appL10n.arenaErrMin2Qualified);
     ranked.sort((a, b) {
       final p = a.position.compareTo(b.position);
       if (p != 0) return p;
@@ -661,7 +660,7 @@ class ArenaEngine {
     return t.copyWith(
       matches: [...t.matches, ...ko],
       knockoutGenerated: true,
-      audit: [...t.audit, _event('Knockout generated from group standings (${ranked.length} qualifiers)')],
+      audit: [...t.audit, _event(appL10n.arenaLogKoGenerated(ranked.length))],
     );
   }
 
@@ -671,13 +670,13 @@ class ArenaEngine {
   /// Nothing about goals or draws is involved.
   static Tournament submitWinner(Tournament t, String matchId, String winnerId) {
     if (!(t.gameMode?.winnerOnly ?? false)) {
-      throw ArenaError('This mode is scored with a result, not by picking a winner.');
+      throw ArenaError(appL10n.arenaErrScoredMode);
     }
     final idx = t.matches.indexWhere((m) => m.id == matchId);
-    if (idx < 0) throw ArenaError('Match not found.');
+    if (idx < 0) throw ArenaError(appL10n.arenaErrMatchNotFound);
     final m = t.matches[idx];
     if (winnerId != m.homeId && winnerId != m.awayId) {
-      throw ArenaError('The winner must be one of the two sides.');
+      throw ArenaError(appL10n.arenaErrWinnerSide);
     }
     final homeWon = winnerId == m.homeId;
     return submitResult(t, matchId, homeWon ? 1 : 0, homeWon ? 0 : 1);
@@ -708,22 +707,22 @@ class ArenaEngine {
     MatchDecider decidedBy = MatchDecider.regular,
   }) {
     final idx = t.matches.indexWhere((m) => m.id == matchId);
-    if (idx < 0) throw ArenaError('Match not found.');
+    if (idx < 0) throw ArenaError(appL10n.arenaErrMatchNotFound);
     final m = t.matches[idx];
-    if (m.bye) throw ArenaError('A bye has no result.');
-    if (m.status == MatchStatus.cancelled) throw ArenaError('This match was cancelled.');
-    if (m.homeId == null || m.awayId == null) throw ArenaError('Both participants must be known first.');
-    if (home < 0 || away < 0) throw ArenaError('Scores cannot be negative.');
+    if (m.bye) throw ArenaError(appL10n.arenaErrByeNoResult);
+    if (m.status == MatchStatus.cancelled) throw ArenaError(appL10n.arenaErrCancelled);
+    if (m.homeId == null || m.awayId == null) throw ArenaError(appL10n.arenaErrBothKnown);
+    if (home < 0 || away < 0) throw ArenaError(appL10n.arenaErrNegativeScore);
     final amend = m.isConfirmed;
     if (amend) {
       if (m.stage == MatchStage.group && t.knockoutGenerated) {
-        throw ArenaError('The knockout stage is already generated. Reset results to change group scores.');
+        throw ArenaError(appL10n.arenaErrKoLocksGroups);
       }
       if (m.stage == MatchStage.knockout) {
         final next = t.matches.where(
             (x) => x.stage == MatchStage.knockout && x.round == m.round + 1 && x.slot == m.slot ~/ 2);
         if (next.any((x) => x.isConfirmed)) {
-          throw ArenaError('The next round was already played. Reset results to change this score.');
+          throw ArenaError(appL10n.arenaErrNextRoundPlayed);
         }
       }
     }
@@ -749,17 +748,18 @@ class ArenaEngine {
             matches: matches,
             audit: [
               ...t.audit,
-              _event('Draw $home-$away: ${t.participantName(m.homeId)} vs ${t.participantName(m.awayId)} '
-                  'will be replayed (replay #${replayed.replays.length})'),
+              _event(appL10n.arenaLogReplay(
+                  '$home-$away', t.participantName(m.homeId), t.participantName(m.awayId), replayed.replays.length)),
             ],
           );
         }
-        final when = rule == KnockoutDraw.extraTime ? 'extra time' : 'normal time';
         if (homePens == null || awayPens == null) {
-          throw ArenaError('Level after $when: enter the penalty shoot-out score.');
+          throw ArenaError(rule == KnockoutDraw.extraTime
+              ? appL10n.arenaErrEnterPensAfterExtra
+              : appL10n.arenaErrEnterPensAfterNormal);
         }
-        if (homePens < 0 || awayPens < 0) throw ArenaError('Penalty scores cannot be negative.');
-        if (homePens == awayPens) throw ArenaError('A penalty shoot-out needs a winner.');
+        if (homePens < 0 || awayPens < 0) throw ArenaError(appL10n.arenaErrNegativePens);
+        if (homePens == awayPens) throw ArenaError(appL10n.arenaErrPensWinner);
         by = MatchDecider.penalties;
         hp = homePens;
         ap = awayPens;
@@ -782,7 +782,7 @@ class ArenaEngine {
         '${updated.scoreText} ${t.participantName(m.awayId)}';
     return t.copyWith(
       matches: matches,
-      audit: [...t.audit, _event(amend ? 'Result amended: $names' : 'Result confirmed: $names')],
+      audit: [...t.audit, _event(amend ? appL10n.arenaLogAmended(names) : appL10n.arenaLogConfirmed(names))],
     );
   }
 
@@ -793,48 +793,48 @@ class ArenaEngine {
   static String? lockReason(Tournament t, Set<String> ids, {required bool positions}) {
     if (t.isBattleRoyale) {
       if (!positions && t.brRounds.any((r) => r.confirmed)) {
-        return 'A Battle Royale round is already confirmed. Reset results to change rosters.';
+        return appL10n.arenaLockBrConfirmed;
       }
       return null;
     }
     final played = t.matches.any(
         (m) => m.isConfirmed && !m.bye && (ids.contains(m.homeId) || ids.contains(m.awayId)));
-    return played ? 'A match of these teams was already played. Reset results to make this change.' : null;
+    return played ? appL10n.arenaLockPlayed : null;
   }
 
   static int _indexOf(Tournament t, String id) {
     final i = t.participants.indexWhere((p) => p.id == id);
-    if (i < 0) throw ArenaError('Participant not found.');
+    if (i < 0) throw ArenaError(appL10n.arenaErrParticipantNotFound);
     return i;
   }
 
   /// Renames a team (or a solo player).
   static Tournament renameParticipant(Tournament t, String id, String name) {
     final n = name.trim();
-    if (n.isEmpty) throw ArenaError('The name cannot be empty.');
+    if (n.isEmpty) throw ArenaError(appL10n.arenaErrNameEmpty);
     final i = _indexOf(t, id);
     if (t.participants.any((x) => x.id != id && x.name.toLowerCase() == n.toLowerCase())) {
       throw ArenaError('"$n" is already registered.');
     }
     final old = t.participants[i].name;
     final list = [...t.participants]..[i] = t.participants[i].copyWith(name: n);
-    return t.copyWith(participants: list, audit: [...t.audit, _event('Renamed: $old -> $n')]);
+    return t.copyWith(participants: list, audit: [...t.audit, _event(appL10n.arenaLogRenamed(old, n))]);
   }
 
   /// Replaces the roster of a team. Enforces the size rules of the mode and
   /// refuses duplicate players.
   static Tournament setRoster(Tournament t, String participantId, List<ArenaPlayer> roster) {
     final mode = t.gameMode;
-    if (mode == null || !mode.isTeamMode) throw ArenaError('This mode has no team rosters.');
+    if (mode == null || !mode.isTeamMode) throw ArenaError(appL10n.arenaErrNoRosters);
     final i = _indexOf(t, participantId);
-    if (roster.isEmpty) throw ArenaError('A team needs at least 1 player.');
+    if (roster.isEmpty) throw ArenaError(appL10n.arenaErrTeamNeedsPlayer);
     if (roster.length > mode.teamSize) {
-      throw ArenaError('${mode.label} allows at most ${mode.teamSize} players per team.');
+      throw ArenaError(appL10n.arenaErrMaxPerTeam(mode.label, mode.teamSize));
     }
     if (mode.fixedTeamSize && roster.length != mode.teamSize) {
-      throw ArenaError('Every team must have exactly ${mode.teamSize} players.');
+      throw ArenaError(appL10n.arenaErrExactPerTeam(mode.teamSize));
     }
-    if (roster.any((p) => p.name.trim().isEmpty)) throw ArenaError('Player names cannot be empty.');
+    if (roster.any((p) => p.name.trim().isEmpty)) throw ArenaError(appL10n.arenaErrPlayerNameEmpty);
     final ids = <String>{};
     final names = <String>{};
     final all = [
@@ -843,8 +843,8 @@ class ArenaEngine {
       ...roster,
     ];
     for (final p in all) {
-      if (!ids.add(p.id)) throw ArenaError('"${p.name}" is already assigned to a team.');
-      if (!names.add(p.name.trim().toLowerCase())) throw ArenaError('"${p.name}" is already registered.');
+      if (!ids.add(p.id)) throw ArenaError(appL10n.arenaErrAlreadyInTeam(p.name));
+      if (!names.add(p.name.trim().toLowerCase())) throw ArenaError(appL10n.arenaErrAlreadyRegistered(p.name));
     }
     final reason = lockReason(t, {participantId}, positions: false);
     if (reason != null) throw ArenaError(reason);
@@ -852,14 +852,14 @@ class ArenaEngine {
     final list = [...t.participants]..[i] = t.participants[i].copyWith(roster: clean);
     return t.copyWith(
       participants: list,
-      audit: [...t.audit, _event('Roster updated: ${t.participants[i].name} (${clean.length} players)')],
+      audit: [...t.audit, _event(appL10n.arenaLogRoster(t.participants[i].name, clean.length))],
     );
   }
 
   /// Team A takes Team B's position and the other way round. Each team keeps
   /// its own roster. Only before either team has played.
   static Tournament swapParticipants(Tournament t, String aId, String bId) {
-    if (aId == bId) throw ArenaError('Choose two different ones.');
+    if (aId == bId) throw ArenaError(appL10n.arenaErrChooseTwo);
     final ia = _indexOf(t, aId);
     final ib = _indexOf(t, bId);
     final reason = lockReason(t, {aId, bId}, positions: true);
@@ -883,7 +883,7 @@ class ArenaEngine {
       participants: ps,
       leagues: leagues,
       matches: matches,
-      audit: [...t.audit, _event('Swapped: ${t.participants[ia].name} <-> ${t.participants[ib].name}')],
+      audit: [...t.audit, _event(appL10n.arenaLogSwapped(t.participants[ia].name, t.participants[ib].name))],
     );
   }
 
@@ -897,15 +897,15 @@ class ArenaEngine {
     String playerB,
   ) {
     final mode = t.gameMode;
-    if (mode == null || !mode.isTeamMode) throw ArenaError('This mode has no team rosters.');
-    if (teamA == teamB && playerA == playerB) throw ArenaError('Choose two different players.');
+    if (mode == null || !mode.isTeamMode) throw ArenaError(appL10n.arenaErrNoRosters);
+    if (teamA == teamB && playerA == playerB) throw ArenaError(appL10n.arenaErrChooseTwoPlayers);
     final ia = _indexOf(t, teamA);
     final ib = _indexOf(t, teamB);
     final ra = [...t.participants[ia].roster];
     final rb = teamA == teamB ? ra : [...t.participants[ib].roster];
     final pa = ra.indexWhere((p) => p.id == playerA);
     final pb = rb.indexWhere((p) => p.id == playerB);
-    if (pa < 0 || pb < 0) throw ArenaError('Player not found in that team.');
+    if (pa < 0 || pb < 0) throw ArenaError(appL10n.arenaErrPlayerNotInTeam);
     final reason = lockReason(t, {teamA, teamB}, positions: false);
     if (reason != null) throw ArenaError(reason);
     final first = ra[pa];
@@ -919,8 +919,8 @@ class ArenaEngine {
       participants: ps,
       audit: [
         ...t.audit,
-        _event('Players swapped: ${first.name} (${t.participants[ia].name}) <-> '
-            '${second.name} (${t.participants[ib].name})'),
+        _event(appL10n.arenaLogPlayersSwapped(
+            first.name, t.participants[ia].name, second.name, t.participants[ib].name)),
       ],
     );
   }
@@ -929,34 +929,34 @@ class ArenaEngine {
 
   /// Adds one more round after the planned ones.
   static Tournament brAddRound(Tournament t) {
-    if (!t.isBattleRoyale) throw ArenaError('Only Battle Royale tournaments have rounds.');
+    if (!t.isBattleRoyale) throw ArenaError(appL10n.arenaErrOnlyBrRounds);
     final next = t.brRounds.isEmpty ? 1 : t.brRounds.map((r) => r.number).reduce(max) + 1;
     return t.copyWith(
       brRounds: [...t.brRounds, BrRound(id: _uuid.v4(), number: next)],
-      audit: [...t.audit, _event('Round $next added')],
+      audit: [...t.audit, _event(appL10n.arenaLogRoundAdded(next))],
     );
   }
 
   /// Confirms (or amends) one round. Every participant needs a placement
   /// (1..n, no duplicates) and a kill count (0 or more).
   static Tournament brSubmitRound(Tournament t, String roundId, Map<String, BrResult> results) {
-    if (!t.isBattleRoyale) throw ArenaError('Only Battle Royale tournaments have rounds.');
+    if (!t.isBattleRoyale) throw ArenaError(appL10n.arenaErrOnlyBrRounds);
     final idx = t.brRounds.indexWhere((r) => r.id == roundId);
-    if (idx < 0) throw ArenaError('Round not found.');
+    if (idx < 0) throw ArenaError(appL10n.arenaErrRoundNotFound);
     final ids = t.participants.map((p) => p.id).toSet();
-    if (results.keys.toSet().difference(ids).isNotEmpty) throw ArenaError('Unknown participant in results.');
+    if (results.keys.toSet().difference(ids).isNotEmpty) throw ArenaError(appL10n.arenaErrUnknownInResults);
     if (ids.difference(results.keys.toSet()).isNotEmpty) {
-      throw ArenaError('Enter a placement for every participant.');
+      throw ArenaError(appL10n.arenaErrEnterPlacements);
     }
     final n = ids.length;
     final seen = <int>{};
     for (final e in results.entries) {
       final r = e.value;
       if (r.placement < 1 || r.placement > n) {
-        throw ArenaError('Placements must be between 1 and $n.');
+        throw ArenaError(appL10n.arenaErrPlacementRange(n));
       }
-      if (!seen.add(r.placement)) throw ArenaError('Two participants have placement ${r.placement}.');
-      if (r.kills < 0) throw ArenaError('Kills cannot be negative.');
+      if (!seen.add(r.placement)) throw ArenaError(appL10n.arenaErrSamePlacement(r.placement));
+      if (r.kills < 0) throw ArenaError(appL10n.arenaErrNegativeKills);
     }
     final old = t.brRounds[idx];
     final rounds = [...t.brRounds]..[idx] = old.copyWith(results: Map.of(results), confirmed: true);
@@ -964,7 +964,7 @@ class ArenaEngine {
       brRounds: rounds,
       audit: [
         ...t.audit,
-        _event(old.confirmed ? 'Round ${old.number} amended' : 'Round ${old.number} confirmed'),
+        _event(old.confirmed ? appL10n.arenaLogRoundAmended(old.number) : appL10n.arenaLogRoundConfirmed(old.number)),
       ],
     );
   }
@@ -1007,20 +1007,20 @@ class ArenaEngine {
       final up = list[i - 1];
       final a = t.participantName(up.id), b = t.participantName(r.id);
       if (up.points != r.points) {
-        r.rankedBy = 'Points';
-        r.note = '$a has more points (${up.points} vs ${r.points}).';
+        r.rankedBy = appL10n.arenaCritPoints;
+        r.note = appL10n.arenaNoteMorePoints(a, up.points, r.points);
       } else if (up.wins != r.wins) {
-        r.rankedBy = 'Wins';
-        r.note = 'Level on ${up.points} pts. Wins (1st places): $a ${up.wins} vs $b ${r.wins}.';
+        r.rankedBy = appL10n.arenaCritWins;
+        r.note = appL10n.arenaBrNoteWins(up.points, a, up.wins, b, r.wins);
       } else if (up.kills != r.kills) {
-        r.rankedBy = 'Kills';
-        r.note = 'Level on ${up.points} pts and wins. Kills: $a ${up.kills} vs $b ${r.kills}.';
+        r.rankedBy = appL10n.arenaCritKills;
+        r.note = appL10n.arenaBrNoteKills(up.points, a, up.kills, b, r.kills);
       } else if (up.lastPlacement != r.lastPlacement) {
-        r.rankedBy = 'Last round placement';
-        r.note = 'Level on points, wins and kills. Better placement in the latest round: $a.';
+        r.rankedBy = appL10n.arenaCritLastRound;
+        r.note = appL10n.arenaBrNoteLastRound(a);
       } else {
-        r.rankedBy = 'Name order';
-        r.note = 'Level on every criterion: ranked by name.';
+        r.rankedBy = appL10n.arenaCritNameOrder;
+        r.note = appL10n.arenaNoteByName;
       }
     }
     return list;
@@ -1056,7 +1056,7 @@ class ArenaEngine {
       matches: matches,
       brRounds: [for (final r in t.brRounds) r.copyWith(results: const {}, confirmed: false)],
       knockoutGenerated: t.structure == ArenaStructure.knockoutOnly && !t.isBattleRoyale,
-      audit: [...t.audit, _event('All results were reset by the organizer')],
+      audit: [...t.audit, _event(appL10n.arenaLogReset)],
     );
   }
 

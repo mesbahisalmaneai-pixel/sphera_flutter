@@ -1360,5 +1360,680 @@
   "globeHelpDrag": "Drag the globe to turn it.",
   "globeHelpTap": "Tap a glowing node to see what is inside that continent.",
   "globeHelpExplore": "Press Explore to dive in, then tap a card to open the screen.",
-  "globeHelpSearch": "The bar at the bottom finds any screen by name."
+  "globeHelpSearch": "The bar at the bottom finds any screen by name.",
+  "arenaStructSingleLeague": "Single League",
+  "arenaStructMultipleLeagues": "Multiple Leagues",
+  "arenaStructGroupsOnly": "Groups Only",
+  "arenaStructGroupsKnockout": "Groups + Knockout",
+  "arenaStructLeaguesGroupsKnockout": "Leagues + Groups + Knockout",
+  "arenaStructKnockoutOnly": "Knockout Only",
+  "arenaHintSingleLeague": "Everyone plays everyone in one table.",
+  "arenaHintMultipleLeagues": "Participants are split into several independent leagues.",
+  "arenaHintGroupsOnly": "One league divided into groups, each with its own table.",
+  "arenaHintGroupsKnockout": "Group stage, then the best qualify for a knockout bracket.",
+  "arenaHintLeaguesGroupsKnockout": "Several leagues, each with groups; qualifiers meet in one knockout.",
+  "arenaHintKnockoutOnly": "Single-elimination bracket with byes when needed.",
+  "arenaDetailUpTo48Players": "up to 48 players",
+  "arenaDetailDuo": "up to 24 teams · 2 players each",
+  "arenaDetailSquad": "up to 12 teams · 4 players each",
+  "arenaDetailOnePerTeam": "1 player per team",
+  "arenaDetailUpTo2": "up to 2 players per team",
+  "arenaDetailUpTo4": "up to 4 players per team",
+  "arenaDetailUpTo8": "up to 8 players per team",
+  "arenaDetail1v1": "1 vs 1",
+  "arenaDetailCoop": "team vs team · up to 3 players per team",
+  "arenaDetailCustom": "custom team size",
+  "arenaTbHeadToHead": "Head-to-head",
+  "arenaTbGoalDifference": "Goal difference",
+  "arenaTbGoalsScored": "Goals scored",
+  "arenaTbGoalsAgainst": "Goals against",
+  "arenaTbShortH2h": "H2H",
+  "arenaTbShortGd": "GD",
+  "arenaTbShortGf": "GF",
+  "arenaTbShortGa": "GA",
+  "arenaTbExplainH2h": "Teams level on points are ranked by the matches they played against each other: points first, then goal difference in those matches.",
+  "arenaTbExplainGd": "Goals scored minus goals conceded over all matches.",
+  "arenaTbExplainGf": "The team that scored more goals ranks higher.",
+  "arenaTbExplainGa": "The team that conceded fewer goals ranks higher.",
+  "arenaKoPenalties": "Penalties",
+  "arenaKoExtraTime": "Extra time",
+  "arenaKoReplay": "Replay",
+  "arenaKoHintPenalties": "Level after normal time: decided by a penalty shoot-out.",
+  "arenaKoHintExtraTime": "Level after normal time: extra time is played. If still level, penalties decide.",
+  "arenaKoHintReplay": "Level after normal time: the match is played again until there is a winner.",
+  "arenaAet": "a.e.t.",
+  "arenaPens": "pens",
+  "arenaColPldShort": "Pld",
+  "arenaColWShort": "W",
+  "arenaColDShort": "D",
+  "arenaColLShort": "L",
+  "arenaColGfShort": "GF",
+  "arenaColGaShort": "GA",
+  "arenaColGdShort": "GD",
+  "arenaColPtsShort": "Pts",
+  "arenaColPlayed": "Played",
+  "arenaColWins": "Wins",
+  "arenaColDraws": "Draws",
+  "arenaColLosses": "Losses",
+  "arenaColGoalsFor": "Goals for",
+  "arenaColGoalsAgainst": "Goals against",
+  "arenaColGoalDifference": "Goal difference",
+  "arenaColPoints": "Points",
+  "arenaScorePens": "{score} ({pens} pens)",
+  "@arenaScorePens": {
+    "placeholders": {
+      "score": {
+        "type": "String"
+      },
+      "pens": {
+        "type": "String"
+      }
+    }
+  },
+  "arenaErrKillPoints": "Kill points cannot be negative.",
+  "arenaErrPlacementRows": "The placement table needs exactly {slots} rows (one per participant or team); it has {count}.",
+  "@arenaErrPlacementRows": {
+    "placeholders": {
+      "slots": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaErrPlacementNegative": "Placement points cannot be negative.",
+  "arenaErrPlacementOrder": "A lower placement cannot score more than a higher one (#{lower} scores more than #{higher}).",
+  "@arenaErrPlacementOrder": {
+    "placeholders": {
+      "lower": {
+        "type": "int"
+      },
+      "higher": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaErrFirstPlace": "1st place must score more than 0.",
+  "arenaErrZeroTail": "The last {count} placements must score 0 placement points.",
+  "@arenaErrZeroTail": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaTbd": "TBD",
+  "arenaUnknown": "Unknown",
+  "arenaErrNameRequired": "Tournament name is required.",
+  "arenaErrMin2": "Add at least 2 participants.",
+  "arenaErrTooMany": "Participants ({count}) exceed the maximum ({max}).",
+  "@arenaErrTooMany": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaErrDeadline": "Registration deadline must be on or before the start date.",
+  "arenaErrWinPoints": "Win points must be at least the draw points.",
+  "arenaErrMinColumns": "Show at least 1 column in the standings table.",
+  "arenaErrMaxColumns": "The standings table can show at most {max} columns.",
+  "@arenaErrMaxColumns": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaErrMinRounds": "Plan at least 1 round.",
+  "arenaErrMinLeagues": "Use at least 2 leagues.",
+  "arenaErrMinGroups": "Use at least 2 groups per league.",
+  "arenaErrNotEnough": "Not enough participants: {leagues} league(s) x {groups} group(s) need at least {min}.",
+  "@arenaErrNotEnough": {
+    "placeholders": {
+      "leagues": {
+        "type": "int"
+      },
+      "groups": {
+        "type": "int"
+      },
+      "min": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaErrMinQualifier": "At least 1 qualifier per group is required.",
+  "arenaErrQualifiersExceed": "Qualifiers per group ({q}) exceed the smallest group size ({min}).",
+  "@arenaErrQualifiersExceed": {
+    "placeholders": {
+      "q": {
+        "type": "int"
+      },
+      "min": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaErrMin2Qualify": "At least 2 participants must qualify for the knockout.",
+  "arenaErrWinnerColumns": "{mode} is decided by the winner: pick at least one of {columns}.",
+  "@arenaErrWinnerColumns": {
+    "placeholders": {
+      "mode": {
+        "type": "String"
+      },
+      "columns": {
+        "type": "String"
+      }
+    }
+  },
+  "arenaErrMaxTeams": "{mode} allows at most {cap} teams (you have {count}).",
+  "@arenaErrMaxTeams": {
+    "placeholders": {
+      "mode": {
+        "type": "String"
+      },
+      "cap": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaErrMaxPlayers": "{mode} allows at most {cap} players (you have {count}).",
+  "@arenaErrMaxPlayers": {
+    "placeholders": {
+      "mode": {
+        "type": "String"
+      },
+      "cap": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaErrMinTeamsBr": "{mode} needs at least {min} teams (placement points are not awarded to the last {tail} places).",
+  "@arenaErrMinTeamsBr": {
+    "placeholders": {
+      "mode": {
+        "type": "String"
+      },
+      "min": {
+        "type": "int"
+      },
+      "tail": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaErrMinPlayersBr": "{mode} needs at least {min} players (placement points are not awarded to the last {tail} places).",
+  "@arenaErrMinPlayersBr": {
+    "placeholders": {
+      "mode": {
+        "type": "String"
+      },
+      "min": {
+        "type": "int"
+      },
+      "tail": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaErrExactPlayers": "\"{name}\" must have exactly {size} players.",
+  "@arenaErrExactPlayers": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaErrBetweenPlayers": "\"{name}\" must have between 1 and {size} players.",
+  "@arenaErrBetweenPlayers": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaErrAssignedTwice": "Player \"{name}\" is assigned twice.",
+  "@arenaErrAssignedTwice": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "arenaErrAppearsTwice": "Player \"{name}\" appears more than once.",
+  "@arenaErrAppearsTwice": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "arenaErrMinTotalPlayers": "At least {min} players must be registered in total (currently {total}).",
+  "@arenaErrMinTotalPlayers": {
+    "placeholders": {
+      "min": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaLogCreatedBr": "Tournament created: {count} Battle Royale round(s)",
+  "@arenaLogCreatedBr": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaLogCreatedKo": "Tournament created: knockout bracket generated",
+  "arenaLogCreatedFixtures": "Tournament created: {count} fixtures generated",
+  "@arenaLogCreatedFixtures": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaLeague": "League",
+  "arenaLeagueLetter": "League {letter}",
+  "@arenaLeagueLetter": {
+    "placeholders": {
+      "letter": {
+        "type": "String"
+      }
+    }
+  },
+  "arenaGroupName": "Group {name}",
+  "@arenaGroupName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "arenaFinal": "Final",
+  "arenaSemiFinals": "Semi-finals",
+  "arenaQuarterFinals": "Quarter-finals",
+  "arenaRoundOf": "Round of {count}",
+  "@arenaRoundOf": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaCritPoints": "Points",
+  "arenaCritAllLevel": "Level on all criteria (name order)",
+  "arenaNoteMorePoints": "{a} has more points ({pa} vs {pb}).",
+  "@arenaNoteMorePoints": {
+    "placeholders": {
+      "a": {
+        "type": "String"
+      },
+      "pa": {
+        "type": "int"
+      },
+      "pb": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaNoteH2hBeat": "Level on {points} pts. Head-to-head: {a} beat {b} {score} in their direct match.",
+  "@arenaNoteH2hBeat": {
+    "placeholders": {
+      "points": {
+        "type": "int"
+      },
+      "a": {
+        "type": "String"
+      },
+      "b": {
+        "type": "String"
+      },
+      "score": {
+        "type": "String"
+      }
+    }
+  },
+  "arenaNoteH2hRecord": "Level on {points} pts. Head-to-head: {a} has the better record in the matches between the tied teams.",
+  "@arenaNoteH2hRecord": {
+    "placeholders": {
+      "points": {
+        "type": "int"
+      },
+      "a": {
+        "type": "String"
+      }
+    }
+  },
+  "arenaNoteGd": "Level on {points} pts. Goal difference: {a} {va} vs {b} {vb}.",
+  "@arenaNoteGd": {
+    "placeholders": {
+      "points": {
+        "type": "int"
+      },
+      "a": {
+        "type": "String"
+      },
+      "va": {
+        "type": "String"
+      },
+      "b": {
+        "type": "String"
+      },
+      "vb": {
+        "type": "String"
+      }
+    }
+  },
+  "arenaNoteGf": "Level on {points} pts. Goals scored: {a} {va} vs {b} {vb}.",
+  "@arenaNoteGf": {
+    "placeholders": {
+      "points": {
+        "type": "int"
+      },
+      "a": {
+        "type": "String"
+      },
+      "va": {
+        "type": "int"
+      },
+      "b": {
+        "type": "String"
+      },
+      "vb": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaNoteGa": "Level on {points} pts. Goals against: {a} {va} vs {b} {vb} (fewer is better).",
+  "@arenaNoteGa": {
+    "placeholders": {
+      "points": {
+        "type": "int"
+      },
+      "a": {
+        "type": "String"
+      },
+      "va": {
+        "type": "int"
+      },
+      "b": {
+        "type": "String"
+      },
+      "vb": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaNoteByName": "Level on every criterion: ranked by name.",
+  "arenaErrNoGroupStage": "This tournament has no group stage to qualify from.",
+  "arenaErrKoAlready": "The knockout stage was already generated.",
+  "arenaErrConfirmGroups": "Confirm every group match before generating the knockout.",
+  "arenaErrMin2Qualified": "At least 2 participants must qualify.",
+  "arenaLogKoGenerated": "Knockout generated from group standings ({count} qualifiers)",
+  "@arenaLogKoGenerated": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaErrScoredMode": "This mode is scored with a result, not by picking a winner.",
+  "arenaErrMatchNotFound": "Match not found.",
+  "arenaErrWinnerSide": "The winner must be one of the two sides.",
+  "arenaErrByeNoResult": "A bye has no result.",
+  "arenaErrCancelled": "This match was cancelled.",
+  "arenaErrBothKnown": "Both participants must be known first.",
+  "arenaErrNegativeScore": "Scores cannot be negative.",
+  "arenaErrKoLocksGroups": "The knockout stage is already generated. Reset results to change group scores.",
+  "arenaErrNextRoundPlayed": "The next round was already played. Reset results to change this score.",
+  "arenaLogReplay": "Draw {score}: {home} vs {away} will be replayed (replay #{n})",
+  "@arenaLogReplay": {
+    "placeholders": {
+      "score": {
+        "type": "String"
+      },
+      "home": {
+        "type": "String"
+      },
+      "away": {
+        "type": "String"
+      },
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaErrEnterPensAfterNormal": "Level after normal time: enter the penalty shoot-out score.",
+  "arenaErrEnterPensAfterExtra": "Level after extra time: enter the penalty shoot-out score.",
+  "arenaErrNegativePens": "Penalty scores cannot be negative.",
+  "arenaErrPensWinner": "A penalty shoot-out needs a winner.",
+  "arenaLogAmended": "Result amended: {names}",
+  "@arenaLogAmended": {
+    "placeholders": {
+      "names": {
+        "type": "String"
+      }
+    }
+  },
+  "arenaLogConfirmed": "Result confirmed: {names}",
+  "@arenaLogConfirmed": {
+    "placeholders": {
+      "names": {
+        "type": "String"
+      }
+    }
+  },
+  "arenaLockBrConfirmed": "A Battle Royale round is already confirmed. Reset results to change rosters.",
+  "arenaLockPlayed": "A match of these teams was already played. Reset results to make this change.",
+  "arenaErrParticipantNotFound": "Participant not found.",
+  "arenaErrNameEmpty": "The name cannot be empty.",
+  "arenaLogRenamed": "Renamed: {old} -> {name}",
+  "@arenaLogRenamed": {
+    "placeholders": {
+      "old": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "arenaErrNoRosters": "This mode has no team rosters.",
+  "arenaErrTeamNeedsPlayer": "A team needs at least 1 player.",
+  "arenaErrMaxPerTeam": "{mode} allows at most {size} players per team.",
+  "@arenaErrMaxPerTeam": {
+    "placeholders": {
+      "mode": {
+        "type": "String"
+      },
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaErrExactPerTeam": "Every team must have exactly {size} players.",
+  "@arenaErrExactPerTeam": {
+    "placeholders": {
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaErrPlayerNameEmpty": "Player names cannot be empty.",
+  "arenaErrAlreadyInTeam": "\"{name}\" is already assigned to a team.",
+  "@arenaErrAlreadyInTeam": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "arenaErrAlreadyRegistered": "\"{name}\" is already registered.",
+  "@arenaErrAlreadyRegistered": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "arenaLogRoster": "Roster updated: {team} ({count} players)",
+  "@arenaLogRoster": {
+    "placeholders": {
+      "team": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaErrChooseTwo": "Choose two different ones.",
+  "arenaLogSwapped": "Swapped: {a} <-> {b}",
+  "@arenaLogSwapped": {
+    "placeholders": {
+      "a": {
+        "type": "String"
+      },
+      "b": {
+        "type": "String"
+      }
+    }
+  },
+  "arenaErrChooseTwoPlayers": "Choose two different players.",
+  "arenaErrPlayerNotInTeam": "Player not found in that team.",
+  "arenaLogPlayersSwapped": "Players swapped: {a} ({ta}) <-> {b} ({tb})",
+  "@arenaLogPlayersSwapped": {
+    "placeholders": {
+      "a": {
+        "type": "String"
+      },
+      "ta": {
+        "type": "String"
+      },
+      "b": {
+        "type": "String"
+      },
+      "tb": {
+        "type": "String"
+      }
+    }
+  },
+  "arenaErrOnlyBrRounds": "Only Battle Royale tournaments have rounds.",
+  "arenaLogRoundAdded": "Round {n} added",
+  "@arenaLogRoundAdded": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaErrRoundNotFound": "Round not found.",
+  "arenaErrUnknownInResults": "Unknown participant in results.",
+  "arenaErrEnterPlacements": "Enter a placement for every participant.",
+  "arenaErrPlacementRange": "Placements must be between 1 and {n}.",
+  "@arenaErrPlacementRange": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaErrSamePlacement": "Two participants have placement {n}.",
+  "@arenaErrSamePlacement": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaErrNegativeKills": "Kills cannot be negative.",
+  "arenaLogRoundAmended": "Round {n} amended",
+  "@arenaLogRoundAmended": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaLogRoundConfirmed": "Round {n} confirmed",
+  "@arenaLogRoundConfirmed": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaCritWins": "Wins",
+  "arenaCritKills": "Kills",
+  "arenaCritLastRound": "Last round placement",
+  "arenaCritNameOrder": "Name order",
+  "arenaBrNoteWins": "Level on {points} pts. Wins (1st places): {a} {wa} vs {b} {wb}.",
+  "@arenaBrNoteWins": {
+    "placeholders": {
+      "points": {
+        "type": "int"
+      },
+      "a": {
+        "type": "String"
+      },
+      "wa": {
+        "type": "int"
+      },
+      "b": {
+        "type": "String"
+      },
+      "wb": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaBrNoteKills": "Level on {points} pts and wins. Kills: {a} {ka} vs {b} {kb}.",
+  "@arenaBrNoteKills": {
+    "placeholders": {
+      "points": {
+        "type": "int"
+      },
+      "a": {
+        "type": "String"
+      },
+      "ka": {
+        "type": "int"
+      },
+      "b": {
+        "type": "String"
+      },
+      "kb": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaBrNoteLastRound": "Level on points, wins and kills. Better placement in the latest round: {a}.",
+  "@arenaBrNoteLastRound": {
+    "placeholders": {
+      "a": {
+        "type": "String"
+      }
+    }
+  },
+  "arenaLogReset": "All results were reset by the organizer"
 }
