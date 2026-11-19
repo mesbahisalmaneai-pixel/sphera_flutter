@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/l10n.dart';
 import '../../core/format.dart';
 import '../../core/game_logo.dart';
 import '../../core/theme.dart';
@@ -109,9 +110,9 @@ class GamesStatisticsScreen extends ConsumerWidget {
               padding: EdgeInsets.all(14),
               child: Row(children: [
                 Expanded(child: Text(s.game.name, style: TextStyle(fontWeight: FontWeight.w600))),
-                _pill('ACTIVE', s.active, SpheraColors.done, () => openGame(s.game, 'active')),
+                _pill(appL10n.statusActive, s.active, SpheraColors.done, () => openGame(s.game, 'active')),
                 SizedBox(width: 8),
-                _pill('SOLD', s.sell, SpheraColors.danger, () => openGame(s.game, 'sell')),
+                _pill(appL10n.statusSold, s.sell, SpheraColors.danger, () => openGame(s.game, 'sell')),
               ]),
             ),
           ),

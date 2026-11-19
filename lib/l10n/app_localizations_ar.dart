@@ -466,4 +466,327 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get updateRates => 'تحديث الأسعار';
+
+  @override
+  String get authNeedHelp => 'تحتاج مساعدة؟';
+
+  @override
+  String get authHelpBody =>
+      'جديد هنا؟ اختر «إنشاء حساب جديد».\n\nمسجّل من قبل على هذا الجهاز؟ اختر «لدي حساب بالفعل».\n\nلا تستطيع الدخول؟ استعمل «لدي مشكلة في تسجيل الدخول وكلمة المرور».';
+
+  @override
+  String get gotIt => 'فهمت';
+
+  @override
+  String get cancel => 'إلغاء';
+
+  @override
+  String get back => 'رجوع';
+
+  @override
+  String get help => 'مساعدة';
+
+  @override
+  String get authVerifyUnavailableTitle => 'التحقق غير متوفر بعد';
+
+  @override
+  String get authVerifyUnavailableBody =>
+      'الرموز عبر البريد الإلكتروني أو الرسائل القصيرة تحتاج خدمة عبر الإنترنت غير متصلة بـ SPHERA بعد.\n\nيمكنك بدلًا من ذلك إعادة تعيين تسجيل الدخول على هذا الجهاز وإنشاء واحد جديد. حساباتك وألعابك وإحصائياتك تبقى محفوظة.\n\nتسجيل الدخول هذا يحمي فقط الوصول العابر إلى التطبيق على هذا الجهاز.';
+
+  @override
+  String get authResetLogin => 'إعادة تعيين الدخول';
+
+  @override
+  String get authOops => 'عذرًا!';
+
+  @override
+  String get authHintEmailOrPhone => 'البريد الإلكتروني أو رقم الهاتف';
+
+  @override
+  String get authHintCode => 'رمز التحقق';
+
+  @override
+  String get authLogin => 'دخول';
+
+  @override
+  String get authEnterUserAndPassword => 'أدخل اسم المستخدم وكلمة المرور.';
+
+  @override
+  String get authWelcomeTitle => 'أهلًا بك!';
+
+  @override
+  String get authHintUsername => 'اسم المستخدم';
+
+  @override
+  String get authHintPassword => 'كلمة المرور';
+
+  @override
+  String get authForgotPassword => 'نسيت كلمة المرور؟';
+
+  @override
+  String get authProfilePhotoOptional => 'صورة الملف الشخصي (اختيارية)';
+
+  @override
+  String get authHintChooseUsername => 'اختر اسم مستخدم';
+
+  @override
+  String get authHintCreatePassword => 'أنشئ كلمة مرور';
+
+  @override
+  String get authHintConfirmPassword => 'أكّد كلمة المرور';
+
+  @override
+  String get authConfirmInfo => 'أؤكد أن معلوماتي صحيحة';
+
+  @override
+  String get authCreateAccount => 'إنشاء الحساب';
+
+  @override
+  String get authYourAge => 'عمرك';
+
+  @override
+  String get authHelloTitle => 'مرحبًا!';
+
+  @override
+  String get authCreateNewAccount => 'إنشاء حساب جديد';
+
+  @override
+  String get authHaveAccount => 'لدي حساب بالفعل';
+
+  @override
+  String get authLoginProblem => 'لدي مشكلة في تسجيل الدخول وكلمة المرور';
+
+  @override
+  String get valEnterIdentifier => 'أدخل بريدك الإلكتروني أو رقم هاتفك';
+
+  @override
+  String get valInvalidIdentifier =>
+      'أدخل بريدًا إلكترونيًا أو رقم هاتف صالحًا';
+
+  @override
+  String get valChooseUsername => 'اختر اسم مستخدم';
+
+  @override
+  String get valUsernameRule => 'من 3 إلى 20 حرفًا: حروف أو أرقام أو _ أو .';
+
+  @override
+  String get valCreatePassword => 'أنشئ كلمة مرور';
+
+  @override
+  String get valPasswordLength => '8 أحرف على الأقل';
+
+  @override
+  String get valPasswordMix => 'استعمل حروفًا وأرقامًا معًا';
+
+  @override
+  String get valConfirmPassword => 'أكّد كلمة المرور';
+
+  @override
+  String get valPasswordsMismatch => 'كلمتا المرور غير متطابقتين';
+
+  @override
+  String valMinAge(int age) {
+    return 'SPHERA مخصص لمن عمرهم $age سنة فأكثر';
+  }
+
+  @override
+  String get valInvalidAge => 'أدخل عمرًا صالحًا';
+
+  @override
+  String get authErrAccountExists =>
+      'يوجد حساب بالفعل على هذا الجهاز. سجّل الدخول بدلًا من ذلك.';
+
+  @override
+  String get authErrWrongCredentials =>
+      'اسم المستخدم أو كلمة المرور غير صحيحة.';
+
+  @override
+  String get authNoCode => 'لم أتلقَّ رمز التحقق';
+
+  @override
+  String get boxEmpty => 'فارغ';
+
+  @override
+  String get boxDone => 'تم';
+
+  @override
+  String get boxNotYet => 'ليس بعد';
+
+  @override
+  String get boxComing => 'قريبًا';
+
+  @override
+  String get gradeBronze => 'برونزي';
+
+  @override
+  String get gradeSilver => 'فضي';
+
+  @override
+  String get gradeGold => 'ذهبي';
+
+  @override
+  String get gradePlatinum => 'بلاتيني';
+
+  @override
+  String get gradeDiamond => 'ماسي';
+
+  @override
+  String get gradeInterdit => 'ممنوع';
+
+  @override
+  String get statusActive => 'نشط';
+
+  @override
+  String get statusSold => 'مُباع';
+
+  @override
+  String get statusForSale => 'للبيع';
+
+  @override
+  String get done => 'تم';
+
+  @override
+  String couldNotSave(String error) {
+    return 'تعذّر الحفظ: $error';
+  }
+
+  @override
+  String errDuplicateEmail(String email) {
+    return 'يوجد بالفعل حساب Google بالبريد $email.';
+  }
+
+  @override
+  String errDuplicateGame(String name) {
+    return 'توجد بالفعل لعبة باسم «$name».';
+  }
+
+  @override
+  String get editGoogleAccount => 'تعديل حساب Google';
+
+  @override
+  String get addGoogleAccount => 'إضافة حساب Google';
+
+  @override
+  String get email => 'البريد الإلكتروني';
+
+  @override
+  String get emailRequired => 'البريد الإلكتروني مطلوب';
+
+  @override
+  String get emailInvalid => 'أدخل بريدًا إلكترونيًا صالحًا';
+
+  @override
+  String get grade => 'الدرجة';
+
+  @override
+  String get gameBoxes => 'صناديق الألعاب';
+
+  @override
+  String get saveChanges => 'حفظ التغييرات';
+
+  @override
+  String get addAccountShort => 'إضافة الحساب';
+
+  @override
+  String movedToTrash(String name) {
+    return 'نُقل $name إلى المهملات';
+  }
+
+  @override
+  String get undo => 'تراجع';
+
+  @override
+  String get manageGamesLower => 'إدارة الألعاب';
+
+  @override
+  String couldNotLoadAccounts(String error) {
+    return 'تعذّر تحميل الحسابات: $error';
+  }
+
+  @override
+  String get searchByEmail => 'ابحث بالبريد الإلكتروني';
+
+  @override
+  String get allGrades => 'كل الدرجات';
+
+  @override
+  String get anyStatus => 'كل الحالات';
+
+  @override
+  String boxesSet(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count صندوق محدد',
+      many: '$count صندوقًا محددًا',
+      few: '$count صناديق محددة',
+      two: 'صندوقان محددان',
+      one: 'صندوق واحد محدد',
+      zero: 'لا صناديق محددة',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get edit => 'تعديل';
+
+  @override
+  String get moveToTrash => 'نقل إلى المهملات';
+
+  @override
+  String get setBoxes => 'تحديد الصناديق';
+
+  @override
+  String get box => 'صندوق';
+
+  @override
+  String get noAccountMatches => 'لا يوجد حساب يطابق عوامل التصفية';
+
+  @override
+  String get noGoogleAccountsYet => 'لا توجد حسابات Google بعد';
+
+  @override
+  String get addFirstAccount => 'أضف حسابك الأول';
+
+  @override
+  String get enterGameName => 'أدخل اسم لعبة';
+
+  @override
+  String couldNotAddGame(String error) {
+    return 'تعذّرت إضافة اللعبة: $error';
+  }
+
+  @override
+  String removeGameTitle(String name) {
+    return 'إزالة $name؟';
+  }
+
+  @override
+  String removeGameWithAccounts(String name, int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count حساب ألعاب',
+      many: '$count حساب ألعاب',
+      few: '$count حسابات ألعاب',
+      two: 'حسابا ألعاب',
+      one: 'حساب ألعاب واحد',
+    );
+    return 'لدى $name $_temp0. ستبقى محفوظة، لكن اللعبة وصناديقها ستُخفى من القوائم.';
+  }
+
+  @override
+  String get removeGameNoAccounts => 'ستُخفى اللعبة وصناديقها من القوائم.';
+
+  @override
+  String get remove => 'إزالة';
+
+  @override
+  String get newGameName => 'اسم اللعبة الجديدة';
+
+  @override
+  String get add => 'إضافة';
+
+  @override
+  String get removeGame => 'إزالة اللعبة';
 }

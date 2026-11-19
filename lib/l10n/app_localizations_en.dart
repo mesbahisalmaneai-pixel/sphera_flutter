@@ -451,4 +451,319 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get updateRates => 'Update rates';
+
+  @override
+  String get authNeedHelp => 'Need help?';
+
+  @override
+  String get authHelpBody =>
+      'New here? Choose \"Create a new account\".\n\nAlready registered on this device? Choose \"I have an existing account\".\n\nCan\'t get in? Use \"I have a problem in login & password\".';
+
+  @override
+  String get gotIt => 'Got it';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get back => 'Back';
+
+  @override
+  String get help => 'Help';
+
+  @override
+  String get authVerifyUnavailableTitle => 'Verification is not available yet';
+
+  @override
+  String get authVerifyUnavailableBody =>
+      'Codes by email or SMS need an online service, which is not connected to SPHERA yet.\n\nYou can reset the login on this device instead and create a new one. Your accounts, games and statistics are kept.\n\nThis login only protects casual access to the app on this device.';
+
+  @override
+  String get authResetLogin => 'Reset login';
+
+  @override
+  String get authOops => 'Oops!';
+
+  @override
+  String get authHintEmailOrPhone => 'email or phone number';
+
+  @override
+  String get authHintCode => 'validation code';
+
+  @override
+  String get authLogin => 'Login';
+
+  @override
+  String get authEnterUserAndPassword => 'Enter your username and password.';
+
+  @override
+  String get authWelcomeTitle => 'WELCOME!';
+
+  @override
+  String get authHintUsername => 'username';
+
+  @override
+  String get authHintPassword => 'password';
+
+  @override
+  String get authForgotPassword => 'you forgot your password?';
+
+  @override
+  String get authProfilePhotoOptional => 'Profile photo (optional)';
+
+  @override
+  String get authHintChooseUsername => 'choose a username';
+
+  @override
+  String get authHintCreatePassword => 'create a password';
+
+  @override
+  String get authHintConfirmPassword => 'confirm your password';
+
+  @override
+  String get authConfirmInfo => 'I confirm my information is correct';
+
+  @override
+  String get authCreateAccount => 'Create account';
+
+  @override
+  String get authYourAge => 'your age';
+
+  @override
+  String get authHelloTitle => 'HELLO!';
+
+  @override
+  String get authCreateNewAccount => 'Create a new account';
+
+  @override
+  String get authHaveAccount => 'I have an existing account';
+
+  @override
+  String get authLoginProblem => 'I have a problem in login & password';
+
+  @override
+  String get valEnterIdentifier => 'Enter your email or phone number';
+
+  @override
+  String get valInvalidIdentifier => 'Enter a valid email or phone number';
+
+  @override
+  String get valChooseUsername => 'Choose a username';
+
+  @override
+  String get valUsernameRule => '3-20 characters: letters, numbers, _ or .';
+
+  @override
+  String get valCreatePassword => 'Create a password';
+
+  @override
+  String get valPasswordLength => 'At least 8 characters';
+
+  @override
+  String get valPasswordMix => 'Use both letters and numbers';
+
+  @override
+  String get valConfirmPassword => 'Confirm your password';
+
+  @override
+  String get valPasswordsMismatch => 'Passwords do not match';
+
+  @override
+  String valMinAge(int age) {
+    return 'SPHERA is for users $age and older';
+  }
+
+  @override
+  String get valInvalidAge => 'Enter a valid age';
+
+  @override
+  String get authErrAccountExists =>
+      'An account already exists on this device. Log in instead.';
+
+  @override
+  String get authErrWrongCredentials => 'Wrong username or password.';
+
+  @override
+  String get authNoCode => 'I didn\'t receive the verification code';
+
+  @override
+  String get boxEmpty => 'EMPTY';
+
+  @override
+  String get boxDone => 'DONE';
+
+  @override
+  String get boxNotYet => 'NOT YET';
+
+  @override
+  String get boxComing => 'COMING';
+
+  @override
+  String get gradeBronze => 'Bronze';
+
+  @override
+  String get gradeSilver => 'Silver';
+
+  @override
+  String get gradeGold => 'Gold';
+
+  @override
+  String get gradePlatinum => 'Platinum';
+
+  @override
+  String get gradeDiamond => 'Diamond';
+
+  @override
+  String get gradeInterdit => 'Interdit';
+
+  @override
+  String get statusActive => 'ACTIVE';
+
+  @override
+  String get statusSold => 'SOLD';
+
+  @override
+  String get statusForSale => 'FOR SALE';
+
+  @override
+  String get done => 'Done';
+
+  @override
+  String couldNotSave(String error) {
+    return 'Could not save: $error';
+  }
+
+  @override
+  String errDuplicateEmail(String email) {
+    return 'A Google account with $email already exists.';
+  }
+
+  @override
+  String errDuplicateGame(String name) {
+    return 'A game named \"$name\" already exists.';
+  }
+
+  @override
+  String get editGoogleAccount => 'Edit Google Account';
+
+  @override
+  String get addGoogleAccount => 'Add Google Account';
+
+  @override
+  String get email => 'Email';
+
+  @override
+  String get emailRequired => 'Email is required';
+
+  @override
+  String get emailInvalid => 'Enter a valid email address';
+
+  @override
+  String get grade => 'Grade';
+
+  @override
+  String get gameBoxes => 'Game boxes';
+
+  @override
+  String get saveChanges => 'Save changes';
+
+  @override
+  String get addAccountShort => 'Add account';
+
+  @override
+  String movedToTrash(String name) {
+    return '$name moved to Trash';
+  }
+
+  @override
+  String get undo => 'UNDO';
+
+  @override
+  String get manageGamesLower => 'Manage games';
+
+  @override
+  String couldNotLoadAccounts(String error) {
+    return 'Could not load accounts: $error';
+  }
+
+  @override
+  String get searchByEmail => 'Search by email';
+
+  @override
+  String get allGrades => 'All grades';
+
+  @override
+  String get anyStatus => 'Any status';
+
+  @override
+  String boxesSet(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count boxes set',
+      one: '1 box set',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get edit => 'Edit';
+
+  @override
+  String get moveToTrash => 'Move to Trash';
+
+  @override
+  String get setBoxes => 'Set boxes';
+
+  @override
+  String get box => 'Box';
+
+  @override
+  String get noAccountMatches => 'No account matches your filters';
+
+  @override
+  String get noGoogleAccountsYet => 'No Google accounts yet';
+
+  @override
+  String get addFirstAccount => 'Add your first account';
+
+  @override
+  String get enterGameName => 'Enter a game name';
+
+  @override
+  String couldNotAddGame(String error) {
+    return 'Could not add game: $error';
+  }
+
+  @override
+  String removeGameTitle(String name) {
+    return 'Remove $name?';
+  }
+
+  @override
+  String removeGameWithAccounts(String name, int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count gaming accounts',
+      one: '1 gaming account',
+    );
+    return '$name has $_temp0. They are kept, but the game and its boxes will be hidden from the lists.';
+  }
+
+  @override
+  String get removeGameNoAccounts =>
+      'The game and its boxes will be hidden from the lists.';
+
+  @override
+  String get remove => 'Remove';
+
+  @override
+  String get newGameName => 'New game name';
+
+  @override
+  String get add => 'Add';
+
+  @override
+  String get removeGame => 'Remove game';
 }

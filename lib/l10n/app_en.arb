@@ -1,6 +1,5 @@
 {
   "@@locale": "en",
-
   "navHome": "Home",
   "navStats": "Stats",
   "navOrbit": "Orbit",
@@ -8,43 +7,84 @@
   "navProfile": "Profile",
   "askSphera": "Ask SPHERA",
   "settings": "Settings",
-
   "welcomeBack": "Welcome back",
   "forSale": "For Sale",
   "addAccount": "Add Account",
   "searchAccount": "Search Account",
   "manageGames": "Manage Games",
-
   "netProfit": "Net Profit",
   "vsLastMonth": "{arrow} {pct}% vs last month",
-  "@vsLastMonth": {"placeholders": {"arrow": {"type": "String"}, "pct": {"type": "String"}}},
+  "@vsLastMonth": {
+    "placeholders": {
+      "arrow": {
+        "type": "String"
+      },
+      "pct": {
+        "type": "String"
+      }
+    }
+  },
   "thisMonthAmount": "This month {amount}",
-  "@thisMonthAmount": {"placeholders": {"amount": {"type": "String"}}},
+  "@thisMonthAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
   "totalAccounts": "Total Accounts",
   "noneAddedThisMonth": "None added this month",
   "addedThisMonth": "+{count} this month",
-  "@addedThisMonth": {"placeholders": {"count": {"type": "int"}}},
+  "@addedThisMonth": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "activeAccounts": "Active Accounts",
   "noAccountsYet": "No accounts yet",
   "percentOfTotal": "{pct}% of total",
-  "@percentOfTotal": {"placeholders": {"pct": {"type": "int"}}},
+  "@percentOfTotal": {
+    "placeholders": {
+      "pct": {
+        "type": "int"
+      }
+    }
+  },
   "nothingListed": "Nothing listed",
   "listedNoPrice": "Listed, no price",
   "sold": "Sold",
-
   "performance": "Performance",
   "profitByDateAdded": "Profit by date added",
   "daily": "Daily",
   "weekly": "Weekly",
   "monthly": "Monthly",
   "accountsCount": "{count, plural, =1{1 account} other{{count} accounts}}",
-  "@accountsCount": {"placeholders": {"count": {"type": "int"}}},
+  "@accountsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "gamesCount": "{count, plural, =1{1 game} other{{count} games}}",
-  "@gamesCount": {"placeholders": {"count": {"type": "int"}}},
+  "@gamesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "weekOf": "Week of {date}",
-  "@weekOf": {"placeholders": {"date": {"type": "String"}}},
+  "@weekOf": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "noAccountsInPeriod": "No accounts added in this period",
-
   "actionAdded": "Added",
   "actionUpdated": "Updated",
   "actionStatusChanged": "Status changed",
@@ -53,16 +93,33 @@
   "actionDeleted": "Deleted",
   "justNow": "Just now",
   "minutesAgo": "{count} min ago",
-  "@minutesAgo": {"placeholders": {"count": {"type": "int"}}},
+  "@minutesAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "hoursAgo": "{count} h ago",
-  "@hoursAgo": {"placeholders": {"count": {"type": "int"}}},
+  "@hoursAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "yesterday": "Yesterday",
   "daysAgo": "{count, plural, =1{1 day ago} other{{count} days ago}}",
-  "@daysAgo": {"placeholders": {"count": {"type": "int"}}},
+  "@daysAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "noActivityYet": "No activity yet.\nNew actions will appear here.",
   "recentActivity": "Recent Activity",
   "viewAll": "View all",
-
   "statistics": "Statistics",
   "analyticsCenter": "Analytics Center",
   "profitCenter": "Profit Center",
@@ -79,7 +136,6 @@
   "statusStatisticsSub": "Google boxes and gaming accounts, each on its own",
   "gamesStatistics": "Games Statistics",
   "gamesStatisticsSub": "Profit, counts & status per game",
-
   "cards": "Cards",
   "googlePlayAccounts": "Google Play Accounts",
   "googlePlayAccountsSub": "Grades & game boxes",
@@ -93,28 +149,54 @@
   "arenaSub": "Leagues, groups & knockouts",
   "createOne": "Create one",
   "tournamentsCount": "{count, plural, =1{1 tournament} other{{count} tournaments}}",
-  "@tournamentsCount": {"placeholders": {"count": {"type": "int"}}},
+  "@tournamentsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "achievements": "Achievements",
   "achievementsSub": "Badges & milestones",
   "achievementsUnlocked": "{done} / {total} unlocked",
-  "@achievementsUnlocked": {"placeholders": {"done": {"type": "int"}, "total": {"type": "int"}}},
+  "@achievementsUnlocked": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "smartTools": "Smart Tools",
   "duplicateScanner": "Duplicate Scanner",
   "duplicateScannerSub": "Find duplicate accounts, review manually",
   "noDuplicates": "No duplicates",
   "toReview": "{count} to review",
-  "@toReview": {"placeholders": {"count": {"type": "int"}}},
+  "@toReview": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "smartOrganizer": "Smart Organizer",
   "smartOrganizerSub": "Search, filter & sort accounts",
   "smartOrganizerSummary": "By game, status, grade & date",
   "inventoryVault": "Inventory Vault",
   "inventoryVaultSub": "Favourite, rare & high-value accounts",
   "inVault": "{count} in vault",
-  "@inVault": {"placeholders": {"count": {"type": "int"}}},
+  "@inVault": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "securityCenter": "Security Center",
   "securityCenterSub": "Data health, backup & sync status",
   "allGood": "All good",
-
   "language": "Language",
   "profileSecurity": "Profile & Security",
   "localMode": "Local mode",
@@ -136,17 +218,201 @@
   "trash": "Trash",
   "empty": "Empty",
   "itemsCount": "{count, plural, =1{1 item} other{{count} items}}",
-  "@itemsCount": {"placeholders": {"count": {"type": "int"}}},
+  "@itemsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "storedItems": "Stored items & assets",
   "aboutSphera": "About SPHERA",
   "version": "Version {version}",
-  "@version": {"placeholders": {"version": {"type": "String"}}},
+  "@version": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
   "aboutText": "Google Play accounts, gaming accounts, prices and statistics in one place.",
   "ratesUpdated": "Exchange rates updated.",
   "dhIsBase": "DH is the base currency: amounts are stored in DH.",
   "liveRate": "Live rate, updated {when}",
-  "@liveRate": {"placeholders": {"when": {"type": "String"}}},
+  "@liveRate": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
+  },
   "approximateRate": "Approximate rate, not live yet. Tap \"Update rates\" when online.",
   "conversionNote": "Every price is converted at this rate for display, and what you type is converted back to DH when saved.",
-  "updateRates": "Update rates"
+  "updateRates": "Update rates",
+  "authNeedHelp": "Need help?",
+  "authHelpBody": "New here? Choose \"Create a new account\".\n\nAlready registered on this device? Choose \"I have an existing account\".\n\nCan't get in? Use \"I have a problem in login & password\".",
+  "gotIt": "Got it",
+  "cancel": "Cancel",
+  "back": "Back",
+  "help": "Help",
+  "authVerifyUnavailableTitle": "Verification is not available yet",
+  "authVerifyUnavailableBody": "Codes by email or SMS need an online service, which is not connected to SPHERA yet.\n\nYou can reset the login on this device instead and create a new one. Your accounts, games and statistics are kept.\n\nThis login only protects casual access to the app on this device.",
+  "authResetLogin": "Reset login",
+  "authOops": "Oops!",
+  "authHintEmailOrPhone": "email or phone number",
+  "authHintCode": "validation code",
+  "authLogin": "Login",
+  "authEnterUserAndPassword": "Enter your username and password.",
+  "authWelcomeTitle": "WELCOME!",
+  "authHintUsername": "username",
+  "authHintPassword": "password",
+  "authForgotPassword": "you forgot your password?",
+  "authProfilePhotoOptional": "Profile photo (optional)",
+  "authHintChooseUsername": "choose a username",
+  "authHintCreatePassword": "create a password",
+  "authHintConfirmPassword": "confirm your password",
+  "authConfirmInfo": "I confirm my information is correct",
+  "authCreateAccount": "Create account",
+  "authYourAge": "your age",
+  "authHelloTitle": "HELLO!",
+  "authCreateNewAccount": "Create a new account",
+  "authHaveAccount": "I have an existing account",
+  "authLoginProblem": "I have a problem in login & password",
+  "valEnterIdentifier": "Enter your email or phone number",
+  "valInvalidIdentifier": "Enter a valid email or phone number",
+  "valChooseUsername": "Choose a username",
+  "valUsernameRule": "3-20 characters: letters, numbers, _ or .",
+  "valCreatePassword": "Create a password",
+  "valPasswordLength": "At least 8 characters",
+  "valPasswordMix": "Use both letters and numbers",
+  "valConfirmPassword": "Confirm your password",
+  "valPasswordsMismatch": "Passwords do not match",
+  "valMinAge": "SPHERA is for users {age} and older",
+  "@valMinAge": {
+    "placeholders": {
+      "age": {
+        "type": "int"
+      }
+    }
+  },
+  "valInvalidAge": "Enter a valid age",
+  "authErrAccountExists": "An account already exists on this device. Log in instead.",
+  "authErrWrongCredentials": "Wrong username or password.",
+  "authNoCode": "I didn't receive the verification code",
+  "boxEmpty": "EMPTY",
+  "boxDone": "DONE",
+  "boxNotYet": "NOT YET",
+  "boxComing": "COMING",
+  "gradeBronze": "Bronze",
+  "gradeSilver": "Silver",
+  "gradeGold": "Gold",
+  "gradePlatinum": "Platinum",
+  "gradeDiamond": "Diamond",
+  "gradeInterdit": "Interdit",
+  "statusActive": "ACTIVE",
+  "statusSold": "SOLD",
+  "statusForSale": "FOR SALE",
+  "done": "Done",
+  "couldNotSave": "Could not save: {error}",
+  "@couldNotSave": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "errDuplicateEmail": "A Google account with {email} already exists.",
+  "@errDuplicateEmail": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "errDuplicateGame": "A game named \"{name}\" already exists.",
+  "@errDuplicateGame": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "editGoogleAccount": "Edit Google Account",
+  "addGoogleAccount": "Add Google Account",
+  "email": "Email",
+  "emailRequired": "Email is required",
+  "emailInvalid": "Enter a valid email address",
+  "grade": "Grade",
+  "gameBoxes": "Game boxes",
+  "saveChanges": "Save changes",
+  "addAccountShort": "Add account",
+  "movedToTrash": "{name} moved to Trash",
+  "@movedToTrash": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "undo": "UNDO",
+  "manageGamesLower": "Manage games",
+  "couldNotLoadAccounts": "Could not load accounts: {error}",
+  "@couldNotLoadAccounts": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "searchByEmail": "Search by email",
+  "allGrades": "All grades",
+  "anyStatus": "Any status",
+  "boxesSet": "{count, plural, =1{1 box set} other{{count} boxes set}}",
+  "@boxesSet": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "edit": "Edit",
+  "moveToTrash": "Move to Trash",
+  "setBoxes": "Set boxes",
+  "box": "Box",
+  "noAccountMatches": "No account matches your filters",
+  "noGoogleAccountsYet": "No Google accounts yet",
+  "addFirstAccount": "Add your first account",
+  "enterGameName": "Enter a game name",
+  "couldNotAddGame": "Could not add game: {error}",
+  "@couldNotAddGame": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "removeGameTitle": "Remove {name}?",
+  "@removeGameTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "removeGameWithAccounts": "{name} has {count, plural, =1{1 gaming account} other{{count} gaming accounts}}. They are kept, but the game and its boxes will be hidden from the lists.",
+  "@removeGameWithAccounts": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "removeGameNoAccounts": "The game and its boxes will be hidden from the lists.",
+  "remove": "Remove",
+  "newGameName": "New game name",
+  "add": "Add",
+  "removeGame": "Remove game"
 }

@@ -1,9 +1,16 @@
+import 'dart:ui' show Locale;
+
+import '../../l10n/app_localizations.dart';
+
 /// Minimum / maximum age accepted at sign-up.
 const kMinAge = 13;
 const kMaxAge = 100;
 
+AppLocalizations _en() => lookupAppLocalizations(const Locale('en'));
+
 /// Pure validation rules for the sign-up / login forms (unit-tested).
-/// Every method returns an error message, or null when the value is valid.
+/// Every method returns an error message in the language of [l] (English
+/// when it is left out), or null when the value is valid.
 class AuthValidation {
   AuthValidation._();
 
@@ -18,40 +25,45 @@ class AuthValidation {
     return t.replaceAll(RegExp(r'[\s\-().]'), '');
   }
 
-  static String? identifier(String? v) {
+  static String? identifier(String? v, [AppLocalizations? l]) {
+    l ??= _en();
     final t = (v ?? '').trim();
-    if (t.isEmpty) return 'Enter your email or phone number';
+    if (t.isEmpty) return l.valEnterIdentifier;
     final n = normalizeIdentifier(t);
     if (_email.hasMatch(n) || _phone.hasMatch(n)) return null;
-    return 'Enter a valid email or phone number';
+    return l.valInvalidIdentifier;
   }
 
-  static String? username(String? v) {
+  static String? username(String? v, [AppLocalizations? l]) {
+    l ??= _en();
     final t = (v ?? '').trim();
-    if (t.isEmpty) return 'Choose a username';
-    if (!_user.hasMatch(t)) return '3-20 characters: letters, numbers, _ or .';
+    if (t.isEmpty) return l.valChooseUsername;
+    if (!_user.hasMatch(t)) return l.valUsernameRule;
     return null;
   }
 
-  static String? password(String? v) {
+  static String? password(String? v, [AppLocalizations? l]) {
+    l ??= _en();
     final t = v ?? '';
-    if (t.isEmpty) return 'Create a password';
-    if (t.length < 8) return 'At least 8 characters';
+    if (t.isEmpty) return l.valCreatePassword;
+    if (t.length < 8) return l.valPasswordLength;
     if (!t.contains(RegExp(r'[A-Za-z]')) || !t.contains(RegExp(r'\d'))) {
-      return 'Use both letters and numbers';
+      return l.valPasswordMix;
     }
     return null;
   }
 
-  static String? confirm(String password, String? confirm) {
-    if ((confirm ?? '').isEmpty) return 'Confirm your password';
-    if (confirm != password) return 'Passwords do not match';
+  static String? confirm(String password, String? confirm, [AppLocalizations? l]) {
+    l ??= _en();
+    if ((confirm ?? '').isEmpty) return l.valConfirmPassword;
+    if (confirm != password) return l.valPasswordsMismatch;
     return null;
   }
 
-  static String? age(int v) {
-    if (v < kMinAge) return 'SPHERA is for users $kMinAge and older';
-    if (v > kMaxAge) return 'Enter a valid age';
+  static String? age(int v, [AppLocalizations? l]) {
+    l ??= _en();
+    if (v < kMinAge) return l.valMinAge(kMinAge);
+    if (v > kMaxAge) return l.valInvalidAge;
     return null;
   }
 }

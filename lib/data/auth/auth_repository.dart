@@ -5,14 +5,27 @@ import 'package:crypto/crypto.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../l10n/app_localizations.dart';
 import 'auth_validation.dart';
 
 const _kAccount = 'auth_account_v1';
 const _kSignedIn = 'auth_signed_in_v1';
 
+enum AuthErrorKind { invalid, accountExists, wrongCredentials }
+
 class AuthError implements Exception {
-  AuthError(this.message);
+  AuthError(this.message, [this.kind = AuthErrorKind.invalid]);
   final String message;
+  final AuthErrorKind kind;
+
+  /// The message in the app language. Invalid input is normally caught by the
+  /// form first (already translated), so [message] is only a fallback.
+  String text(AppLocalizations l) => switch (kind) {
+        AuthErrorKind.accountExists => l.authErrAccountExists,
+        AuthErrorKind.wrongCredentials => l.authErrWrongCredentials,
+        AuthErrorKind.invalid => message,
+      };
+
   @override
   String toString() => message;
 }
@@ -127,7 +140,7 @@ class AuthNotifier extends Notifier<AuthState> {
         AuthValidation.age(age);
     if (error != null) throw AuthError(error);
     if (state.account != null) {
-      throw AuthError('An account already exists on this device. Log in instead.');
+      throw AuthError('An account already exists on this device. Log in instead.', AuthErrorKind.accountExists);
     }
     final salt = _newSalt();
     final account = AuthAccount(
@@ -155,7 +168,7 @@ class AuthNotifier extends Notifier<AuthState> {
             a.identifier == AuthValidation.normalizeIdentifier(l));
     // Same message for every failure, so it does not reveal what exists.
     if (!matches || !_sameHash(hashPassword(password, a.salt), a.hash)) {
-      throw AuthError('Wrong username or password.');
+      throw AuthError('Wrong username or password.', AuthErrorKind.wrongCredentials);
     }
     final p = await SharedPreferences.getInstance();
     await p.setBool(_kSignedIn, true);

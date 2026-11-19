@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/l10n.dart';
 import '../../core/status_style.dart';
 import '../../core/theme.dart';
 import '../../data/database.dart';
@@ -45,12 +46,13 @@ class _GoogleAccountsScreenState extends ConsumerState<GoogleAccountsScreen> {
   Future<void> _trash(GoogleAccount a) async {
     final repo = ref.read(googleRepoProvider);
     final messenger = ScaffoldMessenger.of(context);
+    final l = context.l10n;
     await repo.moveToTrash(a.id);
     messenger
       ..hideCurrentSnackBar()
       ..showSnackBar(SnackBar(
-        content: Text('${a.email} moved to Trash'),
-        action: SnackBarAction(label: 'UNDO', onPressed: () => repo.restore(a.id)),
+        content: Text(l.movedToTrash(a.email)),
+        action: SnackBarAction(label: l.undo, onPressed: () => repo.restore(a.id)),
       ));
   }
 
@@ -69,10 +71,10 @@ class _GoogleAccountsScreenState extends ConsumerState<GoogleAccountsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Google Play Accounts'),
+        title: Text(context.l10n.googlePlayAccounts),
         actions: [
           IconButton(
-            tooltip: 'Manage games',
+            tooltip: context.l10n.manageGamesLower,
             icon: Icon(Icons.sports_esports_outlined),
             onPressed: _manageGames,
           ),
@@ -83,11 +85,11 @@ class _GoogleAccountsScreenState extends ConsumerState<GoogleAccountsScreen> {
         backgroundColor: SpheraColors.gold,
         foregroundColor: Theme.of(context).colorScheme.onPrimary,
         icon: Icon(Icons.add),
-        label: Text('Add Google Account'),
+        label: Text(context.l10n.addGoogleAccount),
       ),
       body: accounts.when(
         loading: () => Center(child: CircularProgressIndicator()),
-        error: (e, _) => Center(child: Text('Could not load accounts: $e')),
+        error: (e, _) => Center(child: Text(context.l10n.couldNotLoadAccounts('$e'))),
         data: (all) {
           final list = all.where((a) {
             if (_query.isNotEmpty && !a.email.contains(_query.toLowerCase())) return false;
@@ -103,7 +105,7 @@ class _GoogleAccountsScreenState extends ConsumerState<GoogleAccountsScreen> {
               padding: EdgeInsets.fromLTRB(16, 8, 16, 0),
               child: TextField(
                 decoration: InputDecoration(
-                    hintText: 'Search by email', prefixIcon: Icon(Icons.search)),
+                    hintText: context.l10n.searchByEmail, prefixIcon: Icon(Icons.search)),
                 onChanged: (v) => setState(() => _query = v.trim()),
               ),
             ),
@@ -113,11 +115,11 @@ class _GoogleAccountsScreenState extends ConsumerState<GoogleAccountsScreen> {
                 scrollDirection: Axis.horizontal,
                 padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 children: [
-                  _chip('All grades', _grade == null, () => setState(() => _grade = null)),
+                  _chip(context.l10n.allGrades, _grade == null, () => setState(() => _grade = null)),
                   for (final g in Grade.values)
                     _chip(gradeLabel(g), _grade == g, () => setState(() => _grade = g)),
                   SizedBox(width: 12),
-                  _chip('Any status', _status == null, () => setState(() => _status = null)),
+                  _chip(context.l10n.anyStatus, _status == null, () => setState(() => _status = null)),
                   for (final s in BoxStatus.values)
                     _chip(boxLabel(s), _status == s, () => setState(() => _status = s)),
                 ],
@@ -215,7 +217,7 @@ class _AccountCard extends StatelessWidget {
                         style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15)),
                     SizedBox(height: 3),
                     Text(
-                      '${gradeLabel(account.grade)}  \u00b7  ${setBoxes.length} box${setBoxes.length == 1 ? '' : 'es'} set',
+                      '${gradeLabel(account.grade)}  \u00b7  ${context.l10n.boxesSet(setBoxes.length)}',
                       style: TextStyle(color: c, fontSize: 12, fontWeight: FontWeight.w600),
                     ),
                   ]),
@@ -224,8 +226,8 @@ class _AccountCard extends StatelessWidget {
                   icon: Icon(Icons.more_vert, color: SpheraColors.muted),
                   onSelected: (v) => v == 'edit' ? onTap() : onTrash(),
                   itemBuilder: (_) => [
-                    PopupMenuItem(value: 'edit', child: Text('Edit')),
-                    PopupMenuItem(value: 'trash', child: Text('Move to Trash')),
+                    PopupMenuItem(value: 'edit', child: Text(context.l10n.edit)),
+                    PopupMenuItem(value: 'trash', child: Text(context.l10n.moveToTrash)),
                   ],
                 ),
               ]),
@@ -237,7 +239,7 @@ class _AccountCard extends StatelessWidget {
                     _BoxPill(name: g.name, status: statuses[g.id]!, onTap: () => onBox(gameId: g.id)),
                   ActionChip(
                     avatar: Icon(Icons.add, size: 16, color: SpheraColors.gold),
-                    label: Text(hidden > 0 ? '+$hidden' : (setBoxes.isEmpty ? 'Set boxes' : 'Box'),
+                    label: Text(hidden > 0 ? '+$hidden' : (setBoxes.isEmpty ? context.l10n.setBoxes : context.l10n.box),
                         style: TextStyle(fontSize: 12, color: SpheraColors.gold)),
                     side: BorderSide(color: SpheraColors.border),
                     onPressed: () => onBox(),
@@ -295,11 +297,11 @@ class _Empty extends StatelessWidget {
           child: Column(mainAxisSize: MainAxisSize.min, children: [
             Icon(Icons.mail_outline, size: 48, color: SpheraColors.muted),
             SizedBox(height: 12),
-            Text(hasAny ? 'No account matches your filters' : 'No Google accounts yet',
+            Text(hasAny ? context.l10n.noAccountMatches : context.l10n.noGoogleAccountsYet,
                 style: TextStyle(color: SpheraColors.muted)),
             if (!hasAny) ...[
               SizedBox(height: 16),
-              FilledButton(onPressed: onAdd, child: Text('Add your first account')),
+              FilledButton(onPressed: onAdd, child: Text(context.l10n.addFirstAccount)),
             ],
           ]),
         ),

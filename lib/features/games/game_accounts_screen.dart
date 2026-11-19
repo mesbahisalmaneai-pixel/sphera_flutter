@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/l10n.dart';
 import '../../core/format.dart';
 import '../../core/game_logo.dart';
 import '../../core/theme.dart';
@@ -15,9 +16,9 @@ Color statusColor(GameAccountStatus s) => switch (s) {
       GameAccountStatus.forSale => SpheraColors.coming,
     };
 String statusLabel(GameAccountStatus s) => switch (s) {
-      GameAccountStatus.active => 'ACTIVE',
-      GameAccountStatus.sell => 'SOLD',
-      GameAccountStatus.forSale => 'FOR SALE',
+      GameAccountStatus.active => appL10n.statusActive,
+      GameAccountStatus.sell => appL10n.statusSold,
+      GameAccountStatus.forSale => appL10n.statusForSale,
     };
 
 class StatusBadge extends StatelessWidget {

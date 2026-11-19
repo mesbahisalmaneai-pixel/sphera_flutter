@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/l10n.dart';
 import '../../core/status_style.dart';
 import '../../core/theme.dart';
 import '../../core/tile_grid.dart';
@@ -57,9 +58,9 @@ class StatusStatisticsScreen extends ConsumerWidget {
         ]),
         _section('Gaming accounts'),
         _grid([
-          _statusCard(context, 'ACTIVE', active, SpheraColors.done,
+          _statusCard(context, appL10n.statusActive, active, SpheraColors.done,
               GameAccountsByStatusScreen(status: GameAccountStatus.active)),
-          _statusCard(context, 'SOLD', sell, SpheraColors.danger,
+          _statusCard(context, appL10n.statusSold, sell, SpheraColors.danger,
               GameAccountsByStatusScreen(status: GameAccountStatus.sell)),
         ]),
       ]),

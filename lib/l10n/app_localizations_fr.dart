@@ -457,4 +457,327 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get updateRates => 'Mettre à jour les taux';
+
+  @override
+  String get authNeedHelp => 'Besoin d\'aide ?';
+
+  @override
+  String get authHelpBody =>
+      'Nouveau ? Choisissez « Créer un nouveau compte ».\n\nDéjà inscrit sur cet appareil ? Choisissez « J\'ai déjà un compte ».\n\nImpossible de vous connecter ? Utilisez « J\'ai un problème de connexion et de mot de passe ».';
+
+  @override
+  String get gotIt => 'Compris';
+
+  @override
+  String get cancel => 'Annuler';
+
+  @override
+  String get back => 'Retour';
+
+  @override
+  String get help => 'Aide';
+
+  @override
+  String get authVerifyUnavailableTitle =>
+      'La vérification n\'est pas encore disponible';
+
+  @override
+  String get authVerifyUnavailableBody =>
+      'Les codes par e-mail ou SMS nécessitent un service en ligne, qui n\'est pas encore relié à SPHERA.\n\nVous pouvez plutôt réinitialiser la connexion sur cet appareil et en créer une nouvelle. Vos comptes, jeux et statistiques sont conservés.\n\nCette connexion protège seulement l\'accès occasionnel à l\'application sur cet appareil.';
+
+  @override
+  String get authResetLogin => 'Réinitialiser la connexion';
+
+  @override
+  String get authOops => 'Oups !';
+
+  @override
+  String get authHintEmailOrPhone => 'e-mail ou numéro de téléphone';
+
+  @override
+  String get authHintCode => 'code de validation';
+
+  @override
+  String get authLogin => 'Connexion';
+
+  @override
+  String get authEnterUserAndPassword =>
+      'Saisissez votre nom d\'utilisateur et votre mot de passe.';
+
+  @override
+  String get authWelcomeTitle => 'BIENVENUE !';
+
+  @override
+  String get authHintUsername => 'nom d\'utilisateur';
+
+  @override
+  String get authHintPassword => 'mot de passe';
+
+  @override
+  String get authForgotPassword => 'mot de passe oublié ?';
+
+  @override
+  String get authProfilePhotoOptional => 'Photo de profil (facultatif)';
+
+  @override
+  String get authHintChooseUsername => 'choisissez un nom d\'utilisateur';
+
+  @override
+  String get authHintCreatePassword => 'créez un mot de passe';
+
+  @override
+  String get authHintConfirmPassword => 'confirmez votre mot de passe';
+
+  @override
+  String get authConfirmInfo =>
+      'Je confirme que mes informations sont correctes';
+
+  @override
+  String get authCreateAccount => 'Créer le compte';
+
+  @override
+  String get authYourAge => 'votre âge';
+
+  @override
+  String get authHelloTitle => 'BONJOUR !';
+
+  @override
+  String get authCreateNewAccount => 'Créer un nouveau compte';
+
+  @override
+  String get authHaveAccount => 'J\'ai déjà un compte';
+
+  @override
+  String get authLoginProblem =>
+      'J\'ai un problème de connexion et de mot de passe';
+
+  @override
+  String get valEnterIdentifier =>
+      'Saisissez votre e-mail ou votre numéro de téléphone';
+
+  @override
+  String get valInvalidIdentifier =>
+      'Saisissez un e-mail ou un numéro de téléphone valide';
+
+  @override
+  String get valChooseUsername => 'Choisissez un nom d\'utilisateur';
+
+  @override
+  String get valUsernameRule => '3 à 20 caractères : lettres, chiffres, _ ou .';
+
+  @override
+  String get valCreatePassword => 'Créez un mot de passe';
+
+  @override
+  String get valPasswordLength => 'Au moins 8 caractères';
+
+  @override
+  String get valPasswordMix => 'Utilisez des lettres et des chiffres';
+
+  @override
+  String get valConfirmPassword => 'Confirmez votre mot de passe';
+
+  @override
+  String get valPasswordsMismatch => 'Les mots de passe ne correspondent pas';
+
+  @override
+  String valMinAge(int age) {
+    return 'SPHERA est réservé aux personnes de $age ans et plus';
+  }
+
+  @override
+  String get valInvalidAge => 'Saisissez un âge valide';
+
+  @override
+  String get authErrAccountExists =>
+      'Un compte existe déjà sur cet appareil. Connectez-vous plutôt.';
+
+  @override
+  String get authErrWrongCredentials =>
+      'Nom d\'utilisateur ou mot de passe incorrect.';
+
+  @override
+  String get authNoCode => 'Je n\'ai pas reçu le code de vérification';
+
+  @override
+  String get boxEmpty => 'VIDE';
+
+  @override
+  String get boxDone => 'FAIT';
+
+  @override
+  String get boxNotYet => 'PAS ENCORE';
+
+  @override
+  String get boxComing => 'BIENTÔT';
+
+  @override
+  String get gradeBronze => 'Bronze';
+
+  @override
+  String get gradeSilver => 'Argent';
+
+  @override
+  String get gradeGold => 'Or';
+
+  @override
+  String get gradePlatinum => 'Platine';
+
+  @override
+  String get gradeDiamond => 'Diamant';
+
+  @override
+  String get gradeInterdit => 'Interdit';
+
+  @override
+  String get statusActive => 'ACTIF';
+
+  @override
+  String get statusSold => 'VENDU';
+
+  @override
+  String get statusForSale => 'À VENDRE';
+
+  @override
+  String get done => 'Terminé';
+
+  @override
+  String couldNotSave(String error) {
+    return 'Enregistrement impossible : $error';
+  }
+
+  @override
+  String errDuplicateEmail(String email) {
+    return 'Un compte Google avec $email existe déjà.';
+  }
+
+  @override
+  String errDuplicateGame(String name) {
+    return 'Un jeu nommé « $name » existe déjà.';
+  }
+
+  @override
+  String get editGoogleAccount => 'Modifier le compte Google';
+
+  @override
+  String get addGoogleAccount => 'Ajouter un compte Google';
+
+  @override
+  String get email => 'E-mail';
+
+  @override
+  String get emailRequired => 'L\'e-mail est obligatoire';
+
+  @override
+  String get emailInvalid => 'Saisissez une adresse e-mail valide';
+
+  @override
+  String get grade => 'Grade';
+
+  @override
+  String get gameBoxes => 'Boîtes de jeux';
+
+  @override
+  String get saveChanges => 'Enregistrer';
+
+  @override
+  String get addAccountShort => 'Ajouter le compte';
+
+  @override
+  String movedToTrash(String name) {
+    return '$name mis à la corbeille';
+  }
+
+  @override
+  String get undo => 'ANNULER';
+
+  @override
+  String get manageGamesLower => 'Gérer les jeux';
+
+  @override
+  String couldNotLoadAccounts(String error) {
+    return 'Impossible de charger les comptes : $error';
+  }
+
+  @override
+  String get searchByEmail => 'Rechercher par e-mail';
+
+  @override
+  String get allGrades => 'Tous les grades';
+
+  @override
+  String get anyStatus => 'Tous les statuts';
+
+  @override
+  String boxesSet(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count boîtes définies',
+      one: '1 boîte définie',
+      zero: '0 boîte définie',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get edit => 'Modifier';
+
+  @override
+  String get moveToTrash => 'Mettre à la corbeille';
+
+  @override
+  String get setBoxes => 'Définir les boîtes';
+
+  @override
+  String get box => 'Boîte';
+
+  @override
+  String get noAccountMatches => 'Aucun compte ne correspond à vos filtres';
+
+  @override
+  String get noGoogleAccountsYet => 'Aucun compte Google pour l\'instant';
+
+  @override
+  String get addFirstAccount => 'Ajoutez votre premier compte';
+
+  @override
+  String get enterGameName => 'Saisissez un nom de jeu';
+
+  @override
+  String couldNotAddGame(String error) {
+    return 'Impossible d\'ajouter le jeu : $error';
+  }
+
+  @override
+  String removeGameTitle(String name) {
+    return 'Retirer $name ?';
+  }
+
+  @override
+  String removeGameWithAccounts(String name, int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count comptes de jeu',
+      one: '1 compte de jeu',
+    );
+    return '$name a $_temp0. Ils sont conservés, mais le jeu et ses boîtes seront masqués des listes.';
+  }
+
+  @override
+  String get removeGameNoAccounts =>
+      'Le jeu et ses boîtes seront masqués des listes.';
+
+  @override
+  String get remove => 'Retirer';
+
+  @override
+  String get newGameName => 'Nom du nouveau jeu';
+
+  @override
+  String get add => 'Ajouter';
+
+  @override
+  String get removeGame => 'Retirer le jeu';
 }

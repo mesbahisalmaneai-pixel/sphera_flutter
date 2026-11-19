@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../core/l10n.dart';
 import '../../core/sphera_logo.dart';
 import '../../core/theme.dart';
 import '../../data/auth/auth_repository.dart';
@@ -31,7 +32,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
   Future<void> _login() async {
     if (_user.text.trim().isEmpty || _password.text.isEmpty) {
-      setState(() => _error = 'Enter your username and password.');
+      setState(() => _error = context.l10n.authEnterUserAndPassword);
       return;
     }
     setState(() {
@@ -43,7 +44,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       if (!mounted) return;
       Navigator.of(context).popUntil((r) => r.isFirst);
     } on AuthError catch (e) {
-      if (mounted) setState(() => _error = e.message);
+      if (mounted) setState(() => _error = e.text(context.l10n));
     } finally {
       if (mounted) setState(() => _busy = false);
     }
@@ -56,9 +57,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         final current = ref.watch(languageProvider);
         return SafeArea(
           child: Column(mainAxisSize: MainAxisSize.min, children: [
-            const Padding(
-              padding: EdgeInsets.all(16),
-              child: Text('Language', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16)),
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Text(ctx.l10n.language, style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 16)),
             ),
             for (final e in kLanguages.entries)
               ListTile(
@@ -78,21 +79,21 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return AuthScaffold(
-      leading: AuthIconButton(icon: Icons.settings, tooltip: 'Language', onPressed: _languageSheet),
+      leading: AuthIconButton(icon: Icons.settings, tooltip: context.l10n.language, onPressed: _languageSheet),
       child: Column(mainAxisSize: MainAxisSize.min, children: [
         const SpheraLogo(height: 170),
         const SizedBox(height: 22),
-        const AuthTitle('WELCOME!'),
+        AuthTitle(context.l10n.authWelcomeTitle),
         const SizedBox(height: 28),
         PillField(
           controller: _user,
-          hint: 'username',
+          hint: context.l10n.authHintUsername,
           textInputAction: TextInputAction.next,
         ),
         const SizedBox(height: 12),
         PillField(
           controller: _password,
-          hint: 'password',
+          hint: context.l10n.authHintPassword,
           obscure: !_show,
           textInputAction: TextInputAction.done,
           onSubmitted: (_) => _login(),
@@ -104,9 +105,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         ),
         const SizedBox(height: 4),
         Align(
-          alignment: Alignment.centerRight,
+          alignment: AlignmentDirectional.centerEnd,
           child: AuthLink(
-            'you forgot your password?',
+            context.l10n.authForgotPassword,
             onTap: () => Navigator.of(context)
                 .push(MaterialPageRoute<void>(builder: (_) => const ForgotPasswordScreen())),
           ),
@@ -114,8 +115,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         AuthErrorText(_error),
         const SizedBox(height: 8),
         Align(
-          alignment: Alignment.centerRight,
-          child: PillButton(label: 'Login', onPressed: _login, loading: _busy, width: 130),
+          alignment: AlignmentDirectional.centerEnd,
+          child: PillButton(label: context.l10n.authLogin, onPressed: _login, loading: _busy, width: 130),
         ),
       ]),
     );

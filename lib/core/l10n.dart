@@ -14,3 +14,9 @@ extension L10nX on BuildContext {
       Localizations.of<AppLocalizations>(this, AppLocalizations) ??
       lookupAppLocalizations(const Locale('en'));
 }
+
+/// The app language for code that has no BuildContext: labels used by data
+/// providers, painters and helpers such as [boxLabel]. SpheraApp sets it on
+/// every build (the whole tree rebuilds when the language changes). English
+/// until then, and in tests that do not set it.
+AppLocalizations appL10n = lookupAppLocalizations(const Locale('en'));

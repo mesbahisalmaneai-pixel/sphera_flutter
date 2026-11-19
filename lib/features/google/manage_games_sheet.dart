@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/l10n.dart';
 import '../../core/theme.dart';
 import '../../data/database.dart';
 import '../../data/game_repository.dart';
@@ -26,9 +27,10 @@ class _ManageGamesSheetState extends ConsumerState<ManageGamesSheet> {
 
   Future<void> _add() async {
     if (_busy) return;
+    final l = context.l10n;
     final n = _name.text.trim();
     if (n.isEmpty) {
-      setState(() => _error = 'Enter a game name');
+      setState(() => _error = l.enterGameName);
       return;
     }
     setState(() {
@@ -39,9 +41,9 @@ class _ManageGamesSheetState extends ConsumerState<ManageGamesSheet> {
       await ref.read(gameRepoProvider).addGame(n);
       _name.clear();
     } on DuplicateGameException catch (e) {
-      _error = e.toString();
+      _error = l.errDuplicateGame(e.name);
     } catch (e) {
-      _error = 'Could not add game: $e';
+      _error = l.couldNotAddGame('$e');
     } finally {
       if (mounted) setState(() => _busy = false);
     }
@@ -54,16 +56,15 @@ class _ManageGamesSheetState extends ConsumerState<ManageGamesSheet> {
     final ok = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text('Remove ${g.name}?'),
+        title: Text(context.l10n.removeGameTitle(g.name)),
         content: Text(count > 0
-            ? '${g.name} has $count gaming account(s). They are kept, but the game and its '
-                'boxes will be hidden from the lists.'
-            : 'The game and its boxes will be hidden from the lists.'),
+            ? context.l10n.removeGameWithAccounts(g.name, count)
+            : context.l10n.removeGameNoAccounts),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(ctx, false), child: Text('Cancel')),
+          TextButton(onPressed: () => Navigator.pop(ctx, false), child: Text(context.l10n.cancel)),
           TextButton(
               onPressed: () => Navigator.pop(ctx, true),
-              child: Text('Remove', style: TextStyle(color: SpheraColors.danger))),
+              child: Text(context.l10n.remove, style: TextStyle(color: SpheraColors.danger))),
         ],
       ),
     );
@@ -79,19 +80,19 @@ class _ManageGamesSheetState extends ConsumerState<ManageGamesSheet> {
         child: SingleChildScrollView(
           padding: EdgeInsets.fromLTRB(20, 8, 20, 20),
           child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Text('Manage games', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16)),
+            Text(context.l10n.manageGamesLower, style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16)),
             SizedBox(height: 12),
             Row(children: [
               Expanded(
                 child: TextField(
                   controller: _name,
                   textCapitalization: TextCapitalization.words,
-                  decoration: InputDecoration(hintText: 'New game name'),
+                  decoration: InputDecoration(hintText: context.l10n.newGameName),
                   onSubmitted: (_) => _add(),
                 ),
               ),
               SizedBox(width: 10),
-              FilledButton(onPressed: _busy ? null : _add, child: Text('Add')),
+              FilledButton(onPressed: _busy ? null : _add, child: Text(context.l10n.add)),
             ]),
             if (_error != null)
               Padding(
@@ -104,7 +105,7 @@ class _ManageGamesSheetState extends ConsumerState<ManageGamesSheet> {
                 contentPadding: EdgeInsets.zero,
                 title: Text(g.name),
                 trailing: IconButton(
-                  tooltip: 'Remove game',
+                  tooltip: context.l10n.removeGame,
                   icon: Icon(Icons.delete_outline, color: SpheraColors.muted),
                   onPressed: () => _remove(g),
                 ),

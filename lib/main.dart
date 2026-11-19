@@ -67,6 +67,8 @@ class SpheraApp extends ConsumerWidget {
           ThemeModeSetting.system => platformDark,
         };
         SpheraColors.apply(paletteFor(look.style, dark: dark));
+        // Texts built outside widgets (labels, providers) follow the language.
+        appL10n = context.l10n;
         // Amounts keep "+770 DH" order inside Arabic text.
         amountsInRtl = Directionality.of(context) == TextDirection.rtl;
         // Forces every widget below to rebuild when the palette or the

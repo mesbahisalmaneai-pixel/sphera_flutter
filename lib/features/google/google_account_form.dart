@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/l10n.dart';
 import '../../core/status_style.dart';
 import '../../core/theme.dart';
 import '../../data/database.dart';
@@ -58,9 +59,9 @@ class _GoogleAccountFormState extends ConsumerState<GoogleAccountForm> {
       }
       if (mounted) Navigator.of(context).pop(true);
     } on DuplicateEmailException catch (e) {
-      setState(() => _error = e.toString());
+      setState(() => _error = context.l10n.errDuplicateEmail(e.email));
     } catch (e) {
-      setState(() => _error = 'Could not save: $e');
+      setState(() => _error = context.l10n.couldNotSave('$e'));
     } finally {
       if (mounted) setState(() => _saving = false);
     }
@@ -70,7 +71,7 @@ class _GoogleAccountFormState extends ConsumerState<GoogleAccountForm> {
   Widget build(BuildContext context) {
     final games = ref.watch(activeGamesProvider).value ?? <Game>[];
     return Scaffold(
-      appBar: AppBar(title: Text(_isEdit ? 'Edit Google Account' : 'Add Google Account')),
+      appBar: AppBar(title: Text(_isEdit ? context.l10n.editGoogleAccount : context.l10n.addGoogleAccount)),
       body: Form(
         key: _formKey,
         child: ListView(padding: EdgeInsets.all(20), children: [
@@ -78,16 +79,16 @@ class _GoogleAccountFormState extends ConsumerState<GoogleAccountForm> {
             controller: _email,
             keyboardType: TextInputType.emailAddress,
             autocorrect: false,
-            decoration: InputDecoration(labelText: 'Email'),
+            decoration: InputDecoration(labelText: context.l10n.email),
             validator: (v) {
               final t = (v ?? '').trim();
-              if (t.isEmpty) return 'Email is required';
-              if (!_emailRe.hasMatch(t)) return 'Enter a valid email address';
+              if (t.isEmpty) return context.l10n.emailRequired;
+              if (!_emailRe.hasMatch(t)) return context.l10n.emailInvalid;
               return null;
             },
           ),
           SizedBox(height: 24),
-          Text('Grade', style: TextStyle(color: SpheraColors.muted)),
+          Text(context.l10n.grade, style: TextStyle(color: SpheraColors.muted)),
           SizedBox(height: 8),
           Wrap(spacing: 10, runSpacing: 10, children: [
             for (final g in Grade.values)
@@ -118,7 +119,7 @@ class _GoogleAccountFormState extends ConsumerState<GoogleAccountForm> {
               ),
           ]),
           SizedBox(height: 24),
-          Text('Game boxes', style: TextStyle(color: SpheraColors.muted)),
+          Text(context.l10n.gameBoxes, style: TextStyle(color: SpheraColors.muted)),
           SizedBox(height: 8),
           for (final game in games)
             Card(
@@ -152,7 +153,7 @@ class _GoogleAccountFormState extends ConsumerState<GoogleAccountForm> {
                 ? SizedBox(
                     height: 20, width: 20,
                     child: CircularProgressIndicator(strokeWidth: 2, color: Colors.black))
-                : Text(_isEdit ? 'Save changes' : 'Add account'),
+                : Text(_isEdit ? context.l10n.saveChanges : context.l10n.addAccountShort),
           ),
         ]),
       ),

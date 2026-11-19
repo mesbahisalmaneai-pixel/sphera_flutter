@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../core/l10n.dart';
 import '../../core/sphera_logo.dart';
 import '../../data/auth/auth_repository.dart';
 import '../../data/auth/auth_validation.dart';
@@ -32,7 +33,7 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
   }
 
   Future<void> _explain() async {
-    final idError = AuthValidation.identifier(_id.text);
+    final idError = AuthValidation.identifier(_id.text, context.l10n);
     if (idError != null) {
       setState(() => _error = idError);
       return;
@@ -41,16 +42,11 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
     final reset = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Verification is not available yet'),
-        content: const Text(
-          'Codes by email or SMS need an online service, which is not connected to SPHERA yet.\n\n'
-          'You can reset the login on this device instead and create a new one. '
-          'Your accounts, games and statistics are kept.\n\n'
-          'This login only protects casual access to the app on this device.',
-        ),
+        title: Text(context.l10n.authVerifyUnavailableTitle),
+        content: Text(context.l10n.authVerifyUnavailableBody),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(ctx, false), child: const Text('Cancel')),
-          FilledButton(onPressed: () => Navigator.pop(ctx, true), child: const Text('Reset login')),
+          TextButton(onPressed: () => Navigator.pop(ctx, false), child: Text(context.l10n.cancel)),
+          FilledButton(onPressed: () => Navigator.pop(ctx, true), child: Text(context.l10n.authResetLogin)),
         ],
       ),
     );
@@ -66,29 +62,29 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
     return AuthScaffold(
       leading: AuthIconButton(
         icon: Icons.arrow_back,
-        tooltip: 'Back',
+        tooltip: context.l10n.back,
         onPressed: () => Navigator.of(context).maybePop(),
       ),
       trailing: AuthIconButton(
         icon: Icons.help_outline,
-        tooltip: 'Help',
+        tooltip: context.l10n.help,
         onPressed: () => showAuthHelp(context),
       ),
       child: Column(mainAxisSize: MainAxisSize.min, children: [
         const SpheraLogo(height: 170),
         const SizedBox(height: 22),
-        const AuthTitle('Oops!'),
+        AuthTitle(context.l10n.authOops),
         const SizedBox(height: 28),
         PillField(
           controller: _id,
-          hint: 'email or phone number',
+          hint: context.l10n.authHintEmailOrPhone,
           keyboardType: TextInputType.emailAddress,
           textInputAction: TextInputAction.next,
         ),
         const SizedBox(height: 12),
         PillField(
           controller: _code,
-          hint: 'validation code',
+          hint: context.l10n.authHintCode,
           keyboardType: TextInputType.number,
           maxLength: 6,
           textInputAction: TextInputAction.done,
@@ -97,11 +93,11 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
         AuthErrorText(_error),
         const SizedBox(height: 14),
         Align(
-          alignment: Alignment.centerRight,
-          child: PillButton(label: 'Login', onPressed: _explain, width: 130),
+          alignment: AlignmentDirectional.centerEnd,
+          child: PillButton(label: context.l10n.authLogin, onPressed: _explain, width: 130),
         ),
         const SizedBox(height: 6),
-        AuthLink("I didn't receive the verification code", onTap: _explain),
+        AuthLink(context.l10n.authNoCode, onTap: _explain),
       ]),
     );
   }

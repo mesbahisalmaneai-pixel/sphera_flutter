@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../core/l10n.dart';
 import '../../core/sphera_logo.dart';
 import '../../core/theme.dart';
 import '../../data/auth/auth_repository.dart';
@@ -45,7 +46,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
 
   Future<void> _submit() async {
     final formOk = _form.currentState!.validate();
-    final ageError = AuthValidation.age(_age);
+    final ageError = AuthValidation.age(_age, context.l10n);
     setState(() {
       _checkError = !_confirmed;
       _error = ageError;
@@ -68,7 +69,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
       if (!mounted) return;
       Navigator.of(context).popUntil((r) => r.isFirst);
     } on AuthError catch (e) {
-      if (mounted) setState(() => _error = e.message);
+      if (mounted) setState(() => _error = e.text(context.l10n));
     } finally {
       if (mounted) setState(() => _busy = false);
     }
@@ -86,7 +87,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
     return AuthScaffold(
       leading: AuthIconButton(
         icon: Icons.arrow_back,
-        tooltip: 'Back',
+        tooltip: context.l10n.back,
         onPressed: () => Navigator.of(context).maybePop(),
       ),
       child: Form(
@@ -115,39 +116,39 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
             ]),
           ),
           const SizedBox(height: 4),
-          Text('Profile photo (optional)', style: TextStyle(color: SpheraColors.muted, fontSize: 11)),
+          Text(context.l10n.authProfilePhotoOptional, style: TextStyle(color: SpheraColors.muted, fontSize: 11)),
           const SizedBox(height: 14),
           PillField(
             controller: _id,
-            hint: 'email or phone number',
+            hint: context.l10n.authHintEmailOrPhone,
             keyboardType: TextInputType.emailAddress,
             textInputAction: TextInputAction.next,
-            validator: AuthValidation.identifier,
+            validator: (v) => AuthValidation.identifier(v, context.l10n),
           ),
           const SizedBox(height: 12),
           PillField(
             controller: _username,
-            hint: 'choose a username',
+            hint: context.l10n.authHintChooseUsername,
             textInputAction: TextInputAction.next,
             maxLength: 20,
-            validator: AuthValidation.username,
+            validator: (v) => AuthValidation.username(v, context.l10n),
           ),
           const SizedBox(height: 12),
           PillField(
             controller: _password,
-            hint: 'create a password',
+            hint: context.l10n.authHintCreatePassword,
             obscure: !_showPassword,
             trailing: _eye(),
             textInputAction: TextInputAction.next,
-            validator: AuthValidation.password,
+            validator: (v) => AuthValidation.password(v, context.l10n),
           ),
           const SizedBox(height: 12),
           PillField(
             controller: _confirm,
-            hint: 'confirm your password',
+            hint: context.l10n.authHintConfirmPassword,
             obscure: !_showPassword,
             textInputAction: TextInputAction.done,
-            validator: (v) => AuthValidation.confirm(_password.text, v),
+            validator: (v) => AuthValidation.confirm(_password.text, v, context.l10n),
           ),
           const SizedBox(height: 12),
           _AgeField(value: _age, onChanged: (v) => setState(() => _age = v)),
@@ -169,7 +170,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                 }),
               ),
               Flexible(
-                child: Text('I confirm my information is correct',
+                child: Text(context.l10n.authConfirmInfo,
                     style: TextStyle(
                         color: _checkError ? SpheraColors.danger : SpheraColors.ivory, fontSize: 12)),
               ),
@@ -177,7 +178,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
           ),
           AuthErrorText(_error),
           const SizedBox(height: 10),
-          PillButton(label: 'Create account', onPressed: _submit, loading: _busy),
+          PillButton(label: context.l10n.authCreateAccount, onPressed: _submit, loading: _busy),
         ]),
       ),
     );
@@ -199,7 +200,7 @@ class _AgeField extends StatelessWidget {
         border: Border.all(color: SpheraColors.ivory, width: 1.5),
       ),
       child: Row(children: [
-        Text('your age', style: TextStyle(color: SpheraColors.muted, fontSize: 14)),
+        Text(context.l10n.authYourAge, style: TextStyle(color: SpheraColors.muted, fontSize: 14)),
         const Spacer(),
         IconButton(
           visualDensity: VisualDensity.compact,

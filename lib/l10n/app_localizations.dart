@@ -843,6 +843,564 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Update rates'**
   String get updateRates;
+
+  /// No description provided for @authNeedHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Need help?'**
+  String get authNeedHelp;
+
+  /// No description provided for @authHelpBody.
+  ///
+  /// In en, this message translates to:
+  /// **'New here? Choose \"Create a new account\".\n\nAlready registered on this device? Choose \"I have an existing account\".\n\nCan\'t get in? Use \"I have a problem in login & password\".'**
+  String get authHelpBody;
+
+  /// No description provided for @gotIt.
+  ///
+  /// In en, this message translates to:
+  /// **'Got it'**
+  String get gotIt;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @back.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get back;
+
+  /// No description provided for @help.
+  ///
+  /// In en, this message translates to:
+  /// **'Help'**
+  String get help;
+
+  /// No description provided for @authVerifyUnavailableTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification is not available yet'**
+  String get authVerifyUnavailableTitle;
+
+  /// No description provided for @authVerifyUnavailableBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Codes by email or SMS need an online service, which is not connected to SPHERA yet.\n\nYou can reset the login on this device instead and create a new one. Your accounts, games and statistics are kept.\n\nThis login only protects casual access to the app on this device.'**
+  String get authVerifyUnavailableBody;
+
+  /// No description provided for @authResetLogin.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset login'**
+  String get authResetLogin;
+
+  /// No description provided for @authOops.
+  ///
+  /// In en, this message translates to:
+  /// **'Oops!'**
+  String get authOops;
+
+  /// No description provided for @authHintEmailOrPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'email or phone number'**
+  String get authHintEmailOrPhone;
+
+  /// No description provided for @authHintCode.
+  ///
+  /// In en, this message translates to:
+  /// **'validation code'**
+  String get authHintCode;
+
+  /// No description provided for @authLogin.
+  ///
+  /// In en, this message translates to:
+  /// **'Login'**
+  String get authLogin;
+
+  /// No description provided for @authEnterUserAndPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your username and password.'**
+  String get authEnterUserAndPassword;
+
+  /// No description provided for @authWelcomeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'WELCOME!'**
+  String get authWelcomeTitle;
+
+  /// No description provided for @authHintUsername.
+  ///
+  /// In en, this message translates to:
+  /// **'username'**
+  String get authHintUsername;
+
+  /// No description provided for @authHintPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'password'**
+  String get authHintPassword;
+
+  /// No description provided for @authForgotPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'you forgot your password?'**
+  String get authForgotPassword;
+
+  /// No description provided for @authProfilePhotoOptional.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile photo (optional)'**
+  String get authProfilePhotoOptional;
+
+  /// No description provided for @authHintChooseUsername.
+  ///
+  /// In en, this message translates to:
+  /// **'choose a username'**
+  String get authHintChooseUsername;
+
+  /// No description provided for @authHintCreatePassword.
+  ///
+  /// In en, this message translates to:
+  /// **'create a password'**
+  String get authHintCreatePassword;
+
+  /// No description provided for @authHintConfirmPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'confirm your password'**
+  String get authHintConfirmPassword;
+
+  /// No description provided for @authConfirmInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'I confirm my information is correct'**
+  String get authConfirmInfo;
+
+  /// No description provided for @authCreateAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Create account'**
+  String get authCreateAccount;
+
+  /// No description provided for @authYourAge.
+  ///
+  /// In en, this message translates to:
+  /// **'your age'**
+  String get authYourAge;
+
+  /// No description provided for @authHelloTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'HELLO!'**
+  String get authHelloTitle;
+
+  /// No description provided for @authCreateNewAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Create a new account'**
+  String get authCreateNewAccount;
+
+  /// No description provided for @authHaveAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'I have an existing account'**
+  String get authHaveAccount;
+
+  /// No description provided for @authLoginProblem.
+  ///
+  /// In en, this message translates to:
+  /// **'I have a problem in login & password'**
+  String get authLoginProblem;
+
+  /// No description provided for @valEnterIdentifier.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your email or phone number'**
+  String get valEnterIdentifier;
+
+  /// No description provided for @valInvalidIdentifier.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid email or phone number'**
+  String get valInvalidIdentifier;
+
+  /// No description provided for @valChooseUsername.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a username'**
+  String get valChooseUsername;
+
+  /// No description provided for @valUsernameRule.
+  ///
+  /// In en, this message translates to:
+  /// **'3-20 characters: letters, numbers, _ or .'**
+  String get valUsernameRule;
+
+  /// No description provided for @valCreatePassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Create a password'**
+  String get valCreatePassword;
+
+  /// No description provided for @valPasswordLength.
+  ///
+  /// In en, this message translates to:
+  /// **'At least 8 characters'**
+  String get valPasswordLength;
+
+  /// No description provided for @valPasswordMix.
+  ///
+  /// In en, this message translates to:
+  /// **'Use both letters and numbers'**
+  String get valPasswordMix;
+
+  /// No description provided for @valConfirmPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm your password'**
+  String get valConfirmPassword;
+
+  /// No description provided for @valPasswordsMismatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords do not match'**
+  String get valPasswordsMismatch;
+
+  /// No description provided for @valMinAge.
+  ///
+  /// In en, this message translates to:
+  /// **'SPHERA is for users {age} and older'**
+  String valMinAge(int age);
+
+  /// No description provided for @valInvalidAge.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid age'**
+  String get valInvalidAge;
+
+  /// No description provided for @authErrAccountExists.
+  ///
+  /// In en, this message translates to:
+  /// **'An account already exists on this device. Log in instead.'**
+  String get authErrAccountExists;
+
+  /// No description provided for @authErrWrongCredentials.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrong username or password.'**
+  String get authErrWrongCredentials;
+
+  /// No description provided for @authNoCode.
+  ///
+  /// In en, this message translates to:
+  /// **'I didn\'t receive the verification code'**
+  String get authNoCode;
+
+  /// No description provided for @boxEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'EMPTY'**
+  String get boxEmpty;
+
+  /// No description provided for @boxDone.
+  ///
+  /// In en, this message translates to:
+  /// **'DONE'**
+  String get boxDone;
+
+  /// No description provided for @boxNotYet.
+  ///
+  /// In en, this message translates to:
+  /// **'NOT YET'**
+  String get boxNotYet;
+
+  /// No description provided for @boxComing.
+  ///
+  /// In en, this message translates to:
+  /// **'COMING'**
+  String get boxComing;
+
+  /// No description provided for @gradeBronze.
+  ///
+  /// In en, this message translates to:
+  /// **'Bronze'**
+  String get gradeBronze;
+
+  /// No description provided for @gradeSilver.
+  ///
+  /// In en, this message translates to:
+  /// **'Silver'**
+  String get gradeSilver;
+
+  /// No description provided for @gradeGold.
+  ///
+  /// In en, this message translates to:
+  /// **'Gold'**
+  String get gradeGold;
+
+  /// No description provided for @gradePlatinum.
+  ///
+  /// In en, this message translates to:
+  /// **'Platinum'**
+  String get gradePlatinum;
+
+  /// No description provided for @gradeDiamond.
+  ///
+  /// In en, this message translates to:
+  /// **'Diamond'**
+  String get gradeDiamond;
+
+  /// No description provided for @gradeInterdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Interdit'**
+  String get gradeInterdit;
+
+  /// No description provided for @statusActive.
+  ///
+  /// In en, this message translates to:
+  /// **'ACTIVE'**
+  String get statusActive;
+
+  /// No description provided for @statusSold.
+  ///
+  /// In en, this message translates to:
+  /// **'SOLD'**
+  String get statusSold;
+
+  /// No description provided for @statusForSale.
+  ///
+  /// In en, this message translates to:
+  /// **'FOR SALE'**
+  String get statusForSale;
+
+  /// No description provided for @done.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get done;
+
+  /// No description provided for @couldNotSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not save: {error}'**
+  String couldNotSave(String error);
+
+  /// No description provided for @errDuplicateEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'A Google account with {email} already exists.'**
+  String errDuplicateEmail(String email);
+
+  /// No description provided for @errDuplicateGame.
+  ///
+  /// In en, this message translates to:
+  /// **'A game named \"{name}\" already exists.'**
+  String errDuplicateGame(String name);
+
+  /// No description provided for @editGoogleAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Google Account'**
+  String get editGoogleAccount;
+
+  /// No description provided for @addGoogleAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Google Account'**
+  String get addGoogleAccount;
+
+  /// No description provided for @email.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get email;
+
+  /// No description provided for @emailRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Email is required'**
+  String get emailRequired;
+
+  /// No description provided for @emailInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid email address'**
+  String get emailInvalid;
+
+  /// No description provided for @grade.
+  ///
+  /// In en, this message translates to:
+  /// **'Grade'**
+  String get grade;
+
+  /// No description provided for @gameBoxes.
+  ///
+  /// In en, this message translates to:
+  /// **'Game boxes'**
+  String get gameBoxes;
+
+  /// No description provided for @saveChanges.
+  ///
+  /// In en, this message translates to:
+  /// **'Save changes'**
+  String get saveChanges;
+
+  /// No description provided for @addAccountShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Add account'**
+  String get addAccountShort;
+
+  /// No description provided for @movedToTrash.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} moved to Trash'**
+  String movedToTrash(String name);
+
+  /// No description provided for @undo.
+  ///
+  /// In en, this message translates to:
+  /// **'UNDO'**
+  String get undo;
+
+  /// No description provided for @manageGamesLower.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage games'**
+  String get manageGamesLower;
+
+  /// No description provided for @couldNotLoadAccounts.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not load accounts: {error}'**
+  String couldNotLoadAccounts(String error);
+
+  /// No description provided for @searchByEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Search by email'**
+  String get searchByEmail;
+
+  /// No description provided for @allGrades.
+  ///
+  /// In en, this message translates to:
+  /// **'All grades'**
+  String get allGrades;
+
+  /// No description provided for @anyStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Any status'**
+  String get anyStatus;
+
+  /// No description provided for @boxesSet.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 box set} other{{count} boxes set}}'**
+  String boxesSet(int count);
+
+  /// No description provided for @edit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get edit;
+
+  /// No description provided for @moveToTrash.
+  ///
+  /// In en, this message translates to:
+  /// **'Move to Trash'**
+  String get moveToTrash;
+
+  /// No description provided for @setBoxes.
+  ///
+  /// In en, this message translates to:
+  /// **'Set boxes'**
+  String get setBoxes;
+
+  /// No description provided for @box.
+  ///
+  /// In en, this message translates to:
+  /// **'Box'**
+  String get box;
+
+  /// No description provided for @noAccountMatches.
+  ///
+  /// In en, this message translates to:
+  /// **'No account matches your filters'**
+  String get noAccountMatches;
+
+  /// No description provided for @noGoogleAccountsYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No Google accounts yet'**
+  String get noGoogleAccountsYet;
+
+  /// No description provided for @addFirstAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your first account'**
+  String get addFirstAccount;
+
+  /// No description provided for @enterGameName.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a game name'**
+  String get enterGameName;
+
+  /// No description provided for @couldNotAddGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not add game: {error}'**
+  String couldNotAddGame(String error);
+
+  /// No description provided for @removeGameTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove {name}?'**
+  String removeGameTitle(String name);
+
+  /// No description provided for @removeGameWithAccounts.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} has {count, plural, =1{1 gaming account} other{{count} gaming accounts}}. They are kept, but the game and its boxes will be hidden from the lists.'**
+  String removeGameWithAccounts(String name, int count);
+
+  /// No description provided for @removeGameNoAccounts.
+  ///
+  /// In en, this message translates to:
+  /// **'The game and its boxes will be hidden from the lists.'**
+  String get removeGameNoAccounts;
+
+  /// No description provided for @remove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove'**
+  String get remove;
+
+  /// No description provided for @newGameName.
+  ///
+  /// In en, this message translates to:
+  /// **'New game name'**
+  String get newGameName;
+
+  /// No description provided for @add.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get add;
+
+  /// No description provided for @removeGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove game'**
+  String get removeGame;
 }
 
 class _AppLocalizationsDelegate

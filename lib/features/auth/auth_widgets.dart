@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/sphera_logo.dart';
+import '../../core/l10n.dart';
 import '../../core/theme.dart';
 
 /// Shared layout of the Welcome / Sign up / Login / Forgot password screens:
@@ -240,13 +241,9 @@ class AuthTitle extends StatelessWidget {
 Future<void> showAuthHelp(BuildContext context) => showDialog<void>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Need help?'),
-        content: const Text(
-          'New here? Choose "Create a new account".\n\n'
-          'Already registered on this device? Choose "I have an existing account".\n\n'
-          'Can\'t get in? Use "I have a problem in login & password".',
-        ),
-        actions: [TextButton(onPressed: () => Navigator.pop(ctx), child: const Text('Got it'))],
+        title: Text(context.l10n.authNeedHelp),
+        content: Text(context.l10n.authHelpBody),
+        actions: [TextButton(onPressed: () => Navigator.pop(ctx), child: Text(context.l10n.gotIt))],
       ),
     );
 

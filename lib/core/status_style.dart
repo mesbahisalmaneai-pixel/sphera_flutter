@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 import '../data/database.dart';
+import 'l10n.dart';
 import 'theme.dart';
+
+/// ACTIVE / SOLD / FOR SALE in the app language.
+String accountStatusLabel(GameAccountStatus s) => switch (s) {
+      GameAccountStatus.active => appL10n.statusActive,
+      GameAccountStatus.sell => appL10n.statusSold,
+      GameAccountStatus.forSale => appL10n.statusForSale,
+    };
 
 Color boxColor(BoxStatus s) => switch (s) {
       BoxStatus.empty => SpheraColors.empty,
@@ -9,20 +17,21 @@ Color boxColor(BoxStatus s) => switch (s) {
       BoxStatus.coming => SpheraColors.coming,
     };
 
+/// Labels follow the app language ([appL10n]).
 String boxLabel(BoxStatus s) => switch (s) {
-      BoxStatus.empty => 'EMPTY',
-      BoxStatus.done => 'DONE',
-      BoxStatus.notYet => 'NOT YET',
-      BoxStatus.coming => 'COMING',
+      BoxStatus.empty => appL10n.boxEmpty,
+      BoxStatus.done => appL10n.boxDone,
+      BoxStatus.notYet => appL10n.boxNotYet,
+      BoxStatus.coming => appL10n.boxComing,
     };
 
 String gradeLabel(Grade g) => switch (g) {
-      Grade.bronze => 'Bronze',
-      Grade.silver => 'Silver',
-      Grade.gold => 'Gold',
-      Grade.platinum => 'Platinum',
-      Grade.diamond => 'Diamond',
-      Grade.interdit => 'Interdit',
+      Grade.bronze => appL10n.gradeBronze,
+      Grade.silver => appL10n.gradeSilver,
+      Grade.gold => appL10n.gradeGold,
+      Grade.platinum => appL10n.gradePlatinum,
+      Grade.diamond => appL10n.gradeDiamond,
+      Grade.interdit => appL10n.gradeInterdit,
     };
 
 /// TEMPORARY colours until the real medal images are supplied

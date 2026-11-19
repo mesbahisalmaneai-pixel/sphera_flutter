@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/l10n.dart';
 import '../../core/sphera_logo.dart';
 import 'auth_widgets.dart';
 import 'forgot_password_screen.dart';
@@ -18,20 +19,20 @@ class WelcomeScreen extends StatelessWidget {
     return AuthScaffold(
       trailing: AuthIconButton(
         icon: Icons.help_outline,
-        tooltip: 'Help',
+        tooltip: context.l10n.help,
         onPressed: () => showAuthHelp(context),
       ),
       footer: const AuthBrandFooter(),
       child: Column(mainAxisSize: MainAxisSize.min, children: [
         const SpheraLogo(height: 190),
         const SizedBox(height: 22),
-        const AuthTitle('HELLO!'),
+        AuthTitle(context.l10n.authHelloTitle),
         const SizedBox(height: 34),
-        PillButton(label: 'Create a new account', onPressed: () => _open(context, const SignUpScreen())),
+        PillButton(label: context.l10n.authCreateNewAccount, onPressed: () => _open(context, const SignUpScreen())),
         const SizedBox(height: 14),
-        PillButton(label: 'I have an existing account', onPressed: () => _open(context, const LoginScreen())),
+        PillButton(label: context.l10n.authHaveAccount, onPressed: () => _open(context, const LoginScreen())),
         const SizedBox(height: 14),
-        AuthLink('I have a problem in login & password', onTap: () => _open(context, const ForgotPasswordScreen())),
+        AuthLink(context.l10n.authLoginProblem, onTap: () => _open(context, const ForgotPasswordScreen())),
       ]),
     );
   }

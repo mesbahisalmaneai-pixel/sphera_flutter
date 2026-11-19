@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/l10n.dart';
 import '../../core/status_style.dart';
 import '../../core/theme.dart';
 import '../../data/database.dart';
@@ -53,7 +54,7 @@ class BoxSheet extends ConsumerWidget {
           if (onlyGameId == null)
             SizedBox(
               width: double.infinity,
-              child: FilledButton(onPressed: () => Navigator.of(context).pop(), child: Text('Done')),
+              child: FilledButton(onPressed: () => Navigator.of(context).pop(), child: Text(context.l10n.done)),
             ),
         ]),
       ),
