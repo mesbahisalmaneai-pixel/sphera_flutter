@@ -516,11 +516,18 @@ class QuickActions extends StatelessWidget {
               child: Column(mainAxisSize: MainAxisSize.min, children: [
                 Icon(icon, color: SpheraColors.gold, size: 26),
                 SizedBox(height: 6),
-                Text(label,
-                    textAlign: TextAlign.center,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600)),
+                // Room for two lines on every button, so longer labels
+                // ("Chercher un compte") fit and the three stay the same height.
+                SizedBox(
+                  height: 34,
+                  child: Center(
+                    child: Text(label,
+                        textAlign: TextAlign.center,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, height: 1.2)),
+                  ),
+                ),
               ]),
             ),
           ),

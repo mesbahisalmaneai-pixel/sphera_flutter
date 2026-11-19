@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'core/format.dart' show amountsInRtl;
 import 'core/l10n.dart';
 import 'core/theme.dart';
 import 'core/sphera_logo.dart';
@@ -66,8 +67,11 @@ class SpheraApp extends ConsumerWidget {
           ThemeModeSetting.system => platformDark,
         };
         SpheraColors.apply(paletteFor(look.style, dark: dark));
-        // Forces every widget below to rebuild when the palette changes.
-        return _ThemeRefresher(token: '${look.style}-$dark', child: child!);
+        // Amounts keep "+770 DH" order inside Arabic text.
+        amountsInRtl = Directionality.of(context) == TextDirection.rtl;
+        // Forces every widget below to rebuild when the palette or the
+        // language changes (amount strings are built outside the widgets).
+        return _ThemeRefresher(token: '${look.style}-$dark-$lang', child: child!);
       },
       // Named routes used by the cards in HomeScreen (pushNamed).
       routes: {

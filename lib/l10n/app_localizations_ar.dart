@@ -49,7 +49,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String vsLastMonth(String arrow, String pct) {
-    return '$arrow $pct% مقارنة بالشهر الماضي';
+    return '⁦$arrow $pct%⁩ مقارنة بالشهر الماضي';
   }
 
   @override
@@ -65,7 +65,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String addedThisMonth(int count) {
-    return '+$count هذا الشهر';
+    return '⁦+$count⁩ هذا الشهر';
   }
 
   @override
@@ -305,7 +305,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String achievementsUnlocked(int done, int total) {
-    return '$done / $total مفتوحة';
+    return '⁦$done / $total⁩ مفتوحة';
   }
 
   @override
