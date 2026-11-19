@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../core/l10n.dart';
 import '../../core/theme.dart';
 import '../shell/header_actions.dart';
 import 'dashboard_widgets.dart';
@@ -28,7 +29,7 @@ class HomeScreen extends StatelessWidget {
                           fontSize: 20,
                           letterSpacing: 5,
                           fontWeight: FontWeight.w600)),
-                  Text('Welcome back', style: TextStyle(color: SpheraColors.muted)),
+                  Text(context.l10n.welcomeBack, style: TextStyle(color: SpheraColors.muted)),
                 ]),
                 Spacer(),
                 HeaderActions(),

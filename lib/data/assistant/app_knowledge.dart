@@ -508,7 +508,9 @@ const kHelpTopics = <HelpTopic>[
       'لغة'
     ],
     answer:
-        'Settings > Language lets you choose English, Français or العربية. The assistant understands questions in all three.',
+        'Settings > Language switches SPHERA to English, Français or العربية (Arabic reads right to left). '
+        'Home, the bottom bar, Stats, Cards and Settings are translated; other screens are still in English for now. '
+        'The assistant understands questions in all three languages.',
     targets: [InsightTarget.settings],
   ),
   HelpTopic(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/l10n.dart';
 import '../../../core/theme.dart';
 import 'planet_painters.dart';
 
@@ -70,11 +71,11 @@ class OrbitNavigationBar extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.only(bottom: bottom),
                 child: Row(children: [
-                  _item(0, Icons.home_outlined, Icons.home_rounded, 'Home'),
-                  _item(1, Icons.bar_chart_outlined, Icons.bar_chart_rounded, 'Stats'),
+                  _item(0, Icons.home_outlined, Icons.home_rounded, context.l10n.navHome),
+                  _item(1, Icons.bar_chart_outlined, Icons.bar_chart_rounded, context.l10n.navStats),
                   const Expanded(child: SizedBox.shrink()),
-                  _item(3, Icons.style_outlined, Icons.style_rounded, 'Cards'),
-                  _item(4, Icons.person_outline_rounded, Icons.person_rounded, 'Profile'),
+                  _item(3, Icons.style_outlined, Icons.style_rounded, context.l10n.navCards),
+                  _item(4, Icons.person_outline_rounded, Icons.person_rounded, context.l10n.navProfile),
                 ]),
               ),
             ),
@@ -89,7 +90,7 @@ class OrbitNavigationBar extends StatelessWidget {
             child: Semantics(
               button: true,
               selected: orbitSelected,
-              label: 'Orbit',
+              label: context.l10n.navOrbit,
               child: ExcludeSemantics(
                 child: GestureDetector(
                   behavior: HitTestBehavior.opaque,
@@ -125,7 +126,7 @@ class OrbitNavigationBar extends StatelessWidget {
                       ),
                       const SizedBox(height: 1),
                       Text(
-                        'Orbit',
+                        context.l10n.navOrbit,
                         style: TextStyle(
                           fontSize: 11,
                           color: orbitSelected ? SpheraColors.gold : SpheraColors.muted,

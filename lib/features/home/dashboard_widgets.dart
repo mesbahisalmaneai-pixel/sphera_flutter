@@ -2,7 +2,9 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:intl/intl.dart' show DateFormat;
 import '../../core/format.dart';
+import '../../core/l10n.dart';
 import '../../core/theme.dart';
 import '../../data/activity_providers.dart';
 import '../../data/dashboard.dart';
@@ -110,14 +112,15 @@ class KpiCard extends StatelessWidget {
 class KpiGrid extends ConsumerWidget {
   const KpiGrid({super.key});
 
-  String _pctOfTotal(int part, int total) =>
-      total == 0 ? 'No accounts yet' : '${(part / total * 100).round()}% of total';
+  String _pctOfTotal(AppLocalizations l, int part, int total) =>
+      total == 0 ? l.noAccountsYet : l.percentOfTotal((part / total * 100).round());
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final loading = ref.watch(dashboardLoadingProvider);
     final k = ref.watch(dashboardKpisProvider);
     final cur = ref.watch(currencyProvider);
+    final l = context.l10n;
 
     // Net profit subtitle: real month-over-month change when there is a base.
     final pct = k.profitChangePct;
@@ -125,10 +128,10 @@ class KpiGrid extends ConsumerWidget {
     Color profitSubColor;
     if (pct != null) {
       final up = pct >= 0;
-      profitSub = '${up ? '▲' : '▼'} ${pct.abs().toStringAsFixed(1)}% vs last month';
+      profitSub = l.vsLastMonth(up ? '▲' : '▼', pct.abs().toStringAsFixed(1));
       profitSubColor = up ? SpheraColors.done : SpheraColors.danger;
     } else {
-      profitSub = 'This month ${signedMoney(k.profitThisMonth, currency: cur)}';
+      profitSub = l.thisMonthAmount(signedMoney(k.profitThisMonth, currency: cur));
       profitSubColor = SpheraColors.muted;
     }
 
@@ -137,7 +140,7 @@ class KpiGrid extends ConsumerWidget {
 
     return Column(children: [
       KpiCard(
-        label: 'Net Profit',
+        label: l.netProfit,
         value: signedMoney(k.netProfit, currency: cur),
         icon: Icons.account_balance_wallet_outlined,
         loading: loading,
@@ -149,22 +152,22 @@ class KpiGrid extends ConsumerWidget {
       Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Expanded(
           child: KpiCard(
-            label: 'Total Accounts',
+            label: l.totalAccounts,
             value: '${k.total}',
             icon: Icons.layers_outlined,
             loading: loading,
-            subtitle: k.addedThisMonth == 0 ? 'None added this month' : '+${k.addedThisMonth} this month',
+            subtitle: k.addedThisMonth == 0 ? l.noneAddedThisMonth : l.addedThisMonth(k.addedThisMonth),
             subtitleColor: k.addedThisMonth == 0 ? null : SpheraColors.done,
           ),
         ),
         SizedBox(width: 12),
         Expanded(
           child: KpiCard(
-            label: 'Active Accounts',
+            label: l.activeAccounts,
             value: '${k.active}',
             icon: Icons.bolt_outlined,
             loading: loading,
-            subtitle: _pctOfTotal(k.active, k.total),
+            subtitle: _pctOfTotal(l, k.active, k.total),
             onTap: () => openStatus(GameAccountStatus.active),
           ),
         ),
@@ -173,11 +176,11 @@ class KpiGrid extends ConsumerWidget {
       Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Expanded(
           child: KpiCard(
-            label: 'For Sale',
+            label: l.forSale,
             value: '${k.forSale}',
             icon: Icons.sell_outlined,
             loading: loading,
-            subtitle: k.forSale == 0 ? 'Nothing listed' : 'Listed, no price',
+            subtitle: k.forSale == 0 ? l.nothingListed : l.listedNoPrice,
             valueColor: SpheraColors.coming,
             onTap: () => Navigator.of(context)
                 .push(MaterialPageRoute(builder: (_) => const ForSaleScreen())),
@@ -186,11 +189,11 @@ class KpiGrid extends ConsumerWidget {
         SizedBox(width: 12),
         Expanded(
           child: KpiCard(
-            label: 'Sold',
+            label: l.sold,
             value: '${k.sold}',
             icon: Icons.check_circle_outline,
             loading: loading,
-            subtitle: _pctOfTotal(k.sold, k.total),
+            subtitle: _pctOfTotal(l, k.sold, k.total),
             onTap: () => openStatus(GameAccountStatus.sell),
           ),
         ),
@@ -201,14 +204,29 @@ class KpiGrid extends ConsumerWidget {
 
 // ============================ Performance graph ============================
 
-const _months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 String _two(int n) => n.toString().padLeft(2, '0');
 
-String _bucketLabel(PerfRange r, DateTime d, {bool long = false}) => switch (r) {
-      PerfRange.daily => '${_two(d.day)} ${_months[d.month - 1]}',
-      PerfRange.weekly => long ? 'Week of ${_two(d.day)} ${_months[d.month - 1]}' : '${_two(d.day)} ${_months[d.month - 1]}',
-      PerfRange.monthly => long ? '${_months[d.month - 1]} ${d.year}' : _months[d.month - 1],
-    };
+const _enMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+/// Short month name in the app language ("Jan", "janv.", "يناير"). The app's
+/// localization delegates load the month names; without them (a screen shown
+/// on its own in a test) English is used.
+String _month(AppLocalizations l, DateTime d) {
+  try {
+    return DateFormat.MMM(l.localeName).format(d);
+  } on Exception {
+    return _enMonths[d.month - 1];
+  }
+}
+
+String _bucketLabel(AppLocalizations l, PerfRange r, DateTime d, {bool long = false}) {
+  final dayMonth = '${_two(d.day)} ${_month(l, d)}';
+  return switch (r) {
+    PerfRange.daily => dayMonth,
+    PerfRange.weekly => long ? l.weekOf(dayMonth) : dayMonth,
+    PerfRange.monthly => long ? '${_month(l, d)} ${d.year}' : _month(l, d),
+  };
+}
 
 class PerformanceCard extends ConsumerStatefulWidget {
   const PerformanceCard({super.key});
@@ -225,32 +243,33 @@ class _PerformanceCardState extends ConsumerState<PerformanceCard> {
     final loading = ref.watch(dashboardLoadingProvider);
     final points = ref.watch(performanceProvider(_range));
     final cur = ref.watch(currencyProvider);
+    final l = context.l10n;
 
     final totalProfit = points.fold<double>(0, (s, p) => s + p.profit);
     final totalCount = points.fold<int>(0, (s, p) => s + p.count);
     final sel = (_selected != null && _selected! < points.length) ? points[_selected!] : null;
 
     final summary = sel == null
-        ? '${signedMoney(totalProfit, currency: cur)} · $totalCount account${totalCount == 1 ? '' : 's'}'
-        : '${_bucketLabel(_range, sel.start, long: true)}: ${signedMoney(sel.profit, currency: cur)} · ${sel.count} account${sel.count == 1 ? '' : 's'}';
+        ? '${signedMoney(totalProfit, currency: cur)} · ${l.accountsCount(totalCount)}'
+        : '${_bucketLabel(l, _range, sel.start, long: true)}: ${signedMoney(sel.profit, currency: cur)} · ${l.accountsCount(sel.count)}';
     final summaryColor = (sel?.profit ?? totalProfit) >= 0 ? SpheraColors.done : SpheraColors.danger;
 
     return Card(
       child: Padding(
         padding: EdgeInsets.all(16),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          _cardTitle('Performance'),
+          _cardTitle(l.performance),
           SizedBox(height: 2),
-          Text('Profit by date added', style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
+          Text(l.profitByDateAdded, style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
           SizedBox(height: 12),
           SizedBox(
             width: double.infinity,
             child: SegmentedButton<PerfRange>(
               showSelectedIcon: false,
               segments: [
-                ButtonSegment(value: PerfRange.daily, label: Text('Daily')),
-                ButtonSegment(value: PerfRange.weekly, label: Text('Weekly')),
-                ButtonSegment(value: PerfRange.monthly, label: Text('Monthly')),
+                ButtonSegment(value: PerfRange.daily, label: Text(l.daily)),
+                ButtonSegment(value: PerfRange.weekly, label: Text(l.weekly)),
+                ButtonSegment(value: PerfRange.monthly, label: Text(l.monthly)),
               ],
               selected: {_range},
               onSelectionChanged: (s) => setState(() {
@@ -270,7 +289,7 @@ class _PerformanceCardState extends ConsumerState<PerformanceCard> {
               SizedBox(
                 height: 150,
                 child: Center(
-                  child: Text('No accounts added in this period',
+                  child: Text(l.noAccountsInPeriod,
                       style: TextStyle(color: SpheraColors.muted)),
                 ),
               )
@@ -302,7 +321,7 @@ class _PerformanceCardState extends ConsumerState<PerformanceCard> {
             SizedBox(height: 6),
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
               for (final i in {0, points.length ~/ 2, points.length - 1})
-                Text(_bucketLabel(_range, points[i].start),
+                Text(_bucketLabel(l, _range, points[i].start),
                     style: TextStyle(color: SpheraColors.muted, fontSize: 11)),
             ]),
           ],
@@ -384,22 +403,22 @@ class _BarsPainter extends CustomPainter {
 
 // ============================ Recent activity ============================
 
-(IconData, Color, String) _actionMeta(ActivityAction a) => switch (a) {
-      ActivityAction.created => (Icons.add_circle_outline, SpheraColors.done, 'Added'),
-      ActivityAction.updated => (Icons.edit_outlined, SpheraColors.gold, 'Updated'),
-      ActivityAction.statusChanged => (Icons.swap_horiz_rounded, SpheraColors.coming, 'Status changed'),
-      ActivityAction.trashed => (Icons.delete_outline, SpheraColors.danger, 'Moved to trash'),
-      ActivityAction.restored => (Icons.restore_rounded, SpheraColors.done, 'Restored'),
-      ActivityAction.deleted => (Icons.delete_forever_outlined, SpheraColors.danger, 'Deleted'),
+(IconData, Color, String) _actionMeta(AppLocalizations l, ActivityAction a) => switch (a) {
+      ActivityAction.created => (Icons.add_circle_outline, SpheraColors.done, l.actionAdded),
+      ActivityAction.updated => (Icons.edit_outlined, SpheraColors.gold, l.actionUpdated),
+      ActivityAction.statusChanged => (Icons.swap_horiz_rounded, SpheraColors.coming, l.actionStatusChanged),
+      ActivityAction.trashed => (Icons.delete_outline, SpheraColors.danger, l.actionMovedToTrash),
+      ActivityAction.restored => (Icons.restore_rounded, SpheraColors.done, l.actionRestored),
+      ActivityAction.deleted => (Icons.delete_forever_outlined, SpheraColors.danger, l.actionDeleted),
     };
 
-String _ago(DateTime t) {
+String _ago(AppLocalizations l, DateTime t) {
   final d = DateTime.now().difference(t);
-  if (d.inMinutes < 1) return 'Just now';
-  if (d.inMinutes < 60) return '${d.inMinutes} min ago';
-  if (d.inHours < 24) return '${d.inHours} h ago';
-  if (d.inDays == 1) return 'Yesterday';
-  if (d.inDays < 7) return '${d.inDays} days ago';
+  if (d.inMinutes < 1) return l.justNow;
+  if (d.inMinutes < 60) return l.minutesAgo(d.inMinutes);
+  if (d.inHours < 24) return l.hoursAgo(d.inHours);
+  if (d.inDays == 1) return l.yesterday;
+  if (d.inDays < 7) return l.daysAgo(d.inDays);
   return '${_two(t.day)}/${_two(t.month)}/${t.year}';
 }
 
@@ -409,6 +428,7 @@ class RecentActivityCard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final async = ref.watch(activityLogProvider);
+    final l = context.l10n;
 
     Widget body;
     if (!async.hasValue) {
@@ -433,14 +453,14 @@ class RecentActivityCard extends ConsumerWidget {
           ? Padding(
               padding: EdgeInsets.symmetric(vertical: 24),
               child: Center(
-                child: Text('No activity yet.\nNew actions will appear here.',
+                child: Text(l.noActivityYet,
                     textAlign: TextAlign.center, style: TextStyle(color: SpheraColors.muted)),
               ),
             )
           : Column(children: [
               for (final e in items)
                 () {
-                  final (icon, color, label) = _actionMeta(e.action);
+                  final (icon, color, label) = _actionMeta(l, e.action);
                   return ListTile(
                     contentPadding: EdgeInsets.zero,
                     dense: true,
@@ -454,7 +474,7 @@ class RecentActivityCard extends ConsumerWidget {
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
-                    trailing: Text(_ago(e.createdAt),
+                    trailing: Text(_ago(l, e.createdAt),
                         style: TextStyle(color: SpheraColors.muted, fontSize: 11)),
                   );
                 }(),
@@ -466,12 +486,12 @@ class RecentActivityCard extends ConsumerWidget {
         padding: EdgeInsets.fromLTRB(16, 12, 8, 8),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Row(children: [
-            _cardTitle('Recent Activity'),
+            _cardTitle(l.recentActivity),
             Spacer(),
             TextButton(
               onPressed: () => Navigator.of(context)
                   .push(MaterialPageRoute(builder: (_) => const ActivityCenterScreen())),
-              child: Text('View all'),
+              child: Text(l.viewAll),
             ),
           ]),
           body,
@@ -510,15 +530,15 @@ class QuickActions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(children: [
-      _btn(context, Icons.add_circle_outline, 'Add Account', () {
+      _btn(context, Icons.add_circle_outline, context.l10n.addAccount, () {
         Navigator.of(context).push(MaterialPageRoute(builder: (_) => GameAccountForm()));
       }),
       SizedBox(width: 10),
-      _btn(context, Icons.search_rounded, 'Search Account', () {
+      _btn(context, Icons.search_rounded, context.l10n.searchAccount, () {
         showSearch<void>(context: context, delegate: AccountSearchDelegate());
       }),
       SizedBox(width: 10),
-      _btn(context, Icons.sports_esports_outlined, 'Manage Games', () {
+      _btn(context, Icons.sports_esports_outlined, context.l10n.manageGames, () {
         Navigator.of(context).pushNamed('/games');
       }),
     ]);
@@ -536,7 +556,7 @@ class LogoForSaleButton extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final n = ref.watch(forSaleAccountsProvider).length;
     return Tooltip(
-      message: 'For Sale',
+      message: context.l10n.forSale,
       child: InkWell(
         borderRadius: BorderRadius.circular(12),
         onTap: () => Navigator.of(context)

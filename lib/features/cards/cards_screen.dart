@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/format.dart';
+import '../../core/l10n.dart';
 import '../../core/theme.dart';
 import '../../data/achievements.dart';
 import '../../data/arena/arena_repository.dart';
@@ -30,7 +31,7 @@ class CardsScreen extends ConsumerWidget {
     final profit = ref.watch(totalProfitProvider).value ?? 0.0;
     final cur = ref.watch(currencyProvider);
     final ach = ref.watch(achievementsProvider);
-    final achSummary = '${ach.where((a) => a.done).length} / ${ach.length} unlocked';
+    final achSummary = context.l10n.achievementsUnlocked(ach.where((a) => a.done).length, ach.length);
     final arenaCount = ref.watch(arenaProvider).tournaments.length;
     final dups = ref.watch(duplicateGroupsProvider).length + ref.watch(gameDuplicateGroupsProvider).length;
     final vault = ref.watch(vaultProvider).length;
@@ -42,79 +43,79 @@ class CardsScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cards'),
+        title: Text(context.l10n.cards),
         actions: [HeaderActions(), SizedBox(width: 4)],
       ),
       body: ListView(padding: EdgeInsets.all(16), children: [
         _CardTile(
           icon: Icons.mail_outline,
-          title: 'Google Play Accounts',
-          subtitle: 'Grades & game boxes',
-          summary: '$google accounts',
+          title: context.l10n.googlePlayAccounts,
+          subtitle: context.l10n.googlePlayAccountsSub,
+          summary: context.l10n.accountsCount(google),
           onTap: () => named('/google'),
         ),
         _CardTile(
           icon: Icons.sports_esports_outlined,
-          title: 'Games',
-          subtitle: 'Gaming account inventory',
-          summary: '$games games · $accounts accounts',
+          title: context.l10n.games,
+          subtitle: context.l10n.gamesSub,
+          summary: '${context.l10n.gamesCount(games)} · ${context.l10n.accountsCount(accounts)}',
           onTap: () => named('/games'),
         ),
         _CardTile(
           icon: Icons.bar_chart_rounded,
-          title: 'Statistics',
-          subtitle: 'Profit, counts & statuses',
+          title: context.l10n.statistics,
+          subtitle: context.l10n.statisticsSub,
           summary: money(profit, currency: cur),
           onTap: () => named('/stats'),
         ),
         _CardTile(
           icon: Icons.tune_rounded,
-          title: 'Tools & Settings',
-          subtitle: 'Backup, trash, profile',
-          summary: 'Manage',
+          title: context.l10n.toolsSettings,
+          subtitle: context.l10n.toolsSettingsSub,
+          summary: context.l10n.manage,
           onTap: () => named('/tools'),
         ),
         _CardTile(
           icon: Icons.emoji_events_outlined,
-          title: 'SPHERA TOURNAMENT ARENA',
-          subtitle: 'Leagues, groups & knockouts',
-          summary: arenaCount == 0 ? 'Create one' : '$arenaCount tournament${arenaCount == 1 ? '' : 's'}',
+          title: context.l10n.arenaTitle,
+          subtitle: context.l10n.arenaSub,
+          summary: arenaCount == 0 ? context.l10n.createOne : context.l10n.tournamentsCount(arenaCount),
           onTap: () => named('/arena'),
         ),
         _CardTile(
           icon: Icons.military_tech_outlined,
-          title: 'Achievements',
-          subtitle: 'Badges & milestones',
+          title: context.l10n.achievements,
+          subtitle: context.l10n.achievementsSub,
           summary: achSummary,
           onTap: () => named('/achievements'),
         ),
-        _section('Smart Tools'),
+        _section(context.l10n.smartTools),
         _CardTile(
           icon: Icons.content_copy_outlined,
-          title: 'Duplicate Scanner',
-          subtitle: 'Find duplicate accounts, review manually',
-          summary: dups == 0 ? 'No duplicates' : '$dups to review',
+          title: context.l10n.duplicateScanner,
+          subtitle: context.l10n.duplicateScannerSub,
+          summary: dups == 0 ? context.l10n.noDuplicates : context.l10n.toReview(dups),
           onTap: () => open(DuplicateScannerScreen()),
         ),
         _CardTile(
           icon: Icons.manage_search_rounded,
-          title: 'Smart Organizer',
-          subtitle: 'Search, filter & sort accounts',
-          summary: 'By game, status, grade & date',
+          title: context.l10n.smartOrganizer,
+          subtitle: context.l10n.smartOrganizerSub,
+          summary: context.l10n.smartOrganizerSummary,
           onTap: () => open(SmartOrganizerScreen()),
         ),
         _CardTile(
           icon: Icons.inventory_2_outlined,
-          title: 'Inventory Vault',
-          subtitle: 'Favourite, rare & high-value accounts',
-          summary: '$vault in vault',
+          title: context.l10n.inventoryVault,
+          subtitle: context.l10n.inventoryVaultSub,
+          summary: context.l10n.inVault(vault),
           onTap: () => open(InventoryVaultScreen()),
         ),
         _CardTile(
           icon: Icons.shield_outlined,
-          title: 'Security Center',
-          subtitle: 'Data health, backup & sync status',
-          summary: health.issues == 0 ? 'All good' : '${health.issues} to review',
+          title: context.l10n.securityCenter,
+          subtitle: context.l10n.securityCenterSub,
+          summary: health.issues == 0 ? context.l10n.allGood : context.l10n.toReview(health.issues),
           onTap: () => open(SecurityCenterScreen()),
         ),
       ]),

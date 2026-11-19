@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../core/l10n.dart';
 import '../../core/theme.dart';
 import '../intelligence/intelligence_screen.dart';
 import '../shell/header_actions.dart';
@@ -32,26 +33,26 @@ class StatisticsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Statistics'),
+        title: Text(context.l10n.statistics),
         actions: [HeaderActions(), SizedBox(width: 4)],
       ),
       body: ListView(padding: EdgeInsets.all(16), children: [
-        _section('Analytics Center'),
-        _tile(context, Icons.payments_outlined, 'Profit Center',
-            'Sales, expenses, purchase & sale price, net profit', ProfitCenterScreen()),
-        _tile(context, Icons.timeline_rounded, 'Activity Center', 'Activity log, filter by date & type',
+        _section(context.l10n.analyticsCenter),
+        _tile(context, Icons.payments_outlined, context.l10n.profitCenter,
+            context.l10n.profitCenterSub, ProfitCenterScreen()),
+        _tile(context, Icons.timeline_rounded, context.l10n.activityCenter, context.l10n.activityCenterSub,
             ActivityCenterScreen()),
-        _tile(context, Icons.speed_rounded, 'Performance Center', 'Daily, weekly, monthly & goals',
+        _tile(context, Icons.speed_rounded, context.l10n.performanceCenter, context.l10n.performanceCenterSub,
             PerformanceCenterScreen()),
-        _tile(context, Icons.auto_awesome_outlined, 'SPHERA Intelligence',
-            'Offline analysis of your accounts', IntelligenceScreen()),
-        _section('Statistics'),
-        _tile(context, Icons.workspace_premium_outlined, 'Grade Statistics',
-            'Bronze, Silver, Gold, Platinum, Diamond & Interdit', GradeStatisticsScreen()),
-        _tile(context, Icons.fact_check_outlined, 'Status Statistics',
-            'Google boxes and gaming accounts, each on its own', StatusStatisticsScreen()),
-        _tile(context, Icons.sports_esports_outlined, 'Games Statistics',
-            'Profit, counts & status per game', GamesStatisticsScreen()),
+        _tile(context, Icons.auto_awesome_outlined, context.l10n.spheraIntelligence,
+            context.l10n.spheraIntelligenceSub, IntelligenceScreen()),
+        _section(context.l10n.statistics),
+        _tile(context, Icons.workspace_premium_outlined, context.l10n.gradeStatistics,
+            context.l10n.gradeStatisticsSub, GradeStatisticsScreen()),
+        _tile(context, Icons.fact_check_outlined, context.l10n.statusStatistics,
+            context.l10n.statusStatisticsSub, StatusStatisticsScreen()),
+        _tile(context, Icons.sports_esports_outlined, context.l10n.gamesStatistics,
+            context.l10n.gamesStatisticsSub, GamesStatisticsScreen()),
       ]),
     );
   }

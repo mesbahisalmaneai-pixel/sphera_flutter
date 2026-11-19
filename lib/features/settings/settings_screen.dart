@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/sphera_logo.dart';
+import '../../core/l10n.dart';
 import '../../core/theme.dart';
 import '../../data/providers.dart';
 import '../../data/settings.dart';
@@ -27,7 +28,7 @@ class SettingsScreen extends ConsumerWidget {
         child: Column(mainAxisSize: MainAxisSize.min, children: [
           Padding(
             padding: EdgeInsets.all(16),
-            child: Text('Language', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16)),
+            child: Text(context.l10n.language, style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16)),
           ),
           for (final e in kLanguages.entries)
             ListTile(
@@ -59,34 +60,34 @@ class SettingsScreen extends ConsumerWidget {
     };
 
     return Scaffold(
-      appBar: AppBar(title: Text('Tools & Settings')),
+      appBar: AppBar(title: Text(context.l10n.toolsSettings)),
       body: ListView(padding: EdgeInsets.all(16), children: [
-        _title('Profile & Security'),
+        _title(context.l10n.profileSecurity),
         Card(
           child: ListTile(
             leading: Icon(Icons.person_outline, color: SpheraColors.gold),
-            title: Text('Local mode'),
+            title: Text(context.l10n.localMode),
             subtitle: Text(
-                'Not signed in. Your data is stored on this device only. Account sign-in and cloud sync are not connected yet.'),
+                context.l10n.localModeSub),
             isThreeLine: true,
           ),
         ),
         Card(
           child: ListTile(
             leading: Icon(Icons.shield_outlined, color: SpheraColors.gold),
-            title: Text('Security Center'),
-            subtitle: Text('Protection & privacy'),
+            title: Text(context.l10n.securityCenter),
+            subtitle: Text(context.l10n.protectionPrivacy),
             trailing: Icon(Icons.chevron_right),
             onTap: () => Navigator.of(context).push(MaterialPageRoute(
                 builder: (_) => SecurityCenterScreen())),
           ),
         ),
-        _title('Appearance'),
+        _title(context.l10n.appearance),
         Card(
           child: Padding(
             padding: EdgeInsets.all(16),
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Text('Mode', style: TextStyle(color: SpheraColors.muted)),
+              Text(context.l10n.mode, style: TextStyle(color: SpheraColors.muted)),
               SizedBox(height: 8),
               SizedBox(
                 width: double.infinity,
@@ -96,22 +97,22 @@ class SettingsScreen extends ConsumerWidget {
                     ButtonSegment(
                         value: ThemeModeSetting.dark,
                         icon: Icon(Icons.dark_mode_outlined, size: 18),
-                        label: Text('Dark')),
+                        label: Text(context.l10n.dark)),
                     ButtonSegment(
                         value: ThemeModeSetting.light,
                         icon: Icon(Icons.light_mode_outlined, size: 18),
-                        label: Text('Light')),
+                        label: Text(context.l10n.light)),
                     ButtonSegment(
                         value: ThemeModeSetting.system,
                         icon: Icon(Icons.phone_android, size: 18),
-                        label: Text('Auto')),
+                        label: Text(context.l10n.auto)),
                   ],
                   selected: {look.mode},
                   onSelectionChanged: (s) => ref.read(appearanceProvider.notifier).setMode(s.first),
                 ),
               ),
               SizedBox(height: 18),
-              Text('Style', style: TextStyle(color: SpheraColors.muted)),
+              Text(context.l10n.style, style: TextStyle(color: SpheraColors.muted)),
               SizedBox(height: 8),
               Wrap(spacing: 10, runSpacing: 10, children: [
                 for (final e in kThemeStyles.entries)
@@ -123,42 +124,42 @@ class SettingsScreen extends ConsumerWidget {
                   ),
               ]),
               SizedBox(height: 6),
-              Text('Auto follows your phone\'s dark / light setting.',
+              Text(context.l10n.autoFollowsPhone,
                   style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
             ]),
           ),
         ),
-        _title('Language'),
+        _title(context.l10n.language),
         Card(
           child: ListTile(
             leading: Icon(Icons.language, color: SpheraColors.gold),
-            title: Text('Language'),
+            title: Text(context.l10n.language),
             subtitle: Text(kLanguages[lang] ?? 'English'),
             trailing: Icon(Icons.chevron_right),
             onTap: () => _pickLanguage(context, ref),
           ),
         ),
-        _title('Notifications'),
+        _title(context.l10n.notifications),
         Card(
           child: ListTile(
             leading: Icon(Icons.notifications_outlined, color: SpheraColors.gold),
-            title: Text('Notifications'),
+            title: Text(context.l10n.notifications),
             subtitle: Text(!notif.enabled
-                ? 'Off'
-                : (notif.reminders ? 'On · Reminders on' : 'On · Reminders off')),
+                ? context.l10n.off
+                : (notif.reminders ? context.l10n.onRemindersOn : context.l10n.onRemindersOff)),
             trailing: Icon(Icons.chevron_right),
             onTap: () => Navigator.of(context)
                 .push(MaterialPageRoute(builder: (_) => NotificationsSettingsScreen())),
           ),
         ),
-        _title('Currency'),
+        _title(context.l10n.currency),
         Card(child: Padding(padding: EdgeInsets.all(16), child: _CurrencySection())),
-        _title('Data'),
+        _title(context.l10n.data),
         Card(
           child: ListTile(
             leading: Icon(Icons.delete_outline, color: SpheraColors.gold),
-            title: Text('Trash'),
-            subtitle: Text(trashCount == 0 ? 'Empty' : '$trashCount item${trashCount == 1 ? '' : 's'}'),
+            title: Text(context.l10n.trash),
+            subtitle: Text(trashCount == 0 ? context.l10n.empty : context.l10n.itemsCount(trashCount)),
             trailing: Icon(Icons.chevron_right),
             onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => TrashScreen())),
           ),
@@ -166,14 +167,14 @@ class SettingsScreen extends ConsumerWidget {
         Card(
           child: ListTile(
             leading: Icon(Icons.inventory_2_outlined, color: SpheraColors.gold),
-            title: Text('Inventory Vault'),
-            subtitle: Text('Stored items & assets'),
+            title: Text(context.l10n.inventoryVault),
+            subtitle: Text(context.l10n.storedItems),
             trailing: Icon(Icons.chevron_right),
             onTap: () => Navigator.of(context).push(MaterialPageRoute(
                 builder: (_) => InventoryVaultScreen())),
           ),
         ),
-        _title('About SPHERA'),
+        _title(context.l10n.aboutSphera),
         Card(
           child: Padding(
             padding: EdgeInsets.all(20),
@@ -183,9 +184,9 @@ class SettingsScreen extends ConsumerWidget {
               Text('SPHERA',
                   style: TextStyle(color: SpheraColors.gold, fontSize: 20, letterSpacing: 5, fontWeight: FontWeight.w600)),
               SizedBox(height: 4),
-              Text('Version $kAppVersion', style: TextStyle(color: SpheraColors.muted)),
+              Text(context.l10n.version(kAppVersion), style: TextStyle(color: SpheraColors.muted)),
               SizedBox(height: 8),
-              Text('Google Play accounts, gaming accounts, prices and statistics in one place.',
+              Text(context.l10n.aboutText,
                   textAlign: TextAlign.center, style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
             ]),
           ),
@@ -254,7 +255,7 @@ class _CurrencySectionState extends ConsumerState<_CurrencySection> {
     setState(() => _loading = false);
     ScaffoldMessenger.of(context)
       ..hideCurrentSnackBar()
-      ..showSnackBar(SnackBar(content: Text(err ?? 'Exchange rates updated.')));
+      ..showSnackBar(SnackBar(content: Text(err ?? context.l10n.ratesUpdated)));
   }
 
   String _two(int n) => n.toString().padLeft(2, '0');
@@ -280,20 +281,20 @@ class _CurrencySectionState extends ConsumerState<_CurrencySection> {
       SizedBox(height: 10),
       Text(
         isBase
-            ? 'DH is the base currency: amounts are stored in DH.'
+            ? context.l10n.dhIsBase
             : '1 DH = ${cur.rate.toStringAsFixed(4)} ${cur.code}   (1 ${cur.code} = ${(1 / cur.rate).toStringAsFixed(2)} DH)',
         style: TextStyle(fontWeight: FontWeight.w600),
       ),
       SizedBox(height: 4),
       Text(
         cur.source == 'live'
-            ? 'Live rate, updated $when'
-            : 'Approximate rate, not live yet. Tap "Update rates" when online.',
+            ? context.l10n.liveRate(when)
+            : context.l10n.approximateRate,
         style: TextStyle(color: SpheraColors.muted, fontSize: 12),
       ),
       SizedBox(height: 4),
       Text(
-        'Every price is converted at this rate for display, and what you type is converted back to DH when saved.',
+        context.l10n.conversionNote,
         style: TextStyle(color: SpheraColors.muted, fontSize: 12),
       ),
       SizedBox(height: 8),
@@ -302,7 +303,7 @@ class _CurrencySectionState extends ConsumerState<_CurrencySection> {
         icon: _loading
             ? SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2))
             : Icon(Icons.refresh, size: 18),
-        label: Text('Update rates'),
+        label: Text(context.l10n.updateRates),
       ),
     ]);
   }

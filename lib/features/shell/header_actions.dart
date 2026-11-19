@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../core/l10n.dart';
 import '../../core/theme.dart';
 import '../intelligence/intelligence_screen.dart';
 import '../notifications/notifications_screen.dart';
@@ -12,14 +13,14 @@ class HeaderActions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(mainAxisSize: MainAxisSize.min, children: [
       IconButton(
-        tooltip: 'Ask SPHERA',
+        tooltip: context.l10n.askSphera,
         icon: Icon(Icons.auto_awesome_outlined, color: SpheraColors.muted),
         onPressed: () => Navigator.of(context)
             .push(MaterialPageRoute(builder: (_) => const IntelligenceScreen())),
       ),
       const NotificationBell(),
       IconButton(
-        tooltip: 'Settings',
+        tooltip: context.l10n.settings,
         icon: Icon(Icons.settings_outlined, color: SpheraColors.muted),
         onPressed: () => Navigator.of(context)
             .push(MaterialPageRoute(builder: (_) => const SettingsScreen())),

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'core/l10n.dart';
 import 'core/theme.dart';
 import 'core/sphera_logo.dart';
 import 'data/phone_notifications.dart';
@@ -39,10 +40,15 @@ class SpheraApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final look = ref.watch(appearanceProvider);
+    final lang = ref.watch(languageProvider);
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'SPHERA',
+      // Settings > Language. Arabic also turns the layout right-to-left.
+      locale: Locale(lang),
+      supportedLocales: AppLocalizations.supportedLocales,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
       themeMode: switch (look.mode) {
         ThemeModeSetting.dark => ThemeMode.dark,
         ThemeModeSetting.light => ThemeMode.light,

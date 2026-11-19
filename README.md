@@ -84,3 +84,14 @@ Tests: `flutter test` (includes `performance_insights_test.dart` and `new_screen
   so new alerts cannot be detected while the app is closed.
 - Android: compileSdk 37, core library desugaring, INTERNET + POST_NOTIFICATIONS + RECEIVE_BOOT_COMPLETED,
   scheduled-notification receivers, status-bar icon `res/drawable/ic_stat_sphera.xml`. App name is now "SPHERA".
+
+## Languages (English, Français, العربية)
+
+Settings > Language switches the app; Arabic turns the layout right-to-left.
+Texts live in `lib/l10n/app_en.arb`, `app_fr.arb` and `app_ar.arb` (same keys in all three;
+`test/l10n_test.dart` fails if one is missing). In a widget: `context.l10n.navHome`
+(import `core/l10n.dart`). After editing an `.arb` file, `flutter run` regenerates the code,
+or run `flutter gen-l10n`.
+
+Translated so far: bottom bar, Home, Stats tab, Cards tab, Settings. Still English: the other
+screens, the assistant's answers, insights and notifications.
