@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/l10n.dart';
 import '../../core/theme.dart';
 import '../../data/achievements.dart';
 
@@ -31,7 +32,7 @@ class _AchievementsScreenState extends ConsumerState<AchievementsScreen> {
     final shown = _filter == null ? all : all.where((a) => a.status == _filter).toList();
 
     return Scaffold(
-      appBar: AppBar(title: Text('Achievements')),
+      appBar: AppBar(title: Text(context.l10n.achievements)),
       body: ListView(padding: EdgeInsets.all(16), children: [
         // ---------- Summary ----------
         Card(
@@ -43,9 +44,9 @@ class _AchievementsScreenState extends ConsumerState<AchievementsScreen> {
                 SizedBox(width: 12),
                 Expanded(
                   child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                    Text('$unlocked / ${all.length} unlocked',
+                    Text(context.l10n.unlockedOfTotal(unlocked, all.length),
                         style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
-                    Text('$earnedPts / $totalPts achievement points',
+                    Text(context.l10n.achievementPoints(earnedPts, totalPts),
                         style: TextStyle(color: SpheraColors.gold, fontSize: 12, fontWeight: FontWeight.w600)),
                   ]),
                 ),
@@ -61,7 +62,7 @@ class _AchievementsScreenState extends ConsumerState<AchievementsScreen> {
                 ),
               ),
               SizedBox(height: 8),
-              Text('Achievement points are separate from rank points and from Google Play grades.',
+              Text(context.l10n.achievementPointsNote,
                   style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
             ]),
           ),
@@ -71,21 +72,21 @@ class _AchievementsScreenState extends ConsumerState<AchievementsScreen> {
         SizedBox(
           height: 44,
           child: ListView(scrollDirection: Axis.horizontal, children: [
-            _chip('All', null),
-            _chip('Unlocked', AchievementStatus.unlocked),
-            _chip('In progress', AchievementStatus.inProgress),
-            _chip('Locked', AchievementStatus.locked),
+            _chip(context.l10n.all, null),
+            _chip(context.l10n.unlocked, AchievementStatus.unlocked),
+            _chip(context.l10n.inProgress, AchievementStatus.inProgress),
+            _chip(context.l10n.locked, AchievementStatus.locked),
           ]),
         ),
         // ---------- By category ----------
         if (shown.isEmpty)
           Padding(
             padding: EdgeInsets.all(40),
-            child: Center(child: Text('Nothing here yet', style: TextStyle(color: SpheraColors.muted))),
+            child: Center(child: Text(context.l10n.nothingHereYet, style: TextStyle(color: SpheraColors.muted))),
           ),
         for (final cat in AchievementCategory.values) ..._category(cat, all, shown),
         SizedBox(height: 8),
-        Text('Dates show when an achievement was first detected on this device. Profit amounts are counted in DH.',
+        Text(context.l10n.achievementDatesNote,
             style: TextStyle(color: SpheraColors.muted, fontSize: 11)),
       ]),
     );
@@ -105,7 +106,7 @@ class _AchievementsScreenState extends ConsumerState<AchievementsScreen> {
           Text(cat.label,
               style: TextStyle(color: SpheraColors.gold, fontWeight: FontWeight.w600, fontSize: 15)),
           Spacer(),
-          Text('$doneInCat / ${inCat.length}', style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
+          Text(context.l10n.fraction(doneInCat, inCat.length), style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
         ]),
       ),
       for (final a in items) _AchievementCard(a),
@@ -132,9 +133,9 @@ class _AchievementCard extends StatelessWidget {
       AchievementStatus.locked => (SpheraColors.surfaceHigh, SpheraColors.border, SpheraColors.muted, Icons.lock_outline),
     };
     final (String label, Color labelColor) = switch (st) {
-      AchievementStatus.unlocked => ('Unlocked', gold),
-      AchievementStatus.inProgress => ('In progress', SpheraColors.goldSoft),
-      AchievementStatus.locked => ('Locked', SpheraColors.muted),
+      AchievementStatus.unlocked => (context.l10n.unlocked, gold),
+      AchievementStatus.inProgress => (context.l10n.inProgress, SpheraColors.goldSoft),
+      AchievementStatus.locked => (context.l10n.locked, SpheraColors.muted),
     };
 
     return Card(
@@ -162,7 +163,7 @@ class _AchievementCard extends StatelessWidget {
                 Text(label, style: TextStyle(color: labelColor, fontSize: 11, fontWeight: FontWeight.w700)),
               ]),
               SizedBox(height: 3),
-              Text('Unlock: ${a.description}', style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
+              Text(context.l10n.unlockCondition(a.description), style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
               SizedBox(height: 8),
               if (st == AchievementStatus.unlocked)
                 Row(children: [
@@ -170,11 +171,11 @@ class _AchievementCard extends StatelessWidget {
                   SizedBox(width: 6),
                   Expanded(
                     child: Text(
-                      a.unlockedAt == null ? 'Unlocked' : 'Unlocked on ${_date(a.unlockedAt!)}',
+                      a.unlockedAt == null ? context.l10n.unlocked : context.l10n.unlockedOn(_date(a.unlockedAt!)),
                       style: TextStyle(color: SpheraColors.muted, fontSize: 12),
                     ),
                   ),
-                  Text('+${a.points} pts', style: TextStyle(color: gold, fontSize: 12, fontWeight: FontWeight.w700)),
+                  Text(context.l10n.plusPts(a.points), style: TextStyle(color: gold, fontSize: 12, fontWeight: FontWeight.w700)),
                 ])
               else ...[
                 ClipRRect(
@@ -189,10 +190,10 @@ class _AchievementCard extends StatelessWidget {
                 SizedBox(height: 4),
                 Row(children: [
                   Expanded(
-                    child: Text('${a.current} / ${a.target}  ·  ${(a.fraction * 100).floor()}%',
+                    child: Text(context.l10n.progressPct(a.current, a.target, (a.fraction * 100).floor()),
                         style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
                   ),
-                  Text('+${a.points} pts', style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
+                  Text(context.l10n.plusPts(a.points), style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
                 ]),
               ],
             ]),

@@ -2,18 +2,32 @@
 /// (Local rules, easy to change here without touching any screen.)
 library;
 
+import 'l10n.dart';
+
+/// Rank tiers; their names are the grade words.
+enum RankName { bronze, silver, gold, platinum, diamond }
+
 class Rank {
-  const Rank(this.name, this.min);
-  final String name;
+  const Rank(this._key, this.min);
+  final RankName _key;
   final int min; // minimum points
+
+  /// Rank names are the grade words, in the app language.
+  String get name => switch (_key) {
+        RankName.bronze => appL10n.gradeBronze,
+        RankName.silver => appL10n.gradeSilver,
+        RankName.gold => appL10n.gradeGold,
+        RankName.platinum => appL10n.gradePlatinum,
+        RankName.diamond => appL10n.gradeDiamond,
+      };
 }
 
 const kRanks = [
-  Rank('Bronze', 0),
-  Rank('Silver', 100),
-  Rank('Gold', 500),
-  Rank('Platinum', 1500),
-  Rank('Diamond', 4000),
+  Rank(RankName.bronze, 0),
+  Rank(RankName.silver, 100),
+  Rank(RankName.gold, 500),
+  Rank(RankName.platinum, 1500),
+  Rank(RankName.diamond, 4000),
 ];
 
 /// 10 pts per Google account, 10 pts per game account, 25 pts per game,

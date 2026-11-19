@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../core/l10n.dart';
 import '../../core/theme.dart';
 import '../../data/insights.dart';
 import '../achievements/achievements_screen.dart';
@@ -53,26 +54,26 @@ Widget _screenFor(InsightTarget t) => switch (t) {
 
 /// Button label for a destination ("Open Profit Center").
 String targetLabel(InsightTarget t) => switch (t) {
-      InsightTarget.profit => 'Profit Center',
-      InsightTarget.performance => 'Performance Center',
-      InsightTarget.forSale => 'For Sale',
-      InsightTarget.duplicates => 'Duplicate Scanner',
-      InsightTarget.security => 'Security Center',
-      InsightTarget.googleAccounts => 'Google Accounts',
-      InsightTarget.addAccount => 'Add Account',
-      InsightTarget.activity => 'Activity Center',
-      InsightTarget.gradeStats => 'Grade Statistics',
-      InsightTarget.statusStats => 'Status Statistics',
-      InsightTarget.gamesStats => 'Games Statistics',
-      InsightTarget.games => 'Games',
-      InsightTarget.trash => 'Trash',
-      InsightTarget.organizer => 'Smart Organizer',
-      InsightTarget.vault => 'Inventory Vault',
-      InsightTarget.arena => 'Tournament Arena',
-      InsightTarget.achievements => 'Achievements',
-      InsightTarget.settings => 'Settings',
-      InsightTarget.notifications => 'Notifications',
-      InsightTarget.notificationSettings => 'Notification settings',
+      InsightTarget.profit => appL10n.profitCenter,
+      InsightTarget.performance => appL10n.performanceCenter,
+      InsightTarget.forSale => appL10n.forSale,
+      InsightTarget.duplicates => appL10n.duplicateScanner,
+      InsightTarget.security => appL10n.securityCenter,
+      InsightTarget.googleAccounts => appL10n.targetGoogleAccounts,
+      InsightTarget.addAccount => appL10n.addAccount,
+      InsightTarget.activity => appL10n.activityCenter,
+      InsightTarget.gradeStats => appL10n.gradeStatistics,
+      InsightTarget.statusStats => appL10n.statusStatistics,
+      InsightTarget.gamesStats => appL10n.gamesStatistics,
+      InsightTarget.games => appL10n.games,
+      InsightTarget.trash => appL10n.trash,
+      InsightTarget.organizer => appL10n.smartOrganizer,
+      InsightTarget.vault => appL10n.inventoryVault,
+      InsightTarget.arena => appL10n.tournamentArena,
+      InsightTarget.achievements => appL10n.achievements,
+      InsightTarget.settings => appL10n.settings,
+      InsightTarget.notifications => appL10n.notifications,
+      InsightTarget.notificationSettings => appL10n.notificationSettings,
     };
 
 void openTarget(BuildContext context, InsightTarget t) => Navigator.of(context)

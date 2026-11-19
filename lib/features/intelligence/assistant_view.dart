@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/l10n.dart';
 import '../../core/theme.dart';
 import '../../data/assistant/assistant_chat.dart';
 import '../../data/assistant/assistant_data.dart';
@@ -73,15 +74,14 @@ class _AssistantViewState extends ConsumerState<AssistantView> {
         const SizedBox(height: 12),
         Icon(Icons.auto_awesome_rounded, size: 48, color: SpheraColors.gold),
         const SizedBox(height: 12),
-        const Text('Ask SPHERA anything',
+        Text(context.l10n.askSpheraAnything,
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
         const SizedBox(height: 6),
         Text(
           ai.active
-              ? 'AI mode is on: Claude answers using a summary of your numbers.'
-              : 'Your profit, games, accounts, grades, goals, problems, or how to use any screen. '
-                  'Works offline, in English, French or Arabic.',
+              ? context.l10n.aiModeOnHint
+              : context.l10n.offlineHint,
           textAlign: TextAlign.center,
           style: TextStyle(color: SpheraColors.muted),
         ),
@@ -111,17 +111,17 @@ class _AssistantViewState extends ConsumerState<AssistantView> {
                 maxLines: 4,
                 textInputAction: TextInputAction.send,
                 onSubmitted: busy ? null : (_) => _send(),
-                decoration: const InputDecoration(
-                  hintText: 'Ask a question…',
+                decoration: InputDecoration(
+                  hintText: context.l10n.askQuestionHint,
                   isDense: true,
                   contentPadding:
-                      EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+                      const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                 ),
               ),
             ),
             const SizedBox(width: 6),
             IconButton.filled(
-              tooltip: 'Send',
+              tooltip: context.l10n.send,
               onPressed: busy ? null : _send,
               icon: busy
                   ? const SizedBox(
@@ -170,7 +170,7 @@ class _Bubble extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 if (m.pending && m.text.isEmpty)
-                  Text('Thinking…',
+                  Text(context.l10n.thinking,
                       style: TextStyle(
                           color: SpheraColors.muted,
                           fontStyle: FontStyle.italic))
@@ -206,8 +206,8 @@ class _Bubble extends StatelessWidget {
                     Text(
                       switch (m.source) {
                         ReplySource.ai => 'Claude',
-                        ReplySource.offline => 'Offline',
-                        ReplySource.notice => 'Notice',
+                        ReplySource.offline => context.l10n.sourceOffline,
+                        ReplySource.notice => context.l10n.sourceNotice,
                       },
                       style: TextStyle(color: SpheraColors.muted, fontSize: 11),
                     ),
@@ -258,21 +258,20 @@ class _AiSettingsSheetState extends ConsumerState<_AiSettingsSheet> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Text('AI mode',
+              Text(context.l10n.aiMode,
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
               const SizedBox(height: 6),
               Text(
-                'Offline, the assistant answers from your data and the app guide. With AI mode, Claude '
-                '(Anthropic) answers any question, in any language.',
+                context.l10n.aiModeExplain,
                 style: TextStyle(color: SpheraColors.muted),
               ),
               const SizedBox(height: 12),
               SwitchListTile(
                 contentPadding: EdgeInsets.zero,
-                title: const Text('Use Claude AI'),
+                title: Text(context.l10n.useClaudeAi),
                 subtitle: Text(ai.hasKey
-                    ? 'API key saved on this phone'
-                    : 'Add your API key first'),
+                    ? context.l10n.apiKeySaved
+                    : context.l10n.addApiKeyFirst),
                 value: ai.active,
                 onChanged: ai.hasKey ? notifier.setEnabled : null,
               ),
@@ -285,13 +284,13 @@ class _AiSettingsSheetState extends ConsumerState<_AiSettingsSheet> {
                 onChanged: (_) => setState(() {}),
                 decoration: InputDecoration(
                   labelText:
-                      ai.hasKey ? 'Replace API key' : 'Anthropic API key',
+                      ai.hasKey ? context.l10n.replaceApiKey : context.l10n.anthropicApiKey,
                   hintText: 'sk-ant-…',
                   errorText: _key.text.isNotEmpty && !looksValid
-                      ? 'Keys start with sk-ant-'
+                      ? context.l10n.keysStartWith
                       : null,
                   suffixIcon: IconButton(
-                    tooltip: _show ? 'Hide' : 'Show',
+                    tooltip: _show ? context.l10n.hide : context.l10n.show,
                     icon: Icon(_show
                         ? Icons.visibility_off_outlined
                         : Icons.visibility_outlined),
@@ -310,26 +309,23 @@ class _AiSettingsSheetState extends ConsumerState<_AiSettingsSheet> {
                             if (context.mounted) Navigator.pop(context);
                           }
                         : null,
-                    child: const Text('Save key'),
+                    child: Text(context.l10n.saveKey),
                   ),
                 ),
                 if (ai.hasKey) ...[
                   const SizedBox(width: 10),
                   OutlinedButton(
                       onPressed: () => notifier.setKey(null),
-                      child: const Text('Remove key')),
+                      child: Text(context.l10n.removeKey)),
                 ],
               ]),
               const SizedBox(height: 16),
-              Text('Privacy',
+              Text(context.l10n.privacy,
                   style: TextStyle(
                       color: SpheraColors.gold, fontWeight: FontWeight.w600)),
               const SizedBox(height: 4),
               Text(
-                'When AI mode is on, your question and a summary of your numbers (counts, profits, game names, '
-                'account names, grades, alerts) are sent to Anthropic to write the answer. Emails, Account IDs, '
-                'notes and photos are never sent. The key is stored encrypted on this phone.\n\n'
-                'Get a key at console.anthropic.com (API usage is billed to your Anthropic account).',
+                context.l10n.aiPrivacyText,
                 style: TextStyle(color: SpheraColors.muted, fontSize: 12),
               ),
             ]),

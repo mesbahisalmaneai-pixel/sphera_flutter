@@ -2733,6 +2733,708 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Notifications ({count} new)'**
   String notificationsNew(int count);
+
+  /// No description provided for @chooseFromGallery.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose from gallery'**
+  String get chooseFromGallery;
+
+  /// No description provided for @removePhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove photo'**
+  String get removePhoto;
+
+  /// No description provided for @logOutTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Log out?'**
+  String get logOutTitle;
+
+  /// No description provided for @logOutBody.
+  ///
+  /// In en, this message translates to:
+  /// **'You will need to log in again. Your profile, accounts, games and statistics are kept on this device.'**
+  String get logOutBody;
+
+  /// No description provided for @logOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Log out'**
+  String get logOut;
+
+  /// No description provided for @profileTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profileTitle;
+
+  /// No description provided for @spheraUser.
+  ///
+  /// In en, this message translates to:
+  /// **'SPHERA User'**
+  String get spheraUser;
+
+  /// No description provided for @rankPts.
+  ///
+  /// In en, this message translates to:
+  /// **'{rank} · {points} pts'**
+  String rankPts(String rank, int points);
+
+  /// No description provided for @editProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit profile'**
+  String get editProfile;
+
+  /// No description provided for @activitySummary.
+  ///
+  /// In en, this message translates to:
+  /// **'Activity summary'**
+  String get activitySummary;
+
+  /// No description provided for @googleAccountsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Google accounts'**
+  String get googleAccountsLabel;
+
+  /// No description provided for @gameAccountsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Game accounts'**
+  String get gameAccountsLabel;
+
+  /// No description provided for @profitLoss.
+  ///
+  /// In en, this message translates to:
+  /// **'Profit / loss'**
+  String get profitLoss;
+
+  /// No description provided for @rank.
+  ///
+  /// In en, this message translates to:
+  /// **'Rank'**
+  String get rank;
+
+  /// No description provided for @rankName.
+  ///
+  /// In en, this message translates to:
+  /// **'Rank: {rank}'**
+  String rankName(String rank);
+
+  /// No description provided for @rankPoints.
+  ///
+  /// In en, this message translates to:
+  /// **'{points} rank points'**
+  String rankPoints(int points);
+
+  /// No description provided for @topRankReached.
+  ///
+  /// In en, this message translates to:
+  /// **'Top rank reached'**
+  String get topRankReached;
+
+  /// No description provided for @ptsToRank.
+  ///
+  /// In en, this message translates to:
+  /// **'{points} pts to {rank}'**
+  String ptsToRank(int points, String rank);
+
+  /// No description provided for @unlockedOfTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'{done} / {total} unlocked'**
+  String unlockedOfTotal(int done, int total);
+
+  /// No description provided for @allAchievementsUnlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'All achievements unlocked.'**
+  String get allAchievementsUnlocked;
+
+  /// No description provided for @fraction.
+  ///
+  /// In en, this message translates to:
+  /// **'{a} / {b}'**
+  String fraction(int a, int b);
+
+  /// No description provided for @session.
+  ///
+  /// In en, this message translates to:
+  /// **'Session'**
+  String get session;
+
+  /// No description provided for @currentSession.
+  ///
+  /// In en, this message translates to:
+  /// **'Current session'**
+  String get currentSession;
+
+  /// No description provided for @startedAt.
+  ///
+  /// In en, this message translates to:
+  /// **'Started at {time}'**
+  String startedAt(String time);
+
+  /// No description provided for @dataOnDeviceOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'Your data is stored on this device only.'**
+  String get dataOnDeviceOnly;
+
+  /// No description provided for @name.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get name;
+
+  /// No description provided for @profilePhotosPhoneOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile photos work in the phone app, not in the browser.'**
+  String get profilePhotosPhoneOnly;
+
+  /// No description provided for @achievementPoints.
+  ///
+  /// In en, this message translates to:
+  /// **'{earned} / {total} achievement points'**
+  String achievementPoints(int earned, int total);
+
+  /// No description provided for @achievementPointsNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Achievement points are separate from rank points and from Google Play grades.'**
+  String get achievementPointsNote;
+
+  /// No description provided for @unlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlocked'**
+  String get unlocked;
+
+  /// No description provided for @inProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'In progress'**
+  String get inProgress;
+
+  /// No description provided for @locked.
+  ///
+  /// In en, this message translates to:
+  /// **'Locked'**
+  String get locked;
+
+  /// No description provided for @nothingHereYet.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing here yet'**
+  String get nothingHereYet;
+
+  /// No description provided for @achievementDatesNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Dates show when an achievement was first detected on this device. Profit amounts are counted in DH.'**
+  String get achievementDatesNote;
+
+  /// No description provided for @unlockCondition.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock: {condition}'**
+  String unlockCondition(String condition);
+
+  /// No description provided for @unlockedOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlocked on {date}'**
+  String unlockedOn(String date);
+
+  /// No description provided for @plusPts.
+  ///
+  /// In en, this message translates to:
+  /// **'+{points} pts'**
+  String plusPts(int points);
+
+  /// No description provided for @progressPct.
+  ///
+  /// In en, this message translates to:
+  /// **'{a} / {b}  ·  {pct}%'**
+  String progressPct(int a, int b, int pct);
+
+  /// No description provided for @catAccounts.
+  ///
+  /// In en, this message translates to:
+  /// **'Accounts'**
+  String get catAccounts;
+
+  /// No description provided for @catGames.
+  ///
+  /// In en, this message translates to:
+  /// **'Games'**
+  String get catGames;
+
+  /// No description provided for @catSales.
+  ///
+  /// In en, this message translates to:
+  /// **'Sales'**
+  String get catSales;
+
+  /// No description provided for @catProfits.
+  ///
+  /// In en, this message translates to:
+  /// **'Profits'**
+  String get catProfits;
+
+  /// No description provided for @catOrganization.
+  ///
+  /// In en, this message translates to:
+  /// **'Organization'**
+  String get catOrganization;
+
+  /// No description provided for @achAcc1.
+  ///
+  /// In en, this message translates to:
+  /// **'First account'**
+  String get achAcc1;
+
+  /// No description provided for @achAcc1Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your first Google account.'**
+  String get achAcc1Desc;
+
+  /// No description provided for @achAcc10.
+  ///
+  /// In en, this message translates to:
+  /// **'Collector'**
+  String get achAcc10;
+
+  /// No description provided for @achAcc10Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Have 10 Google accounts.'**
+  String get achAcc10Desc;
+
+  /// No description provided for @achAcc25.
+  ///
+  /// In en, this message translates to:
+  /// **'Big collection'**
+  String get achAcc25;
+
+  /// No description provided for @achAcc25Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Have 25 Google accounts.'**
+  String get achAcc25Desc;
+
+  /// No description provided for @achGacc10.
+  ///
+  /// In en, this message translates to:
+  /// **'Game accounts x10'**
+  String get achGacc10;
+
+  /// No description provided for @achGacc10Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Have 10 game accounts.'**
+  String get achGacc10Desc;
+
+  /// No description provided for @achGacc50.
+  ///
+  /// In en, this message translates to:
+  /// **'Game accounts x50'**
+  String get achGacc50;
+
+  /// No description provided for @achGacc50Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Have 50 game accounts.'**
+  String get achGacc50Desc;
+
+  /// No description provided for @achGacc100.
+  ///
+  /// In en, this message translates to:
+  /// **'Game accounts x100'**
+  String get achGacc100;
+
+  /// No description provided for @achGacc100Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Have 100 game accounts.'**
+  String get achGacc100Desc;
+
+  /// No description provided for @achGame1.
+  ///
+  /// In en, this message translates to:
+  /// **'First game'**
+  String get achGame1;
+
+  /// No description provided for @achGame1Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your first game.'**
+  String get achGame1Desc;
+
+  /// No description provided for @achGame5.
+  ///
+  /// In en, this message translates to:
+  /// **'Game shelf'**
+  String get achGame5;
+
+  /// No description provided for @achGame5Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Have 5 games.'**
+  String get achGame5Desc;
+
+  /// No description provided for @achGame10.
+  ///
+  /// In en, this message translates to:
+  /// **'Game library'**
+  String get achGame10;
+
+  /// No description provided for @achGame10Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Have 10 games.'**
+  String get achGame10Desc;
+
+  /// No description provided for @achSell1.
+  ///
+  /// In en, this message translates to:
+  /// **'First sale listing'**
+  String get achSell1;
+
+  /// No description provided for @achSell1Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark your first account as SOLD.'**
+  String get achSell1Desc;
+
+  /// No description provided for @achSell10.
+  ///
+  /// In en, this message translates to:
+  /// **'Seller'**
+  String get achSell10;
+
+  /// No description provided for @achSell10Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Have 10 accounts marked SOLD.'**
+  String get achSell10Desc;
+
+  /// No description provided for @achSell50.
+  ///
+  /// In en, this message translates to:
+  /// **'Big seller'**
+  String get achSell50;
+
+  /// No description provided for @achSell50Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Have 50 accounts marked SOLD.'**
+  String get achSell50Desc;
+
+  /// No description provided for @achProfit1.
+  ///
+  /// In en, this message translates to:
+  /// **'In profit'**
+  String get achProfit1;
+
+  /// No description provided for @achProfit1Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Reach a positive total profit.'**
+  String get achProfit1Desc;
+
+  /// No description provided for @achProfit1k.
+  ///
+  /// In en, this message translates to:
+  /// **'1,000 DH profit'**
+  String get achProfit1k;
+
+  /// No description provided for @achProfit1kDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Reach 1,000 DH of total profit.'**
+  String get achProfit1kDesc;
+
+  /// No description provided for @achProfit10k.
+  ///
+  /// In en, this message translates to:
+  /// **'10,000 DH profit'**
+  String get achProfit10k;
+
+  /// No description provided for @achProfit10kDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Reach 10,000 DH of total profit.'**
+  String get achProfit10kDesc;
+
+  /// No description provided for @achProfitGames3.
+  ///
+  /// In en, this message translates to:
+  /// **'Winning games'**
+  String get achProfitGames3;
+
+  /// No description provided for @achProfitGames3Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Have 3 games with a positive profit.'**
+  String get achProfitGames3Desc;
+
+  /// No description provided for @achBoxes10.
+  ///
+  /// In en, this message translates to:
+  /// **'Organized'**
+  String get achBoxes10;
+
+  /// No description provided for @achBoxes10Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Set 10 game boxes (not EMPTY).'**
+  String get achBoxes10Desc;
+
+  /// No description provided for @achBoxes50.
+  ///
+  /// In en, this message translates to:
+  /// **'Well organized'**
+  String get achBoxes50;
+
+  /// No description provided for @achBoxes50Desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Set 50 game boxes (not EMPTY).'**
+  String get achBoxes50Desc;
+
+  /// No description provided for @achFull.
+  ///
+  /// In en, this message translates to:
+  /// **'Full coverage'**
+  String get achFull;
+
+  /// No description provided for @achFullDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Have at least one account in every game (minimum 3 games).'**
+  String get achFullDesc;
+
+  /// No description provided for @askSpheraAnything.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask SPHERA anything'**
+  String get askSpheraAnything;
+
+  /// No description provided for @aiModeOnHint.
+  ///
+  /// In en, this message translates to:
+  /// **'AI mode is on: Claude answers using a summary of your numbers.'**
+  String get aiModeOnHint;
+
+  /// No description provided for @offlineHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Your profit, games, accounts, grades, goals, problems, or how to use any screen. Works offline, in English, French or Arabic.'**
+  String get offlineHint;
+
+  /// No description provided for @askQuestionHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask a question…'**
+  String get askQuestionHint;
+
+  /// No description provided for @send.
+  ///
+  /// In en, this message translates to:
+  /// **'Send'**
+  String get send;
+
+  /// No description provided for @thinking.
+  ///
+  /// In en, this message translates to:
+  /// **'Thinking…'**
+  String get thinking;
+
+  /// No description provided for @sourceOffline.
+  ///
+  /// In en, this message translates to:
+  /// **'Offline'**
+  String get sourceOffline;
+
+  /// No description provided for @sourceNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'Notice'**
+  String get sourceNotice;
+
+  /// No description provided for @aiMode.
+  ///
+  /// In en, this message translates to:
+  /// **'AI mode'**
+  String get aiMode;
+
+  /// No description provided for @aiModeExplain.
+  ///
+  /// In en, this message translates to:
+  /// **'Offline, the assistant answers from your data and the app guide. With AI mode, Claude (Anthropic) answers any question, in any language.'**
+  String get aiModeExplain;
+
+  /// No description provided for @useClaudeAi.
+  ///
+  /// In en, this message translates to:
+  /// **'Use Claude AI'**
+  String get useClaudeAi;
+
+  /// No description provided for @apiKeySaved.
+  ///
+  /// In en, this message translates to:
+  /// **'API key saved on this phone'**
+  String get apiKeySaved;
+
+  /// No description provided for @addApiKeyFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your API key first'**
+  String get addApiKeyFirst;
+
+  /// No description provided for @replaceApiKey.
+  ///
+  /// In en, this message translates to:
+  /// **'Replace API key'**
+  String get replaceApiKey;
+
+  /// No description provided for @anthropicApiKey.
+  ///
+  /// In en, this message translates to:
+  /// **'Anthropic API key'**
+  String get anthropicApiKey;
+
+  /// No description provided for @keysStartWith.
+  ///
+  /// In en, this message translates to:
+  /// **'Keys start with sk-ant-'**
+  String get keysStartWith;
+
+  /// No description provided for @hide.
+  ///
+  /// In en, this message translates to:
+  /// **'Hide'**
+  String get hide;
+
+  /// No description provided for @show.
+  ///
+  /// In en, this message translates to:
+  /// **'Show'**
+  String get show;
+
+  /// No description provided for @saveKey.
+  ///
+  /// In en, this message translates to:
+  /// **'Save key'**
+  String get saveKey;
+
+  /// No description provided for @removeKey.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove key'**
+  String get removeKey;
+
+  /// No description provided for @privacy.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy'**
+  String get privacy;
+
+  /// No description provided for @aiPrivacyText.
+  ///
+  /// In en, this message translates to:
+  /// **'When AI mode is on, your question and a summary of your numbers (counts, profits, game names, account names, grades, alerts) are sent to Anthropic to write the answer. Emails, Account IDs, notes and photos are never sent. The key is stored encrypted on this phone.\n\nGet a key at console.anthropic.com (API usage is billed to your Anthropic account).'**
+  String get aiPrivacyText;
+
+  /// No description provided for @targetGoogleAccounts.
+  ///
+  /// In en, this message translates to:
+  /// **'Google Accounts'**
+  String get targetGoogleAccounts;
+
+  /// No description provided for @tournamentArena.
+  ///
+  /// In en, this message translates to:
+  /// **'Tournament Arena'**
+  String get tournamentArena;
+
+  /// No description provided for @newChat.
+  ///
+  /// In en, this message translates to:
+  /// **'New chat'**
+  String get newChat;
+
+  /// No description provided for @aiModeOn.
+  ///
+  /// In en, this message translates to:
+  /// **'AI mode: on'**
+  String get aiModeOn;
+
+  /// No description provided for @aiModeOff.
+  ///
+  /// In en, this message translates to:
+  /// **'AI mode: off'**
+  String get aiModeOff;
+
+  /// No description provided for @ask.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask'**
+  String get ask;
+
+  /// No description provided for @insights.
+  ///
+  /// In en, this message translates to:
+  /// **'Insights'**
+  String get insights;
+
+  /// No description provided for @levelAttention.
+  ///
+  /// In en, this message translates to:
+  /// **'Attention'**
+  String get levelAttention;
+
+  /// No description provided for @levelTips.
+  ///
+  /// In en, this message translates to:
+  /// **'Tips'**
+  String get levelTips;
+
+  /// No description provided for @levelGood.
+  ///
+  /// In en, this message translates to:
+  /// **'Good news'**
+  String get levelGood;
+
+  /// No description provided for @insightsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 insight} other{{count} insights}}'**
+  String insightsCount(int count);
+
+  /// No description provided for @attentionAndGood.
+  ///
+  /// In en, this message translates to:
+  /// **'{attention} need attention · {good} good news'**
+  String attentionAndGood(int attention, int good);
+
+  /// No description provided for @nothingHereNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing here right now.'**
+  String get nothingHereNow;
+
+  /// No description provided for @analysisOnDevice.
+  ///
+  /// In en, this message translates to:
+  /// **'Analysis runs on this device from your own data and updates as you edit accounts.'**
+  String get analysisOnDevice;
 }
 
 class _AppLocalizationsDelegate

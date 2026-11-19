@@ -949,5 +949,244 @@
         "type": "int"
       }
     }
-  }
+  },
+  "chooseFromGallery": "Choose from gallery",
+  "removePhoto": "Remove photo",
+  "logOutTitle": "Log out?",
+  "logOutBody": "You will need to log in again. Your profile, accounts, games and statistics are kept on this device.",
+  "logOut": "Log out",
+  "profileTitle": "Profile",
+  "spheraUser": "SPHERA User",
+  "rankPts": "{rank} · {points} pts",
+  "@rankPts": {
+    "placeholders": {
+      "rank": {
+        "type": "String"
+      },
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "editProfile": "Edit profile",
+  "activitySummary": "Activity summary",
+  "googleAccountsLabel": "Google accounts",
+  "gameAccountsLabel": "Game accounts",
+  "profitLoss": "Profit / loss",
+  "rank": "Rank",
+  "rankName": "Rank: {rank}",
+  "@rankName": {
+    "placeholders": {
+      "rank": {
+        "type": "String"
+      }
+    }
+  },
+  "rankPoints": "{points} rank points",
+  "@rankPoints": {
+    "placeholders": {
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "topRankReached": "Top rank reached",
+  "ptsToRank": "{points} pts to {rank}",
+  "@ptsToRank": {
+    "placeholders": {
+      "points": {
+        "type": "int"
+      },
+      "rank": {
+        "type": "String"
+      }
+    }
+  },
+  "unlockedOfTotal": "{done} / {total} unlocked",
+  "@unlockedOfTotal": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "allAchievementsUnlocked": "All achievements unlocked.",
+  "fraction": "{a} / {b}",
+  "@fraction": {
+    "placeholders": {
+      "a": {
+        "type": "int"
+      },
+      "b": {
+        "type": "int"
+      }
+    }
+  },
+  "session": "Session",
+  "currentSession": "Current session",
+  "startedAt": "Started at {time}",
+  "@startedAt": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "dataOnDeviceOnly": "Your data is stored on this device only.",
+  "name": "Name",
+  "profilePhotosPhoneOnly": "Profile photos work in the phone app, not in the browser.",
+  "achievementPoints": "{earned} / {total} achievement points",
+  "@achievementPoints": {
+    "placeholders": {
+      "earned": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "achievementPointsNote": "Achievement points are separate from rank points and from Google Play grades.",
+  "unlocked": "Unlocked",
+  "inProgress": "In progress",
+  "locked": "Locked",
+  "nothingHereYet": "Nothing here yet",
+  "achievementDatesNote": "Dates show when an achievement was first detected on this device. Profit amounts are counted in DH.",
+  "unlockCondition": "Unlock: {condition}",
+  "@unlockCondition": {
+    "placeholders": {
+      "condition": {
+        "type": "String"
+      }
+    }
+  },
+  "unlockedOn": "Unlocked on {date}",
+  "@unlockedOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "plusPts": "+{points} pts",
+  "@plusPts": {
+    "placeholders": {
+      "points": {
+        "type": "int"
+      }
+    }
+  },
+  "progressPct": "{a} / {b}  ·  {pct}%",
+  "@progressPct": {
+    "placeholders": {
+      "a": {
+        "type": "int"
+      },
+      "b": {
+        "type": "int"
+      },
+      "pct": {
+        "type": "int"
+      }
+    }
+  },
+  "catAccounts": "Accounts",
+  "catGames": "Games",
+  "catSales": "Sales",
+  "catProfits": "Profits",
+  "catOrganization": "Organization",
+  "achAcc1": "First account",
+  "achAcc1Desc": "Add your first Google account.",
+  "achAcc10": "Collector",
+  "achAcc10Desc": "Have 10 Google accounts.",
+  "achAcc25": "Big collection",
+  "achAcc25Desc": "Have 25 Google accounts.",
+  "achGacc10": "Game accounts x10",
+  "achGacc10Desc": "Have 10 game accounts.",
+  "achGacc50": "Game accounts x50",
+  "achGacc50Desc": "Have 50 game accounts.",
+  "achGacc100": "Game accounts x100",
+  "achGacc100Desc": "Have 100 game accounts.",
+  "achGame1": "First game",
+  "achGame1Desc": "Add your first game.",
+  "achGame5": "Game shelf",
+  "achGame5Desc": "Have 5 games.",
+  "achGame10": "Game library",
+  "achGame10Desc": "Have 10 games.",
+  "achSell1": "First sale listing",
+  "achSell1Desc": "Mark your first account as SOLD.",
+  "achSell10": "Seller",
+  "achSell10Desc": "Have 10 accounts marked SOLD.",
+  "achSell50": "Big seller",
+  "achSell50Desc": "Have 50 accounts marked SOLD.",
+  "achProfit1": "In profit",
+  "achProfit1Desc": "Reach a positive total profit.",
+  "achProfit1k": "1,000 DH profit",
+  "achProfit1kDesc": "Reach 1,000 DH of total profit.",
+  "achProfit10k": "10,000 DH profit",
+  "achProfit10kDesc": "Reach 10,000 DH of total profit.",
+  "achProfitGames3": "Winning games",
+  "achProfitGames3Desc": "Have 3 games with a positive profit.",
+  "achBoxes10": "Organized",
+  "achBoxes10Desc": "Set 10 game boxes (not EMPTY).",
+  "achBoxes50": "Well organized",
+  "achBoxes50Desc": "Set 50 game boxes (not EMPTY).",
+  "achFull": "Full coverage",
+  "achFullDesc": "Have at least one account in every game (minimum 3 games).",
+  "askSpheraAnything": "Ask SPHERA anything",
+  "aiModeOnHint": "AI mode is on: Claude answers using a summary of your numbers.",
+  "offlineHint": "Your profit, games, accounts, grades, goals, problems, or how to use any screen. Works offline, in English, French or Arabic.",
+  "askQuestionHint": "Ask a question…",
+  "send": "Send",
+  "thinking": "Thinking…",
+  "sourceOffline": "Offline",
+  "sourceNotice": "Notice",
+  "aiMode": "AI mode",
+  "aiModeExplain": "Offline, the assistant answers from your data and the app guide. With AI mode, Claude (Anthropic) answers any question, in any language.",
+  "useClaudeAi": "Use Claude AI",
+  "apiKeySaved": "API key saved on this phone",
+  "addApiKeyFirst": "Add your API key first",
+  "replaceApiKey": "Replace API key",
+  "anthropicApiKey": "Anthropic API key",
+  "keysStartWith": "Keys start with sk-ant-",
+  "hide": "Hide",
+  "show": "Show",
+  "saveKey": "Save key",
+  "removeKey": "Remove key",
+  "privacy": "Privacy",
+  "aiPrivacyText": "When AI mode is on, your question and a summary of your numbers (counts, profits, game names, account names, grades, alerts) are sent to Anthropic to write the answer. Emails, Account IDs, notes and photos are never sent. The key is stored encrypted on this phone.\n\nGet a key at console.anthropic.com (API usage is billed to your Anthropic account).",
+  "targetGoogleAccounts": "Google Accounts",
+  "tournamentArena": "Tournament Arena",
+  "newChat": "New chat",
+  "aiModeOn": "AI mode: on",
+  "aiModeOff": "AI mode: off",
+  "ask": "Ask",
+  "insights": "Insights",
+  "levelAttention": "Attention",
+  "levelTips": "Tips",
+  "levelGood": "Good news",
+  "insightsCount": "{count, plural, =1{1 insight} other{{count} insights}}",
+  "@insightsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "attentionAndGood": "{attention} need attention · {good} good news",
+  "@attentionAndGood": {
+    "placeholders": {
+      "attention": {
+        "type": "int"
+      },
+      "good": {
+        "type": "int"
+      }
+    }
+  },
+  "nothingHereNow": "Nothing here right now.",
+  "analysisOnDevice": "Analysis runs on this device from your own data and updates as you edit accounts."
 }

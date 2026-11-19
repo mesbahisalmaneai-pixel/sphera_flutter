@@ -1,3 +1,4 @@
+import '../core/l10n.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'dart:io';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -47,7 +48,7 @@ class ProfileNotifier extends Notifier<ProfileData> {
 
   /// Returns null on success (or if cancelled), or an error message.
   Future<String?> pickPhoto() async {
-    if (kIsWeb) return 'Profile photos work in the phone app, not in the browser.';
+    if (kIsWeb) return appL10n.profilePhotosPhoneOnly;
     try {
       final x = await ImagePicker().pickImage(source: ImageSource.gallery, maxWidth: 800, imageQuality: 85);
       if (x == null) return null;
@@ -59,7 +60,7 @@ class ProfileNotifier extends Notifier<ProfileData> {
       (await SharedPreferences.getInstance()).setString('profile_photo', dest.path);
       return null;
     } catch (e) {
-      return 'Could not set photo: $e';
+      return appL10n.couldNotSetPhoto('$e');
     }
   }
 

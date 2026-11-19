@@ -2,6 +2,7 @@ import '../../data/auth/auth_repository.dart';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/l10n.dart';
 import '../../core/format.dart';
 import '../../core/progress.dart';
 import '../../core/theme.dart';
@@ -35,13 +36,13 @@ class ProfileScreen extends ConsumerWidget {
         child: Column(mainAxisSize: MainAxisSize.min, children: [
           ListTile(
             leading: Icon(Icons.photo_library_outlined, color: SpheraColors.gold),
-            title: Text('Choose from gallery'),
+            title: Text(context.l10n.chooseFromGallery),
             onTap: () => Navigator.pop(ctx, 'pick'),
           ),
           if (profile.photoPath != null)
             ListTile(
               leading: Icon(Icons.delete_outline, color: SpheraColors.danger),
-              title: Text('Remove photo'),
+              title: Text(context.l10n.removePhoto),
               onTap: () => Navigator.pop(ctx, 'remove'),
             ),
         ]),
@@ -67,14 +68,13 @@ class ProfileScreen extends ConsumerWidget {
     final ok = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text('Log out?'),
-        content: Text(
-            'You will need to log in again. Your profile, accounts, games and statistics are kept on this device.'),
+        title: Text(context.l10n.logOutTitle),
+        content: Text(context.l10n.logOutBody),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(ctx, false), child: Text('Cancel')),
+          TextButton(onPressed: () => Navigator.pop(ctx, false), child: Text(context.l10n.cancel)),
           TextButton(
               onPressed: () => Navigator.pop(ctx, true),
-              child: Text('Log out', style: TextStyle(color: SpheraColors.danger))),
+              child: Text(context.l10n.logOut, style: TextStyle(color: SpheraColors.danger))),
         ],
       ),
     );
@@ -109,7 +109,7 @@ class ProfileScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile'),
+        title: Text(context.l10n.profileTitle),
         actions: [HeaderActions(), SizedBox(width: 4)],
       ),
       body: ListView(padding: EdgeInsets.all(16), children: [
@@ -139,10 +139,10 @@ class ProfileScreen extends ConsumerWidget {
                 ]),
               ),
               SizedBox(height: 14),
-              Text(profile.name.isEmpty ? 'SPHERA User' : profile.name,
+              Text(profile.name.isEmpty ? context.l10n.spheraUser : profile.name,
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
               SizedBox(height: 2),
-              Text(profile.email.isEmpty ? 'Local mode' : profile.email,
+              Text(profile.email.isEmpty ? context.l10n.localMode : profile.email,
                   style: TextStyle(color: SpheraColors.muted, fontSize: 13)),
               SizedBox(height: 12),
               Container(
@@ -155,7 +155,7 @@ class ProfileScreen extends ConsumerWidget {
                 child: Row(mainAxisSize: MainAxisSize.min, children: [
                   Icon(Icons.military_tech_outlined, size: 18, color: SpheraColors.gold),
                   SizedBox(width: 6),
-                  Text('${rank.name} · $points pts',
+                  Text(context.l10n.rankPts(rank.name, points),
                       style: TextStyle(color: SpheraColors.gold, fontWeight: FontWeight.w700, fontSize: 13)),
                 ]),
               ),
@@ -163,23 +163,23 @@ class ProfileScreen extends ConsumerWidget {
               TextButton.icon(
                 onPressed: () => _edit(context, ref, profile),
                 icon: Icon(Icons.edit_outlined, size: 18),
-                label: Text('Edit profile'),
+                label: Text(context.l10n.editProfile),
               ),
             ]),
           ),
         ),
 
         // ---------- Activity summary ----------
-        _section('Activity summary'),
+        _section(context.l10n.activitySummary),
         TileGrid(
           columns: 2,
           children: [
-            _StatTile(icon: Icons.mail_outline, label: 'Google accounts', value: '$google'),
-            _StatTile(icon: Icons.sports_esports_outlined, label: 'Games', value: '$games'),
-            _StatTile(icon: Icons.person_search_outlined, label: 'Game accounts', value: '$accounts'),
+            _StatTile(icon: Icons.mail_outline, label: context.l10n.googleAccountsLabel, value: '$google'),
+            _StatTile(icon: Icons.sports_esports_outlined, label: context.l10n.games, value: '$games'),
+            _StatTile(icon: Icons.person_search_outlined, label: context.l10n.gameAccountsLabel, value: '$accounts'),
             _StatTile(
               icon: Icons.trending_up_rounded,
-              label: 'Profit / loss',
+              label: context.l10n.profitLoss,
               value: money(profit, currency: cur),
               color: profit >= 0 ? SpheraColors.done : SpheraColors.danger,
             ),
@@ -187,7 +187,7 @@ class ProfileScreen extends ConsumerWidget {
         ),
 
         // ---------- Rank points ----------
-        _section('Rank'),
+        _section(context.l10n.rank),
         Card(
           clipBehavior: Clip.antiAlias,
           child: InkWell(
@@ -200,8 +200,8 @@ class ProfileScreen extends ConsumerWidget {
                   SizedBox(width: 12),
                   Expanded(
                     child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                      Text('Rank: ${rank.name}', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16)),
-                      Text('$points rank points', style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
+                      Text(context.l10n.rankName(rank.name), style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16)),
+                      Text(context.l10n.rankPoints(points), style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
                     ]),
                   ),
                   Icon(Icons.chevron_right, color: SpheraColors.muted),
@@ -219,8 +219,8 @@ class ProfileScreen extends ConsumerWidget {
                 SizedBox(height: 6),
                 Text(
                   next == null
-                      ? 'Top rank reached'
-                      : '${next.min - points} pts to ${next.name}',
+                      ? context.l10n.topRankReached
+                      : context.l10n.ptsToRank(next.min - points, next.name),
                   style: TextStyle(color: SpheraColors.muted, fontSize: 12),
                 ),
               ]),
@@ -229,7 +229,7 @@ class ProfileScreen extends ConsumerWidget {
         ),
 
         // ---------- Achievement progress ----------
-        _section('Achievements'),
+        _section(context.l10n.achievements),
         Card(
           clipBehavior: Clip.antiAlias,
           child: InkWell(
@@ -241,14 +241,14 @@ class ProfileScreen extends ConsumerWidget {
                   Icon(Icons.military_tech_outlined, color: SpheraColors.gold, size: 30),
                   SizedBox(width: 12),
                   Expanded(
-                    child: Text('$unlocked / ${achievements.length} unlocked',
+                    child: Text(context.l10n.unlockedOfTotal(unlocked, achievements.length),
                         style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16)),
                   ),
                   Icon(Icons.chevron_right, color: SpheraColors.muted),
                 ]),
                 SizedBox(height: 10),
                 if (upNext.isEmpty)
-                  Text('All achievements unlocked.', style: TextStyle(color: SpheraColors.muted, fontSize: 12))
+                  Text(context.l10n.allAchievementsUnlocked, style: TextStyle(color: SpheraColors.muted, fontSize: 12))
                 else
                   for (final a in upNext.take(3))
                     Padding(
@@ -256,7 +256,7 @@ class ProfileScreen extends ConsumerWidget {
                       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                         Row(children: [
                           Expanded(child: Text(a.title, style: TextStyle(fontSize: 13))),
-                          Text('${a.current} / ${a.target}',
+                          Text(context.l10n.fraction(a.current, a.target),
                               style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
                         ]),
                         SizedBox(height: 4),
@@ -277,19 +277,19 @@ class ProfileScreen extends ConsumerWidget {
         ),
 
         // ---------- Session & logout ----------
-        _section('Session'),
+        _section(context.l10n.session),
         Card(
           child: Column(children: [
             ListTile(
               leading: Icon(Icons.schedule, color: SpheraColors.gold),
-              title: Text('Current session'),
-              subtitle: Text('Started at ${_two(s.hour)}:${_two(s.minute)}'),
+              title: Text(context.l10n.currentSession),
+              subtitle: Text(context.l10n.startedAt('${_two(s.hour)}:${_two(s.minute)}')),
             ),
             Divider(height: 1, color: SpheraColors.border),
             ListTile(
               leading: Icon(Icons.phone_android, color: SpheraColors.gold),
-              title: Text('Local mode'),
-              subtitle: Text('Your data is stored on this device only.'),
+              title: Text(context.l10n.localMode),
+              subtitle: Text(context.l10n.dataOnDeviceOnly),
             ),
             Padding(
               padding: EdgeInsets.fromLTRB(16, 8, 16, 16),
@@ -298,7 +298,7 @@ class ProfileScreen extends ConsumerWidget {
                 child: OutlinedButton.icon(
                   onPressed: () => _logout(context, ref),
                   icon: Icon(Icons.logout, color: SpheraColors.danger),
-                  label: Text('Log out', style: TextStyle(color: SpheraColors.danger)),
+                  label: Text(context.l10n.logOut, style: TextStyle(color: SpheraColors.danger)),
                   style: OutlinedButton.styleFrom(side: BorderSide(color: SpheraColors.danger)),
                 ),
               ),
@@ -364,26 +364,26 @@ class _EditDialogState extends State<_EditDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Edit profile'),
+      title: Text(context.l10n.editProfile),
       content: Column(mainAxisSize: MainAxisSize.min, children: [
         TextField(
           controller: _name,
           autofocus: true,
           textCapitalization: TextCapitalization.words,
-          decoration: InputDecoration(hintText: 'Name'),
+          decoration: InputDecoration(hintText: context.l10n.name),
         ),
         SizedBox(height: 12),
         TextField(
           controller: _email,
           keyboardType: TextInputType.emailAddress,
-          decoration: InputDecoration(hintText: 'Email'),
+          decoration: InputDecoration(hintText: context.l10n.email),
         ),
       ]),
       actions: [
-        TextButton(onPressed: () => Navigator.pop(context), child: Text('Cancel')),
+        TextButton(onPressed: () => Navigator.pop(context), child: Text(context.l10n.cancel)),
         TextButton(
             onPressed: () => Navigator.pop(context, (_name.text.trim(), _email.text.trim())),
-            child: Text('Save')),
+            child: Text(context.l10n.save)),
       ],
     );
   }

@@ -1639,4 +1639,403 @@ class AppLocalizationsAr extends AppLocalizations {
   String notificationsNew(int count) {
     return 'الإشعارات ($count جديدة)';
   }
+
+  @override
+  String get chooseFromGallery => 'اختيار من المعرض';
+
+  @override
+  String get removePhoto => 'إزالة الصورة';
+
+  @override
+  String get logOutTitle => 'تسجيل الخروج؟';
+
+  @override
+  String get logOutBody =>
+      'ستحتاج إلى تسجيل الدخول مجددًا. ملفك الشخصي وحساباتك وألعابك وإحصائياتك تبقى على هذا الجهاز.';
+
+  @override
+  String get logOut => 'تسجيل الخروج';
+
+  @override
+  String get profileTitle => 'الملف الشخصي';
+
+  @override
+  String get spheraUser => 'مستخدم SPHERA';
+
+  @override
+  String rankPts(String rank, int points) {
+    return '$rank · ⁦$points⁩ نقطة';
+  }
+
+  @override
+  String get editProfile => 'تعديل الملف الشخصي';
+
+  @override
+  String get activitySummary => 'ملخص النشاط';
+
+  @override
+  String get googleAccountsLabel => 'حسابات Google';
+
+  @override
+  String get gameAccountsLabel => 'حسابات الألعاب';
+
+  @override
+  String get profitLoss => 'الربح / الخسارة';
+
+  @override
+  String get rank => 'الرتبة';
+
+  @override
+  String rankName(String rank) {
+    return 'الرتبة: $rank';
+  }
+
+  @override
+  String rankPoints(int points) {
+    return '⁦$points⁩ نقطة رتبة';
+  }
+
+  @override
+  String get topRankReached => 'بلغت أعلى رتبة';
+
+  @override
+  String ptsToRank(int points, String rank) {
+    return '⁦$points⁩ نقطة للوصول إلى $rank';
+  }
+
+  @override
+  String unlockedOfTotal(int done, int total) {
+    return '⁦$done / $total⁩ مفتوحة';
+  }
+
+  @override
+  String get allAchievementsUnlocked => 'تم فتح كل الإنجازات.';
+
+  @override
+  String fraction(int a, int b) {
+    return '⁦$a / $b⁩';
+  }
+
+  @override
+  String get session => 'الجلسة';
+
+  @override
+  String get currentSession => 'الجلسة الحالية';
+
+  @override
+  String startedAt(String time) {
+    return 'بدأت في $time';
+  }
+
+  @override
+  String get dataOnDeviceOnly => 'بياناتك محفوظة على هذا الجهاز فقط.';
+
+  @override
+  String get name => 'الاسم';
+
+  @override
+  String get profilePhotosPhoneOnly =>
+      'صور الملف الشخصي تعمل في تطبيق الهاتف، وليس في المتصفح.';
+
+  @override
+  String achievementPoints(int earned, int total) {
+    return '⁦$earned / $total⁩ نقطة إنجاز';
+  }
+
+  @override
+  String get achievementPointsNote =>
+      'نقاط الإنجازات منفصلة عن نقاط الرتبة وعن درجات Google Play.';
+
+  @override
+  String get unlocked => 'مفتوحة';
+
+  @override
+  String get inProgress => 'قيد التقدم';
+
+  @override
+  String get locked => 'مقفلة';
+
+  @override
+  String get nothingHereYet => 'لا شيء هنا بعد';
+
+  @override
+  String get achievementDatesNote =>
+      'تُظهر التواريخ متى رُصد الإنجاز لأول مرة على هذا الجهاز. تُحتسب مبالغ الربح بالدرهم.';
+
+  @override
+  String unlockCondition(String condition) {
+    return 'للفتح: $condition';
+  }
+
+  @override
+  String unlockedOn(String date) {
+    return 'فُتح في $date';
+  }
+
+  @override
+  String plusPts(int points) {
+    return '⁦+$points⁩ نقطة';
+  }
+
+  @override
+  String progressPct(int a, int b, int pct) {
+    return '⁦$a / $b⁩  ·  $pct%';
+  }
+
+  @override
+  String get catAccounts => 'الحسابات';
+
+  @override
+  String get catGames => 'الألعاب';
+
+  @override
+  String get catSales => 'المبيعات';
+
+  @override
+  String get catProfits => 'الأرباح';
+
+  @override
+  String get catOrganization => 'التنظيم';
+
+  @override
+  String get achAcc1 => 'الحساب الأول';
+
+  @override
+  String get achAcc1Desc => 'أضف أول حساب Google لك.';
+
+  @override
+  String get achAcc10 => 'جامع';
+
+  @override
+  String get achAcc10Desc => 'امتلك 10 حسابات Google.';
+
+  @override
+  String get achAcc25 => 'مجموعة كبيرة';
+
+  @override
+  String get achAcc25Desc => 'امتلك 25 حساب Google.';
+
+  @override
+  String get achGacc10 => 'حسابات الألعاب ×10';
+
+  @override
+  String get achGacc10Desc => 'امتلك 10 حسابات ألعاب.';
+
+  @override
+  String get achGacc50 => 'حسابات الألعاب ×50';
+
+  @override
+  String get achGacc50Desc => 'امتلك 50 حساب ألعاب.';
+
+  @override
+  String get achGacc100 => 'حسابات الألعاب ×100';
+
+  @override
+  String get achGacc100Desc => 'امتلك 100 حساب ألعاب.';
+
+  @override
+  String get achGame1 => 'اللعبة الأولى';
+
+  @override
+  String get achGame1Desc => 'أضف لعبتك الأولى.';
+
+  @override
+  String get achGame5 => 'رف الألعاب';
+
+  @override
+  String get achGame5Desc => 'امتلك 5 ألعاب.';
+
+  @override
+  String get achGame10 => 'مكتبة الألعاب';
+
+  @override
+  String get achGame10Desc => 'امتلك 10 ألعاب.';
+
+  @override
+  String get achSell1 => 'أول عملية بيع';
+
+  @override
+  String get achSell1Desc => 'علّم أول حساب لك كمُباع.';
+
+  @override
+  String get achSell10 => 'بائع';
+
+  @override
+  String get achSell10Desc => 'امتلك 10 حسابات معلّمة كمُباعة.';
+
+  @override
+  String get achSell50 => 'بائع كبير';
+
+  @override
+  String get achSell50Desc => 'امتلك 50 حسابًا معلّمًا كمُباع.';
+
+  @override
+  String get achProfit1 => 'في ربح';
+
+  @override
+  String get achProfit1Desc => 'حقّق ربحًا إجماليًا موجبًا.';
+
+  @override
+  String get achProfit1k => 'ربح ⁦1,000 DH⁩';
+
+  @override
+  String get achProfit1kDesc => 'حقّق ربحًا إجماليًا قدره ⁦1,000 DH⁩.';
+
+  @override
+  String get achProfit10k => 'ربح ⁦10,000 DH⁩';
+
+  @override
+  String get achProfit10kDesc => 'حقّق ربحًا إجماليًا قدره ⁦10,000 DH⁩.';
+
+  @override
+  String get achProfitGames3 => 'ألعاب رابحة';
+
+  @override
+  String get achProfitGames3Desc => 'امتلك 3 ألعاب بربح موجب.';
+
+  @override
+  String get achBoxes10 => 'منظّم';
+
+  @override
+  String get achBoxes10Desc => 'حدّد 10 صناديق ألعاب (غير فارغة).';
+
+  @override
+  String get achBoxes50 => 'منظّم جدًا';
+
+  @override
+  String get achBoxes50Desc => 'حدّد 50 صندوق ألعاب (غير فارغ).';
+
+  @override
+  String get achFull => 'تغطية كاملة';
+
+  @override
+  String get achFullDesc =>
+      'امتلك حسابًا واحدًا على الأقل في كل لعبة (3 ألعاب على الأقل).';
+
+  @override
+  String get askSpheraAnything => 'اسأل SPHERA عن أي شيء';
+
+  @override
+  String get aiModeOnHint =>
+      'وضع الذكاء الاصطناعي مفعّل: يجيب Claude اعتمادًا على ملخص لأرقامك.';
+
+  @override
+  String get offlineHint =>
+      'ربحك وألعابك وحساباتك ودرجاتك وأهدافك والمشاكل، أو طريقة استعمال أي شاشة. يعمل دون إنترنت بالإنجليزية أو الفرنسية أو العربية.';
+
+  @override
+  String get askQuestionHint => 'اطرح سؤالًا…';
+
+  @override
+  String get send => 'إرسال';
+
+  @override
+  String get thinking => 'جارٍ التفكير…';
+
+  @override
+  String get sourceOffline => 'دون إنترنت';
+
+  @override
+  String get sourceNotice => 'تنبيه';
+
+  @override
+  String get aiMode => 'وضع الذكاء الاصطناعي';
+
+  @override
+  String get aiModeExplain =>
+      'دون إنترنت، يجيب المساعد من بياناتك ودليل التطبيق. مع وضع الذكاء الاصطناعي، يجيب Claude (من Anthropic) عن أي سؤال وبأي لغة.';
+
+  @override
+  String get useClaudeAi => 'استعمال Claude';
+
+  @override
+  String get apiKeySaved => 'مفتاح API محفوظ على هذا الهاتف';
+
+  @override
+  String get addApiKeyFirst => 'أضف مفتاح API أولًا';
+
+  @override
+  String get replaceApiKey => 'استبدال مفتاح API';
+
+  @override
+  String get anthropicApiKey => 'مفتاح API من Anthropic';
+
+  @override
+  String get keysStartWith => 'تبدأ المفاتيح بـ sk-ant-';
+
+  @override
+  String get hide => 'إخفاء';
+
+  @override
+  String get show => 'إظهار';
+
+  @override
+  String get saveKey => 'حفظ المفتاح';
+
+  @override
+  String get removeKey => 'حذف المفتاح';
+
+  @override
+  String get privacy => 'الخصوصية';
+
+  @override
+  String get aiPrivacyText =>
+      'عند تفعيل وضع الذكاء الاصطناعي، يُرسل سؤالك وملخص لأرقامك (الأعداد، الأرباح، أسماء الألعاب، أسماء الحسابات، الدرجات، التنبيهات) إلى Anthropic لكتابة الإجابة. لا تُرسل أبدًا عناوين البريد أو معرّفات الحسابات أو الملاحظات أو الصور. يُحفظ المفتاح مشفّرًا على هذا الهاتف.\n\nاحصل على مفتاح من console.anthropic.com (يُحتسب استخدام API على حسابك في Anthropic).';
+
+  @override
+  String get targetGoogleAccounts => 'حسابات Google';
+
+  @override
+  String get tournamentArena => 'ساحة البطولات';
+
+  @override
+  String get newChat => 'محادثة جديدة';
+
+  @override
+  String get aiModeOn => 'وضع الذكاء الاصطناعي: مفعّل';
+
+  @override
+  String get aiModeOff => 'وضع الذكاء الاصطناعي: متوقف';
+
+  @override
+  String get ask => 'اسأل';
+
+  @override
+  String get insights => 'التحليلات';
+
+  @override
+  String get levelAttention => 'انتباه';
+
+  @override
+  String get levelTips => 'نصائح';
+
+  @override
+  String get levelGood => 'أخبار جيدة';
+
+  @override
+  String insightsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count تحليل',
+      many: '$count تحليلًا',
+      few: '$count تحليلات',
+      two: 'تحليلان',
+      one: 'تحليل واحد',
+      zero: 'لا تحليلات',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String attentionAndGood(int attention, int good) {
+    return '$attention تحتاج انتباهًا · $good أخبار جيدة';
+  }
+
+  @override
+  String get nothingHereNow => 'لا شيء هنا الآن.';
+
+  @override
+  String get analysisOnDevice =>
+      'يجري التحليل على هذا الجهاز من بياناتك ويتحدّث كلما عدّلت الحسابات.';
 }

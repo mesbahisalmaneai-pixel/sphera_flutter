@@ -34,3 +34,8 @@ String shortMonth(DateTime d) {
     return _enShortMonths[d.month - 1];
   }
 }
+
+/// Texts for a language code ('en', 'fr', 'ar'). Providers that build texts
+/// use it with `ref.watch(languageProvider)`, so they rebuild when the
+/// language changes.
+AppLocalizations l10nFor(String code) => lookupAppLocalizations(Locale(code));

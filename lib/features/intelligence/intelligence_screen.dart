@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/l10n.dart';
 import '../../core/theme.dart';
 import '../../data/assistant/assistant_chat.dart';
 import '../../data/insights.dart';
@@ -23,25 +24,25 @@ class IntelligenceScreen extends ConsumerWidget {
       initialIndex: initialTab,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('SPHERA Intelligence'),
+          title: Text(context.l10n.spheraIntelligence),
           actions: [
             if (hasChat)
               IconButton(
-                tooltip: 'New chat',
+                tooltip: context.l10n.newChat,
                 icon: const Icon(Icons.add_comment_outlined),
                 onPressed: () =>
                     ref.read(assistantChatProvider.notifier).clear(),
               ),
             IconButton(
-              tooltip: ai.active ? 'AI mode: on' : 'AI mode: off',
+              tooltip: ai.active ? context.l10n.aiModeOn : context.l10n.aiModeOff,
               icon: Icon(Icons.tune_rounded,
                   color: ai.active ? SpheraColors.gold : null),
               onPressed: () => showAiSettings(context),
             ),
           ],
-          bottom: const TabBar(tabs: [
-            Tab(icon: Icon(Icons.chat_bubble_outline_rounded), text: 'Ask'),
-            Tab(icon: Icon(Icons.lightbulb_outline_rounded), text: 'Insights'),
+          bottom: TabBar(tabs: [
+            Tab(icon: const Icon(Icons.chat_bubble_outline_rounded), text: context.l10n.ask),
+            Tab(icon: const Icon(Icons.lightbulb_outline_rounded), text: context.l10n.insights),
           ]),
         ),
         body: const TabBarView(children: [AssistantView(), _InsightsTab()]),
@@ -61,9 +62,9 @@ class _InsightsTabState extends ConsumerState<_InsightsTab> {
   InsightLevel? _level; // null = all
 
   String _label(InsightLevel l) => switch (l) {
-        InsightLevel.warning => 'Attention',
-        InsightLevel.info => 'Tips',
-        InsightLevel.good => 'Good news',
+        InsightLevel.warning => context.l10n.levelAttention,
+        InsightLevel.info => context.l10n.levelTips,
+        InsightLevel.good => context.l10n.levelGood,
       };
 
   @override
@@ -85,13 +86,12 @@ class _InsightsTabState extends ConsumerState<_InsightsTab> {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('${all.length} insight${all.length == 1 ? '' : 's'}',
+                    Text(context.l10n.insightsCount(all.length),
                         style: const TextStyle(
                             fontSize: 18, fontWeight: FontWeight.w700)),
                     const SizedBox(height: 2),
                     Text(
-                        '${count(InsightLevel.warning)} need attention · '
-                        '${count(InsightLevel.good)} good news',
+                        context.l10n.attentionAndGood(count(InsightLevel.warning), count(InsightLevel.good)),
                         style:
                             TextStyle(color: SpheraColors.muted, fontSize: 12)),
                   ]),
@@ -102,7 +102,7 @@ class _InsightsTabState extends ConsumerState<_InsightsTab> {
       const SizedBox(height: 8),
       Wrap(spacing: 8, runSpacing: 4, children: [
         ChoiceChip(
-          label: const Text('All'),
+          label: Text(context.l10n.all),
           selected: _level == null,
           onSelected: (_) => setState(() => _level = null),
         ),
@@ -117,7 +117,7 @@ class _InsightsTabState extends ConsumerState<_InsightsTab> {
       if (shown.isEmpty)
         Padding(
           padding: const EdgeInsets.all(32),
-          child: Text('Nothing here right now.',
+          child: Text(context.l10n.nothingHereNow,
               textAlign: TextAlign.center,
               style: TextStyle(color: SpheraColors.muted)),
         )
@@ -126,7 +126,7 @@ class _InsightsTabState extends ConsumerState<_InsightsTab> {
       Padding(
         padding: const EdgeInsets.fromLTRB(4, 12, 4, 0),
         child: Text(
-            'Analysis runs on this device from your own data and updates as you edit accounts.',
+            context.l10n.analysisOnDevice,
             style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
       ),
     ]);

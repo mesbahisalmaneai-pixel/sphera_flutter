@@ -1611,4 +1611,401 @@ class AppLocalizationsFr extends AppLocalizations {
   String notificationsNew(int count) {
     return 'Notifications ($count nouvelles)';
   }
+
+  @override
+  String get chooseFromGallery => 'Choisir dans la galerie';
+
+  @override
+  String get removePhoto => 'Retirer la photo';
+
+  @override
+  String get logOutTitle => 'Se déconnecter ?';
+
+  @override
+  String get logOutBody =>
+      'Vous devrez vous reconnecter. Votre profil, vos comptes, jeux et statistiques restent sur cet appareil.';
+
+  @override
+  String get logOut => 'Se déconnecter';
+
+  @override
+  String get profileTitle => 'Profil';
+
+  @override
+  String get spheraUser => 'Utilisateur SPHERA';
+
+  @override
+  String rankPts(String rank, int points) {
+    return '$rank · $points pts';
+  }
+
+  @override
+  String get editProfile => 'Modifier le profil';
+
+  @override
+  String get activitySummary => 'Résumé d\'activité';
+
+  @override
+  String get googleAccountsLabel => 'Comptes Google';
+
+  @override
+  String get gameAccountsLabel => 'Comptes de jeu';
+
+  @override
+  String get profitLoss => 'Bénéfice / perte';
+
+  @override
+  String get rank => 'Rang';
+
+  @override
+  String rankName(String rank) {
+    return 'Rang : $rank';
+  }
+
+  @override
+  String rankPoints(int points) {
+    return '$points points de rang';
+  }
+
+  @override
+  String get topRankReached => 'Rang maximum atteint';
+
+  @override
+  String ptsToRank(int points, String rank) {
+    return '$points pts avant $rank';
+  }
+
+  @override
+  String unlockedOfTotal(int done, int total) {
+    return '$done / $total débloqués';
+  }
+
+  @override
+  String get allAchievementsUnlocked => 'Tous les succès sont débloqués.';
+
+  @override
+  String fraction(int a, int b) {
+    return '$a / $b';
+  }
+
+  @override
+  String get session => 'Session';
+
+  @override
+  String get currentSession => 'Session actuelle';
+
+  @override
+  String startedAt(String time) {
+    return 'Commencée à $time';
+  }
+
+  @override
+  String get dataOnDeviceOnly =>
+      'Vos données sont enregistrées uniquement sur cet appareil.';
+
+  @override
+  String get name => 'Nom';
+
+  @override
+  String get profilePhotosPhoneOnly =>
+      'Les photos de profil fonctionnent dans l\'application mobile, pas dans le navigateur.';
+
+  @override
+  String achievementPoints(int earned, int total) {
+    return '$earned / $total points de succès';
+  }
+
+  @override
+  String get achievementPointsNote =>
+      'Les points de succès sont distincts des points de rang et des grades Google Play.';
+
+  @override
+  String get unlocked => 'Débloqués';
+
+  @override
+  String get inProgress => 'En cours';
+
+  @override
+  String get locked => 'Verrouillés';
+
+  @override
+  String get nothingHereYet => 'Rien ici pour l\'instant';
+
+  @override
+  String get achievementDatesNote =>
+      'Les dates indiquent quand un succès a été détecté pour la première fois sur cet appareil. Les montants de bénéfice sont comptés en DH.';
+
+  @override
+  String unlockCondition(String condition) {
+    return 'Pour débloquer : $condition';
+  }
+
+  @override
+  String unlockedOn(String date) {
+    return 'Débloqué le $date';
+  }
+
+  @override
+  String plusPts(int points) {
+    return '+$points pts';
+  }
+
+  @override
+  String progressPct(int a, int b, int pct) {
+    return '$a / $b  ·  $pct %';
+  }
+
+  @override
+  String get catAccounts => 'Comptes';
+
+  @override
+  String get catGames => 'Jeux';
+
+  @override
+  String get catSales => 'Ventes';
+
+  @override
+  String get catProfits => 'Bénéfices';
+
+  @override
+  String get catOrganization => 'Organisation';
+
+  @override
+  String get achAcc1 => 'Premier compte';
+
+  @override
+  String get achAcc1Desc => 'Ajoutez votre premier compte Google.';
+
+  @override
+  String get achAcc10 => 'Collectionneur';
+
+  @override
+  String get achAcc10Desc => 'Avoir 10 comptes Google.';
+
+  @override
+  String get achAcc25 => 'Grande collection';
+
+  @override
+  String get achAcc25Desc => 'Avoir 25 comptes Google.';
+
+  @override
+  String get achGacc10 => 'Comptes de jeu x10';
+
+  @override
+  String get achGacc10Desc => 'Avoir 10 comptes de jeu.';
+
+  @override
+  String get achGacc50 => 'Comptes de jeu x50';
+
+  @override
+  String get achGacc50Desc => 'Avoir 50 comptes de jeu.';
+
+  @override
+  String get achGacc100 => 'Comptes de jeu x100';
+
+  @override
+  String get achGacc100Desc => 'Avoir 100 comptes de jeu.';
+
+  @override
+  String get achGame1 => 'Premier jeu';
+
+  @override
+  String get achGame1Desc => 'Ajoutez votre premier jeu.';
+
+  @override
+  String get achGame5 => 'Étagère de jeux';
+
+  @override
+  String get achGame5Desc => 'Avoir 5 jeux.';
+
+  @override
+  String get achGame10 => 'Ludothèque';
+
+  @override
+  String get achGame10Desc => 'Avoir 10 jeux.';
+
+  @override
+  String get achSell1 => 'Première vente';
+
+  @override
+  String get achSell1Desc => 'Marquez votre premier compte comme VENDU.';
+
+  @override
+  String get achSell10 => 'Vendeur';
+
+  @override
+  String get achSell10Desc => 'Avoir 10 comptes marqués VENDU.';
+
+  @override
+  String get achSell50 => 'Grand vendeur';
+
+  @override
+  String get achSell50Desc => 'Avoir 50 comptes marqués VENDU.';
+
+  @override
+  String get achProfit1 => 'En bénéfice';
+
+  @override
+  String get achProfit1Desc => 'Atteignez un bénéfice total positif.';
+
+  @override
+  String get achProfit1k => '1 000 DH de bénéfice';
+
+  @override
+  String get achProfit1kDesc => 'Atteignez 1 000 DH de bénéfice total.';
+
+  @override
+  String get achProfit10k => '10 000 DH de bénéfice';
+
+  @override
+  String get achProfit10kDesc => 'Atteignez 10 000 DH de bénéfice total.';
+
+  @override
+  String get achProfitGames3 => 'Jeux gagnants';
+
+  @override
+  String get achProfitGames3Desc => 'Avoir 3 jeux avec un bénéfice positif.';
+
+  @override
+  String get achBoxes10 => 'Organisé';
+
+  @override
+  String get achBoxes10Desc => 'Définissez 10 boîtes de jeux (pas VIDE).';
+
+  @override
+  String get achBoxes50 => 'Très organisé';
+
+  @override
+  String get achBoxes50Desc => 'Définissez 50 boîtes de jeux (pas VIDE).';
+
+  @override
+  String get achFull => 'Couverture complète';
+
+  @override
+  String get achFullDesc =>
+      'Avoir au moins un compte dans chaque jeu (3 jeux minimum).';
+
+  @override
+  String get askSpheraAnything => 'Demandez n\'importe quoi à SPHERA';
+
+  @override
+  String get aiModeOnHint =>
+      'Le mode IA est activé : Claude répond à partir d\'un résumé de vos chiffres.';
+
+  @override
+  String get offlineHint =>
+      'Votre bénéfice, vos jeux, comptes, grades, objectifs, problèmes, ou comment utiliser un écran. Fonctionne hors ligne, en anglais, français ou arabe.';
+
+  @override
+  String get askQuestionHint => 'Posez une question…';
+
+  @override
+  String get send => 'Envoyer';
+
+  @override
+  String get thinking => 'Réflexion…';
+
+  @override
+  String get sourceOffline => 'Hors ligne';
+
+  @override
+  String get sourceNotice => 'Info';
+
+  @override
+  String get aiMode => 'Mode IA';
+
+  @override
+  String get aiModeExplain =>
+      'Hors ligne, l\'assistant répond à partir de vos données et du guide de l\'application. Avec le mode IA, Claude (Anthropic) répond à toute question, dans toutes les langues.';
+
+  @override
+  String get useClaudeAi => 'Utiliser Claude';
+
+  @override
+  String get apiKeySaved => 'Clé API enregistrée sur ce téléphone';
+
+  @override
+  String get addApiKeyFirst => 'Ajoutez d\'abord votre clé API';
+
+  @override
+  String get replaceApiKey => 'Remplacer la clé API';
+
+  @override
+  String get anthropicApiKey => 'Clé API Anthropic';
+
+  @override
+  String get keysStartWith => 'Les clés commencent par sk-ant-';
+
+  @override
+  String get hide => 'Masquer';
+
+  @override
+  String get show => 'Afficher';
+
+  @override
+  String get saveKey => 'Enregistrer la clé';
+
+  @override
+  String get removeKey => 'Supprimer la clé';
+
+  @override
+  String get privacy => 'Confidentialité';
+
+  @override
+  String get aiPrivacyText =>
+      'Quand le mode IA est activé, votre question et un résumé de vos chiffres (nombres, bénéfices, noms des jeux, noms des comptes, grades, alertes) sont envoyés à Anthropic pour rédiger la réponse. Les e-mails, ID compte, notes et photos ne sont jamais envoyés. La clé est chiffrée sur ce téléphone.\n\nObtenez une clé sur console.anthropic.com (l\'utilisation de l\'API est facturée sur votre compte Anthropic).';
+
+  @override
+  String get targetGoogleAccounts => 'Comptes Google';
+
+  @override
+  String get tournamentArena => 'Tournament Arena';
+
+  @override
+  String get newChat => 'Nouvelle discussion';
+
+  @override
+  String get aiModeOn => 'Mode IA : activé';
+
+  @override
+  String get aiModeOff => 'Mode IA : désactivé';
+
+  @override
+  String get ask => 'Demander';
+
+  @override
+  String get insights => 'Analyses';
+
+  @override
+  String get levelAttention => 'Attention';
+
+  @override
+  String get levelTips => 'Conseils';
+
+  @override
+  String get levelGood => 'Bonnes nouvelles';
+
+  @override
+  String insightsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count analyses',
+      one: '1 analyse',
+      zero: '0 analyse',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String attentionAndGood(int attention, int good) {
+    return '$attention à surveiller · $good bonnes nouvelles';
+  }
+
+  @override
+  String get nothingHereNow => 'Rien pour l\'instant.';
+
+  @override
+  String get analysisOnDevice =>
+      'L\'analyse se fait sur cet appareil à partir de vos données et se met à jour quand vous modifiez des comptes.';
 }
