@@ -46,3 +46,8 @@ app.*.map.json
 
 # Widget Preview related
 .widget_preview/
+
+# Local scratch files (old code dumps and build logs)
+analytics_dump.txt
+home_dump.txt
+build_log.txt

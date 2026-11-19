@@ -1,121 +1,290 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'core/theme.dart';
+import 'core/sphera_logo.dart';
+import 'data/phone_notifications.dart';
+import 'data/settings.dart';
+
+import 'features/auth/auth_gate.dart';
+import 'features/earth/earth_scene.dart' show EarthModel;
+import 'features/google/google_accounts_screen.dart';
+import 'features/games/games_screen.dart';
+import 'features/stats/statistics_screen.dart';
+import 'features/settings/settings_screen.dart';
+import 'features/arena/arena_screen.dart';
+import 'features/achievements/achievements_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(
+    const ProviderScope(
+      child: SpheraApp(),
+    ),
+  );
+  // Started after the first frame is scheduled so the splash shows at once.
+  // Phone notifications: no-op on desktop/web, never throws.
+  unawaited(PhoneNotifications.instance.init());
+  // Builds the dotted Earth of the Orbit tab in the background during the
+  // splash, so opening that tab does not freeze.
+  unawaited(EarthModel.warmUp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class SpheraApp extends ConsumerWidget {
+  const SpheraApp({super.key});
 
-  // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final look = ref.watch(appearanceProvider);
+
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      debugShowCheckedModeBanner: false,
+      title: 'SPHERA',
+      themeMode: switch (look.mode) {
+        ThemeModeSetting.dark => ThemeMode.dark,
+        ThemeModeSetting.light => ThemeMode.light,
+        ThemeModeSetting.system => ThemeMode.system,
+      },
+      theme: buildSpheraTheme(style: look.style, dark: false),
+      darkTheme: buildSpheraTheme(style: look.style, dark: true),
+      // Keep the static SpheraColors in sync with the active theme.
+      builder: (context, child) {
+        final platformDark =
+            MediaQuery.platformBrightnessOf(context) == Brightness.dark;
+        final dark = switch (look.mode) {
+          ThemeModeSetting.dark => true,
+          ThemeModeSetting.light => false,
+          ThemeModeSetting.system => platformDark,
+        };
+        SpheraColors.apply(paletteFor(look.style, dark: dark));
+        // Forces every widget below to rebuild when the palette changes.
+        return _ThemeRefresher(token: '${look.style}-$dark', child: child!);
+      },
+      // Named routes used by the cards in HomeScreen (pushNamed).
+      routes: {
+        '/google': (_) => const GoogleAccountsScreen(),
+        '/games': (_) => const GamesScreen(),
+        '/stats': (_) => const StatisticsScreen(),
+        '/tools': (_) => const SettingsScreen(),
+        '/arena': (_) => const ArenaScreen(),
+        '/achievements': (_) => const AchievementsScreen(),
+      },
+      home: const SplashScreen(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
+/// SpheraColors is static, so widgets that don't watch anything (const widgets,
+/// screens already on the navigator stack) would keep the old colours.
+/// When [token] changes, this marks the whole subtree dirty after the frame.
+class _ThemeRefresher extends StatefulWidget {
+  const _ThemeRefresher({required this.token, required this.child});
+  final String token;
+  final Widget child;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<_ThemeRefresher> createState() => _ThemeRefresherState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class _ThemeRefresherState extends State<_ThemeRefresher> {
+  @override
+  void didUpdateWidget(covariant _ThemeRefresher old) {
+    super.didUpdateWidget(old);
+    if (old.token != widget.token) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted) return;
+        void rebuild(Element e) {
+          e.markNeedsBuild();
+          e.visitChildren(rebuild);
+        }
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
+        (context as Element).visitChildren(rebuild);
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) => widget.child;
+}
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen>
+    with TickerProviderStateMixin {
+  late final AnimationController _controller;
+  late final AnimationController _flashController;
+  late final Animation<double> _fadeAnimation;
+  late final Animation<double> _flashAnimation;
+
+  final AudioPlayer _audioPlayer = AudioPlayer();
+
+  final String _fullText = 'SPHERA';
+  String _currentText = '';
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller = AnimationController(
+      // Was 6 s. The letters, flash and progress bar all scale with it.
+      duration: const Duration(milliseconds: 2800),
+      vsync: this,
+    );
+
+    _flashController = AnimationController(
+      duration: const Duration(milliseconds: 1000),
+      vsync: this,
+    );
+
+    _fadeAnimation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeIn,
+    );
+
+    _flashAnimation = Tween<double>(
+      begin: -1.0,
+      end: 2.0,
+    ).animate(
+      CurvedAnimation(
+        parent: _flashController,
+        curve: Curves.easeInOut,
+      ),
+    );
+
+    _playSound();
+
+    _controller.addListener(() {
+      if (!mounted) return;
+
+      final letterCount = (_controller.value * _fullText.length)
+          .floor()
+          .clamp(0, _fullText.length);
+
+      if (_currentText != _fullText.substring(0, letterCount)) {
+        setState(() {
+          _currentText = _fullText.substring(0, letterCount);
+        });
+      }
+
+      if (_controller.value > 0.8 &&
+          !_flashController.isAnimating &&
+          !_flashController.isCompleted) {
+        _flashController.forward();
+      }
     });
+
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed && mounted) {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute<void>(
+            builder: (_) => const AuthGate(),
+          ),
+        );
+      }
+    });
+
+    _controller.forward();
+  }
+
+  Future<void> _playSound() async {
+    try {
+      await _audioPlayer.play(
+        AssetSource('sounds/splash_sound.mp3'),
+      );
+    } catch (e) {
+      debugPrint('Audio error: $e');
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    _flashController.dispose();
+    _audioPlayer.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+    // Theme-aware colours (follow the selected style + dark/light mode).
+    final ivory = SpheraColors.ivory;
+    final shine = SpheraColors.muted;
+
     return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: .center,
-          children: [
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+        child: FadeTransition(
+          opacity: _fadeAnimation,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const SpheraLogo(height: 110),
+              const SizedBox(height: 30),
+              AnimatedBuilder(
+                animation: _flashAnimation,
+                builder: (context, child) {
+                  return ShaderMask(
+                    shaderCallback: (bounds) {
+                      return LinearGradient(
+                        colors: [ivory, shine, ivory],
+                        stops: [
+                          (_flashAnimation.value - 0.3).clamp(0.0, 1.0),
+                          _flashAnimation.value.clamp(0.0, 1.0),
+                          (_flashAnimation.value + 0.3).clamp(0.0, 1.0),
+                        ],
+                      ).createShader(bounds);
+                    },
+                    blendMode: BlendMode.srcIn,
+                    child: Text(
+                      _currentText,
+                      style: TextStyle(
+                        fontSize: 32,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 6,
+                        color: ivory,
+                      ),
+                    ),
+                  );
+                },
+              ),
+              const SizedBox(height: 40),
+              SizedBox(
+                width: 160,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: AnimatedBuilder(
+                    animation: _controller,
+                    builder: (context, child) {
+                      return LinearProgressIndicator(
+                        value: _controller.value,
+                        backgroundColor: SpheraColors.surfaceHigh,
+                        valueColor:
+                            AlwaysStoppedAnimation<Color>(SpheraColors.gold),
+                        minHeight: 6,
+                      );
+                    },
+                  ),
+                ),
+              ),
+              const SizedBox(height: 40),
+              Text(
+                '© 2026 — SPHERA',
+                style: TextStyle(
+                  fontSize: 12,
+                  color: SpheraColors.muted,
+                  letterSpacing: 1.5,
+                ),
+              ),
+            ],
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }

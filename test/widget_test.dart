@@ -1,30 +1,32 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/material.dart';
+import 'package:drift/drift.dart' show Value;
+import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:sphera_flutter/main.dart';
+import 'package:sphera_flutter/data/database.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  late AppDatabase db;
+  setUp(() => db = AppDatabase(NativeDatabase.memory()));
+  tearDown(() => db.close());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+  test('seeds the four initial games once', () async {
+    await db.seedInitialGames('u1');
+    await db.seedInitialGames('u1');
+    expect((await db.select(db.games).get()).length, 4);
+  });
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  test('profit = sale - purchase, trashed accounts excluded', () async {
+    await db.seedInitialGames('u1');
+    final now = DateTime.now();
+    GameAccountsCompanion acc(String id, double p, double s, {DateTime? del}) =>
+        GameAccountsCompanion.insert(
+          id: id, ownerId: 'u1', gameId: 'efootball', idCompte: id, name: id,
+          purchasePrice: p, salePrice: s, status: GameAccountStatus.sell,
+          createdAt: now, updatedAt: now, deletedAt: Value(del),
+        );
+    await db.into(db.gameAccounts).insert(acc('a', 150, 200));
+    await db.into(db.gameAccounts).insert(acc('b', 300, 250));
+    await db.into(db.gameAccounts).insert(acc('c', 10, 999, del: now));
+    expect(await db.watchTotalProfit().first, 0.0); // +50 and -50
+    expect(await db.watchGameAccountCount().first, 2);
   });
 }
