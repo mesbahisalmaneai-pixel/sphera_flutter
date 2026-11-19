@@ -1189,4 +1189,454 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get nothingHere => 'لا شيء هنا';
+
+  @override
+  String get howMatchingWorks => 'كيف تعمل المطابقة';
+
+  @override
+  String get matchingRules =>
+      'حسابات Google: نفس البريد الإلكتروني (مع تجاهل حالة الأحرف والمسافات، والنقاط و«+tags» في Gmail).\nحسابات الألعاب: نفس معرّف الحساب داخل نفس اللعبة.\nالمطابقة برقم الهاتف غير متوفرة: أرقام الهواتف غير محفوظة بعد.';
+
+  @override
+  String get nothingMergedAutomatically =>
+      'لا يُحذف أو يُدمج أي شيء تلقائيًا. أنت من يراجع كل حساب بنفسه.';
+
+  @override
+  String get noDuplicatesFound => 'لم يُعثر على تكرار';
+
+  @override
+  String get googleAccountsSection => 'حسابات Google';
+
+  @override
+  String get gameAccountsSection => 'حسابات الألعاب';
+
+  @override
+  String showDismissedAgain(int count) {
+    return 'إظهار $count مستبعدة مجددًا';
+  }
+
+  @override
+  String get markedNotDuplicates => 'تم التعليم كغير مكررة';
+
+  @override
+  String similarAccounts(int count) {
+    return '$count حسابات متشابهة';
+  }
+
+  @override
+  String addedOn(String date) {
+    return 'أُضيف في $date';
+  }
+
+  @override
+  String get openToReview => 'افتح للمراجعة';
+
+  @override
+  String get notDuplicates => 'ليست مكررة';
+
+  @override
+  String accountsWithId(int count, String id) {
+    return '$count حسابات بالمعرّف $id';
+  }
+
+  @override
+  String get unknownGame => 'لعبة غير معروفة';
+
+  @override
+  String buySell(String buy, String sell) {
+    return 'شراء $buy ← بيع $sell';
+  }
+
+  @override
+  String get openGame => 'فتح اللعبة';
+
+  @override
+  String saleAmount(String amount) {
+    return 'البيع $amount';
+  }
+
+  @override
+  String get addToVault => 'إضافة إلى الخزنة';
+
+  @override
+  String get all => 'الكل';
+
+  @override
+  String get vaultEmpty => 'خزنتك فارغة';
+
+  @override
+  String get nothingWithTag => 'لا شيء بهذه العلامة';
+
+  @override
+  String get vaultHint =>
+      'اضغط «إضافة إلى الخزنة» لتمييز الحسابات المفضلة أو النادرة أو عالية القيمة.';
+
+  @override
+  String get search => 'بحث';
+
+  @override
+  String get highestSaleFirst => 'أعلى سعر بيع أولًا';
+
+  @override
+  String get noAccount => 'لا يوجد حساب';
+
+  @override
+  String get tagFavorite => 'مفضل';
+
+  @override
+  String get tagRare => 'نادر';
+
+  @override
+  String get tagHighValue => 'قيمة عالية';
+
+  @override
+  String get everythingGood => 'كل شيء يبدو جيدًا';
+
+  @override
+  String itemsToReview(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count عنصر للمراجعة',
+      many: '$count عنصرًا للمراجعة',
+      few: '$count عناصر للمراجعة',
+      two: 'عنصران للمراجعة',
+      one: 'عنصر واحد للمراجعة',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get basedOnDeviceData =>
+      'استنادًا إلى البيانات المحفوظة على هذا الجهاز.';
+
+  @override
+  String get dataHealth => 'سلامة البيانات';
+
+  @override
+  String get duplicateAccounts => 'الحسابات المكررة';
+
+  @override
+  String get noneFound => 'لا يوجد';
+
+  @override
+  String groupsToReview(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count مجموعة للمراجعة',
+      many: '$count مجموعة للمراجعة',
+      few: '$count مجموعات للمراجعة',
+      two: 'مجموعتان للمراجعة',
+      one: 'مجموعة واحدة للمراجعة',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get duplicateGameIds => 'معرّفات حسابات ألعاب مكررة';
+
+  @override
+  String get accountsWithoutId => 'حسابات ألعاب بدون معرّف';
+
+  @override
+  String get allHaveId => 'لكلها معرّف حساب';
+
+  @override
+  String accountsMissingId(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count حساب بدون معرّف',
+      many: '$count حسابًا بدون معرّف',
+      few: '$count حسابات بدون معرّف',
+      two: 'حسابان بدون معرّف',
+      one: 'حساب واحد بدون معرّف',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get invalidEmails => 'بريد إلكتروني غير صالح';
+
+  @override
+  String get allEmailsValid => 'كل عناوين البريد تبدو صالحة';
+
+  @override
+  String accountsWrongEmail(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count حساب ببريد غير صحيح',
+      many: '$count حسابًا ببريد غير صحيح',
+      few: '$count حسابات ببريد غير صحيح',
+      two: 'حسابان ببريد غير صحيح',
+      one: 'حساب واحد ببريد غير صحيح',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get accountsNoBoxes => 'حسابات بدون صناديق محددة';
+
+  @override
+  String justInformational(int count) {
+    return '$count (للعلم فقط)';
+  }
+
+  @override
+  String get itemsInTrash => 'العناصر في المهملات';
+
+  @override
+  String trashKept(int count) {
+    return '$count محفوظة، لا يُحذف شيء تلقائيًا';
+  }
+
+  @override
+  String get protection => 'الحماية';
+
+  @override
+  String get appLock => 'قفل التطبيق';
+
+  @override
+  String get notEnabledYet => 'غير مفعّل بعد';
+
+  @override
+  String get localStorage => 'التخزين المحلي';
+
+  @override
+  String get dataStaysOnDevice => 'بياناتك تبقى على هذا الجهاز';
+
+  @override
+  String get backup => 'النسخ الاحتياطي';
+
+  @override
+  String get noBackupYet =>
+      'لا توجد نسخة احتياطية. النسخ الاحتياطي غير متوفر في هذا الإصدار.';
+
+  @override
+  String get syncStatus => 'حالة المزامنة';
+
+  @override
+  String get cloudSync => 'المزامنة السحابية';
+
+  @override
+  String get localOnly => 'محلي فقط. المزامنة غير متصلة بعد.';
+
+  @override
+  String get safetyRules => 'قواعد الأمان';
+
+  @override
+  String get noAutoDeletion => 'لا حذف تلقائي';
+
+  @override
+  String get nothingDeletedWithoutYou => 'لا يُحذف شيء دون موافقتك';
+
+  @override
+  String get noAutoMerging => 'لا دمج تلقائي';
+
+  @override
+  String get neverMerge => 'الفحص والتنظيم لا يدمجان الحسابات أبدًا';
+
+  @override
+  String get manualReviewFirst => 'المراجعة اليدوية أولًا';
+
+  @override
+  String get changesByYou => 'كل تغيير تقوم به أنت بعد المراجعة';
+
+  @override
+  String get sortRecentActivity => 'النشاط الأحدث';
+
+  @override
+  String get sortOldestActivity => 'النشاط الأقدم';
+
+  @override
+  String get sortNewestAdded => 'الأحدث إضافة';
+
+  @override
+  String get sortOldestAdded => 'الأقدم إضافة';
+
+  @override
+  String get sortEmailAz => 'البريد A–Z';
+
+  @override
+  String get sortEmailZa => 'البريد Z–A';
+
+  @override
+  String get sortGrade => 'الدرجة';
+
+  @override
+  String get sortNewest => 'الأحدث';
+
+  @override
+  String get sortOldest => 'الأقدم';
+
+  @override
+  String get sortSaleHigh => 'أعلى سعر بيع';
+
+  @override
+  String get sortSaleLow => 'أدنى سعر بيع';
+
+  @override
+  String get sortBuyHigh => 'أعلى سعر شراء';
+
+  @override
+  String get sortNameAz => 'الاسم A–Z';
+
+  @override
+  String get sort => 'ترتيب';
+
+  @override
+  String get searchByNameOrId => 'ابحث بالاسم أو معرّف الحساب';
+
+  @override
+  String get allGames => 'كل الألعاب';
+
+  @override
+  String shownOfTotal(int shown, int total) {
+    return '$shown من $total حساب';
+  }
+
+  @override
+  String sortedBy(String sort) {
+    return 'الترتيب: $sort';
+  }
+
+  @override
+  String get noAccountMatchesShort => 'لا يوجد حساب مطابق';
+
+  @override
+  String get noActivity => 'لا نشاط';
+
+  @override
+  String get emptyTrashTitle => 'إفراغ المهملات؟';
+
+  @override
+  String emptyTrashBody(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'سيُحذف $count عنصرًا نهائيًا. لا يمكن التراجع عن ذلك.',
+      few: 'ستُحذف $count عناصر نهائيًا. لا يمكن التراجع عن ذلك.',
+      two: 'سيُحذف العنصران نهائيًا. لا يمكن التراجع عن ذلك.',
+      one: 'سيُحذف عنصر واحد نهائيًا. لا يمكن التراجع عن ذلك.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get deleteAll => 'حذف الكل';
+
+  @override
+  String get emptyAction => 'إفراغ';
+
+  @override
+  String googleTabCount(int count) {
+    return 'Google ($count)';
+  }
+
+  @override
+  String gamesTabCount(int count) {
+    return 'الألعاب ($count)';
+  }
+
+  @override
+  String googleAccountDeleted(String grade, String when) {
+    return 'حساب Google · $grade\nحُذف في $when';
+  }
+
+  @override
+  String deletedWhen(String when) {
+    return 'حُذف في $when';
+  }
+
+  @override
+  String get removedSuffix => ' (محذوفة)';
+
+  @override
+  String get restore => 'استعادة';
+
+  @override
+  String get deletePermanently => 'حذف نهائي';
+
+  @override
+  String get deletePermanentlyTitle => 'حذف نهائي؟';
+
+  @override
+  String deletedForGood(String name) {
+    return 'سيُحذف $name نهائيًا. لا يمكن التراجع عن ذلك.';
+  }
+
+  @override
+  String get delete => 'حذف';
+
+  @override
+  String get trashIsEmpty => 'المهملات فارغة';
+
+  @override
+  String get phoneNotifsMobileOnly =>
+      'إشعارات الهاتف تعمل على Android وiOS فقط.';
+
+  @override
+  String get notifsBlocked =>
+      'الإشعارات محظورة لـ SPHERA. اسمح بها من إعدادات هاتفك ثم أعد المحاولة.';
+
+  @override
+  String get notifsSub => 'التحذيرات والتذكيرات في SPHERA';
+
+  @override
+  String get reminders => 'التذكيرات';
+
+  @override
+  String get remindersSub => 'عروض بيع قديمة، صناديق «قريبًا»، أهداف متأخرة';
+
+  @override
+  String get alertsNote =>
+      'تظهر التنبيهات دائمًا في مركز الإشعارات (أيقونة الجرس) مع عدّاد أحمر.';
+
+  @override
+  String get phoneNotifications => 'إشعارات الهاتف';
+
+  @override
+  String get phoneNotificationsSub =>
+      'عرض التنبيهات الجديدة على هاتفك عند مغادرة التطبيق';
+
+  @override
+  String get dailySummary => 'الملخص اليومي';
+
+  @override
+  String get dailySummarySub => 'التنبيهات وصافي الربح والحسابات، مرة في اليوم';
+
+  @override
+  String get summaryTime => 'وقت الملخص';
+
+  @override
+  String get sendTestNotification => 'إرسال إشعار تجريبي';
+
+  @override
+  String get phoneNotifsNote =>
+      'تُنشأ إشعارات الهاتف على هذا الجهاز دون حساب أو إنترنت. قد يصل الملخص اليومي متأخرًا ببضع دقائق لتوفير البطارية. بعض الهواتف (Xiaomi وHuawei...) تحظر الإشعارات في الخلفية ما لم تسمح لـ SPHERA في إعدادات البطارية.';
+
+  @override
+  String get notificationSettings => 'إعدادات الإشعارات';
+
+  @override
+  String get notifsOff => 'الإشعارات متوقفة';
+
+  @override
+  String get turnOnInSettings => 'فعّلها من إعدادات الإشعارات.';
+
+  @override
+  String get allClear => 'لا شيء يستدعي الانتباه';
+
+  @override
+  String get noWarningsNow => 'لا توجد تحذيرات أو تذكيرات الآن.';
+
+  @override
+  String get remindersMuted => 'التذكيرات مكتومة في إعدادات الإشعارات.';
+
+  @override
+  String notificationsNew(int count) {
+    return 'الإشعارات ($count جديدة)';
+  }
 }

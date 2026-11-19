@@ -672,5 +672,282 @@
   "statusPerGame": "Account status per game",
   "noAccountsInGrade": "No accounts in this grade",
   "noAccounts": "No accounts",
-  "nothingHere": "Nothing here"
+  "nothingHere": "Nothing here",
+  "howMatchingWorks": "How matching works",
+  "matchingRules": "Google accounts: same Email (ignores case, spaces, and for Gmail dots and \"+tags\").\nGame accounts: same Account ID inside the same game.\nPhone matching is not available: phone numbers are not stored yet.",
+  "nothingMergedAutomatically": "Nothing is deleted or merged automatically. You review every account yourself.",
+  "noDuplicatesFound": "No duplicates found",
+  "googleAccountsSection": "Google accounts",
+  "gameAccountsSection": "Game accounts",
+  "showDismissedAgain": "Show {count} dismissed again",
+  "@showDismissedAgain": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "markedNotDuplicates": "Marked as not duplicates",
+  "similarAccounts": "{count} similar accounts",
+  "@similarAccounts": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "addedOn": "added {date}",
+  "@addedOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "openToReview": "Open to review",
+  "notDuplicates": "Not duplicates",
+  "accountsWithId": "{count} accounts with ID {id}",
+  "@accountsWithId": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "unknownGame": "Unknown game",
+  "buySell": "buy {buy} → sell {sell}",
+  "@buySell": {
+    "placeholders": {
+      "buy": {
+        "type": "String"
+      },
+      "sell": {
+        "type": "String"
+      }
+    }
+  },
+  "openGame": "Open game",
+  "saleAmount": "sale {amount}",
+  "@saleAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "addToVault": "Add to vault",
+  "all": "All",
+  "vaultEmpty": "Your vault is empty",
+  "nothingWithTag": "Nothing with this tag",
+  "vaultHint": "Tap \"Add to vault\" to mark favourite, rare or high-value accounts.",
+  "search": "Search",
+  "highestSaleFirst": "Highest sale price first",
+  "noAccount": "No account",
+  "tagFavorite": "Favorite",
+  "tagRare": "Rare",
+  "tagHighValue": "High value",
+  "everythingGood": "Everything looks good",
+  "itemsToReview": "{count, plural, =1{1 item to review} other{{count} items to review}}",
+  "@itemsToReview": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "basedOnDeviceData": "Based on the data stored on this device.",
+  "dataHealth": "Data health",
+  "duplicateAccounts": "Duplicate accounts",
+  "noneFound": "None found",
+  "groupsToReview": "{count, plural, =1{1 group to review} other{{count} groups to review}}",
+  "@groupsToReview": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "duplicateGameIds": "Duplicate game Account IDs",
+  "accountsWithoutId": "Game accounts without Account ID",
+  "allHaveId": "All have an Account ID",
+  "accountsMissingId": "{count, plural, =1{1 account missing an ID} other{{count} accounts missing an ID}}",
+  "@accountsMissingId": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "invalidEmails": "Invalid emails",
+  "allEmailsValid": "All emails look valid",
+  "accountsWrongEmail": "{count, plural, =1{1 account with a wrong email format} other{{count} accounts with a wrong email format}}",
+  "@accountsWrongEmail": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "accountsNoBoxes": "Accounts with no boxes set",
+  "justInformational": "{count} (just informational)",
+  "@justInformational": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "itemsInTrash": "Items in Trash",
+  "trashKept": "{count} kept, nothing is removed automatically",
+  "@trashKept": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "protection": "Protection",
+  "appLock": "App lock",
+  "notEnabledYet": "Not enabled yet",
+  "localStorage": "Local storage",
+  "dataStaysOnDevice": "Your data stays on this device",
+  "backup": "Backup",
+  "noBackupYet": "No backup yet. Backup is not available in this version.",
+  "syncStatus": "Sync status",
+  "cloudSync": "Cloud sync",
+  "localOnly": "Local only. Sync is not connected yet.",
+  "safetyRules": "Safety rules",
+  "noAutoDeletion": "No automatic deletion",
+  "nothingDeletedWithoutYou": "Nothing is deleted without you",
+  "noAutoMerging": "No automatic merging",
+  "neverMerge": "Scanning and organizing never merge accounts",
+  "manualReviewFirst": "Manual review first",
+  "changesByYou": "Every change is made by you, after review",
+  "sortRecentActivity": "Recent activity",
+  "sortOldestActivity": "Oldest activity",
+  "sortNewestAdded": "Newest added",
+  "sortOldestAdded": "Oldest added",
+  "sortEmailAz": "Email A–Z",
+  "sortEmailZa": "Email Z–A",
+  "sortGrade": "Grade",
+  "sortNewest": "Newest",
+  "sortOldest": "Oldest",
+  "sortSaleHigh": "Highest sale price",
+  "sortSaleLow": "Lowest sale price",
+  "sortBuyHigh": "Highest purchase price",
+  "sortNameAz": "Name A–Z",
+  "sort": "Sort",
+  "searchByNameOrId": "Search by name or Account ID",
+  "allGames": "All games",
+  "shownOfTotal": "{shown} of {total} accounts",
+  "@shownOfTotal": {
+    "placeholders": {
+      "shown": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "sortedBy": "Sorted: {sort}",
+  "@sortedBy": {
+    "placeholders": {
+      "sort": {
+        "type": "String"
+      }
+    }
+  },
+  "noAccountMatchesShort": "No account matches",
+  "noActivity": "no activity",
+  "emptyTrashTitle": "Empty Trash?",
+  "emptyTrashBody": "{count, plural, =1{1 item will be permanently deleted. This cannot be undone.} other{All {count} items will be permanently deleted. This cannot be undone.}}",
+  "@emptyTrashBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "deleteAll": "Delete all",
+  "emptyAction": "Empty",
+  "googleTabCount": "Google ({count})",
+  "@googleTabCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "gamesTabCount": "Games ({count})",
+  "@gamesTabCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "googleAccountDeleted": "Google account · {grade}\nDeleted {when}",
+  "@googleAccountDeleted": {
+    "placeholders": {
+      "grade": {
+        "type": "String"
+      },
+      "when": {
+        "type": "String"
+      }
+    }
+  },
+  "deletedWhen": "Deleted {when}",
+  "@deletedWhen": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
+  },
+  "removedSuffix": " (removed)",
+  "restore": "Restore",
+  "deletePermanently": "Delete permanently",
+  "deletePermanentlyTitle": "Delete permanently?",
+  "deletedForGood": "{name} will be deleted for good. This cannot be undone.",
+  "@deletedForGood": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "delete": "Delete",
+  "trashIsEmpty": "Trash is empty",
+  "phoneNotifsMobileOnly": "Phone notifications work on Android and iOS only.",
+  "notifsBlocked": "Notifications are blocked for SPHERA. Allow them in your phone settings, then try again.",
+  "notifsSub": "Warnings and reminders in SPHERA",
+  "reminders": "Reminders",
+  "remindersSub": "Stale FOR SALE listings, COMING boxes, goals behind pace",
+  "alertsNote": "Alerts always appear in the Notifications center (bell icon), with a red count.",
+  "phoneNotifications": "Phone notifications",
+  "phoneNotificationsSub": "Show new alerts on your phone when you leave the app",
+  "dailySummary": "Daily summary",
+  "dailySummarySub": "Alerts, net profit and accounts, once a day",
+  "summaryTime": "Summary time",
+  "sendTestNotification": "Send a test notification",
+  "phoneNotifsNote": "Phone notifications are created on this device, no account or internet needed. The daily summary may arrive a few minutes late to save battery. Some phones (Xiaomi, Huawei...) block background notifications unless you allow SPHERA in battery settings.",
+  "notificationSettings": "Notification settings",
+  "notifsOff": "Notifications are off",
+  "turnOnInSettings": "Turn them on in notification settings.",
+  "allClear": "All clear",
+  "noWarningsNow": "No warnings or reminders right now.",
+  "remindersMuted": "Reminders are muted in notification settings.",
+  "notificationsNew": "Notifications ({count} new)",
+  "@notificationsNew": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

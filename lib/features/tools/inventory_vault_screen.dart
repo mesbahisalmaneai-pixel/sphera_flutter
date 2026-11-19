@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/l10n.dart';
 import '../../core/format.dart';
 import '../../core/status_style.dart';
 import '../../core/theme.dart';
@@ -56,7 +57,7 @@ class _InventoryVaultScreenState extends ConsumerState<InventoryVaultScreen> {
       items[vaultKeyGame(a.id)] = _Item(
         key: vaultKeyGame(a.id),
         title: a.name.isEmpty ? a.idCompte : a.name,
-        subtitle: '${gameNames[a.gameId] ?? 'Game'} · ID ${a.idCompte} · sale ${money(a.salePrice, currency: cur)}',
+        subtitle: '${gameNames[a.gameId] ?? appL10n.game} · ID ${a.idCompte} · ${appL10n.saleAmount(money(a.salePrice, currency: cur))}',
         leading: Icon(Icons.sports_esports_outlined, color: SpheraColors.gold, size: 32),
       );
     }
@@ -75,7 +76,7 @@ class _InventoryVaultScreenState extends ConsumerState<InventoryVaultScreen> {
     final pickGame = [for (final a in sortedGame) items[vaultKeyGame(a.id)]!];
 
     return Scaffold(
-      appBar: AppBar(title: Text('Inventory Vault')),
+      appBar: AppBar(title: Text(context.l10n.inventoryVault)),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => showModalBottomSheet<void>(
           context: context,
@@ -92,7 +93,7 @@ class _InventoryVaultScreenState extends ConsumerState<InventoryVaultScreen> {
         backgroundColor: SpheraColors.gold,
         foregroundColor: Theme.of(context).colorScheme.onPrimary,
         icon: Icon(Icons.add),
-        label: Text('Add to vault'),
+        label: Text(context.l10n.addToVault),
       ),
       body: ListView(padding: EdgeInsets.fromLTRB(16, 8, 16, 96), children: [
         SizedBox(
@@ -101,7 +102,7 @@ class _InventoryVaultScreenState extends ConsumerState<InventoryVaultScreen> {
             Padding(
               padding: EdgeInsets.only(right: 8),
               child: FilterChip(
-                  label: Text('All'), selected: _filter == null, onSelected: (_) => setState(() => _filter = null)),
+                  label: Text(context.l10n.all), selected: _filter == null, onSelected: (_) => setState(() => _filter = null)),
             ),
             for (final t in VaultTag.values)
               Padding(
@@ -122,11 +123,11 @@ class _InventoryVaultScreenState extends ConsumerState<InventoryVaultScreen> {
             child: Column(children: [
               Icon(Icons.inventory_2_outlined, size: 48, color: SpheraColors.muted),
               SizedBox(height: 12),
-              Text(vault.isEmpty ? 'Your vault is empty' : 'Nothing with this tag',
+              Text(vault.isEmpty ? context.l10n.vaultEmpty : context.l10n.nothingWithTag,
                   style: TextStyle(color: SpheraColors.muted)),
               if (vault.isEmpty) ...[
                 SizedBox(height: 4),
-                Text('Tap "Add to vault" to mark favourite, rare or high-value accounts.',
+                Text(context.l10n.vaultHint,
                     textAlign: TextAlign.center, style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
               ],
             ]),
@@ -216,7 +217,7 @@ class _PickerState extends State<_Picker> {
                 showSelectedIcon: false,
                 segments: [
                   ButtonSegment(value: false, label: Text('Google')),
-                  ButtonSegment(value: true, label: Text('Game accounts')),
+                  ButtonSegment(value: true, label: Text(context.l10n.gameAccountsSection)),
                 ],
                 selected: {_game},
                 onSelectionChanged: (s) => setState(() => _game = s.first),
@@ -226,7 +227,7 @@ class _PickerState extends State<_Picker> {
           Padding(
             padding: EdgeInsets.fromLTRB(16, 0, 16, 8),
             child: TextField(
-              decoration: InputDecoration(hintText: 'Search', prefixIcon: Icon(Icons.search)),
+              decoration: InputDecoration(hintText: context.l10n.search, prefixIcon: Icon(Icons.search)),
               onChanged: (v) => setState(() => _q = v.trim()),
             ),
           ),
@@ -235,13 +236,13 @@ class _PickerState extends State<_Picker> {
               padding: EdgeInsets.fromLTRB(20, 0, 20, 4),
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: Text('Highest sale price first',
+                child: Text(context.l10n.highestSaleFirst,
                     style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
               ),
             ),
           Expanded(
             child: list.isEmpty
-                ? Center(child: Text('No account', style: TextStyle(color: SpheraColors.muted)))
+                ? Center(child: Text(context.l10n.noAccount, style: TextStyle(color: SpheraColors.muted)))
                 : ListView.builder(
                     itemCount: list.length,
                     itemBuilder: (_, i) => ListTile(

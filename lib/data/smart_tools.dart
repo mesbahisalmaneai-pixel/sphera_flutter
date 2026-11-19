@@ -1,3 +1,4 @@
+import '../core/l10n.dart';
 import 'dart:convert';
 import 'package:flutter/material.dart' show IconData, Icons;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -140,13 +141,19 @@ String vaultKeyGoogle(String id) => 'g:$id';
 String vaultKeyGame(String id) => 'a:$id';
 
 enum VaultTag {
-  favorite('Favorite', Icons.star_outline_rounded),
-  rare('Rare', Icons.diamond_outlined),
-  high('High value', Icons.paid_outlined);
+  favorite(Icons.star_outline_rounded),
+  rare(Icons.diamond_outlined),
+  high(Icons.paid_outlined);
 
-  const VaultTag(this.label, this.icon);
-  final String label;
+  const VaultTag(this.icon);
   final IconData icon;
+
+  /// In the app language.
+  String get label => switch (this) {
+        VaultTag.favorite => appL10n.tagFavorite,
+        VaultTag.rare => appL10n.tagRare,
+        VaultTag.high => appL10n.tagHighValue,
+      };
 }
 
 class VaultNotifier extends Notifier<Map<String, Set<VaultTag>>> {

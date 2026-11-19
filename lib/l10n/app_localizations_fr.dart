@@ -1166,4 +1166,449 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get nothingHere => 'Rien ici';
+
+  @override
+  String get howMatchingWorks => 'Comment fonctionne la détection';
+
+  @override
+  String get matchingRules =>
+      'Comptes Google : même e-mail (sans tenir compte des majuscules, des espaces et, pour Gmail, des points et des « +tags »).\nComptes de jeu : même ID compte dans le même jeu.\nLa détection par téléphone n\'est pas disponible : les numéros ne sont pas encore enregistrés.';
+
+  @override
+  String get nothingMergedAutomatically =>
+      'Rien n\'est supprimé ni fusionné automatiquement. Vous vérifiez chaque compte vous-même.';
+
+  @override
+  String get noDuplicatesFound => 'Aucun doublon trouvé';
+
+  @override
+  String get googleAccountsSection => 'Comptes Google';
+
+  @override
+  String get gameAccountsSection => 'Comptes de jeu';
+
+  @override
+  String showDismissedAgain(int count) {
+    return 'Réafficher les $count écartés';
+  }
+
+  @override
+  String get markedNotDuplicates => 'Marqués comme non-doublons';
+
+  @override
+  String similarAccounts(int count) {
+    return '$count comptes similaires';
+  }
+
+  @override
+  String addedOn(String date) {
+    return 'ajouté le $date';
+  }
+
+  @override
+  String get openToReview => 'Ouvrir pour vérifier';
+
+  @override
+  String get notDuplicates => 'Pas des doublons';
+
+  @override
+  String accountsWithId(int count, String id) {
+    return '$count comptes avec l\'ID $id';
+  }
+
+  @override
+  String get unknownGame => 'Jeu inconnu';
+
+  @override
+  String buySell(String buy, String sell) {
+    return 'achat $buy → vente $sell';
+  }
+
+  @override
+  String get openGame => 'Ouvrir le jeu';
+
+  @override
+  String saleAmount(String amount) {
+    return 'vente $amount';
+  }
+
+  @override
+  String get addToVault => 'Ajouter au coffre';
+
+  @override
+  String get all => 'Tous';
+
+  @override
+  String get vaultEmpty => 'Votre coffre est vide';
+
+  @override
+  String get nothingWithTag => 'Rien avec cette étiquette';
+
+  @override
+  String get vaultHint =>
+      'Appuyez sur « Ajouter au coffre » pour marquer les comptes favoris, rares ou de grande valeur.';
+
+  @override
+  String get search => 'Rechercher';
+
+  @override
+  String get highestSaleFirst => 'Prix de vente le plus élevé d\'abord';
+
+  @override
+  String get noAccount => 'Aucun compte';
+
+  @override
+  String get tagFavorite => 'Favori';
+
+  @override
+  String get tagRare => 'Rare';
+
+  @override
+  String get tagHighValue => 'Grande valeur';
+
+  @override
+  String get everythingGood => 'Tout semble en ordre';
+
+  @override
+  String itemsToReview(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count éléments à vérifier',
+      one: '1 élément à vérifier',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get basedOnDeviceData =>
+      'D\'après les données enregistrées sur cet appareil.';
+
+  @override
+  String get dataHealth => 'Santé des données';
+
+  @override
+  String get duplicateAccounts => 'Comptes en double';
+
+  @override
+  String get noneFound => 'Aucun';
+
+  @override
+  String groupsToReview(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count groupes à vérifier',
+      one: '1 groupe à vérifier',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get duplicateGameIds => 'ID compte de jeu en double';
+
+  @override
+  String get accountsWithoutId => 'Comptes de jeu sans ID compte';
+
+  @override
+  String get allHaveId => 'Tous ont un ID compte';
+
+  @override
+  String accountsMissingId(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count comptes sans ID',
+      one: '1 compte sans ID',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get invalidEmails => 'E-mails invalides';
+
+  @override
+  String get allEmailsValid => 'Tous les e-mails semblent valides';
+
+  @override
+  String accountsWrongEmail(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count comptes avec un e-mail mal formé',
+      one: '1 compte avec un e-mail mal formé',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get accountsNoBoxes => 'Comptes sans boîte définie';
+
+  @override
+  String justInformational(int count) {
+    return '$count (à titre indicatif)';
+  }
+
+  @override
+  String get itemsInTrash => 'Éléments dans la corbeille';
+
+  @override
+  String trashKept(int count) {
+    return '$count conservés, rien n\'est supprimé automatiquement';
+  }
+
+  @override
+  String get protection => 'Protection';
+
+  @override
+  String get appLock => 'Verrouillage de l\'application';
+
+  @override
+  String get notEnabledYet => 'Pas encore activé';
+
+  @override
+  String get localStorage => 'Stockage local';
+
+  @override
+  String get dataStaysOnDevice => 'Vos données restent sur cet appareil';
+
+  @override
+  String get backup => 'Sauvegarde';
+
+  @override
+  String get noBackupYet =>
+      'Aucune sauvegarde. La sauvegarde n\'est pas disponible dans cette version.';
+
+  @override
+  String get syncStatus => 'Synchronisation';
+
+  @override
+  String get cloudSync => 'Synchronisation cloud';
+
+  @override
+  String get localOnly =>
+      'Local uniquement. La synchronisation n\'est pas encore connectée.';
+
+  @override
+  String get safetyRules => 'Règles de sécurité';
+
+  @override
+  String get noAutoDeletion => 'Aucune suppression automatique';
+
+  @override
+  String get nothingDeletedWithoutYou => 'Rien n\'est supprimé sans vous';
+
+  @override
+  String get noAutoMerging => 'Aucune fusion automatique';
+
+  @override
+  String get neverMerge =>
+      'L\'analyse et le tri ne fusionnent jamais de comptes';
+
+  @override
+  String get manualReviewFirst => 'Vérification manuelle d\'abord';
+
+  @override
+  String get changesByYou =>
+      'Chaque modification est faite par vous, après vérification';
+
+  @override
+  String get sortRecentActivity => 'Activité récente';
+
+  @override
+  String get sortOldestActivity => 'Activité la plus ancienne';
+
+  @override
+  String get sortNewestAdded => 'Ajoutés récemment';
+
+  @override
+  String get sortOldestAdded => 'Ajoutés en premier';
+
+  @override
+  String get sortEmailAz => 'E-mail A–Z';
+
+  @override
+  String get sortEmailZa => 'E-mail Z–A';
+
+  @override
+  String get sortGrade => 'Grade';
+
+  @override
+  String get sortNewest => 'Plus récents';
+
+  @override
+  String get sortOldest => 'Plus anciens';
+
+  @override
+  String get sortSaleHigh => 'Prix de vente le plus élevé';
+
+  @override
+  String get sortSaleLow => 'Prix de vente le plus bas';
+
+  @override
+  String get sortBuyHigh => 'Prix d\'achat le plus élevé';
+
+  @override
+  String get sortNameAz => 'Nom A–Z';
+
+  @override
+  String get sort => 'Trier';
+
+  @override
+  String get searchByNameOrId => 'Rechercher par nom ou ID compte';
+
+  @override
+  String get allGames => 'Tous les jeux';
+
+  @override
+  String shownOfTotal(int shown, int total) {
+    return '$shown sur $total comptes';
+  }
+
+  @override
+  String sortedBy(String sort) {
+    return 'Tri : $sort';
+  }
+
+  @override
+  String get noAccountMatchesShort => 'Aucun compte correspondant';
+
+  @override
+  String get noActivity => 'aucune activité';
+
+  @override
+  String get emptyTrashTitle => 'Vider la corbeille ?';
+
+  @override
+  String emptyTrashBody(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other:
+          'Les $count éléments seront supprimés définitivement. Cette action est irréversible.',
+      one:
+          '1 élément sera supprimé définitivement. Cette action est irréversible.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get deleteAll => 'Tout supprimer';
+
+  @override
+  String get emptyAction => 'Vider';
+
+  @override
+  String googleTabCount(int count) {
+    return 'Google ($count)';
+  }
+
+  @override
+  String gamesTabCount(int count) {
+    return 'Jeux ($count)';
+  }
+
+  @override
+  String googleAccountDeleted(String grade, String when) {
+    return 'Compte Google · $grade\nSupprimé le $when';
+  }
+
+  @override
+  String deletedWhen(String when) {
+    return 'Supprimé le $when';
+  }
+
+  @override
+  String get removedSuffix => ' (retiré)';
+
+  @override
+  String get restore => 'Restaurer';
+
+  @override
+  String get deletePermanently => 'Supprimer définitivement';
+
+  @override
+  String get deletePermanentlyTitle => 'Supprimer définitivement ?';
+
+  @override
+  String deletedForGood(String name) {
+    return '$name sera supprimé définitivement. Cette action est irréversible.';
+  }
+
+  @override
+  String get delete => 'Supprimer';
+
+  @override
+  String get trashIsEmpty => 'La corbeille est vide';
+
+  @override
+  String get phoneNotifsMobileOnly =>
+      'Les notifications du téléphone fonctionnent uniquement sur Android et iOS.';
+
+  @override
+  String get notifsBlocked =>
+      'Les notifications sont bloquées pour SPHERA. Autorisez-les dans les réglages du téléphone, puis réessayez.';
+
+  @override
+  String get notifsSub => 'Alertes et rappels dans SPHERA';
+
+  @override
+  String get reminders => 'Rappels';
+
+  @override
+  String get remindersSub =>
+      'Annonces À VENDRE anciennes, boîtes BIENTÔT, objectifs en retard';
+
+  @override
+  String get alertsNote =>
+      'Les alertes apparaissent toujours dans le centre de notifications (icône cloche), avec un compteur rouge.';
+
+  @override
+  String get phoneNotifications => 'Notifications du téléphone';
+
+  @override
+  String get phoneNotificationsSub =>
+      'Afficher les nouvelles alertes sur le téléphone quand vous quittez l\'application';
+
+  @override
+  String get dailySummary => 'Résumé quotidien';
+
+  @override
+  String get dailySummarySub =>
+      'Alertes, bénéfice net et comptes, une fois par jour';
+
+  @override
+  String get summaryTime => 'Heure du résumé';
+
+  @override
+  String get sendTestNotification => 'Envoyer une notification de test';
+
+  @override
+  String get phoneNotifsNote =>
+      'Les notifications sont créées sur cet appareil, sans compte ni internet. Le résumé quotidien peut arriver avec quelques minutes de retard pour économiser la batterie. Certains téléphones (Xiaomi, Huawei...) bloquent les notifications en arrière-plan si SPHERA n\'est pas autorisé dans les réglages de batterie.';
+
+  @override
+  String get notificationSettings => 'Réglages des notifications';
+
+  @override
+  String get notifsOff => 'Les notifications sont désactivées';
+
+  @override
+  String get turnOnInSettings =>
+      'Activez-les dans les réglages des notifications.';
+
+  @override
+  String get allClear => 'Tout est en ordre';
+
+  @override
+  String get noWarningsNow => 'Aucune alerte ni aucun rappel pour l\'instant.';
+
+  @override
+  String get remindersMuted =>
+      'Les rappels sont coupés dans les réglages des notifications.';
+
+  @override
+  String notificationsNew(int count) {
+    return 'Notifications ($count nouvelles)';
+  }
 }

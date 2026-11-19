@@ -1150,4 +1150,441 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get nothingHere => 'Nothing here';
+
+  @override
+  String get howMatchingWorks => 'How matching works';
+
+  @override
+  String get matchingRules =>
+      'Google accounts: same Email (ignores case, spaces, and for Gmail dots and \"+tags\").\nGame accounts: same Account ID inside the same game.\nPhone matching is not available: phone numbers are not stored yet.';
+
+  @override
+  String get nothingMergedAutomatically =>
+      'Nothing is deleted or merged automatically. You review every account yourself.';
+
+  @override
+  String get noDuplicatesFound => 'No duplicates found';
+
+  @override
+  String get googleAccountsSection => 'Google accounts';
+
+  @override
+  String get gameAccountsSection => 'Game accounts';
+
+  @override
+  String showDismissedAgain(int count) {
+    return 'Show $count dismissed again';
+  }
+
+  @override
+  String get markedNotDuplicates => 'Marked as not duplicates';
+
+  @override
+  String similarAccounts(int count) {
+    return '$count similar accounts';
+  }
+
+  @override
+  String addedOn(String date) {
+    return 'added $date';
+  }
+
+  @override
+  String get openToReview => 'Open to review';
+
+  @override
+  String get notDuplicates => 'Not duplicates';
+
+  @override
+  String accountsWithId(int count, String id) {
+    return '$count accounts with ID $id';
+  }
+
+  @override
+  String get unknownGame => 'Unknown game';
+
+  @override
+  String buySell(String buy, String sell) {
+    return 'buy $buy → sell $sell';
+  }
+
+  @override
+  String get openGame => 'Open game';
+
+  @override
+  String saleAmount(String amount) {
+    return 'sale $amount';
+  }
+
+  @override
+  String get addToVault => 'Add to vault';
+
+  @override
+  String get all => 'All';
+
+  @override
+  String get vaultEmpty => 'Your vault is empty';
+
+  @override
+  String get nothingWithTag => 'Nothing with this tag';
+
+  @override
+  String get vaultHint =>
+      'Tap \"Add to vault\" to mark favourite, rare or high-value accounts.';
+
+  @override
+  String get search => 'Search';
+
+  @override
+  String get highestSaleFirst => 'Highest sale price first';
+
+  @override
+  String get noAccount => 'No account';
+
+  @override
+  String get tagFavorite => 'Favorite';
+
+  @override
+  String get tagRare => 'Rare';
+
+  @override
+  String get tagHighValue => 'High value';
+
+  @override
+  String get everythingGood => 'Everything looks good';
+
+  @override
+  String itemsToReview(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count items to review',
+      one: '1 item to review',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get basedOnDeviceData => 'Based on the data stored on this device.';
+
+  @override
+  String get dataHealth => 'Data health';
+
+  @override
+  String get duplicateAccounts => 'Duplicate accounts';
+
+  @override
+  String get noneFound => 'None found';
+
+  @override
+  String groupsToReview(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count groups to review',
+      one: '1 group to review',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get duplicateGameIds => 'Duplicate game Account IDs';
+
+  @override
+  String get accountsWithoutId => 'Game accounts without Account ID';
+
+  @override
+  String get allHaveId => 'All have an Account ID';
+
+  @override
+  String accountsMissingId(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count accounts missing an ID',
+      one: '1 account missing an ID',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get invalidEmails => 'Invalid emails';
+
+  @override
+  String get allEmailsValid => 'All emails look valid';
+
+  @override
+  String accountsWrongEmail(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count accounts with a wrong email format',
+      one: '1 account with a wrong email format',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get accountsNoBoxes => 'Accounts with no boxes set';
+
+  @override
+  String justInformational(int count) {
+    return '$count (just informational)';
+  }
+
+  @override
+  String get itemsInTrash => 'Items in Trash';
+
+  @override
+  String trashKept(int count) {
+    return '$count kept, nothing is removed automatically';
+  }
+
+  @override
+  String get protection => 'Protection';
+
+  @override
+  String get appLock => 'App lock';
+
+  @override
+  String get notEnabledYet => 'Not enabled yet';
+
+  @override
+  String get localStorage => 'Local storage';
+
+  @override
+  String get dataStaysOnDevice => 'Your data stays on this device';
+
+  @override
+  String get backup => 'Backup';
+
+  @override
+  String get noBackupYet =>
+      'No backup yet. Backup is not available in this version.';
+
+  @override
+  String get syncStatus => 'Sync status';
+
+  @override
+  String get cloudSync => 'Cloud sync';
+
+  @override
+  String get localOnly => 'Local only. Sync is not connected yet.';
+
+  @override
+  String get safetyRules => 'Safety rules';
+
+  @override
+  String get noAutoDeletion => 'No automatic deletion';
+
+  @override
+  String get nothingDeletedWithoutYou => 'Nothing is deleted without you';
+
+  @override
+  String get noAutoMerging => 'No automatic merging';
+
+  @override
+  String get neverMerge => 'Scanning and organizing never merge accounts';
+
+  @override
+  String get manualReviewFirst => 'Manual review first';
+
+  @override
+  String get changesByYou => 'Every change is made by you, after review';
+
+  @override
+  String get sortRecentActivity => 'Recent activity';
+
+  @override
+  String get sortOldestActivity => 'Oldest activity';
+
+  @override
+  String get sortNewestAdded => 'Newest added';
+
+  @override
+  String get sortOldestAdded => 'Oldest added';
+
+  @override
+  String get sortEmailAz => 'Email A–Z';
+
+  @override
+  String get sortEmailZa => 'Email Z–A';
+
+  @override
+  String get sortGrade => 'Grade';
+
+  @override
+  String get sortNewest => 'Newest';
+
+  @override
+  String get sortOldest => 'Oldest';
+
+  @override
+  String get sortSaleHigh => 'Highest sale price';
+
+  @override
+  String get sortSaleLow => 'Lowest sale price';
+
+  @override
+  String get sortBuyHigh => 'Highest purchase price';
+
+  @override
+  String get sortNameAz => 'Name A–Z';
+
+  @override
+  String get sort => 'Sort';
+
+  @override
+  String get searchByNameOrId => 'Search by name or Account ID';
+
+  @override
+  String get allGames => 'All games';
+
+  @override
+  String shownOfTotal(int shown, int total) {
+    return '$shown of $total accounts';
+  }
+
+  @override
+  String sortedBy(String sort) {
+    return 'Sorted: $sort';
+  }
+
+  @override
+  String get noAccountMatchesShort => 'No account matches';
+
+  @override
+  String get noActivity => 'no activity';
+
+  @override
+  String get emptyTrashTitle => 'Empty Trash?';
+
+  @override
+  String emptyTrashBody(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other:
+          'All $count items will be permanently deleted. This cannot be undone.',
+      one: '1 item will be permanently deleted. This cannot be undone.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get deleteAll => 'Delete all';
+
+  @override
+  String get emptyAction => 'Empty';
+
+  @override
+  String googleTabCount(int count) {
+    return 'Google ($count)';
+  }
+
+  @override
+  String gamesTabCount(int count) {
+    return 'Games ($count)';
+  }
+
+  @override
+  String googleAccountDeleted(String grade, String when) {
+    return 'Google account · $grade\nDeleted $when';
+  }
+
+  @override
+  String deletedWhen(String when) {
+    return 'Deleted $when';
+  }
+
+  @override
+  String get removedSuffix => ' (removed)';
+
+  @override
+  String get restore => 'Restore';
+
+  @override
+  String get deletePermanently => 'Delete permanently';
+
+  @override
+  String get deletePermanentlyTitle => 'Delete permanently?';
+
+  @override
+  String deletedForGood(String name) {
+    return '$name will be deleted for good. This cannot be undone.';
+  }
+
+  @override
+  String get delete => 'Delete';
+
+  @override
+  String get trashIsEmpty => 'Trash is empty';
+
+  @override
+  String get phoneNotifsMobileOnly =>
+      'Phone notifications work on Android and iOS only.';
+
+  @override
+  String get notifsBlocked =>
+      'Notifications are blocked for SPHERA. Allow them in your phone settings, then try again.';
+
+  @override
+  String get notifsSub => 'Warnings and reminders in SPHERA';
+
+  @override
+  String get reminders => 'Reminders';
+
+  @override
+  String get remindersSub =>
+      'Stale FOR SALE listings, COMING boxes, goals behind pace';
+
+  @override
+  String get alertsNote =>
+      'Alerts always appear in the Notifications center (bell icon), with a red count.';
+
+  @override
+  String get phoneNotifications => 'Phone notifications';
+
+  @override
+  String get phoneNotificationsSub =>
+      'Show new alerts on your phone when you leave the app';
+
+  @override
+  String get dailySummary => 'Daily summary';
+
+  @override
+  String get dailySummarySub => 'Alerts, net profit and accounts, once a day';
+
+  @override
+  String get summaryTime => 'Summary time';
+
+  @override
+  String get sendTestNotification => 'Send a test notification';
+
+  @override
+  String get phoneNotifsNote =>
+      'Phone notifications are created on this device, no account or internet needed. The daily summary may arrive a few minutes late to save battery. Some phones (Xiaomi, Huawei...) block background notifications unless you allow SPHERA in battery settings.';
+
+  @override
+  String get notificationSettings => 'Notification settings';
+
+  @override
+  String get notifsOff => 'Notifications are off';
+
+  @override
+  String get turnOnInSettings => 'Turn them on in notification settings.';
+
+  @override
+  String get allClear => 'All clear';
+
+  @override
+  String get noWarningsNow => 'No warnings or reminders right now.';
+
+  @override
+  String get remindersMuted => 'Reminders are muted in notification settings.';
+
+  @override
+  String notificationsNew(int count) {
+    return 'Notifications ($count new)';
+  }
 }

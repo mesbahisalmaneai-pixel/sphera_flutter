@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/l10n.dart';
 import '../../core/theme.dart';
 import '../../data/insights.dart';
 import '../../data/settings.dart';
@@ -44,10 +45,10 @@ class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Notifications'),
+        title: Text(context.l10n.notifications),
         actions: [
           IconButton(
-            tooltip: 'Notification settings',
+            tooltip: context.l10n.notificationSettings,
             icon: const Icon(Icons.tune_rounded),
             onPressed: () => Navigator.of(context).push(
                 MaterialPageRoute<void>(builder: (_) => const NotificationsSettingsScreen())),
@@ -55,16 +56,16 @@ class _NotificationsScreenState extends ConsumerState<NotificationsScreen> {
         ],
       ),
       body: !prefs.enabled
-          ? _empty(Icons.notifications_off_outlined, 'Notifications are off',
-              'Turn them on in notification settings.')
+          ? _empty(Icons.notifications_off_outlined, context.l10n.notifsOff,
+              context.l10n.turnOnInSettings)
           : items.isEmpty
-              ? _empty(Icons.notifications_none_rounded, 'All clear', 'No warnings or reminders right now.')
+              ? _empty(Icons.notifications_none_rounded, context.l10n.allClear, context.l10n.noWarningsNow)
               : ListView(padding: const EdgeInsets.all(16), children: [
                   for (final i in items) InsightTile(i, unread: unread.contains(i.id)),
                   if (!prefs.reminders)
                     Padding(
                       padding: const EdgeInsets.fromLTRB(4, 12, 4, 0),
-                      child: Text('Reminders are muted in notification settings.',
+                      child: Text(context.l10n.remindersMuted,
                           style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
                     ),
                 ]),
@@ -94,7 +95,7 @@ class NotificationBell extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final n = ref.watch(unreadNotificationCountProvider);
     return IconButton(
-      tooltip: n == 0 ? 'Notifications' : 'Notifications ($n new)',
+      tooltip: n == 0 ? context.l10n.notifications : context.l10n.notificationsNew(n),
       icon: Badge(
         isLabelVisible: n > 0,
         label: Text(n > 9 ? '9+' : '$n'),

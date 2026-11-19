@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/l10n.dart';
 import '../../core/theme.dart';
 import '../../data/smart_tools.dart';
 import '../settings/trash_screen.dart';
@@ -31,7 +32,7 @@ class SecurityCenterScreen extends ConsumerWidget {
     final info = SpheraColors.muted;
 
     return Scaffold(
-      appBar: AppBar(title: Text('Security Center')),
+      appBar: AppBar(title: Text(context.l10n.securityCenter)),
       body: ListView(padding: EdgeInsets.all(16), children: [
         Card(
           child: Padding(
@@ -42,23 +43,23 @@ class SecurityCenterScreen extends ConsumerWidget {
               SizedBox(width: 14),
               Expanded(
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Text(h.issues == 0 ? 'Everything looks good' : '${h.issues} item${h.issues == 1 ? '' : 's'} to review',
+                  Text(h.issues == 0 ? context.l10n.everythingGood : context.l10n.itemsToReview(h.issues),
                       style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
-                  Text('Based on the data stored on this device.',
+                  Text(context.l10n.basedOnDeviceData,
                       style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
                 ]),
               ),
             ]),
           ),
         ),
-        _section('Data health'),
+        _section(context.l10n.dataHealth),
         Card(
           child: Column(children: [
             _row(
               h.duplicates == 0 ? Icons.check_circle : Icons.warning_amber_rounded,
               h.duplicates == 0 ? ok : warn,
-              'Duplicate accounts',
-              h.duplicates == 0 ? 'None found' : '${h.duplicates} group(s) to review',
+              context.l10n.duplicateAccounts,
+              h.duplicates == 0 ? context.l10n.noneFound : context.l10n.groupsToReview(h.duplicates),
               onTap: () => Navigator.of(context)
                   .push(MaterialPageRoute(builder: (_) => DuplicateScannerScreen())),
             ),
@@ -66,8 +67,8 @@ class SecurityCenterScreen extends ConsumerWidget {
             _row(
               h.gameDuplicates == 0 ? Icons.check_circle : Icons.warning_amber_rounded,
               h.gameDuplicates == 0 ? ok : warn,
-              'Duplicate game Account IDs',
-              h.gameDuplicates == 0 ? 'None found' : '${h.gameDuplicates} group(s) to review',
+              context.l10n.duplicateGameIds,
+              h.gameDuplicates == 0 ? context.l10n.noneFound : context.l10n.groupsToReview(h.gameDuplicates),
               onTap: () => Navigator.of(context)
                   .push(MaterialPageRoute(builder: (_) => DuplicateScannerScreen())),
             ),
@@ -75,45 +76,45 @@ class SecurityCenterScreen extends ConsumerWidget {
             _row(
               h.missingIds == 0 ? Icons.check_circle : Icons.warning_amber_rounded,
               h.missingIds == 0 ? ok : warn,
-              'Game accounts without Account ID',
-              h.missingIds == 0 ? 'All have an Account ID' : '${h.missingIds} account(s) missing an ID',
+              context.l10n.accountsWithoutId,
+              h.missingIds == 0 ? context.l10n.allHaveId : context.l10n.accountsMissingId(h.missingIds),
             ),
             Divider(height: 1, color: SpheraColors.border),
             _row(
               h.invalidEmails == 0 ? Icons.check_circle : Icons.warning_amber_rounded,
               h.invalidEmails == 0 ? ok : warn,
-              'Invalid emails',
-              h.invalidEmails == 0 ? 'All emails look valid' : '${h.invalidEmails} account(s) with a wrong email format',
+              context.l10n.invalidEmails,
+              h.invalidEmails == 0 ? context.l10n.allEmailsValid : context.l10n.accountsWrongEmail(h.invalidEmails),
             ),
             Divider(height: 1, color: SpheraColors.border),
-            _row(Icons.info_outline, info, 'Accounts with no boxes set',
-                '${h.noBoxes} (just informational)'),
+            _row(Icons.info_outline, info, context.l10n.accountsNoBoxes,
+                context.l10n.justInformational(h.noBoxes)),
             Divider(height: 1, color: SpheraColors.border),
-            _row(Icons.delete_outline, info, 'Items in Trash',
-                h.trashed == 0 ? 'Empty' : '${h.trashed} kept, nothing is removed automatically',
+            _row(Icons.delete_outline, info, context.l10n.itemsInTrash,
+                h.trashed == 0 ? context.l10n.empty : context.l10n.trashKept(h.trashed),
                 onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => TrashScreen()))),
           ]),
         ),
-        _section('Protection'),
+        _section(context.l10n.protection),
         Card(
           child: Column(children: [
-            _row(Icons.lock_outline, warn, 'App lock', 'Not enabled yet'),
+            _row(Icons.lock_outline, warn, context.l10n.appLock, context.l10n.notEnabledYet),
             Divider(height: 1, color: SpheraColors.border),
-            _row(Icons.phone_android, ok, 'Local storage', 'Your data stays on this device'),
+            _row(Icons.phone_android, ok, context.l10n.localStorage, context.l10n.dataStaysOnDevice),
           ]),
         ),
-        _section('Backup'),
-        Card(child: _row(Icons.backup_outlined, warn, 'Backup', 'No backup yet. Backup is not available in this version.')),
-        _section('Sync status'),
-        Card(child: _row(Icons.cloud_off_outlined, info, 'Cloud sync', 'Local only. Sync is not connected yet.')),
-        _section('Safety rules'),
+        _section(context.l10n.backup),
+        Card(child: _row(Icons.backup_outlined, warn, context.l10n.backup, context.l10n.noBackupYet)),
+        _section(context.l10n.syncStatus),
+        Card(child: _row(Icons.cloud_off_outlined, info, context.l10n.cloudSync, context.l10n.localOnly)),
+        _section(context.l10n.safetyRules),
         Card(
           child: Column(children: [
-            _row(Icons.check_circle, ok, 'No automatic deletion', 'Nothing is deleted without you'),
+            _row(Icons.check_circle, ok, context.l10n.noAutoDeletion, context.l10n.nothingDeletedWithoutYou),
             Divider(height: 1, color: SpheraColors.border),
-            _row(Icons.check_circle, ok, 'No automatic merging', 'Scanning and organizing never merge accounts'),
+            _row(Icons.check_circle, ok, context.l10n.noAutoMerging, context.l10n.neverMerge),
             Divider(height: 1, color: SpheraColors.border),
-            _row(Icons.check_circle, ok, 'Manual review first', 'Every change is made by you, after review'),
+            _row(Icons.check_circle, ok, context.l10n.manualReviewFirst, context.l10n.changesByYou),
           ]),
         ),
       ]),

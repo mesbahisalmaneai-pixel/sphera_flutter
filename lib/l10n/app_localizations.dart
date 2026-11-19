@@ -2025,6 +2025,714 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Nothing here'**
   String get nothingHere;
+
+  /// No description provided for @howMatchingWorks.
+  ///
+  /// In en, this message translates to:
+  /// **'How matching works'**
+  String get howMatchingWorks;
+
+  /// No description provided for @matchingRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Google accounts: same Email (ignores case, spaces, and for Gmail dots and \"+tags\").\nGame accounts: same Account ID inside the same game.\nPhone matching is not available: phone numbers are not stored yet.'**
+  String get matchingRules;
+
+  /// No description provided for @nothingMergedAutomatically.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing is deleted or merged automatically. You review every account yourself.'**
+  String get nothingMergedAutomatically;
+
+  /// No description provided for @noDuplicatesFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No duplicates found'**
+  String get noDuplicatesFound;
+
+  /// No description provided for @googleAccountsSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Google accounts'**
+  String get googleAccountsSection;
+
+  /// No description provided for @gameAccountsSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Game accounts'**
+  String get gameAccountsSection;
+
+  /// No description provided for @showDismissedAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Show {count} dismissed again'**
+  String showDismissedAgain(int count);
+
+  /// No description provided for @markedNotDuplicates.
+  ///
+  /// In en, this message translates to:
+  /// **'Marked as not duplicates'**
+  String get markedNotDuplicates;
+
+  /// No description provided for @similarAccounts.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} similar accounts'**
+  String similarAccounts(int count);
+
+  /// No description provided for @addedOn.
+  ///
+  /// In en, this message translates to:
+  /// **'added {date}'**
+  String addedOn(String date);
+
+  /// No description provided for @openToReview.
+  ///
+  /// In en, this message translates to:
+  /// **'Open to review'**
+  String get openToReview;
+
+  /// No description provided for @notDuplicates.
+  ///
+  /// In en, this message translates to:
+  /// **'Not duplicates'**
+  String get notDuplicates;
+
+  /// No description provided for @accountsWithId.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} accounts with ID {id}'**
+  String accountsWithId(int count, String id);
+
+  /// No description provided for @unknownGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown game'**
+  String get unknownGame;
+
+  /// No description provided for @buySell.
+  ///
+  /// In en, this message translates to:
+  /// **'buy {buy} → sell {sell}'**
+  String buySell(String buy, String sell);
+
+  /// No description provided for @openGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Open game'**
+  String get openGame;
+
+  /// No description provided for @saleAmount.
+  ///
+  /// In en, this message translates to:
+  /// **'sale {amount}'**
+  String saleAmount(String amount);
+
+  /// No description provided for @addToVault.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to vault'**
+  String get addToVault;
+
+  /// No description provided for @all.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get all;
+
+  /// No description provided for @vaultEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Your vault is empty'**
+  String get vaultEmpty;
+
+  /// No description provided for @nothingWithTag.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing with this tag'**
+  String get nothingWithTag;
+
+  /// No description provided for @vaultHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap \"Add to vault\" to mark favourite, rare or high-value accounts.'**
+  String get vaultHint;
+
+  /// No description provided for @search.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get search;
+
+  /// No description provided for @highestSaleFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Highest sale price first'**
+  String get highestSaleFirst;
+
+  /// No description provided for @noAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'No account'**
+  String get noAccount;
+
+  /// No description provided for @tagFavorite.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite'**
+  String get tagFavorite;
+
+  /// No description provided for @tagRare.
+  ///
+  /// In en, this message translates to:
+  /// **'Rare'**
+  String get tagRare;
+
+  /// No description provided for @tagHighValue.
+  ///
+  /// In en, this message translates to:
+  /// **'High value'**
+  String get tagHighValue;
+
+  /// No description provided for @everythingGood.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything looks good'**
+  String get everythingGood;
+
+  /// No description provided for @itemsToReview.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 item to review} other{{count} items to review}}'**
+  String itemsToReview(int count);
+
+  /// No description provided for @basedOnDeviceData.
+  ///
+  /// In en, this message translates to:
+  /// **'Based on the data stored on this device.'**
+  String get basedOnDeviceData;
+
+  /// No description provided for @dataHealth.
+  ///
+  /// In en, this message translates to:
+  /// **'Data health'**
+  String get dataHealth;
+
+  /// No description provided for @duplicateAccounts.
+  ///
+  /// In en, this message translates to:
+  /// **'Duplicate accounts'**
+  String get duplicateAccounts;
+
+  /// No description provided for @noneFound.
+  ///
+  /// In en, this message translates to:
+  /// **'None found'**
+  String get noneFound;
+
+  /// No description provided for @groupsToReview.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 group to review} other{{count} groups to review}}'**
+  String groupsToReview(int count);
+
+  /// No description provided for @duplicateGameIds.
+  ///
+  /// In en, this message translates to:
+  /// **'Duplicate game Account IDs'**
+  String get duplicateGameIds;
+
+  /// No description provided for @accountsWithoutId.
+  ///
+  /// In en, this message translates to:
+  /// **'Game accounts without Account ID'**
+  String get accountsWithoutId;
+
+  /// No description provided for @allHaveId.
+  ///
+  /// In en, this message translates to:
+  /// **'All have an Account ID'**
+  String get allHaveId;
+
+  /// No description provided for @accountsMissingId.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 account missing an ID} other{{count} accounts missing an ID}}'**
+  String accountsMissingId(int count);
+
+  /// No description provided for @invalidEmails.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid emails'**
+  String get invalidEmails;
+
+  /// No description provided for @allEmailsValid.
+  ///
+  /// In en, this message translates to:
+  /// **'All emails look valid'**
+  String get allEmailsValid;
+
+  /// No description provided for @accountsWrongEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 account with a wrong email format} other{{count} accounts with a wrong email format}}'**
+  String accountsWrongEmail(int count);
+
+  /// No description provided for @accountsNoBoxes.
+  ///
+  /// In en, this message translates to:
+  /// **'Accounts with no boxes set'**
+  String get accountsNoBoxes;
+
+  /// No description provided for @justInformational.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} (just informational)'**
+  String justInformational(int count);
+
+  /// No description provided for @itemsInTrash.
+  ///
+  /// In en, this message translates to:
+  /// **'Items in Trash'**
+  String get itemsInTrash;
+
+  /// No description provided for @trashKept.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} kept, nothing is removed automatically'**
+  String trashKept(int count);
+
+  /// No description provided for @protection.
+  ///
+  /// In en, this message translates to:
+  /// **'Protection'**
+  String get protection;
+
+  /// No description provided for @appLock.
+  ///
+  /// In en, this message translates to:
+  /// **'App lock'**
+  String get appLock;
+
+  /// No description provided for @notEnabledYet.
+  ///
+  /// In en, this message translates to:
+  /// **'Not enabled yet'**
+  String get notEnabledYet;
+
+  /// No description provided for @localStorage.
+  ///
+  /// In en, this message translates to:
+  /// **'Local storage'**
+  String get localStorage;
+
+  /// No description provided for @dataStaysOnDevice.
+  ///
+  /// In en, this message translates to:
+  /// **'Your data stays on this device'**
+  String get dataStaysOnDevice;
+
+  /// No description provided for @backup.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup'**
+  String get backup;
+
+  /// No description provided for @noBackupYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No backup yet. Backup is not available in this version.'**
+  String get noBackupYet;
+
+  /// No description provided for @syncStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Sync status'**
+  String get syncStatus;
+
+  /// No description provided for @cloudSync.
+  ///
+  /// In en, this message translates to:
+  /// **'Cloud sync'**
+  String get cloudSync;
+
+  /// No description provided for @localOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'Local only. Sync is not connected yet.'**
+  String get localOnly;
+
+  /// No description provided for @safetyRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Safety rules'**
+  String get safetyRules;
+
+  /// No description provided for @noAutoDeletion.
+  ///
+  /// In en, this message translates to:
+  /// **'No automatic deletion'**
+  String get noAutoDeletion;
+
+  /// No description provided for @nothingDeletedWithoutYou.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing is deleted without you'**
+  String get nothingDeletedWithoutYou;
+
+  /// No description provided for @noAutoMerging.
+  ///
+  /// In en, this message translates to:
+  /// **'No automatic merging'**
+  String get noAutoMerging;
+
+  /// No description provided for @neverMerge.
+  ///
+  /// In en, this message translates to:
+  /// **'Scanning and organizing never merge accounts'**
+  String get neverMerge;
+
+  /// No description provided for @manualReviewFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Manual review first'**
+  String get manualReviewFirst;
+
+  /// No description provided for @changesByYou.
+  ///
+  /// In en, this message translates to:
+  /// **'Every change is made by you, after review'**
+  String get changesByYou;
+
+  /// No description provided for @sortRecentActivity.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent activity'**
+  String get sortRecentActivity;
+
+  /// No description provided for @sortOldestActivity.
+  ///
+  /// In en, this message translates to:
+  /// **'Oldest activity'**
+  String get sortOldestActivity;
+
+  /// No description provided for @sortNewestAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Newest added'**
+  String get sortNewestAdded;
+
+  /// No description provided for @sortOldestAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'Oldest added'**
+  String get sortOldestAdded;
+
+  /// No description provided for @sortEmailAz.
+  ///
+  /// In en, this message translates to:
+  /// **'Email A–Z'**
+  String get sortEmailAz;
+
+  /// No description provided for @sortEmailZa.
+  ///
+  /// In en, this message translates to:
+  /// **'Email Z–A'**
+  String get sortEmailZa;
+
+  /// No description provided for @sortGrade.
+  ///
+  /// In en, this message translates to:
+  /// **'Grade'**
+  String get sortGrade;
+
+  /// No description provided for @sortNewest.
+  ///
+  /// In en, this message translates to:
+  /// **'Newest'**
+  String get sortNewest;
+
+  /// No description provided for @sortOldest.
+  ///
+  /// In en, this message translates to:
+  /// **'Oldest'**
+  String get sortOldest;
+
+  /// No description provided for @sortSaleHigh.
+  ///
+  /// In en, this message translates to:
+  /// **'Highest sale price'**
+  String get sortSaleHigh;
+
+  /// No description provided for @sortSaleLow.
+  ///
+  /// In en, this message translates to:
+  /// **'Lowest sale price'**
+  String get sortSaleLow;
+
+  /// No description provided for @sortBuyHigh.
+  ///
+  /// In en, this message translates to:
+  /// **'Highest purchase price'**
+  String get sortBuyHigh;
+
+  /// No description provided for @sortNameAz.
+  ///
+  /// In en, this message translates to:
+  /// **'Name A–Z'**
+  String get sortNameAz;
+
+  /// No description provided for @sort.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort'**
+  String get sort;
+
+  /// No description provided for @searchByNameOrId.
+  ///
+  /// In en, this message translates to:
+  /// **'Search by name or Account ID'**
+  String get searchByNameOrId;
+
+  /// No description provided for @allGames.
+  ///
+  /// In en, this message translates to:
+  /// **'All games'**
+  String get allGames;
+
+  /// No description provided for @shownOfTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'{shown} of {total} accounts'**
+  String shownOfTotal(int shown, int total);
+
+  /// No description provided for @sortedBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Sorted: {sort}'**
+  String sortedBy(String sort);
+
+  /// No description provided for @noAccountMatchesShort.
+  ///
+  /// In en, this message translates to:
+  /// **'No account matches'**
+  String get noAccountMatchesShort;
+
+  /// No description provided for @noActivity.
+  ///
+  /// In en, this message translates to:
+  /// **'no activity'**
+  String get noActivity;
+
+  /// No description provided for @emptyTrashTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Empty Trash?'**
+  String get emptyTrashTitle;
+
+  /// No description provided for @emptyTrashBody.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 item will be permanently deleted. This cannot be undone.} other{All {count} items will be permanently deleted. This cannot be undone.}}'**
+  String emptyTrashBody(int count);
+
+  /// No description provided for @deleteAll.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete all'**
+  String get deleteAll;
+
+  /// No description provided for @emptyAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Empty'**
+  String get emptyAction;
+
+  /// No description provided for @googleTabCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Google ({count})'**
+  String googleTabCount(int count);
+
+  /// No description provided for @gamesTabCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Games ({count})'**
+  String gamesTabCount(int count);
+
+  /// No description provided for @googleAccountDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Google account · {grade}\nDeleted {when}'**
+  String googleAccountDeleted(String grade, String when);
+
+  /// No description provided for @deletedWhen.
+  ///
+  /// In en, this message translates to:
+  /// **'Deleted {when}'**
+  String deletedWhen(String when);
+
+  /// No description provided for @removedSuffix.
+  ///
+  /// In en, this message translates to:
+  /// **' (removed)'**
+  String get removedSuffix;
+
+  /// No description provided for @restore.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore'**
+  String get restore;
+
+  /// No description provided for @deletePermanently.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete permanently'**
+  String get deletePermanently;
+
+  /// No description provided for @deletePermanentlyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete permanently?'**
+  String get deletePermanentlyTitle;
+
+  /// No description provided for @deletedForGood.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} will be deleted for good. This cannot be undone.'**
+  String deletedForGood(String name);
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// No description provided for @trashIsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Trash is empty'**
+  String get trashIsEmpty;
+
+  /// No description provided for @phoneNotifsMobileOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone notifications work on Android and iOS only.'**
+  String get phoneNotifsMobileOnly;
+
+  /// No description provided for @notifsBlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications are blocked for SPHERA. Allow them in your phone settings, then try again.'**
+  String get notifsBlocked;
+
+  /// No description provided for @notifsSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Warnings and reminders in SPHERA'**
+  String get notifsSub;
+
+  /// No description provided for @reminders.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders'**
+  String get reminders;
+
+  /// No description provided for @remindersSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Stale FOR SALE listings, COMING boxes, goals behind pace'**
+  String get remindersSub;
+
+  /// No description provided for @alertsNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Alerts always appear in the Notifications center (bell icon), with a red count.'**
+  String get alertsNote;
+
+  /// No description provided for @phoneNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone notifications'**
+  String get phoneNotifications;
+
+  /// No description provided for @phoneNotificationsSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Show new alerts on your phone when you leave the app'**
+  String get phoneNotificationsSub;
+
+  /// No description provided for @dailySummary.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily summary'**
+  String get dailySummary;
+
+  /// No description provided for @dailySummarySub.
+  ///
+  /// In en, this message translates to:
+  /// **'Alerts, net profit and accounts, once a day'**
+  String get dailySummarySub;
+
+  /// No description provided for @summaryTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Summary time'**
+  String get summaryTime;
+
+  /// No description provided for @sendTestNotification.
+  ///
+  /// In en, this message translates to:
+  /// **'Send a test notification'**
+  String get sendTestNotification;
+
+  /// No description provided for @phoneNotifsNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone notifications are created on this device, no account or internet needed. The daily summary may arrive a few minutes late to save battery. Some phones (Xiaomi, Huawei...) block background notifications unless you allow SPHERA in battery settings.'**
+  String get phoneNotifsNote;
+
+  /// No description provided for @notificationSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification settings'**
+  String get notificationSettings;
+
+  /// No description provided for @notifsOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications are off'**
+  String get notifsOff;
+
+  /// No description provided for @turnOnInSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn them on in notification settings.'**
+  String get turnOnInSettings;
+
+  /// No description provided for @allClear.
+  ///
+  /// In en, this message translates to:
+  /// **'All clear'**
+  String get allClear;
+
+  /// No description provided for @noWarningsNow.
+  ///
+  /// In en, this message translates to:
+  /// **'No warnings or reminders right now.'**
+  String get noWarningsNow;
+
+  /// No description provided for @remindersMuted.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders are muted in notification settings.'**
+  String get remindersMuted;
+
+  /// No description provided for @notificationsNew.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications ({count} new)'**
+  String notificationsNew(int count);
 }
 
 class _AppLocalizationsDelegate

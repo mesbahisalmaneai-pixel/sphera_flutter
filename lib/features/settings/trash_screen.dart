@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/l10n.dart';
 import '../../core/format.dart';
 import '../../core/status_style.dart';
 import '../../core/theme.dart';
@@ -20,7 +21,7 @@ class TrashScreen extends ConsumerWidget {
         title: Text(title),
         content: Text(body),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(ctx, false), child: Text('Cancel')),
+          TextButton(onPressed: () => Navigator.pop(ctx, false), child: Text(context.l10n.cancel)),
           TextButton(
               onPressed: () => Navigator.pop(ctx, true),
               child: Text(action, style: TextStyle(color: SpheraColors.danger))),
@@ -45,14 +46,14 @@ class TrashScreen extends ConsumerWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Trash'),
+          title: Text(context.l10n.trash),
           actions: [
             if (!empty)
               TextButton(
                 onPressed: () async {
-                  final ok = await _confirm(context, 'Empty Trash?',
-                      'All ${google.length + gaming.length} item(s) will be permanently deleted. This cannot be undone.',
-                      'Delete all');
+                  final ok = await _confirm(context, context.l10n.emptyTrashTitle,
+                      context.l10n.emptyTrashBody(google.length + gaming.length),
+                      context.l10n.deleteAll);
                   if (!ok) return;
                   for (final a in google) {
                     await gRepo.deletePermanently(a.id);
@@ -61,13 +62,13 @@ class TrashScreen extends ConsumerWidget {
                     await aRepo.deletePermanently(a.id);
                   }
                 },
-                child: Text('Empty', style: TextStyle(color: SpheraColors.danger)),
+                child: Text(context.l10n.emptyAction, style: TextStyle(color: SpheraColors.danger)),
               ),
           ],
           bottom: TabBar(
             indicatorColor: SpheraColors.gold,
             labelColor: SpheraColors.gold,
-            tabs: [Tab(text: 'Google (${google.length})'), Tab(text: 'Games (${gaming.length})')],
+            tabs: [Tab(text: context.l10n.googleTabCount(google.length)), Tab(text: context.l10n.gamesTabCount(gaming.length))],
           ),
         ),
         body: TabBarView(children: [
@@ -78,12 +79,12 @@ class TrashScreen extends ConsumerWidget {
                     Card(
                       child: ListTile(
                         title: Text(a.email, overflow: TextOverflow.ellipsis),
-                        subtitle: Text('Google account · ${gradeLabel(a.grade)}\nDeleted ${_when(a.deletedAt)}',
+                        subtitle: Text(context.l10n.googleAccountDeleted(gradeLabel(a.grade), _when(a.deletedAt)),
                             style: TextStyle(fontSize: 12)),
                         isThreeLine: true,
                         trailing: Row(mainAxisSize: MainAxisSize.min, children: [
                           IconButton(
-                            tooltip: 'Restore',
+                            tooltip: context.l10n.restore,
                             icon: Icon(Icons.restore, color: SpheraColors.gold),
                             onPressed: () async {
                               try {
@@ -94,11 +95,11 @@ class TrashScreen extends ConsumerWidget {
                             },
                           ),
                           IconButton(
-                            tooltip: 'Delete permanently',
+                            tooltip: context.l10n.deletePermanently,
                             icon: Icon(Icons.delete_forever, color: SpheraColors.danger),
                             onPressed: () async {
-                              if (await _confirm(context, 'Delete permanently?',
-                                  '${a.email} will be deleted for good. This cannot be undone.', 'Delete')) {
+                              if (await _confirm(context, context.l10n.deletePermanentlyTitle,
+                                  context.l10n.deletedForGood(a.email), context.l10n.delete)) {
                                 await gRepo.deletePermanently(a.id);
                               }
                             },
@@ -115,22 +116,22 @@ class TrashScreen extends ConsumerWidget {
                       child: ListTile(
                         title: Text(a.name, overflow: TextOverflow.ellipsis),
                         subtitle: Text(
-                            '${games[a.gameId]?.name ?? 'Unknown game'}${games[a.gameId]?.archivedAt != null ? ' (removed)' : ''}'
-                            ' · ${money(a.salePrice, currency: cur)}\nDeleted ${_when(a.deletedAt)}',
+                            '${games[a.gameId]?.name ?? context.l10n.unknownGame}${games[a.gameId]?.archivedAt != null ? context.l10n.removedSuffix : ''}'
+                            ' · ${money(a.salePrice, currency: cur)}\n${context.l10n.deletedWhen(_when(a.deletedAt))}',
                             style: TextStyle(fontSize: 12)),
                         isThreeLine: true,
                         trailing: Row(mainAxisSize: MainAxisSize.min, children: [
                           IconButton(
-                            tooltip: 'Restore',
+                            tooltip: context.l10n.restore,
                             icon: Icon(Icons.restore, color: SpheraColors.gold),
                             onPressed: () => aRepo.restore(a.id),
                           ),
                           IconButton(
-                            tooltip: 'Delete permanently',
+                            tooltip: context.l10n.deletePermanently,
                             icon: Icon(Icons.delete_forever, color: SpheraColors.danger),
                             onPressed: () async {
-                              if (await _confirm(context, 'Delete permanently?',
-                                  '${a.name} will be deleted for good. This cannot be undone.', 'Delete')) {
+                              if (await _confirm(context, context.l10n.deletePermanentlyTitle,
+                                  context.l10n.deletedForGood(a.name), context.l10n.delete)) {
                                 await aRepo.deletePermanently(a.id);
                               }
                             },
@@ -152,7 +153,7 @@ class _Empty extends StatelessWidget {
         child: Column(mainAxisSize: MainAxisSize.min, children: [
           Icon(Icons.delete_outline, size: 48, color: SpheraColors.muted),
           SizedBox(height: 10),
-          Text('Trash is empty', style: TextStyle(color: SpheraColors.muted)),
+          Text(context.l10n.trashIsEmpty, style: TextStyle(color: SpheraColors.muted)),
         ]),
       );
 }

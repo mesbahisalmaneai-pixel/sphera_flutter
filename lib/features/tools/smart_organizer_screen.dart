@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../core/l10n.dart';
 import '../../core/format.dart';
 import '../../core/status_style.dart';
 import '../../core/theme.dart';
@@ -13,28 +14,41 @@ import '../google/google_account_form.dart';
 enum _Mode { google, game }
 
 enum _GSort {
-  recent('Recent activity'),
-  oldest('Oldest activity'),
-  newestAdded('Newest added'),
-  oldestAdded('Oldest added'),
-  emailAz('Email A–Z'),
-  emailZa('Email Z–A'),
-  grade('Grade');
+  recent,
+  oldest,
+  newestAdded,
+  oldestAdded,
+  emailAz,
+  emailZa,
+  grade;
 
-  const _GSort(this.label);
-  final String label;
+  String get label => switch (this) {
+        _GSort.recent => appL10n.sortRecentActivity,
+        _GSort.oldest => appL10n.sortOldestActivity,
+        _GSort.newestAdded => appL10n.sortNewestAdded,
+        _GSort.oldestAdded => appL10n.sortOldestAdded,
+        _GSort.emailAz => appL10n.sortEmailAz,
+        _GSort.emailZa => appL10n.sortEmailZa,
+        _GSort.grade => appL10n.sortGrade,
+      };
 }
 
 enum _ASort {
-  newest('Newest'),
-  oldest('Oldest'),
-  saleHigh('Highest sale price'),
-  saleLow('Lowest sale price'),
-  buyHigh('Highest purchase price'),
-  nameAz('Name A–Z');
+  newest,
+  oldest,
+  saleHigh,
+  saleLow,
+  buyHigh,
+  nameAz;
 
-  const _ASort(this.label);
-  final String label;
+  String get label => switch (this) {
+        _ASort.newest => appL10n.sortNewest,
+        _ASort.oldest => appL10n.sortOldest,
+        _ASort.saleHigh => appL10n.sortSaleHigh,
+        _ASort.saleLow => appL10n.sortSaleLow,
+        _ASort.buyHigh => appL10n.sortBuyHigh,
+        _ASort.nameAz => appL10n.sortNameAz,
+      };
 }
 
 /// Search, filter and sort accounts by game, status, price and date.
@@ -75,11 +89,11 @@ class _SmartOrganizerScreenState extends ConsumerState<SmartOrganizerScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Smart Organizer'),
+        title: Text(context.l10n.smartOrganizer),
         actions: [
           if (isGoogle)
             PopupMenuButton<_GSort>(
-              tooltip: 'Sort',
+              tooltip: context.l10n.sort,
               icon: Icon(Icons.sort),
               initialValue: _gSort,
               onSelected: (v) => setState(() => _gSort = v),
@@ -87,7 +101,7 @@ class _SmartOrganizerScreenState extends ConsumerState<SmartOrganizerScreen> {
             )
           else
             PopupMenuButton<_ASort>(
-              tooltip: 'Sort',
+              tooltip: context.l10n.sort,
               icon: Icon(Icons.sort),
               initialValue: _aSort,
               onSelected: (v) => setState(() => _aSort = v),
@@ -105,7 +119,7 @@ class _SmartOrganizerScreenState extends ConsumerState<SmartOrganizerScreen> {
               segments: [
                 ButtonSegment(value: _Mode.google, icon: Icon(Icons.mail_outline, size: 18), label: Text('Google')),
                 ButtonSegment(
-                    value: _Mode.game, icon: Icon(Icons.sports_esports_outlined, size: 18), label: Text('Game accounts')),
+                    value: _Mode.game, icon: Icon(Icons.sports_esports_outlined, size: 18), label: Text(context.l10n.gameAccountsSection)),
               ],
               selected: {_mode},
               onSelectionChanged: (s) => setState(() {
@@ -120,7 +134,7 @@ class _SmartOrganizerScreenState extends ConsumerState<SmartOrganizerScreen> {
           child: TextField(
             key: ValueKey(_mode),
             decoration: InputDecoration(
-                hintText: isGoogle ? 'Search by email' : 'Search by name or Account ID',
+                hintText: isGoogle ? context.l10n.searchByEmail : context.l10n.searchByNameOrId,
                 prefixIcon: Icon(Icons.search)),
             onChanged: (v) => setState(() => _query = v.trim().toLowerCase()),
           ),
@@ -129,21 +143,21 @@ class _SmartOrganizerScreenState extends ConsumerState<SmartOrganizerScreen> {
           padding: EdgeInsets.only(left: 16, top: 4),
           child: Column(children: [
             _row([
-              _chip('All games', _game == null, () => setState(() => _game = null)),
+              _chip(context.l10n.allGames, _game == null, () => setState(() => _game = null)),
               for (final g in games) _chip(g.name, _game?.id == g.id, () => setState(() => _game = g)),
             ]),
             if (isGoogle) ...[
               _row([
-                _chip('Any status', _status == null, () => setState(() => _status = null)),
+                _chip(context.l10n.anyStatus, _status == null, () => setState(() => _status = null)),
                 for (final s in BoxStatus.values) _chip(boxLabel(s), _status == s, () => setState(() => _status = s)),
               ]),
               _row([
-                _chip('All grades', _grade == null, () => setState(() => _grade = null)),
+                _chip(context.l10n.allGrades, _grade == null, () => setState(() => _grade = null)),
                 for (final g in Grade.values) _chip(gradeLabel(g), _grade == g, () => setState(() => _grade = g)),
               ]),
             ] else
               _row([
-                _chip('Any status', _aStatus == null, () => setState(() => _aStatus = null)),
+                _chip(context.l10n.anyStatus, _aStatus == null, () => setState(() => _aStatus = null)),
                 for (final s in GameAccountStatus.values)
                   _chip(s.name.toUpperCase(), _aStatus == s, () => setState(() => _aStatus = s)),
               ]),
@@ -157,9 +171,9 @@ class _SmartOrganizerScreenState extends ConsumerState<SmartOrganizerScreen> {
   Widget _counter(int shown, int total, String sort) => Padding(
         padding: EdgeInsets.fromLTRB(20, 4, 20, 4),
         child: Row(children: [
-          Text('$shown of $total accounts', style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
+          Text(appL10n.shownOfTotal(shown, total), style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
           Spacer(),
-          Text('Sorted: $sort', style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
+          Text(appL10n.sortedBy(sort), style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
         ]),
       );
 
@@ -197,7 +211,7 @@ class _SmartOrganizerScreenState extends ConsumerState<SmartOrganizerScreen> {
       _counter(list.length, all.length, _gSort.label),
       Expanded(
         child: list.isEmpty
-            ? Center(child: Text('No account matches', style: TextStyle(color: SpheraColors.muted)))
+            ? Center(child: Text(context.l10n.noAccountMatchesShort, style: TextStyle(color: SpheraColors.muted)))
             : ListView.builder(
                 padding: EdgeInsets.fromLTRB(16, 4, 16, 24),
                 itemCount: list.length,
@@ -210,8 +224,8 @@ class _SmartOrganizerScreenState extends ConsumerState<SmartOrganizerScreen> {
                       leading: GradeMedal(a.grade, size: 38),
                       title: Text(a.email, overflow: TextOverflow.ellipsis),
                       subtitle: Text(
-                        '${gradeLabel(a.grade)} · ${m?.boxesSet ?? 0} boxes set · '
-                        '${m?.last == null ? 'no activity' : fmtDate(m!.last!)} · added ${fmtDate(a.createdAt)}',
+                        '${gradeLabel(a.grade)} · ${context.l10n.boxesSet(m?.boxesSet ?? 0)} · '
+                        '${m?.last == null ? context.l10n.noActivity : fmtDate(m!.last!)} · ${context.l10n.addedOn(fmtDate(a.createdAt))}',
                         style: TextStyle(color: SpheraColors.muted, fontSize: 12),
                       ),
                       trailing: Icon(Icons.chevron_right),
@@ -255,7 +269,7 @@ class _SmartOrganizerScreenState extends ConsumerState<SmartOrganizerScreen> {
       _counter(list.length, all.length, _aSort.label),
       Expanded(
         child: list.isEmpty
-            ? Center(child: Text('No account matches', style: TextStyle(color: SpheraColors.muted)))
+            ? Center(child: Text(context.l10n.noAccountMatchesShort, style: TextStyle(color: SpheraColors.muted)))
             : ListView.builder(
                 padding: EdgeInsets.fromLTRB(16, 4, 16, 24),
                 itemCount: list.length,
@@ -269,9 +283,8 @@ class _SmartOrganizerScreenState extends ConsumerState<SmartOrganizerScreen> {
                       leading: Icon(Icons.sports_esports_outlined, color: SpheraColors.gold, size: 30),
                       title: Text(a.name.isEmpty ? a.idCompte : a.name, overflow: TextOverflow.ellipsis),
                       subtitle: Text(
-                        '${game?.name ?? 'Unknown game'} · ID ${a.idCompte}\n'
-                        '${a.status.name.toUpperCase()} · buy ${money(a.purchasePrice, currency: cur)} → '
-                        'sell ${money(a.salePrice, currency: cur)} · ${fmtDate(a.createdAt)}',
+                        '${game?.name ?? context.l10n.unknownGame} · ID ${a.idCompte}\n'
+                        '${accountStatusLabel(a.status)} · ${context.l10n.buySell(money(a.purchasePrice, currency: cur), money(a.salePrice, currency: cur))} · ${fmtDate(a.createdAt)}',
                         style: TextStyle(color: SpheraColors.muted, fontSize: 12),
                       ),
                       trailing: Icon(Icons.chevron_right),
