@@ -1,3 +1,4 @@
+import '../core/l10n.dart';
 import 'package:flutter/material.dart' show IconData, Icons;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -69,8 +70,6 @@ class Insight {
 /// A FOR SALE listing untouched for this long gets a reminder.
 const kStaleForSaleDays = 14;
 
-String _plural(int n, String word) => '$n $word${n == 1 ? '' : 's'}';
-
 /// [accounts] = live gaming accounts of non-archived games (dashboard scope).
 List<Insight> computeInsights({
   required List<Game> games,
@@ -81,19 +80,22 @@ List<Insight> computeInsights({
   required PerformanceGoals goals,
   CurrencySettings? currency,
   DateTime? now,
+  AppLocalizations? l,
 }) {
+  // Texts in [l]'s language (English when left out, as in tests).
+  final t = l ?? l10nFor('en');
   final n = now ?? DateTime.now();
   String m(double v) => money(v, currency: currency);
   String sm(double v) => signedMoney(v, currency: currency);
   final out = <Insight>[];
 
   if (accounts.isEmpty) {
-    out.add(const Insight(
+    out.add(Insight(
       id: 'empty',
       level: InsightLevel.info,
       icon: Icons.add_circle_outline,
-      title: 'Add your first gaming account',
-      body: 'Insights appear here as soon as you have accounts with prices.',
+      title: t.insEmptyTitle,
+      body: t.insEmptyBody,
       target: InsightTarget.addAccount,
     ));
   }
@@ -107,9 +109,11 @@ List<Insight> computeInsights({
       id: 'trend:${up ? 'up' : 'down'}',
       level: up ? InsightLevel.good : InsightLevel.warning,
       icon: up ? Icons.trending_up_rounded : Icons.trending_down_rounded,
-      title: up ? 'Profit is up this month' : 'Profit is down this month',
-      body: '${sm(kpis.profitThisMonth)} this month vs ${sm(kpis.profitLastMonth)} last month'
-          '${pct == null ? '' : ' (${pct >= 0 ? '+' : ''}${pct.toStringAsFixed(0)}%)'}.',
+      title: up ? t.insTrendUpTitle : t.insTrendDownTitle,
+      body: pct == null
+          ? t.insTrendBody(sm(kpis.profitThisMonth), sm(kpis.profitLastMonth))
+          : t.insTrendBodyPct(sm(kpis.profitThisMonth), sm(kpis.profitLastMonth),
+              '${pct >= 0 ? '+' : ''}${pct.toStringAsFixed(0)}'),
       target: InsightTarget.performance,
     ));
   }
@@ -133,9 +137,8 @@ List<Insight> computeInsights({
       id: 'best-game:${best.key}',
       level: InsightLevel.good,
       icon: Icons.emoji_events_outlined,
-      title: '${gameName[best.key]} is your most profitable game',
-      body: '${sm(best.value)} net, ${share.toStringAsFixed(0)}% of all profit '
-          'from ${_plural(byGame[best.key]!.length, 'account')}.',
+      title: t.insBestTitle(gameName[best.key]!),
+      body: t.insBestBody(sm(best.value), share.toStringAsFixed(0), byGame[best.key]!.length),
       target: InsightTarget.profit,
     ));
   }
@@ -147,9 +150,8 @@ List<Insight> computeInsights({
       id: 'losing-games:${losing.map((e) => e.key).join(',')}',
       level: InsightLevel.warning,
       icon: Icons.money_off_rounded,
-      title: losing.length == 1 ? '$names is losing money' : '${losing.length} games are losing money',
-      body: '${losing.length == 1 ? '' : '$names: '}${sm(total)} in total. '
-          'Check purchase prices before buying more.',
+      title: losing.length == 1 ? t.insLosingOneTitle(names) : t.insLosingManyTitle(losing.length),
+      body: losing.length == 1 ? t.insLosingOneBody(sm(total)) : t.insLosingManyBody(names, sm(total)),
       target: InsightTarget.profit,
     ));
   }
@@ -163,8 +165,8 @@ List<Insight> computeInsights({
       id: 'sold-loss:${soldLoss.length}',
       level: InsightLevel.warning,
       icon: Icons.south_east_rounded,
-      title: '${_plural(soldLoss.length, 'account')} sold at a loss',
-      body: 'Together they lost ${m(-total)}.',
+      title: t.insSoldLossTitle(soldLoss.length),
+      body: t.insSoldLossBody(m(-total)),
       target: InsightTarget.profit,
     ));
   }
@@ -179,8 +181,8 @@ List<Insight> computeInsights({
       id: 'under-cost:$underCost',
       level: InsightLevel.info,
       icon: Icons.price_change_outlined,
-      title: '${_plural(underCost, 'active account')} priced under cost',
-      body: 'Their sale price is lower than what you paid.',
+      title: t.insUnderCostTitle(underCost),
+      body: t.insUnderCostBody,
       target: InsightTarget.profit,
     ));
   }
@@ -196,8 +198,8 @@ List<Insight> computeInsights({
       id: 'margin:${margin.round()}',
       level: margin >= 0 ? InsightLevel.info : InsightLevel.warning,
       icon: Icons.percent_rounded,
-      title: 'Average margin ${margin >= 0 ? '+' : ''}${margin.toStringAsFixed(1)}%',
-      body: '${sm(avg)} per account on average, over ${_plural(priced.length, 'priced account')}.',
+      title: t.insMarginTitle('${margin >= 0 ? '+' : ''}${margin.toStringAsFixed(1)}'),
+      body: t.insMarginBody(sm(avg), priced.length),
       target: InsightTarget.profit,
     ));
   }
@@ -212,8 +214,8 @@ List<Insight> computeInsights({
       id: 'stale-forsale:$stale',
       level: InsightLevel.info,
       icon: Icons.schedule_rounded,
-      title: '${_plural(stale, 'listing')} waiting for over $kStaleForSaleDays days',
-      body: 'These FOR SALE accounts have not changed in two weeks. Update the price or the status.',
+      title: t.insStaleTitle(stale, kStaleForSaleDays),
+      body: t.insStaleBody,
       target: InsightTarget.forSale,
       reminder: true,
     ));
@@ -231,8 +233,8 @@ List<Insight> computeInsights({
       id: 'coming:$coming',
       level: InsightLevel.info,
       icon: Icons.hourglass_top_rounded,
-      title: '$coming ${coming == 1 ? 'box' : 'boxes'} marked COMING',
-      body: 'Google account boxes still waiting. Mark them DONE when they arrive.',
+      title: t.insComingTitle(coming),
+      body: t.insComingBody,
       target: InsightTarget.googleAccounts,
       reminder: true,
     ));
@@ -245,8 +247,8 @@ List<Insight> computeInsights({
       id: 'dups:$dups',
       level: InsightLevel.warning,
       icon: Icons.content_copy_outlined,
-      title: '${_plural(dups, 'possible duplicate')} found',
-      body: 'Review them in the Duplicate Scanner. Nothing is merged automatically.',
+      title: t.insDupsTitle(dups),
+      body: t.insDupsBody,
       target: InsightTarget.duplicates,
     ));
   }
@@ -255,8 +257,8 @@ List<Insight> computeInsights({
       id: 'bad-email:${health.invalidEmails}',
       level: InsightLevel.warning,
       icon: Icons.alternate_email_rounded,
-      title: _plural(health.invalidEmails, 'invalid email'),
-      body: 'Some Google accounts have an email that does not look valid.',
+      title: t.insBadEmailTitle(health.invalidEmails),
+      body: t.insBadEmailBody,
       target: InsightTarget.security,
     ));
   }
@@ -265,8 +267,8 @@ List<Insight> computeInsights({
       id: 'missing-id:${health.missingIds}',
       level: InsightLevel.info,
       icon: Icons.badge_outlined,
-      title: '${_plural(health.missingIds, 'account')} without an Account ID',
-      body: 'Add the ID so duplicates can be detected.',
+      title: t.insMissingIdTitle(health.missingIds),
+      body: t.insMissingIdBody,
       target: InsightTarget.security,
     ));
   }
@@ -274,7 +276,8 @@ List<Insight> computeInsights({
   // ---- Goals (reminder) ----
   final month = summarizePeriod(accounts, PerfPeriod.month, now: n);
   final expected = monthElapsed(n);
-  void goal(String key, String what, double current, double target, String Function(double) fmt) {
+  void goal(String key, String reachedTitle, String behindTitle, double current, double target,
+      String Function(double) fmt) {
     if (target <= 0) return;
     final g = GoalProgress(current: current, target: target, expectedFraction: expected);
     if (g.reached) {
@@ -282,8 +285,8 @@ List<Insight> computeInsights({
         id: 'goal-$key:done:${n.year}-${n.month}',
         level: InsightLevel.good,
         icon: Icons.flag_rounded,
-        title: 'Monthly $what goal reached',
-        body: '${fmt(current)} of ${fmt(target)}. Nice work.',
+        title: reachedTitle,
+        body: t.insGoalReachedBody(fmt(current), fmt(target)),
         target: InsightTarget.performance,
       ));
     } else if (!g.onTrack) {
@@ -291,17 +294,16 @@ List<Insight> computeInsights({
         id: 'goal-$key:behind:${n.year}-${n.month}',
         level: InsightLevel.info,
         icon: Icons.flag_outlined,
-        title: 'Behind on your $what goal',
-        body: '${fmt(current)} of ${fmt(target)} with '
-            '${(expected * 100).toStringAsFixed(0)}% of the month gone.',
+        title: behindTitle,
+        body: t.insGoalBehindBody(fmt(current), fmt(target), (expected * 100).toStringAsFixed(0)),
         target: InsightTarget.performance,
         reminder: true,
       ));
     }
   }
 
-  goal('profit', 'profit', month.profit, goals.monthlyProfit, m);
-  goal('accounts', 'accounts', month.added.toDouble(), goals.monthlyAccounts.toDouble(),
+  goal('profit', t.insGoalProfitReached, t.insGoalProfitBehind, month.profit, goals.monthlyProfit, m);
+  goal('accounts', t.insGoalAccountsReached, t.insGoalAccountsBehind, month.added.toDouble(), goals.monthlyAccounts.toDouble(),
       (v) => v.toStringAsFixed(0));
 
   // Warnings first, then reminders/info, then good news.
@@ -324,6 +326,7 @@ final insightsProvider = Provider<List<Insight>>((ref) => computeInsights(
       health: ref.watch(dataHealthProvider),
       goals: ref.watch(goalsProvider),
       currency: ref.watch(currencyProvider),
+      l: l10nFor(ref.watch(languageProvider)),
     ));
 
 /// Insights shown as notifications, after the user's notification settings.

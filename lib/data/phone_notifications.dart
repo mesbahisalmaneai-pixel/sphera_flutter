@@ -4,6 +4,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:timezone/data/latest_all.dart' as tzdata;
 import 'package:timezone/timezone.dart' as tz;
+import '../core/l10n.dart';
 import 'insights.dart';
 
 /// Phone (system) notifications: new alerts when you leave the app, and a
@@ -14,33 +15,40 @@ const _alertsId = 1;
 const _dailyId = 2;
 const _testId = 3;
 
-const _alertsChannel = AndroidNotificationDetails(
-  'sphera_alerts',
-  'Alerts & reminders',
-  channelDescription: 'Warnings and reminders about your accounts',
-  importance: Importance.high,
-  priority: Priority.high,
-);
-const _dailyChannel = AndroidNotificationDetails(
-  'sphera_daily',
-  'Daily summary',
-  channelDescription: 'One summary per day of your accounts and alerts',
-);
+// Channel names are shown in the phone's settings, in the app language.
+AndroidNotificationDetails _alertsChannel([StyleInformation? style]) => AndroidNotificationDetails(
+      'sphera_alerts',
+      appL10n.notifChannelAlerts,
+      channelDescription: appL10n.notifChannelAlertsDesc,
+      importance: Importance.high,
+      priority: Priority.high,
+      styleInformation: style,
+    );
+AndroidNotificationDetails _dailyChannel([StyleInformation? style]) => AndroidNotificationDetails(
+      'sphera_daily',
+      appL10n.notifChannelDaily,
+      channelDescription: appL10n.notifChannelDailyDesc,
+      styleInformation: style,
+    );
 
-/// (title, body) for a grouped "new alerts" notification.
-(String, String) alertPushText(List<Insight> alerts) {
+/// (title, body) for a grouped "new alerts" notification, in [l]'s language
+/// (the app language by default).
+(String, String) alertPushText(List<Insight> alerts, [AppLocalizations? l]) {
+  l ??= appL10n;
   if (alerts.length == 1) return (alerts.first.title, alerts.first.body);
   final titles = alerts.take(3).map((i) => i.title).join(' · ');
-  final more = alerts.length > 3 ? ' (+${alerts.length - 3} more)' : '';
-  return ('${alerts.length} things need your attention', '$titles$more');
+  final more = alerts.length > 3 ? l.notifMore(alerts.length - 3) : '';
+  return (l.notifManyTitle(alerts.length), '$titles$more');
 }
 
 /// (title, body) of the daily summary. The same text repeats every day until
 /// the app reschedules it, so it only uses values that change when you act in
 /// the app (no "today" or "this month" numbers that would go stale).
-(String, String) dailySummaryText({required int alerts, required String netProfit, required int accounts}) {
-  final head = alerts == 0 ? 'All clear' : '$alerts alert${alerts == 1 ? '' : 's'} waiting';
-  return ('SPHERA daily summary', '$head · Net profit $netProfit · $accounts account${accounts == 1 ? '' : 's'}. Tap to review.');
+(String, String) dailySummaryText(
+    {required int alerts, required String netProfit, required int accounts, AppLocalizations? l}) {
+  l ??= appL10n;
+  final head = alerts == 0 ? l.notifAllClear : l.notifAlertsWaiting(alerts);
+  return (l.notifDailyTitle, l.notifDailyBody(head, netProfit, l.accountsCount(accounts)));
 }
 
 class PhoneNotifications {
@@ -127,14 +135,7 @@ class PhoneNotifications {
         title: title,
         body: body,
         notificationDetails: NotificationDetails(
-          android: AndroidNotificationDetails(
-            _alertsChannel.channelId,
-            _alertsChannel.channelName,
-            channelDescription: _alertsChannel.channelDescription,
-            importance: _alertsChannel.importance,
-            priority: _alertsChannel.priority,
-            styleInformation: BigTextStyleInformation(body),
-          ),
+          android: _alertsChannel(BigTextStyleInformation(body)),
           iOS: const DarwinNotificationDetails(),
         ),
         payload: 'notifications',
@@ -148,9 +149,9 @@ class PhoneNotifications {
     try {
       await _plugin.show(
         id: _testId,
-        title: 'SPHERA notifications work',
-        body: 'Alerts and your daily summary will appear like this.',
-        notificationDetails: const NotificationDetails(android: _alertsChannel, iOS: DarwinNotificationDetails()),
+        title: appL10n.notifTestTitle,
+        body: appL10n.notifTestBody,
+        notificationDetails: NotificationDetails(android: _alertsChannel(), iOS: const DarwinNotificationDetails()),
         payload: 'notifications',
       );
     } catch (_) {}
@@ -170,12 +171,7 @@ class PhoneNotifications {
         title: title,
         body: body,
         notificationDetails: NotificationDetails(
-          android: AndroidNotificationDetails(
-            _dailyChannel.channelId,
-            _dailyChannel.channelName,
-            channelDescription: _dailyChannel.channelDescription,
-            styleInformation: BigTextStyleInformation(body),
-          ),
+          android: _dailyChannel(BigTextStyleInformation(body)),
           iOS: const DarwinNotificationDetails(),
         ),
         // Inexact: no exact-alarm permission needed; may arrive a few minutes late.

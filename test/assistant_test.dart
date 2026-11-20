@@ -2,6 +2,7 @@ import 'package:flutter/material.dart' show Icons;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sphera_flutter/core/l10n.dart';
 import 'package:sphera_flutter/data/assistant/app_knowledge.dart';
 import 'package:sphera_flutter/data/assistant/assistant_chat.dart';
 import 'package:sphera_flutter/data/assistant/assistant_data.dart';
@@ -143,6 +144,16 @@ void main() {
       expect(help('how do I add a goal'), contains('Set goals'));
       expect(help('how do I add a google account'), contains('Add Google Account'));
       expect(help('comment ajouter un jeu'), contains('Manage Games'));
+    });
+
+    test('the suggested questions are understood in French and Arabic', () {
+      addTearDown(() => appL10n = l10nFor('en'));
+      for (final lang in ['fr', 'ar']) {
+        appL10n = l10nFor(lang);
+        for (final q in kSuggestedQuestions) {
+          expect(answerOffline(q, d).understood, isTrue, reason: '$lang: $q');
+        }
+      }
     });
 
     test('"how many" is a data question, not help', () {

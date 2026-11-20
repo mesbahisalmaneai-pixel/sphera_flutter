@@ -1,5 +1,6 @@
 import '../database.dart' show Grade, BoxStatus;
 import '../insights.dart';
+import '../../core/l10n.dart';
 import 'app_knowledge.dart';
 import 'assistant_data.dart';
 
@@ -16,14 +17,14 @@ class AssistantReply {
 }
 
 /// Suggested questions shown on an empty chat.
-const kSuggestedQuestions = [
-  'How am I doing?',
-  'What is my profit this month?',
-  'Which game makes the most money?',
-  'How many accounts are for sale?',
-  'Any problems with my data?',
-  'How do I restore an account?',
-];
+List<String> get kSuggestedQuestions => [
+      appL10n.suggestHowAmIDoing,
+      appL10n.suggestProfitMonth,
+      appL10n.suggestBestGame,
+      appL10n.suggestForSale,
+      appL10n.suggestProblems,
+      appL10n.suggestRestore,
+    ];
 
 // ======================= Text matching =======================
 
@@ -153,7 +154,10 @@ const _best = [
   'افضل',
   'mzyan',
   'winner',
-  'biggest'
+  'biggest',
+  'le plus',
+  'rapporte',
+  'اكثر'
 ];
 const _worst = [
   'worst',
@@ -188,6 +192,7 @@ const _health = [
   'wrong',
   'probleme',
   'مشكل',
+  'مشاكل',
   'invalid',
   'mistake',
   'clean'
@@ -231,7 +236,11 @@ const _summary = [
   'doing',
   'dashboard',
   'bilan',
-  'everything'
+  'everything',
+  'je m en sors',
+  'comment ca va',
+  'حالي',
+  'وضعي'
 ];
 const _greet = [
   'hi',

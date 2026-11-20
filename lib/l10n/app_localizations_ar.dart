@@ -3879,4 +3879,295 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get ratesNoInternet =>
       'تعذّر تحديث الأسعار. تحقّق من اتصالك بالإنترنت.';
+
+  @override
+  String get insEmptyTitle => 'أضف أول حساب ألعاب لك';
+
+  @override
+  String get insEmptyBody =>
+      'تظهر التحليلات هنا بمجرد أن تكون لديك حسابات بأسعار.';
+
+  @override
+  String get insTrendUpTitle => 'الربح في ارتفاع هذا الشهر';
+
+  @override
+  String get insTrendDownTitle => 'الربح في انخفاض هذا الشهر';
+
+  @override
+  String insTrendBody(String now, String prev) {
+    return '$now هذا الشهر مقابل $prev الشهر الماضي.';
+  }
+
+  @override
+  String insTrendBodyPct(String now, String prev, String pct) {
+    return '$now هذا الشهر مقابل $prev الشهر الماضي (⁦$pct%⁩).';
+  }
+
+  @override
+  String insBestTitle(String game) {
+    return '$game هي لعبتك الأكثر ربحًا';
+  }
+
+  @override
+  String insBestBody(String amount, String share, int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count حساب',
+      many: '$count حسابًا',
+      few: '$count حسابات',
+      two: 'حسابين',
+      one: 'حساب واحد',
+    );
+    return '$amount صافٍ، $share% من كل الربح من $_temp0.';
+  }
+
+  @override
+  String insLosingOneTitle(String name) {
+    return '$name تخسر المال';
+  }
+
+  @override
+  String insLosingManyTitle(int count) {
+    return '$count ألعاب تخسر المال';
+  }
+
+  @override
+  String insLosingOneBody(String amount) {
+    return '$amount إجمالًا. راجع أسعار الشراء قبل شراء المزيد.';
+  }
+
+  @override
+  String insLosingManyBody(String names, String amount) {
+    return '$names: $amount إجمالًا. راجع أسعار الشراء قبل شراء المزيد.';
+  }
+
+  @override
+  String insSoldLossTitle(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count حساب بيع بخسارة',
+      many: '$count حسابًا بيع بخسارة',
+      few: '$count حسابات بيعت بخسارة',
+      two: 'حسابان بيعا بخسارة',
+      one: 'حساب واحد بيع بخسارة',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String insSoldLossBody(String amount) {
+    return 'خسرت معًا $amount.';
+  }
+
+  @override
+  String insUnderCostTitle(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count حساب نشط بسعر أقل من التكلفة',
+      many: '$count حسابًا نشطًا بسعر أقل من التكلفة',
+      few: '$count حسابات نشطة بسعر أقل من التكلفة',
+      two: 'حسابان نشطان بسعر أقل من التكلفة',
+      one: 'حساب نشط واحد بسعر أقل من التكلفة',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get insUnderCostBody => 'سعر بيعها أقل مما دفعته.';
+
+  @override
+  String insMarginTitle(String pct) {
+    return 'متوسط الهامش ⁦$pct%⁩';
+  }
+
+  @override
+  String insMarginBody(String amount, int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count حساب مسعّر',
+      many: '$count حسابًا مسعّرًا',
+      few: '$count حسابات مسعّرة',
+      two: 'حسابين مسعّرين',
+      one: 'حساب واحد مسعّر',
+    );
+    return '$amount لكل حساب في المتوسط، على $_temp0.';
+  }
+
+  @override
+  String insStaleTitle(int count, int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count عرضًا ينتظر منذ أكثر من $days يومًا',
+      few: '$count عروض تنتظر منذ أكثر من $days يومًا',
+      two: 'عرضان ينتظران منذ أكثر من $days يومًا',
+      one: 'عرض واحد ينتظر منذ أكثر من $days يومًا',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get insStaleBody =>
+      'هذه الحسابات المعروضة للبيع لم تتغير منذ أسبوعين. حدّث السعر أو الحالة.';
+
+  @override
+  String insComingTitle(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count صندوقًا معلّمًا «قريبًا»',
+      few: '$count صناديق معلّمة «قريبًا»',
+      two: 'صندوقان معلّمان «قريبًا»',
+      one: 'صندوق واحد معلّم «قريبًا»',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get insComingBody =>
+      'صناديق حسابات Google لا تزال تنتظر. علّمها «تم» عند وصولها.';
+
+  @override
+  String insDupsTitle(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'عُثر على $count تكرارًا محتملًا',
+      few: 'عُثر على $count تكرارات محتملة',
+      two: 'عُثر على تكرارين محتملين',
+      one: 'عُثر على تكرار محتمل واحد',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get insDupsBody => 'راجعها في كاشف التكرار. لا يُدمج شيء تلقائيًا.';
+
+  @override
+  String insBadEmailTitle(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count عنوان بريد غير صالح',
+      few: '$count عناوين بريد غير صالحة',
+      two: 'بريدان غير صالحين',
+      one: 'بريد واحد غير صالح',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get insBadEmailBody => 'بعض حسابات Google لها بريد لا يبدو صالحًا.';
+
+  @override
+  String insMissingIdTitle(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count حسابًا بدون معرّف',
+      few: '$count حسابات بدون معرّف',
+      two: 'حسابان بدون معرّف',
+      one: 'حساب واحد بدون معرّف',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get insMissingIdBody => 'أضف المعرّف حتى يمكن اكتشاف التكرار.';
+
+  @override
+  String get insGoalProfitReached => 'تحقق هدف الربح الشهري';
+
+  @override
+  String get insGoalAccountsReached => 'تحقق هدف الحسابات الشهري';
+
+  @override
+  String insGoalReachedBody(String current, String target) {
+    return '$current من $target. عمل رائع.';
+  }
+
+  @override
+  String get insGoalProfitBehind => 'متأخر عن هدف الربح';
+
+  @override
+  String get insGoalAccountsBehind => 'متأخر عن هدف الحسابات';
+
+  @override
+  String insGoalBehindBody(String current, String target, String pct) {
+    return '$current من $target وقد مضى ⁦$pct%⁩ من الشهر.';
+  }
+
+  @override
+  String get notifChannelAlerts => 'التنبيهات والتذكيرات';
+
+  @override
+  String get notifChannelAlertsDesc => 'تحذيرات وتذكيرات حول حساباتك';
+
+  @override
+  String get notifChannelDaily => 'الملخص اليومي';
+
+  @override
+  String get notifChannelDailyDesc => 'ملخص يومي واحد لحساباتك وتنبيهاتك';
+
+  @override
+  String notifManyTitle(int count) {
+    return '$count أمور تحتاج انتباهك';
+  }
+
+  @override
+  String notifMore(int count) {
+    return ' (+$count أخرى)';
+  }
+
+  @override
+  String get notifAllClear => 'لا شيء يستدعي الانتباه';
+
+  @override
+  String notifAlertsWaiting(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count تنبيهًا في الانتظار',
+      few: '$count تنبيهات في الانتظار',
+      two: 'تنبيهان في الانتظار',
+      one: 'تنبيه واحد في الانتظار',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get notifDailyTitle => 'ملخص SPHERA اليومي';
+
+  @override
+  String notifDailyBody(String head, String profit, String accounts) {
+    return '$head · صافي الربح $profit · $accounts. اضغط للمراجعة.';
+  }
+
+  @override
+  String get notifTestTitle => 'إشعارات SPHERA تعمل';
+
+  @override
+  String get notifTestBody => 'ستظهر التنبيهات وملخصك اليومي بهذا الشكل.';
+
+  @override
+  String get suggestHowAmIDoing => 'كيف حالي؟';
+
+  @override
+  String get suggestProfitMonth => 'كم ربحي هذا الشهر؟';
+
+  @override
+  String get suggestBestGame => 'أي لعبة تربح أكثر؟';
+
+  @override
+  String get suggestForSale => 'كم حسابًا معروضًا للبيع؟';
+
+  @override
+  String get suggestProblems => 'هل توجد مشاكل في بياناتي؟';
+
+  @override
+  String get suggestRestore => 'كيف أستعيد حسابًا؟';
 }

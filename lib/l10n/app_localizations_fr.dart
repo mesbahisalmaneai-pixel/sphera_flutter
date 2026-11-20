@@ -3875,4 +3875,277 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get ratesNoInternet =>
       'Impossible de mettre à jour les taux. Vérifiez votre connexion internet.';
+
+  @override
+  String get insEmptyTitle => 'Ajoutez votre premier compte de jeu';
+
+  @override
+  String get insEmptyBody =>
+      'Les analyses apparaissent ici dès que vous avez des comptes avec des prix.';
+
+  @override
+  String get insTrendUpTitle => 'Le bénéfice est en hausse ce mois-ci';
+
+  @override
+  String get insTrendDownTitle => 'Le bénéfice est en baisse ce mois-ci';
+
+  @override
+  String insTrendBody(String now, String prev) {
+    return '$now ce mois-ci contre $prev le mois dernier.';
+  }
+
+  @override
+  String insTrendBodyPct(String now, String prev, String pct) {
+    return '$now ce mois-ci contre $prev le mois dernier ($pct %).';
+  }
+
+  @override
+  String insBestTitle(String game) {
+    return '$game est votre jeu le plus rentable';
+  }
+
+  @override
+  String insBestBody(String amount, String share, int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count comptes',
+      one: '1 compte',
+    );
+    return '$amount net, $share % du bénéfice total sur $_temp0.';
+  }
+
+  @override
+  String insLosingOneTitle(String name) {
+    return '$name perd de l\'argent';
+  }
+
+  @override
+  String insLosingManyTitle(int count) {
+    return '$count jeux perdent de l\'argent';
+  }
+
+  @override
+  String insLosingOneBody(String amount) {
+    return '$amount au total. Vérifiez les prix d\'achat avant d\'acheter davantage.';
+  }
+
+  @override
+  String insLosingManyBody(String names, String amount) {
+    return '$names : $amount au total. Vérifiez les prix d\'achat avant d\'acheter davantage.';
+  }
+
+  @override
+  String insSoldLossTitle(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count comptes vendus à perte',
+      one: '1 compte vendu à perte',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String insSoldLossBody(String amount) {
+    return 'Ensemble, ils ont perdu $amount.';
+  }
+
+  @override
+  String insUnderCostTitle(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count comptes actifs vendus sous leur coût',
+      one: '1 compte actif vendu sous son coût',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get insUnderCostBody =>
+      'Leur prix de vente est inférieur à ce que vous avez payé.';
+
+  @override
+  String insMarginTitle(String pct) {
+    return 'Marge moyenne $pct %';
+  }
+
+  @override
+  String insMarginBody(String amount, int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count comptes avec prix',
+      one: '1 compte avec prix',
+    );
+    return '$amount par compte en moyenne, sur $_temp0.';
+  }
+
+  @override
+  String insStaleTitle(int count, int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count annonces en attente depuis plus de $days jours',
+      one: '1 annonce en attente depuis plus de $days jours',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get insStaleBody =>
+      'Ces comptes À VENDRE n\'ont pas changé depuis deux semaines. Mettez à jour le prix ou le statut.';
+
+  @override
+  String insComingTitle(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count boîtes marquées BIENTÔT',
+      one: '1 boîte marquée BIENTÔT',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get insComingBody =>
+      'Des boîtes de comptes Google sont encore en attente. Marquez-les FAIT à leur arrivée.';
+
+  @override
+  String insDupsTitle(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count doublons possibles trouvés',
+      one: '1 doublon possible trouvé',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get insDupsBody =>
+      'Vérifiez-les dans le détecteur de doublons. Rien n\'est fusionné automatiquement.';
+
+  @override
+  String insBadEmailTitle(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count e-mails invalides',
+      one: '1 e-mail invalide',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get insBadEmailBody =>
+      'Certains comptes Google ont un e-mail qui ne semble pas valide.';
+
+  @override
+  String insMissingIdTitle(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count comptes sans ID compte',
+      one: '1 compte sans ID compte',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get insMissingIdBody =>
+      'Ajoutez l\'ID pour que les doublons puissent être détectés.';
+
+  @override
+  String get insGoalProfitReached => 'Objectif mensuel de bénéfice atteint';
+
+  @override
+  String get insGoalAccountsReached => 'Objectif mensuel de comptes atteint';
+
+  @override
+  String insGoalReachedBody(String current, String target) {
+    return '$current sur $target. Bravo.';
+  }
+
+  @override
+  String get insGoalProfitBehind => 'En retard sur votre objectif de bénéfice';
+
+  @override
+  String get insGoalAccountsBehind => 'En retard sur votre objectif de comptes';
+
+  @override
+  String insGoalBehindBody(String current, String target, String pct) {
+    return '$current sur $target alors que $pct % du mois est passé.';
+  }
+
+  @override
+  String get notifChannelAlerts => 'Alertes et rappels';
+
+  @override
+  String get notifChannelAlertsDesc => 'Alertes et rappels sur vos comptes';
+
+  @override
+  String get notifChannelDaily => 'Résumé quotidien';
+
+  @override
+  String get notifChannelDailyDesc =>
+      'Un résumé par jour de vos comptes et alertes';
+
+  @override
+  String notifManyTitle(int count) {
+    return '$count éléments demandent votre attention';
+  }
+
+  @override
+  String notifMore(int count) {
+    return ' (+$count autres)';
+  }
+
+  @override
+  String get notifAllClear => 'Tout est en ordre';
+
+  @override
+  String notifAlertsWaiting(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count alertes en attente',
+      one: '1 alerte en attente',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get notifDailyTitle => 'Résumé quotidien SPHERA';
+
+  @override
+  String notifDailyBody(String head, String profit, String accounts) {
+    return '$head · Bénéfice net $profit · $accounts. Touchez pour voir.';
+  }
+
+  @override
+  String get notifTestTitle => 'Les notifications SPHERA fonctionnent';
+
+  @override
+  String get notifTestBody =>
+      'Les alertes et votre résumé quotidien apparaîtront ainsi.';
+
+  @override
+  String get suggestHowAmIDoing => 'Comment je m\'en sors ?';
+
+  @override
+  String get suggestProfitMonth => 'Quel est mon bénéfice ce mois-ci ?';
+
+  @override
+  String get suggestBestGame => 'Quel jeu rapporte le plus ?';
+
+  @override
+  String get suggestForSale => 'Combien de comptes sont à vendre ?';
+
+  @override
+  String get suggestProblems => 'Y a-t-il des problèmes dans mes données ?';
+
+  @override
+  String get suggestRestore => 'Comment restaurer un compte ?';
 }

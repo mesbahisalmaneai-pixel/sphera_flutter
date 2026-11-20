@@ -306,7 +306,11 @@ const kHelpTopics = <HelpTopic>[
       'restaurer',
       'undo',
       'recover',
-      'deleted'
+      'deleted',
+      'استعيد',
+      'استعاده',
+      'المهملات',
+      'محذوف'
     ],
     answer:
         'Deleting moves an account to the Trash (you can tap Undo right away). Trashed accounts are excluded from '

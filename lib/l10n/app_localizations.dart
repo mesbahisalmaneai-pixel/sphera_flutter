@@ -6459,6 +6459,318 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Could not update rates. Check your internet connection.'**
   String get ratesNoInternet;
+
+  /// No description provided for @insEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add your first gaming account'**
+  String get insEmptyTitle;
+
+  /// No description provided for @insEmptyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Insights appear here as soon as you have accounts with prices.'**
+  String get insEmptyBody;
+
+  /// No description provided for @insTrendUpTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Profit is up this month'**
+  String get insTrendUpTitle;
+
+  /// No description provided for @insTrendDownTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Profit is down this month'**
+  String get insTrendDownTitle;
+
+  /// No description provided for @insTrendBody.
+  ///
+  /// In en, this message translates to:
+  /// **'{now} this month vs {prev} last month.'**
+  String insTrendBody(String now, String prev);
+
+  /// No description provided for @insTrendBodyPct.
+  ///
+  /// In en, this message translates to:
+  /// **'{now} this month vs {prev} last month ({pct}%).'**
+  String insTrendBodyPct(String now, String prev, String pct);
+
+  /// No description provided for @insBestTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'{game} is your most profitable game'**
+  String insBestTitle(String game);
+
+  /// No description provided for @insBestBody.
+  ///
+  /// In en, this message translates to:
+  /// **'{amount} net, {share}% of all profit from {count, plural, =1{1 account} other{{count} accounts}}.'**
+  String insBestBody(String amount, String share, int count);
+
+  /// No description provided for @insLosingOneTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} is losing money'**
+  String insLosingOneTitle(String name);
+
+  /// No description provided for @insLosingManyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} games are losing money'**
+  String insLosingManyTitle(int count);
+
+  /// No description provided for @insLosingOneBody.
+  ///
+  /// In en, this message translates to:
+  /// **'{amount} in total. Check purchase prices before buying more.'**
+  String insLosingOneBody(String amount);
+
+  /// No description provided for @insLosingManyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'{names}: {amount} in total. Check purchase prices before buying more.'**
+  String insLosingManyBody(String names, String amount);
+
+  /// No description provided for @insSoldLossTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 account sold at a loss} other{{count} accounts sold at a loss}}'**
+  String insSoldLossTitle(int count);
+
+  /// No description provided for @insSoldLossBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Together they lost {amount}.'**
+  String insSoldLossBody(String amount);
+
+  /// No description provided for @insUnderCostTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 active account priced under cost} other{{count} active accounts priced under cost}}'**
+  String insUnderCostTitle(int count);
+
+  /// No description provided for @insUnderCostBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Their sale price is lower than what you paid.'**
+  String get insUnderCostBody;
+
+  /// No description provided for @insMarginTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Average margin {pct}%'**
+  String insMarginTitle(String pct);
+
+  /// No description provided for @insMarginBody.
+  ///
+  /// In en, this message translates to:
+  /// **'{amount} per account on average, over {count, plural, =1{1 priced account} other{{count} priced accounts}}.'**
+  String insMarginBody(String amount, int count);
+
+  /// No description provided for @insStaleTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 listing waiting for over {days} days} other{{count} listings waiting for over {days} days}}'**
+  String insStaleTitle(int count, int days);
+
+  /// No description provided for @insStaleBody.
+  ///
+  /// In en, this message translates to:
+  /// **'These FOR SALE accounts have not changed in two weeks. Update the price or the status.'**
+  String get insStaleBody;
+
+  /// No description provided for @insComingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 box marked COMING} other{{count} boxes marked COMING}}'**
+  String insComingTitle(int count);
+
+  /// No description provided for @insComingBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Google account boxes still waiting. Mark them DONE when they arrive.'**
+  String get insComingBody;
+
+  /// No description provided for @insDupsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 possible duplicate found} other{{count} possible duplicates found}}'**
+  String insDupsTitle(int count);
+
+  /// No description provided for @insDupsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Review them in the Duplicate Scanner. Nothing is merged automatically.'**
+  String get insDupsBody;
+
+  /// No description provided for @insBadEmailTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 invalid email} other{{count} invalid emails}}'**
+  String insBadEmailTitle(int count);
+
+  /// No description provided for @insBadEmailBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Some Google accounts have an email that does not look valid.'**
+  String get insBadEmailBody;
+
+  /// No description provided for @insMissingIdTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 account without an Account ID} other{{count} accounts without an Account ID}}'**
+  String insMissingIdTitle(int count);
+
+  /// No description provided for @insMissingIdBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Add the ID so duplicates can be detected.'**
+  String get insMissingIdBody;
+
+  /// No description provided for @insGoalProfitReached.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly profit goal reached'**
+  String get insGoalProfitReached;
+
+  /// No description provided for @insGoalAccountsReached.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly accounts goal reached'**
+  String get insGoalAccountsReached;
+
+  /// No description provided for @insGoalReachedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'{current} of {target}. Nice work.'**
+  String insGoalReachedBody(String current, String target);
+
+  /// No description provided for @insGoalProfitBehind.
+  ///
+  /// In en, this message translates to:
+  /// **'Behind on your profit goal'**
+  String get insGoalProfitBehind;
+
+  /// No description provided for @insGoalAccountsBehind.
+  ///
+  /// In en, this message translates to:
+  /// **'Behind on your accounts goal'**
+  String get insGoalAccountsBehind;
+
+  /// No description provided for @insGoalBehindBody.
+  ///
+  /// In en, this message translates to:
+  /// **'{current} of {target} with {pct}% of the month gone.'**
+  String insGoalBehindBody(String current, String target, String pct);
+
+  /// No description provided for @notifChannelAlerts.
+  ///
+  /// In en, this message translates to:
+  /// **'Alerts & reminders'**
+  String get notifChannelAlerts;
+
+  /// No description provided for @notifChannelAlertsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Warnings and reminders about your accounts'**
+  String get notifChannelAlertsDesc;
+
+  /// No description provided for @notifChannelDaily.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily summary'**
+  String get notifChannelDaily;
+
+  /// No description provided for @notifChannelDailyDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'One summary per day of your accounts and alerts'**
+  String get notifChannelDailyDesc;
+
+  /// No description provided for @notifManyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} things need your attention'**
+  String notifManyTitle(int count);
+
+  /// No description provided for @notifMore.
+  ///
+  /// In en, this message translates to:
+  /// **' (+{count} more)'**
+  String notifMore(int count);
+
+  /// No description provided for @notifAllClear.
+  ///
+  /// In en, this message translates to:
+  /// **'All clear'**
+  String get notifAllClear;
+
+  /// No description provided for @notifAlertsWaiting.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 alert waiting} other{{count} alerts waiting}}'**
+  String notifAlertsWaiting(int count);
+
+  /// No description provided for @notifDailyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'SPHERA daily summary'**
+  String get notifDailyTitle;
+
+  /// No description provided for @notifDailyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'{head} · Net profit {profit} · {accounts}. Tap to review.'**
+  String notifDailyBody(String head, String profit, String accounts);
+
+  /// No description provided for @notifTestTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'SPHERA notifications work'**
+  String get notifTestTitle;
+
+  /// No description provided for @notifTestBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Alerts and your daily summary will appear like this.'**
+  String get notifTestBody;
+
+  /// No description provided for @suggestHowAmIDoing.
+  ///
+  /// In en, this message translates to:
+  /// **'How am I doing?'**
+  String get suggestHowAmIDoing;
+
+  /// No description provided for @suggestProfitMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'What is my profit this month?'**
+  String get suggestProfitMonth;
+
+  /// No description provided for @suggestBestGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Which game makes the most money?'**
+  String get suggestBestGame;
+
+  /// No description provided for @suggestForSale.
+  ///
+  /// In en, this message translates to:
+  /// **'How many accounts are for sale?'**
+  String get suggestForSale;
+
+  /// No description provided for @suggestProblems.
+  ///
+  /// In en, this message translates to:
+  /// **'Any problems with my data?'**
+  String get suggestProblems;
+
+  /// No description provided for @suggestRestore.
+  ///
+  /// In en, this message translates to:
+  /// **'How do I restore an account?'**
+  String get suggestRestore;
 }
 
 class _AppLocalizationsDelegate

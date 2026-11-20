@@ -2789,5 +2789,264 @@
     }
   },
   "ratesUnavailable": "Rates are not available right now.",
-  "ratesNoInternet": "Could not update rates. Check your internet connection."
+  "ratesNoInternet": "Could not update rates. Check your internet connection.",
+  "insEmptyTitle": "Add your first gaming account",
+  "insEmptyBody": "Insights appear here as soon as you have accounts with prices.",
+  "insTrendUpTitle": "Profit is up this month",
+  "insTrendDownTitle": "Profit is down this month",
+  "insTrendBody": "{now} this month vs {prev} last month.",
+  "@insTrendBody": {
+    "placeholders": {
+      "now": {
+        "type": "String"
+      },
+      "prev": {
+        "type": "String"
+      }
+    }
+  },
+  "insTrendBodyPct": "{now} this month vs {prev} last month ({pct}%).",
+  "@insTrendBodyPct": {
+    "placeholders": {
+      "now": {
+        "type": "String"
+      },
+      "prev": {
+        "type": "String"
+      },
+      "pct": {
+        "type": "String"
+      }
+    }
+  },
+  "insBestTitle": "{game} is your most profitable game",
+  "@insBestTitle": {
+    "placeholders": {
+      "game": {
+        "type": "String"
+      }
+    }
+  },
+  "insBestBody": "{amount} net, {share}% of all profit from {count, plural, =1{1 account} other{{count} accounts}}.",
+  "@insBestBody": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      },
+      "share": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "insLosingOneTitle": "{name} is losing money",
+  "@insLosingOneTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "insLosingManyTitle": "{count} games are losing money",
+  "@insLosingManyTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "insLosingOneBody": "{amount} in total. Check purchase prices before buying more.",
+  "@insLosingOneBody": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "insLosingManyBody": "{names}: {amount} in total. Check purchase prices before buying more.",
+  "@insLosingManyBody": {
+    "placeholders": {
+      "names": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "insSoldLossTitle": "{count, plural, =1{1 account sold at a loss} other{{count} accounts sold at a loss}}",
+  "@insSoldLossTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "insSoldLossBody": "Together they lost {amount}.",
+  "@insSoldLossBody": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "insUnderCostTitle": "{count, plural, =1{1 active account priced under cost} other{{count} active accounts priced under cost}}",
+  "@insUnderCostTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "insUnderCostBody": "Their sale price is lower than what you paid.",
+  "insMarginTitle": "Average margin {pct}%",
+  "@insMarginTitle": {
+    "placeholders": {
+      "pct": {
+        "type": "String"
+      }
+    }
+  },
+  "insMarginBody": "{amount} per account on average, over {count, plural, =1{1 priced account} other{{count} priced accounts}}.",
+  "@insMarginBody": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "insStaleTitle": "{count, plural, =1{1 listing waiting for over {days} days} other{{count} listings waiting for over {days} days}}",
+  "@insStaleTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "insStaleBody": "These FOR SALE accounts have not changed in two weeks. Update the price or the status.",
+  "insComingTitle": "{count, plural, =1{1 box marked COMING} other{{count} boxes marked COMING}}",
+  "@insComingTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "insComingBody": "Google account boxes still waiting. Mark them DONE when they arrive.",
+  "insDupsTitle": "{count, plural, =1{1 possible duplicate found} other{{count} possible duplicates found}}",
+  "@insDupsTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "insDupsBody": "Review them in the Duplicate Scanner. Nothing is merged automatically.",
+  "insBadEmailTitle": "{count, plural, =1{1 invalid email} other{{count} invalid emails}}",
+  "@insBadEmailTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "insBadEmailBody": "Some Google accounts have an email that does not look valid.",
+  "insMissingIdTitle": "{count, plural, =1{1 account without an Account ID} other{{count} accounts without an Account ID}}",
+  "@insMissingIdTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "insMissingIdBody": "Add the ID so duplicates can be detected.",
+  "insGoalProfitReached": "Monthly profit goal reached",
+  "insGoalAccountsReached": "Monthly accounts goal reached",
+  "insGoalReachedBody": "{current} of {target}. Nice work.",
+  "@insGoalReachedBody": {
+    "placeholders": {
+      "current": {
+        "type": "String"
+      },
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "insGoalProfitBehind": "Behind on your profit goal",
+  "insGoalAccountsBehind": "Behind on your accounts goal",
+  "insGoalBehindBody": "{current} of {target} with {pct}% of the month gone.",
+  "@insGoalBehindBody": {
+    "placeholders": {
+      "current": {
+        "type": "String"
+      },
+      "target": {
+        "type": "String"
+      },
+      "pct": {
+        "type": "String"
+      }
+    }
+  },
+  "notifChannelAlerts": "Alerts & reminders",
+  "notifChannelAlertsDesc": "Warnings and reminders about your accounts",
+  "notifChannelDaily": "Daily summary",
+  "notifChannelDailyDesc": "One summary per day of your accounts and alerts",
+  "notifManyTitle": "{count} things need your attention",
+  "@notifManyTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "notifMore": " (+{count} more)",
+  "@notifMore": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "notifAllClear": "All clear",
+  "notifAlertsWaiting": "{count, plural, =1{1 alert waiting} other{{count} alerts waiting}}",
+  "@notifAlertsWaiting": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "notifDailyTitle": "SPHERA daily summary",
+  "notifDailyBody": "{head} · Net profit {profit} · {accounts}. Tap to review.",
+  "@notifDailyBody": {
+    "placeholders": {
+      "head": {
+        "type": "String"
+      },
+      "profit": {
+        "type": "String"
+      },
+      "accounts": {
+        "type": "String"
+      }
+    }
+  },
+  "notifTestTitle": "SPHERA notifications work",
+  "notifTestBody": "Alerts and your daily summary will appear like this.",
+  "suggestHowAmIDoing": "How am I doing?",
+  "suggestProfitMonth": "What is my profit this month?",
+  "suggestBestGame": "Which game makes the most money?",
+  "suggestForSale": "How many accounts are for sale?",
+  "suggestProblems": "Any problems with my data?",
+  "suggestRestore": "How do I restore an account?"
 }
