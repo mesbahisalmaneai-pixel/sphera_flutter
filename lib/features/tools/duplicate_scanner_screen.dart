@@ -42,7 +42,7 @@ class DuplicateScannerScreen extends ConsumerWidget {
               Row(children: [
                 Icon(Icons.content_copy_outlined, color: SpheraColors.gold),
                 SizedBox(width: 10),
-                Text(context.l10n.howMatchingWorks, style: TextStyle(fontWeight: FontWeight.w600)),
+                Expanded(child: Text(context.l10n.howMatchingWorks, style: TextStyle(fontWeight: FontWeight.w600))),
               ]),
               SizedBox(height: 8),
               Text(
@@ -167,7 +167,8 @@ class DuplicateScannerScreen extends ConsumerWidget {
                 style: TextStyle(color: SpheraColors.muted, fontSize: 12),
               ),
             ),
-          Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+          // Wraps onto two lines when the labels are long (French, large text).
+          Wrap(alignment: WrapAlignment.end, children: [
             if (game != null)
               TextButton(
                 onPressed: () => Navigator.of(context)
