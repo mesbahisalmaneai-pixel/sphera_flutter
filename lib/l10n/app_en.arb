@@ -2035,5 +2035,218 @@
       }
     }
   },
-  "arenaLogReset": "All results were reset by the organizer"
+  "arenaLogReset": "All results were reset by the organizer",
+  "create": "Create",
+  "noTournamentsYet": "No tournaments yet",
+  "createFirstTournament": "Create your first league, groups or knockout competition.",
+  "tournamentsOnDevice": "{count, plural, =1{1 tournament on this device} other{{count} tournaments on this device}}",
+  "@tournamentsOnDevice": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "participantsCount": "{count, plural, =1{1 participant} other{{count} participants}}",
+  "@participantsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "champion": "Champion: {name}",
+  "@champion": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "roundsConfirmed": "{done} / {total} rounds confirmed",
+  "@roundsConfirmed": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "matchesConfirmed": "{done} / {total} matches confirmed",
+  "@matchesConfirmed": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "confirm": "Confirm",
+  "renamePlayer": "Rename player",
+  "nameUpdated": "Name updated.",
+  "swapTeams": "Swap Teams",
+  "swapPlayers": "Swap Players",
+  "teamA": "Team A",
+  "teamB": "Team B",
+  "playerA": "Player A",
+  "playerB": "Player B",
+  "swap": "Swap",
+  "swapQuestion": "Swap {a} and {b}?",
+  "@swapQuestion": {
+    "placeholders": {
+      "a": {
+        "type": "String"
+      },
+      "b": {
+        "type": "String"
+      }
+    }
+  },
+  "swapTeamsBody": "{a} takes the place of {b} in the draw, and the other way round. Each team keeps its own players.",
+  "@swapTeamsBody": {
+    "placeholders": {
+      "a": {
+        "type": "String"
+      },
+      "b": {
+        "type": "String"
+      }
+    }
+  },
+  "swapSoloBody": "{a} takes the place of {b} in the draw, and the other way round.",
+  "@swapSoloBody": {
+    "placeholders": {
+      "a": {
+        "type": "String"
+      },
+      "b": {
+        "type": "String"
+      }
+    }
+  },
+  "swapped": "{a} and {b} swapped.",
+  "@swapped": {
+    "placeholders": {
+      "a": {
+        "type": "String"
+      },
+      "b": {
+        "type": "String"
+      }
+    }
+  },
+  "addPlayersFirst": "Add player names to at least two spots first.",
+  "swapPlayersBody": "{a} ({ta}) and {b} ({tb}) exchange teams. Team sizes do not change.",
+  "@swapPlayersBody": {
+    "placeholders": {
+      "a": {
+        "type": "String"
+      },
+      "ta": {
+        "type": "String"
+      },
+      "b": {
+        "type": "String"
+      },
+      "tb": {
+        "type": "String"
+      }
+    }
+  },
+  "teamsAndPlayers": "Teams and players",
+  "tournamentGone": "This tournament no longer exists.",
+  "players": "Players",
+  "searchTeamsOrPlayers": "Search teams or players",
+  "searchPlayers": "Search players",
+  "teamsAndPlayersCount": "{teams} teams · {players} players",
+  "@teamsAndPlayersCount": {
+    "placeholders": {
+      "teams": {
+        "type": "int"
+      },
+      "players": {
+        "type": "int"
+      }
+    }
+  },
+  "playersCount": "{count, plural, =1{1 player} other{{count} players}}",
+  "@playersCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "playedTeamsLocked": "Played teams are locked",
+  "nothingFound": "Nothing found.",
+  "playersOfMax": "{count} / {max} players",
+  "@playersOfMax": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "noPlayerNamesTap": "No player names yet. Tap to add them.",
+  "teamNotFound": "Team not found.",
+  "renameTeam": "Rename team",
+  "teamName": "Team name",
+  "teamRenamed": "Team renamed.",
+  "addPlayer": "Add player",
+  "playerName": "Player name",
+  "nameAdded": "{name} added.",
+  "@nameAdded": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "playerRenamed": "Player renamed.",
+  "removeNameQ": "Remove {name}?",
+  "@removeNameQ": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "leavesTeam": "{name} leaves {team}.",
+  "@leavesTeam": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "team": {
+        "type": "String"
+      }
+    }
+  },
+  "nameRemoved": "{name} removed.",
+  "@nameRemoved": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "fixedTeamSizeNote": "Teams in {mode} always have exactly {size} players. Use Swap Players to exchange members.",
+  "@fixedTeamSizeNote": {
+    "placeholders": {
+      "mode": {
+        "type": "String"
+      },
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "noPlayerNamesYet": "No player names yet."
 }

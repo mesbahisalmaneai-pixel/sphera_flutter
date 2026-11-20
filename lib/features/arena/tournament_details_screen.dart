@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../core/l10n.dart';
 import '../../core/theme.dart';
 import '../../data/arena/arena_engine.dart';
 import '../../data/arena/arena_models.dart';

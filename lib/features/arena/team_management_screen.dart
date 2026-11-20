@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
 
+import '../../core/l10n.dart';
 import '../../core/theme.dart';
 import '../../data/arena/arena_engine.dart';
 import '../../data/arena/arena_models.dart';
@@ -32,31 +33,31 @@ Future<bool> _change(
   return ok;
 }
 
-Future<String?> _prompt(BuildContext context, {required String title, String initial = '', String label = 'Name'}) async {
+Future<String?> _prompt(BuildContext context, {required String title, String initial = '', String? label}) async {
   final c = TextEditingController(text: initial);
   final r = await showDialog<String>(
     context: context,
     builder: (ctx) => AlertDialog(
       title: Text(title),
-      content: TextField(controller: c, autofocus: true, decoration: InputDecoration(labelText: label)),
+      content: TextField(controller: c, autofocus: true, decoration: InputDecoration(labelText: label ?? context.l10n.name)),
       actions: [
-        TextButton(onPressed: () => Navigator.pop(ctx), child: const Text('Cancel')),
-        FilledButton(onPressed: () => Navigator.pop(ctx, c.text.trim()), child: const Text('Save')),
+        TextButton(onPressed: () => Navigator.pop(ctx), child: Text(context.l10n.cancel)),
+        FilledButton(onPressed: () => Navigator.pop(ctx, c.text.trim()), child: Text(context.l10n.save)),
       ],
     ),
   );
   return (r == null || r.isEmpty) ? null : r;
 }
 
-Future<bool> _confirm(BuildContext context, String title, String body, {String action = 'Confirm'}) async {
+Future<bool> _confirm(BuildContext context, String title, String body, {String? action}) async {
   final r = await showDialog<bool>(
     context: context,
     builder: (ctx) => AlertDialog(
       title: Text(title),
       content: Text(body),
       actions: [
-        TextButton(onPressed: () => Navigator.pop(ctx, false), child: const Text('Cancel')),
-        FilledButton(onPressed: () => Navigator.pop(ctx, true), child: Text(action)),
+        TextButton(onPressed: () => Navigator.pop(ctx, false), child: Text(context.l10n.cancel)),
+        FilledButton(onPressed: () => Navigator.pop(ctx, true), child: Text(action ?? context.l10n.confirm)),
       ],
     ),
   );
@@ -86,9 +87,9 @@ class _TeamManagementScreenState extends ConsumerState<TeamManagementScreen> {
       );
       return;
     }
-    final name = await _prompt(context, title: 'Rename player', initial: p.name);
+    final name = await _prompt(context, title: context.l10n.renamePlayer, initial: p.name);
     if (name == null || !mounted) return;
-    await _change(context, ref, t.id, (cur) => ArenaEngine.renameParticipant(cur, p.id, name), 'Name updated.');
+    await _change(context, ref, t.id, (cur) => ArenaEngine.renameParticipant(cur, p.id, name), context.l10n.nameUpdated);
   }
 
   Future<ArenaDropdownPair?> _pick(
@@ -123,7 +124,7 @@ class _TeamManagementScreenState extends ConsumerState<TeamManagementScreen> {
             ),
           ]),
           actions: [
-            TextButton(onPressed: () => Navigator.pop(ctx), child: const Text('Cancel')),
+            TextButton(onPressed: () => Navigator.pop(ctx), child: Text(context.l10n.cancel)),
             FilledButton(
               onPressed: a != null && b != null && a != b ? () => Navigator.pop(ctx, ArenaDropdownPair(a!, b!)) : null,
               child: Text(action),
@@ -140,20 +141,22 @@ class _TeamManagementScreenState extends ConsumerState<TeamManagementScreen> {
       for (final p in t.participants)
         DropdownMenuItem(value: p.id, child: Text(p.name, overflow: TextOverflow.ellipsis)),
     ];
-    final pair = await _pick('Swap ${noun}s', '$noun A', '$noun B', items, 'Swap');
+    final l = context.l10n;
+    final teams = noun == 'Team';
+    final pair = await _pick(teams ? l.swapTeams : l.swapPlayers, teams ? l.teamA : l.playerA,
+        teams ? l.teamB : l.playerB, items, l.swap);
     if (pair == null || !mounted) return;
     final a = t.participants.firstWhere((p) => p.id == pair.a);
     final b = t.participants.firstWhere((p) => p.id == pair.b);
     final ok = await _confirm(
       context,
-      'Swap ${a.name} and ${b.name}?',
-      '${a.name} takes the place of ${b.name} in the draw, and the other way round. '
-          'Each ${noun.toLowerCase()} keeps its own players.',
-      action: 'Swap ${noun}s',
+      l.swapQuestion(a.name, b.name),
+      teams ? l.swapTeamsBody(a.name, b.name) : l.swapSoloBody(a.name, b.name),
+      action: teams ? l.swapTeams : l.swapPlayers,
     );
     if (!ok || !mounted) return;
     await _change(context, ref, t.id, (cur) => ArenaEngine.swapParticipants(cur, pair.a, pair.b),
-        '${a.name} and ${b.name} swapped.');
+        l.swapped(a.name, b.name));
   }
 
   Future<void> _swapPlayers(Tournament t) async {
@@ -167,10 +170,11 @@ class _TeamManagementScreenState extends ConsumerState<TeamManagementScreen> {
     ];
     if (items.length < 2) {
       ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text('Add player names to at least two spots first.')));
+          .showSnackBar(SnackBar(content: Text(context.l10n.addPlayersFirst)));
       return;
     }
-    final pair = await _pick('Swap Players', 'Player A', 'Player B', items, 'Swap');
+    final l = context.l10n;
+    final pair = await _pick(l.swapPlayers, l.playerA, l.playerB, items, l.swap);
     if (pair == null || !mounted) return;
     final a = pair.a.split('|');
     final b = pair.b.split('|');
@@ -180,13 +184,13 @@ class _TeamManagementScreenState extends ConsumerState<TeamManagementScreen> {
     final nb = pb.roster.firstWhere((r) => r.id == b[1]).name;
     final ok = await _confirm(
       context,
-      'Swap $na and $nb?',
-      '$na (${pa.name}) and $nb (${pb.name}) exchange teams. Team sizes do not change.',
-      action: 'Swap Players',
+      l.swapQuestion(na, nb),
+      l.swapPlayersBody(na, pa.name, nb, pb.name),
+      action: l.swapPlayers,
     );
     if (!ok || !mounted) return;
     await _change(context, ref, t.id, (cur) => ArenaEngine.swapPlayers(cur, a[0], a[1], b[0], b[1]),
-        '$na and $nb swapped.');
+        l.swapped(na, nb));
   }
 
   @override
@@ -194,8 +198,8 @@ class _TeamManagementScreenState extends ConsumerState<TeamManagementScreen> {
     final t = ref.watch(arenaProvider).byId(widget.tournamentId);
     if (t == null) {
       return Scaffold(
-        appBar: AppBar(title: const Text('Teams and players')),
-        body: Center(child: Text('This tournament no longer exists.', style: TextStyle(color: SpheraColors.muted))),
+        appBar: AppBar(title: Text(context.l10n.teamsAndPlayers)),
+        body: Center(child: Text(context.l10n.tournamentGone, style: TextStyle(color: SpheraColors.muted))),
       );
     }
     final mode = t.gameMode;
@@ -207,7 +211,7 @@ class _TeamManagementScreenState extends ConsumerState<TeamManagementScreen> {
     ];
     final totalPlayers = t.participants.fold<int>(0, (sum, p) => sum + p.players);
     return Scaffold(
-      appBar: AppBar(title: Text(teamMode ? 'Teams and players' : 'Players')),
+      appBar: AppBar(title: Text(teamMode ? context.l10n.teamsAndPlayers : context.l10n.players)),
       body: Column(children: [
         Padding(
           padding: const EdgeInsets.fromLTRB(16, 4, 16, 8),
@@ -215,7 +219,7 @@ class _TeamManagementScreenState extends ConsumerState<TeamManagementScreen> {
             onChanged: (v) => setState(() => _query = v),
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.search),
-              hintText: teamMode ? 'Search teams or players' : 'Search players',
+              hintText: teamMode ? context.l10n.searchTeamsOrPlayers : context.l10n.searchPlayers,
             ),
           ),
         ),
@@ -224,19 +228,19 @@ class _TeamManagementScreenState extends ConsumerState<TeamManagementScreen> {
           child: Row(children: [
             Text(
               teamMode
-                  ? '${t.participants.length} teams · $totalPlayers players'
-                  : '${t.participants.length} players',
+                  ? context.l10n.teamsAndPlayersCount(t.participants.length, totalPlayers)
+                  : context.l10n.playersCount(t.participants.length),
               style: TextStyle(color: SpheraColors.muted, fontSize: 12),
             ),
             const Spacer(),
             if (t.hasConfirmedResults)
-              Text('Played teams are locked', style: TextStyle(color: SpheraColors.gold, fontSize: 12)),
+              Text(context.l10n.playedTeamsLocked, style: TextStyle(color: SpheraColors.gold, fontSize: 12)),
           ]),
         ),
         const SizedBox(height: 8),
         Expanded(
           child: shown.isEmpty
-              ? Center(child: Text('Nothing found.', style: TextStyle(color: SpheraColors.muted)))
+              ? Center(child: Text(context.l10n.nothingFound, style: TextStyle(color: SpheraColors.muted)))
               : ListView(
                   padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                   children: [
@@ -263,7 +267,7 @@ class _TeamManagementScreenState extends ConsumerState<TeamManagementScreen> {
                     style: OutlinedButton.styleFrom(minimumSize: const Size.fromHeight(50)),
                     onPressed: t.participants.length < 2 ? null : () => _swapTeams(t, noun: 'Team'),
                     icon: const Icon(Icons.swap_horiz),
-                    label: const Text('Swap Teams'),
+                    label: Text(context.l10n.swapTeams),
                   ),
                 ),
                 const SizedBox(width: 12),
@@ -275,7 +279,7 @@ class _TeamManagementScreenState extends ConsumerState<TeamManagementScreen> {
                       ? null
                       : (teamMode ? () => _swapPlayers(t) : () => _swapTeams(t, noun: 'Player')),
                   icon: const Icon(Icons.swap_vert),
-                  label: const Text('Swap Players'),
+                  label: Text(context.l10n.swapPlayers),
                 ),
               ),
             ]),
@@ -343,7 +347,7 @@ class _TeamCard extends StatelessWidget {
                     color: SpheraColors.surfaceHigh,
                     border: Border.all(color: SpheraColors.border),
                   ),
-                  child: Text('${p.players} / $maxPlayers players',
+                  child: Text(context.l10n.playersOfMax(p.players, maxPlayers),
                       style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w600)),
                 ),
               const SizedBox(width: 4),
@@ -352,7 +356,7 @@ class _TeamCard extends StatelessWidget {
             if (teamMode) ...[
               const SizedBox(height: 10),
               if (p.roster.isEmpty)
-                Text('No player names yet. Tap to add them.',
+                Text(context.l10n.noPlayerNamesTap,
                     style: TextStyle(color: SpheraColors.muted, fontSize: 12))
               else
                 Wrap(spacing: 6, runSpacing: 6, children: [
@@ -396,45 +400,45 @@ class _TeamSheet extends ConsumerWidget {
     final p = t?.participants.where((x) => x.id == participantId).firstOrNull;
     final mode = t?.gameMode;
     if (t == null || p == null || mode == null) {
-      return const SizedBox(height: 120, child: Center(child: Text('Team not found.')));
+      return SizedBox(height: 120, child: Center(child: Text(context.l10n.teamNotFound)));
     }
     final canAdd = !mode.fixedTeamSize && p.roster.length < mode.teamSize;
     final canRemove = !mode.fixedTeamSize && p.roster.length > 1;
 
     Future<void> rename() async {
-      final name = await _prompt(context, title: 'Rename team', initial: p.name, label: 'Team name');
+      final name = await _prompt(context, title: context.l10n.renameTeam, initial: p.name, label: context.l10n.teamName);
       if (name == null || !context.mounted) return;
       await _change(context, ref, tournamentId, (cur) => ArenaEngine.renameParticipant(cur, participantId, name),
-          'Team renamed.');
+          context.l10n.teamRenamed);
     }
 
     Future<void> add() async {
-      final name = await _prompt(context, title: 'Add player', label: 'Player name');
+      final name = await _prompt(context, title: context.l10n.addPlayer, label: context.l10n.playerName);
       if (name == null || !context.mounted) return;
       final player = ArenaPlayer(id: const Uuid().v4(), name: name);
       await _change(context, ref, tournamentId, (cur) {
         final pp = cur.participants.firstWhere((x) => x.id == participantId);
         return ArenaEngine.setRoster(cur, participantId, [...pp.roster, player]);
-      }, '$name added.');
+      }, context.l10n.nameAdded(name));
     }
 
     Future<void> renamePlayer(ArenaPlayer r) async {
-      final name = await _prompt(context, title: 'Rename player', initial: r.name, label: 'Player name');
+      final name = await _prompt(context, title: context.l10n.renamePlayer, initial: r.name, label: context.l10n.playerName);
       if (name == null || !context.mounted) return;
       await _change(context, ref, tournamentId, (cur) {
         final pp = cur.participants.firstWhere((x) => x.id == participantId);
         return ArenaEngine.setRoster(
             cur, participantId, [for (final x in pp.roster) x.id == r.id ? x.copyWith(name: name) : x]);
-      }, 'Player renamed.');
+      }, context.l10n.playerRenamed);
     }
 
     Future<void> remove(ArenaPlayer r) async {
-      final ok = await _confirm(context, 'Remove ${r.name}?', '${r.name} leaves ${p.name}.', action: 'Remove');
+      final ok = await _confirm(context, context.l10n.removeNameQ(r.name), context.l10n.leavesTeam(r.name, p.name), action: context.l10n.remove);
       if (!ok || !context.mounted) return;
       await _change(context, ref, tournamentId, (cur) {
         final pp = cur.participants.firstWhere((x) => x.id == participantId);
         return ArenaEngine.setRoster(cur, participantId, [for (final x in pp.roster) if (x.id != r.id) x]);
-      }, '${r.name} removed.');
+      }, context.l10n.nameRemoved(r.name));
     }
 
     return Padding(
@@ -447,18 +451,18 @@ class _TeamSheet extends ConsumerWidget {
           ),
           IconButton(onPressed: rename, icon: const Icon(Icons.edit_outlined)),
         ]),
-        Text('${p.players} / ${mode.teamSize} players',
+        Text(context.l10n.playersOfMax(p.players, mode.teamSize),
             style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
         if (mode.fixedTeamSize)
           Padding(
             padding: const EdgeInsets.only(top: 2),
-            child: Text('Teams in ${mode.label} always have exactly ${mode.teamSize} players. Use Swap Players to exchange members.',
+            child: Text(context.l10n.fixedTeamSizeNote(mode.label, mode.teamSize),
                 style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
           ),
         const SizedBox(height: 8),
         Expanded(
           child: p.roster.isEmpty
-              ? Center(child: Text('No player names yet.', style: TextStyle(color: SpheraColors.muted)))
+              ? Center(child: Text(context.l10n.noPlayerNamesYet, style: TextStyle(color: SpheraColors.muted)))
               : ListView(children: [
                   for (final r in p.roster)
                     ListTile(
@@ -480,7 +484,7 @@ class _TeamSheet extends ConsumerWidget {
           child: FilledButton.icon(
             onPressed: canAdd ? add : null,
             icon: const Icon(Icons.person_add_alt_1),
-            label: const Text('Add player'),
+            label: Text(context.l10n.addPlayer),
           ),
         ),
       ]),

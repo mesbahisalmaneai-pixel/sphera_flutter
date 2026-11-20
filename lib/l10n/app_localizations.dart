@@ -5097,6 +5097,294 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'All results were reset by the organizer'**
   String get arenaLogReset;
+
+  /// No description provided for @create.
+  ///
+  /// In en, this message translates to:
+  /// **'Create'**
+  String get create;
+
+  /// No description provided for @noTournamentsYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No tournaments yet'**
+  String get noTournamentsYet;
+
+  /// No description provided for @createFirstTournament.
+  ///
+  /// In en, this message translates to:
+  /// **'Create your first league, groups or knockout competition.'**
+  String get createFirstTournament;
+
+  /// No description provided for @tournamentsOnDevice.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 tournament on this device} other{{count} tournaments on this device}}'**
+  String tournamentsOnDevice(int count);
+
+  /// No description provided for @participantsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 participant} other{{count} participants}}'**
+  String participantsCount(int count);
+
+  /// No description provided for @champion.
+  ///
+  /// In en, this message translates to:
+  /// **'Champion: {name}'**
+  String champion(String name);
+
+  /// No description provided for @roundsConfirmed.
+  ///
+  /// In en, this message translates to:
+  /// **'{done} / {total} rounds confirmed'**
+  String roundsConfirmed(int done, int total);
+
+  /// No description provided for @matchesConfirmed.
+  ///
+  /// In en, this message translates to:
+  /// **'{done} / {total} matches confirmed'**
+  String matchesConfirmed(int done, int total);
+
+  /// No description provided for @confirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm'**
+  String get confirm;
+
+  /// No description provided for @renamePlayer.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename player'**
+  String get renamePlayer;
+
+  /// No description provided for @nameUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Name updated.'**
+  String get nameUpdated;
+
+  /// No description provided for @swapTeams.
+  ///
+  /// In en, this message translates to:
+  /// **'Swap Teams'**
+  String get swapTeams;
+
+  /// No description provided for @swapPlayers.
+  ///
+  /// In en, this message translates to:
+  /// **'Swap Players'**
+  String get swapPlayers;
+
+  /// No description provided for @teamA.
+  ///
+  /// In en, this message translates to:
+  /// **'Team A'**
+  String get teamA;
+
+  /// No description provided for @teamB.
+  ///
+  /// In en, this message translates to:
+  /// **'Team B'**
+  String get teamB;
+
+  /// No description provided for @playerA.
+  ///
+  /// In en, this message translates to:
+  /// **'Player A'**
+  String get playerA;
+
+  /// No description provided for @playerB.
+  ///
+  /// In en, this message translates to:
+  /// **'Player B'**
+  String get playerB;
+
+  /// No description provided for @swap.
+  ///
+  /// In en, this message translates to:
+  /// **'Swap'**
+  String get swap;
+
+  /// No description provided for @swapQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'Swap {a} and {b}?'**
+  String swapQuestion(String a, String b);
+
+  /// No description provided for @swapTeamsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'{a} takes the place of {b} in the draw, and the other way round. Each team keeps its own players.'**
+  String swapTeamsBody(String a, String b);
+
+  /// No description provided for @swapSoloBody.
+  ///
+  /// In en, this message translates to:
+  /// **'{a} takes the place of {b} in the draw, and the other way round.'**
+  String swapSoloBody(String a, String b);
+
+  /// No description provided for @swapped.
+  ///
+  /// In en, this message translates to:
+  /// **'{a} and {b} swapped.'**
+  String swapped(String a, String b);
+
+  /// No description provided for @addPlayersFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Add player names to at least two spots first.'**
+  String get addPlayersFirst;
+
+  /// No description provided for @swapPlayersBody.
+  ///
+  /// In en, this message translates to:
+  /// **'{a} ({ta}) and {b} ({tb}) exchange teams. Team sizes do not change.'**
+  String swapPlayersBody(String a, String ta, String b, String tb);
+
+  /// No description provided for @teamsAndPlayers.
+  ///
+  /// In en, this message translates to:
+  /// **'Teams and players'**
+  String get teamsAndPlayers;
+
+  /// No description provided for @tournamentGone.
+  ///
+  /// In en, this message translates to:
+  /// **'This tournament no longer exists.'**
+  String get tournamentGone;
+
+  /// No description provided for @players.
+  ///
+  /// In en, this message translates to:
+  /// **'Players'**
+  String get players;
+
+  /// No description provided for @searchTeamsOrPlayers.
+  ///
+  /// In en, this message translates to:
+  /// **'Search teams or players'**
+  String get searchTeamsOrPlayers;
+
+  /// No description provided for @searchPlayers.
+  ///
+  /// In en, this message translates to:
+  /// **'Search players'**
+  String get searchPlayers;
+
+  /// No description provided for @teamsAndPlayersCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{teams} teams · {players} players'**
+  String teamsAndPlayersCount(int teams, int players);
+
+  /// No description provided for @playersCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 player} other{{count} players}}'**
+  String playersCount(int count);
+
+  /// No description provided for @playedTeamsLocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Played teams are locked'**
+  String get playedTeamsLocked;
+
+  /// No description provided for @nothingFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing found.'**
+  String get nothingFound;
+
+  /// No description provided for @playersOfMax.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} / {max} players'**
+  String playersOfMax(int count, int max);
+
+  /// No description provided for @noPlayerNamesTap.
+  ///
+  /// In en, this message translates to:
+  /// **'No player names yet. Tap to add them.'**
+  String get noPlayerNamesTap;
+
+  /// No description provided for @teamNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Team not found.'**
+  String get teamNotFound;
+
+  /// No description provided for @renameTeam.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename team'**
+  String get renameTeam;
+
+  /// No description provided for @teamName.
+  ///
+  /// In en, this message translates to:
+  /// **'Team name'**
+  String get teamName;
+
+  /// No description provided for @teamRenamed.
+  ///
+  /// In en, this message translates to:
+  /// **'Team renamed.'**
+  String get teamRenamed;
+
+  /// No description provided for @addPlayer.
+  ///
+  /// In en, this message translates to:
+  /// **'Add player'**
+  String get addPlayer;
+
+  /// No description provided for @playerName.
+  ///
+  /// In en, this message translates to:
+  /// **'Player name'**
+  String get playerName;
+
+  /// No description provided for @nameAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} added.'**
+  String nameAdded(String name);
+
+  /// No description provided for @playerRenamed.
+  ///
+  /// In en, this message translates to:
+  /// **'Player renamed.'**
+  String get playerRenamed;
+
+  /// No description provided for @removeNameQ.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove {name}?'**
+  String removeNameQ(String name);
+
+  /// No description provided for @leavesTeam.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} leaves {team}.'**
+  String leavesTeam(String name, String team);
+
+  /// No description provided for @nameRemoved.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} removed.'**
+  String nameRemoved(String name);
+
+  /// No description provided for @fixedTeamSizeNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Teams in {mode} always have exactly {size} players. Use Swap Players to exchange members.'**
+  String fixedTeamSizeNote(String mode, int size);
+
+  /// No description provided for @noPlayerNamesYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No player names yet.'**
+  String get noPlayerNamesYet;
 }
 
 class _AppLocalizationsDelegate

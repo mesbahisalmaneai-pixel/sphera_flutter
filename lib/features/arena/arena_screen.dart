@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../core/l10n.dart';
 import '../../core/theme.dart';
 import '../../data/arena/arena_engine.dart';
 import '../../data/arena/arena_models.dart';
@@ -16,12 +17,12 @@ class ArenaScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final st = ref.watch(arenaProvider);
     return Scaffold(
-      appBar: AppBar(title: const Text('SPHERA TOURNAMENT ARENA')),
+      appBar: AppBar(title: Text(context.l10n.arenaTitle)),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => Navigator.of(context)
             .push(MaterialPageRoute(builder: (_) => const CreateTournamentScreen())),
         icon: const Icon(Icons.add),
-        label: const Text('Create'),
+        label: Text(context.l10n.create),
       ),
       body: !st.loaded
           ? const Center(child: CircularProgressIndicator())
@@ -41,10 +42,10 @@ class ArenaScreen extends ConsumerWidget {
                     child: Column(children: [
                       Icon(Icons.emoji_events_outlined, size: 56, color: SpheraColors.gold),
                       const SizedBox(height: 12),
-                      const Text('No tournaments yet',
+                      Text(context.l10n.noTournamentsYet,
                           style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
                       const SizedBox(height: 6),
-                      Text('Create your first league, groups or knockout competition.',
+                      Text(context.l10n.createFirstTournament,
                           textAlign: TextAlign.center, style: TextStyle(color: SpheraColors.muted)),
                     ]),
                   )
@@ -78,10 +79,10 @@ class _Hero extends StatelessWidget {
         const SizedBox(width: 14),
         Expanded(
           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            const Text('Tournament Arena',
+            Text(context.l10n.tournamentArena,
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800)),
             const SizedBox(height: 2),
-            Text('$count tournament${count == 1 ? '' : 's'} on this device',
+            Text(context.l10n.tournamentsOnDevice(count),
                 style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
           ]),
         ),
@@ -125,8 +126,8 @@ class _TournamentCard extends StatelessWidget {
             const SizedBox(height: 10),
             Wrap(spacing: 8, runSpacing: 6, children: [
               _Chip(t.isBattleRoyale ? 'Battle Royale' : t.structure.label),
-              _Chip('${t.participants.length} participants'),
-              if (champ != null) _Chip('Champion: ${t.participantName(champ)}', gold: true),
+              _Chip(context.l10n.participantsCount(t.participants.length)),
+              if (champ != null) _Chip(context.l10n.champion(t.participantName(champ)), gold: true),
             ]),
             const SizedBox(height: 12),
             ClipRRect(
@@ -139,7 +140,7 @@ class _TournamentCard extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 4),
-            Text('$done / $total ${t.isBattleRoyale ? 'rounds' : 'matches'} confirmed',
+            Text(t.isBattleRoyale ? context.l10n.roundsConfirmed(done, total) : context.l10n.matchesConfirmed(done, total),
                 style: TextStyle(color: SpheraColors.muted, fontSize: 11)),
           ]),
         ),

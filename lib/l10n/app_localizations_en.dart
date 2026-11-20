@@ -2973,4 +2973,203 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get arenaLogReset => 'All results were reset by the organizer';
+
+  @override
+  String get create => 'Create';
+
+  @override
+  String get noTournamentsYet => 'No tournaments yet';
+
+  @override
+  String get createFirstTournament =>
+      'Create your first league, groups or knockout competition.';
+
+  @override
+  String tournamentsOnDevice(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count tournaments on this device',
+      one: '1 tournament on this device',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String participantsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count participants',
+      one: '1 participant',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String champion(String name) {
+    return 'Champion: $name';
+  }
+
+  @override
+  String roundsConfirmed(int done, int total) {
+    return '$done / $total rounds confirmed';
+  }
+
+  @override
+  String matchesConfirmed(int done, int total) {
+    return '$done / $total matches confirmed';
+  }
+
+  @override
+  String get confirm => 'Confirm';
+
+  @override
+  String get renamePlayer => 'Rename player';
+
+  @override
+  String get nameUpdated => 'Name updated.';
+
+  @override
+  String get swapTeams => 'Swap Teams';
+
+  @override
+  String get swapPlayers => 'Swap Players';
+
+  @override
+  String get teamA => 'Team A';
+
+  @override
+  String get teamB => 'Team B';
+
+  @override
+  String get playerA => 'Player A';
+
+  @override
+  String get playerB => 'Player B';
+
+  @override
+  String get swap => 'Swap';
+
+  @override
+  String swapQuestion(String a, String b) {
+    return 'Swap $a and $b?';
+  }
+
+  @override
+  String swapTeamsBody(String a, String b) {
+    return '$a takes the place of $b in the draw, and the other way round. Each team keeps its own players.';
+  }
+
+  @override
+  String swapSoloBody(String a, String b) {
+    return '$a takes the place of $b in the draw, and the other way round.';
+  }
+
+  @override
+  String swapped(String a, String b) {
+    return '$a and $b swapped.';
+  }
+
+  @override
+  String get addPlayersFirst => 'Add player names to at least two spots first.';
+
+  @override
+  String swapPlayersBody(String a, String ta, String b, String tb) {
+    return '$a ($ta) and $b ($tb) exchange teams. Team sizes do not change.';
+  }
+
+  @override
+  String get teamsAndPlayers => 'Teams and players';
+
+  @override
+  String get tournamentGone => 'This tournament no longer exists.';
+
+  @override
+  String get players => 'Players';
+
+  @override
+  String get searchTeamsOrPlayers => 'Search teams or players';
+
+  @override
+  String get searchPlayers => 'Search players';
+
+  @override
+  String teamsAndPlayersCount(int teams, int players) {
+    return '$teams teams · $players players';
+  }
+
+  @override
+  String playersCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count players',
+      one: '1 player',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get playedTeamsLocked => 'Played teams are locked';
+
+  @override
+  String get nothingFound => 'Nothing found.';
+
+  @override
+  String playersOfMax(int count, int max) {
+    return '$count / $max players';
+  }
+
+  @override
+  String get noPlayerNamesTap => 'No player names yet. Tap to add them.';
+
+  @override
+  String get teamNotFound => 'Team not found.';
+
+  @override
+  String get renameTeam => 'Rename team';
+
+  @override
+  String get teamName => 'Team name';
+
+  @override
+  String get teamRenamed => 'Team renamed.';
+
+  @override
+  String get addPlayer => 'Add player';
+
+  @override
+  String get playerName => 'Player name';
+
+  @override
+  String nameAdded(String name) {
+    return '$name added.';
+  }
+
+  @override
+  String get playerRenamed => 'Player renamed.';
+
+  @override
+  String removeNameQ(String name) {
+    return 'Remove $name?';
+  }
+
+  @override
+  String leavesTeam(String name, String team) {
+    return '$name leaves $team.';
+  }
+
+  @override
+  String nameRemoved(String name) {
+    return '$name removed.';
+  }
+
+  @override
+  String fixedTeamSizeNote(String mode, int size) {
+    return 'Teams in $mode always have exactly $size players. Use Swap Players to exchange members.';
+  }
+
+  @override
+  String get noPlayerNamesYet => 'No player names yet.';
 }
