@@ -3220,4 +3220,626 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get noPlayerNamesYet => 'Pas encore de noms de joueurs.';
+
+  @override
+  String get tournament => 'Tournoi';
+
+  @override
+  String get tabStandings => 'Classement';
+
+  @override
+  String get tabRounds => 'Manches';
+
+  @override
+  String get tabMatches => 'Matchs';
+
+  @override
+  String get tabBracket => 'Tableau';
+
+  @override
+  String get tabInfo => 'Infos';
+
+  @override
+  String get resetAllResultsQ => 'Réinitialiser tous les résultats ?';
+
+  @override
+  String get resetBodyKo =>
+      'Tous les résultats confirmés sont effacés et le tableau final est supprimé. La réinitialisation est inscrite dans l\'historique.';
+
+  @override
+  String get resetBody =>
+      'Tous les résultats confirmés sont effacés. La réinitialisation est inscrite dans l\'historique.';
+
+  @override
+  String get deleteTournamentQ => 'Supprimer le tournoi ?';
+
+  @override
+  String get cannotBeUndone => 'Cette action est irréversible.';
+
+  @override
+  String get resetResults => 'Réinitialiser les résultats';
+
+  @override
+  String get deleteTournament => 'Supprimer le tournoi';
+
+  @override
+  String get knockoutStage => 'Phase finale';
+
+  @override
+  String topNOfEveryGroup(int n) {
+    return 'Les $n premiers de chaque groupe se qualifient.';
+  }
+
+  @override
+  String get generateKnockout => 'Générer la phase finale';
+
+  @override
+  String get confirmGroupMatchesFirst =>
+      'Confirmez d\'abord tous les matchs de groupe';
+
+  @override
+  String get championCaps => 'CHAMPION';
+
+  @override
+  String topNQualify(int n) {
+    return 'Les $n premiers se qualifient';
+  }
+
+  @override
+  String get howTiesResolved => 'Comment les égalités ont été départagées';
+
+  @override
+  String matchday(int n) {
+    return 'Journée $n';
+  }
+
+  @override
+  String get toPlay => 'À jouer';
+
+  @override
+  String get filterPlayed => 'Joués';
+
+  @override
+  String get noMatchesHere => 'Aucun match ici.';
+
+  @override
+  String get bye => 'EXEMPT';
+
+  @override
+  String get win => 'Victoire';
+
+  @override
+  String get vs => 'vs';
+
+  @override
+  String get enterBothScores => 'Saisissez les deux scores en nombres entiers.';
+
+  @override
+  String get pickWinner => 'Choisissez le vainqueur.';
+
+  @override
+  String get amendResult => 'Modifier le résultat';
+
+  @override
+  String get whoWon => 'Qui a gagné ?';
+
+  @override
+  String get pickWinningSide => 'Choisissez le camp gagnant.';
+
+  @override
+  String get amendmentsRecorded =>
+      'Les modifications sont inscrites dans l\'historique.';
+
+  @override
+  String get saveAmendment => 'Enregistrer la modification';
+
+  @override
+  String get confirmResult => 'Confirmer le résultat';
+
+  @override
+  String get enterResult => 'Saisir le résultat';
+
+  @override
+  String get decidedInExtraTime => 'Décidé en prolongation';
+
+  @override
+  String get penaltyShootout => 'Tirs au but';
+
+  @override
+  String get levelReplayNote =>
+      'Score nul : ce match repasse « à jouer » et sera rejoué.';
+
+  @override
+  String earlierDraws(String list) {
+    return 'Nuls précédents : $list';
+  }
+
+  @override
+  String get overallStandings => 'Classement général';
+
+  @override
+  String brRoundsProgress(int done, int total) {
+    return '$done / $total manches';
+  }
+
+  @override
+  String brTotalFormula(int k) {
+    return 'Total = points de place + éliminations x $k';
+  }
+
+  @override
+  String get colRnd => 'Man.';
+
+  @override
+  String get colPlace => 'Place';
+
+  @override
+  String get colKills => 'Élim.';
+
+  @override
+  String get colKillPts => 'Pts élim.';
+
+  @override
+  String get colTotal => 'Total';
+
+  @override
+  String roundN(int n) {
+    return 'Manche $n';
+  }
+
+  @override
+  String get roundConfirmedTap => 'Confirmée · touchez pour modifier';
+
+  @override
+  String get roundTapToEnter =>
+      'Touchez pour saisir les places et éliminations';
+
+  @override
+  String get addRound => 'Ajouter une manche';
+
+  @override
+  String enterPlacementKills(String name) {
+    return 'Saisissez une place et un nombre d\'éliminations (0 ou plus) pour « $name ».';
+  }
+
+  @override
+  String placementHelp(int n, int k) {
+    return 'Place de 1 à $n (sans doublon). Chaque élimination = $k points.';
+  }
+
+  @override
+  String get confirmRound => 'Confirmer la manche';
+
+  @override
+  String get bracketLater =>
+      'Le tableau apparaît une fois la phase de groupes terminée.\nOuvrez Classement et touchez « Générer la phase finale ».';
+
+  @override
+  String get editParticipant => 'Modifier le participant';
+
+  @override
+  String get teamClub => 'Équipe / club';
+
+  @override
+  String logParticipantEdited(String old, String name) {
+    return 'Participant modifié : $old -> $name';
+  }
+
+  @override
+  String get rowScoring => 'Points';
+
+  @override
+  String scoringBr(int k, int n) {
+    return 'Points de place + éliminations x $k ($n manches prévues)';
+  }
+
+  @override
+  String get rowStructure => 'Structure';
+
+  @override
+  String get rowOrganizer => 'Organisateur';
+
+  @override
+  String get rowStart => 'Début';
+
+  @override
+  String get rowRegistration => 'Inscriptions';
+
+  @override
+  String untilDate(String date) {
+    return 'jusqu\'au $date';
+  }
+
+  @override
+  String pointsWinLoss(int w, int l) {
+    return 'Victoire $w · Défaite $l';
+  }
+
+  @override
+  String pointsWdl(int w, int d, int l) {
+    return 'V $w · N $d · D $l';
+  }
+
+  @override
+  String get rowRanking => 'Classement';
+
+  @override
+  String get rowIfLevel => 'En cas d\'égalité';
+
+  @override
+  String get rulesTitle => 'Règlement';
+
+  @override
+  String participantsTitle(int count) {
+    return 'Participants ($count)';
+  }
+
+  @override
+  String get editSwapPlayers => 'Modifier et échanger les joueurs';
+
+  @override
+  String get auditLog => 'Historique';
+
+  @override
+  String get noEventsYet => 'Aucun événement pour l\'instant.';
+
+  @override
+  String get room => 'Salle';
+
+  @override
+  String roomIdValue(String id) {
+    return 'ID de la salle : $id';
+  }
+
+  @override
+  String passwordValue(String pw) {
+    return 'Mot de passe : $pw';
+  }
+
+  @override
+  String get roomStoredNote =>
+      'Enregistré uniquement sur cet appareil. Jamais partagé automatiquement.';
+
+  @override
+  String get stepSelectGame => 'Choix du jeu';
+
+  @override
+  String get stepTypeMode => 'Type et mode';
+
+  @override
+  String get stepSetup => 'Configuration';
+
+  @override
+  String get stepDetails => 'Détails et confirmation';
+
+  @override
+  String maxReached(int cap) {
+    return 'Maximum atteint ($cap).';
+  }
+
+  @override
+  String get enterTeamPlayers =>
+      'Saisissez les joueurs de l\'équipe, séparés par des virgules.';
+
+  @override
+  String everyTeamExactly(int size) {
+    return 'Chaque équipe doit avoir exactement $size joueurs.';
+  }
+
+  @override
+  String get createTournament => 'Créer le tournoi';
+
+  @override
+  String get next => 'Suivant';
+
+  @override
+  String get selectGameTitle => 'Choisir le jeu';
+
+  @override
+  String get selectGameSub => 'Choisissez le jeu de votre tournoi.';
+
+  @override
+  String get selectTypeTitle => 'Choisir le type de tournoi';
+
+  @override
+  String selectTypeSub(String game) {
+    return 'Choisissez le mode à organiser dans $game.';
+  }
+
+  @override
+  String get selectModeTitle => 'Choisir le mode';
+
+  @override
+  String selectModeSub(String type) {
+    return 'Choisissez le format de votre $type.';
+  }
+
+  @override
+  String get infoPointsSystem => 'Système de points';
+
+  @override
+  String get infoTwoPlayers => 'Deux joueurs par match';
+
+  @override
+  String get infoMin2Teams => 'Minimum : 2 équipes';
+
+  @override
+  String infoMinPlayers(int n) {
+    return 'Joueurs minimum : $n';
+  }
+
+  @override
+  String get infoHowItWorks => 'Fonctionnement';
+
+  @override
+  String infoBrText(String detail) {
+    return 'Total = points de place + 2 points par élimination. Les trois dernières places rapportent 0 point. $detail.';
+  }
+
+  @override
+  String get infoCs1v1 =>
+      'Chaque match nécessite deux joueurs. Inscrivez au moins 2 joueurs. Un match se gagne ou se perd : pas de buts, pas de nul.';
+
+  @override
+  String infoCsTeams(int size) {
+    return 'Il faut au moins 2 équipes. Les équipes peuvent avoir un nombre de joueurs différent (par exemple 2 contre 1), jusqu\'à $size par équipe. Un match se gagne ou se perd : pas de buts, pas de nul.';
+  }
+
+  @override
+  String infoMinTotal(int n, int size) {
+    return 'Il faut $n joueurs inscrits au total pour commencer. La taille d\'équipe ($size) est un maximum : inutile de remplir toutes les places.';
+  }
+
+  @override
+  String get info1v1 =>
+      'Chaque match oppose deux joueurs. Les résultats font le classement.';
+
+  @override
+  String get setupSub => 'Inscriptions, format et règles.';
+
+  @override
+  String get setupValid =>
+      'La configuration est valide. Passez à la dernière étape.';
+
+  @override
+  String get toContinue => 'Pour continuer';
+
+  @override
+  String get registrationPanel => 'Inscriptions';
+
+  @override
+  String get maxTeams => 'Équipes maximum';
+
+  @override
+  String get maxPlayers => 'Joueurs maximum';
+
+  @override
+  String limitTeams(int max, String detail) {
+    return 'Limite : jusqu\'à $max équipes ($detail).';
+  }
+
+  @override
+  String limitPlayers(int max, String detail) {
+    return 'Limite : jusqu\'à $max joueurs ($detail).';
+  }
+
+  @override
+  String atLeastPlayersTotal(int n) {
+    return 'Au moins $n joueurs au total. Les équipes n\'ont pas à être complètes.';
+  }
+
+  @override
+  String get playersCommaLabel => 'Joueurs (noms séparés par des virgules)';
+
+  @override
+  String get playersCommaHint => 'ex. Ali, Sara';
+
+  @override
+  String exactlyPerTeam(int size) {
+    return 'Exactement $size joueurs par équipe.';
+  }
+
+  @override
+  String oneToPerTeam(int size) {
+    return '1 à $size joueurs par équipe. Les équipes n\'ont pas à être complètes.';
+  }
+
+  @override
+  String teamsRegistered(int count, int cap, int players) {
+    return '$count / $cap équipes · $players joueurs';
+  }
+
+  @override
+  String playersRegistered(int count, int cap) {
+    return '$count / $cap joueurs';
+  }
+
+  @override
+  String get formatPanel => 'Format';
+
+  @override
+  String get tournamentFormat => 'Format du tournoi';
+
+  @override
+  String get numberOfLeagues => 'Nombre de ligues';
+
+  @override
+  String get groupsPerLeague => 'Groupes par ligue';
+
+  @override
+  String get qualifiersPerGroup => 'Qualifiés par groupe';
+
+  @override
+  String get doubleRoundRobin => 'Aller-retour';
+
+  @override
+  String get doubleRoundRobinSub =>
+      'Aller et retour : chacun affronte tous les autres deux fois';
+
+  @override
+  String get randomDraw => 'Tirage au sort';
+
+  @override
+  String get randomDrawSub =>
+      'Désactivé : les participants sont placés dans l\'ordre d\'ajout';
+
+  @override
+  String get ifKoLevel => 'Si un match à élimination finit à égalité';
+
+  @override
+  String get pointsAndRanking => 'Points et classement';
+
+  @override
+  String get draw => 'Nul';
+
+  @override
+  String get lossLabel => 'Défaite';
+
+  @override
+  String get tiebreakerOrder => 'Ordre de départage';
+
+  @override
+  String get directMatchFirst => 'Confrontation directe d\'abord';
+
+  @override
+  String get goalDiffFirst => 'Différence de buts d\'abord';
+
+  @override
+  String get rulesNoteWinnerOnly =>
+      'Le vainqueur d\'un match prend les points de victoire. Les équipes à égalité sont départagées par leur confrontation directe, puis par nom. Verrouillé dès le début du tournoi.';
+
+  @override
+  String get rulesNote =>
+      'Ces règles sont verrouillées dès le début du tournoi. Les équipes encore à égalité après tous les critères sont classées par nom.';
+
+  @override
+  String get standingsColumns => 'Colonnes du classement';
+
+  @override
+  String columnsSelected(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other:
+          '$count colonnes choisies. Le rang et le nom sont toujours affichés.',
+      one: '1 colonne choisie. Le rang et le nom sont toujours affichés.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get roundsAndScoring => 'Manches et points';
+
+  @override
+  String get plannedRounds => 'Manches prévues';
+
+  @override
+  String get brFormulaTitle => 'Total = points de place + éliminations x 2';
+
+  @override
+  String get brFormulaText =>
+      'En duo et en escouade, les éliminations de tous les membres de l\'équipe s\'additionnent.';
+
+  @override
+  String get placementPoints => 'Points de place';
+
+  @override
+  String registerTeamsFirst(int n) {
+    return 'Inscrivez au moins $n équipes pour configurer le tableau (une ligne par équipe).';
+  }
+
+  @override
+  String registerPlayersFirst(int n) {
+    return 'Inscrivez au moins $n joueurs pour configurer le tableau (une ligne par joueur).';
+  }
+
+  @override
+  String lastPlacementsZero(int n) {
+    return 'Les $n dernières places rapportent toujours 0 point.';
+  }
+
+  @override
+  String get resetToDefault => 'Valeurs par défaut';
+
+  @override
+  String get notSet => 'Non défini';
+
+  @override
+  String get tournamentSettings => 'Réglages du tournoi';
+
+  @override
+  String get tournamentSettingsSub =>
+      'Définissez les derniers détails de votre tournoi.';
+
+  @override
+  String get tournamentNameReq => 'Nom du tournoi *';
+
+  @override
+  String get tournamentNameHint => 'ex. Coupe SPHERA';
+
+  @override
+  String get organizer => 'Organisateur';
+
+  @override
+  String get description => 'Description';
+
+  @override
+  String get startDateTime => 'Date et heure de début';
+
+  @override
+  String get registrationDeadline => 'Date limite d\'inscription';
+
+  @override
+  String get rulesAndPenalties => 'Règles et sanctions';
+
+  @override
+  String get roomIdOptional => 'ID de la salle (facultatif)';
+
+  @override
+  String get roomPasswordOptional => 'Mot de passe de la salle (facultatif)';
+
+  @override
+  String get review => 'Récapitulatif';
+
+  @override
+  String get participantsRow => 'Participants';
+
+  @override
+  String participantsSummaryTeams(int count, int players, int max) {
+    return '$count ($players joueurs) · max $max';
+  }
+
+  @override
+  String participantsSummary(int count, int max) {
+    return '$count · max $max';
+  }
+
+  @override
+  String get scoringBrShort => 'Points de place + éliminations x 2';
+
+  @override
+  String get columnsRow => 'Colonnes';
+
+  @override
+  String get readAndConfirm =>
+      'Lisez et confirmez : les règles de classement se verrouillent au début du tournoi.';
+
+  @override
+  String get validRounds =>
+      'Tout semble valide. La création génère les manches.';
+
+  @override
+  String get validFixtures =>
+      'Tout semble valide. La création génère les matchs.';
+
+  @override
+  String stepOf(int step, int total, String title) {
+    return 'Étape $step sur $total · $title';
+  }
+
+  @override
+  String get rankingOrder => 'Ordre de classement';
+
+  @override
+  String get teamColumn => 'Équipe';
 }

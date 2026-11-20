@@ -34,19 +34,19 @@ class TournamentDetailsScreen extends ConsumerWidget {
     final t = ref.watch(arenaProvider).byId(tournamentId);
     if (t == null) {
       return Scaffold(
-        appBar: AppBar(title: const Text('Tournament')),
-        body: Center(child: Text('This tournament no longer exists.', style: TextStyle(color: SpheraColors.muted))),
+        appBar: AppBar(title: Text(context.l10n.tournament)),
+        body: Center(child: Text(context.l10n.tournamentGone, style: TextStyle(color: SpheraColors.muted))),
       );
     }
     final br = t.isBattleRoyale;
     final showStandings = !br && t.structure != ArenaStructure.knockoutOnly;
     final showBracket = !br && t.structure.hasKnockout;
     final tabs = <String>[
-      if (br) ...['Standings', 'Rounds'],
-      if (showStandings) 'Standings',
-      if (!br) 'Matches',
-      if (showBracket) 'Bracket',
-      'Info',
+      if (br) ...[context.l10n.tabStandings, context.l10n.tabRounds],
+      if (showStandings) context.l10n.tabStandings,
+      if (!br) context.l10n.tabMatches,
+      if (showBracket) context.l10n.tabBracket,
+      context.l10n.tabInfo,
     ];
     return DefaultTabController(
       length: tabs.length,
@@ -57,14 +57,15 @@ class TournamentDetailsScreen extends ConsumerWidget {
             PopupMenuButton<String>(
               onSelected: (v) async {
                 if (v == 'reset') {
-                  final ok = await _confirm(context, 'Reset all results?',
-                      'Every confirmed result is cleared${t.structure.hasKnockout && t.structure != ArenaStructure.knockoutOnly ? ' and the knockout bracket is removed' : ''}. '
-                          'The reset is recorded in the audit log.');
+                  final ok = await _confirm(context, context.l10n.resetAllResultsQ,
+                      t.structure.hasKnockout && t.structure != ArenaStructure.knockoutOnly
+                          ? context.l10n.resetBodyKo
+                          : context.l10n.resetBody);
                   if (ok && context.mounted) {
                     await _apply(context, ref, t.id, ArenaEngine.resetResults);
                   }
                 } else if (v == 'delete') {
-                  final ok = await _confirm(context, 'Delete tournament?', 'This cannot be undone.');
+                  final ok = await _confirm(context, context.l10n.deleteTournamentQ, context.l10n.cannotBeUndone);
                   if (ok && context.mounted) {
                     await ref.read(arenaProvider.notifier).remove(t.id);
                     if (context.mounted) Navigator.of(context).pop();
@@ -72,8 +73,8 @@ class TournamentDetailsScreen extends ConsumerWidget {
                 }
               },
               itemBuilder: (_) => [
-                if (t.hasConfirmedResults) const PopupMenuItem(value: 'reset', child: Text('Reset results')),
-                const PopupMenuItem(value: 'delete', child: Text('Delete tournament')),
+                if (t.hasConfirmedResults) PopupMenuItem(value: 'reset', child: Text(context.l10n.resetResults)),
+                PopupMenuItem(value: 'delete', child: Text(context.l10n.deleteTournament)),
               ],
             ),
           ],
@@ -105,8 +106,8 @@ Future<bool> _confirm(BuildContext context, String title, String body) async {
       title: Text(title),
       content: Text(body),
       actions: [
-        TextButton(onPressed: () => Navigator.pop(ctx, false), child: const Text('Cancel')),
-        FilledButton(onPressed: () => Navigator.pop(ctx, true), child: const Text('Confirm')),
+        TextButton(onPressed: () => Navigator.pop(ctx, false), child: Text(context.l10n.cancel)),
+        FilledButton(onPressed: () => Navigator.pop(ctx, true), child: Text(context.l10n.confirm)),
       ],
     ),
   );
@@ -141,10 +142,10 @@ class _StandingsTab extends ConsumerWidget {
             child: Padding(
               padding: const EdgeInsets.all(16),
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                const Text('Knockout stage', style: TextStyle(fontWeight: FontWeight.w700)),
+                Text(context.l10n.knockoutStage, style: const TextStyle(fontWeight: FontWeight.w700)),
                 const SizedBox(height: 4),
                 Text(
-                  'Top ${t.qualifiersPerGroup} of every group qualify.',
+                  context.l10n.topNOfEveryGroup(t.qualifiersPerGroup),
                   style: TextStyle(color: SpheraColors.muted, fontSize: 12),
                 ),
                 const SizedBox(height: 12),
@@ -154,8 +155,8 @@ class _StandingsTab extends ConsumerWidget {
                       : null,
                   icon: const Icon(Icons.account_tree_outlined),
                   label: Text(ArenaEngine.groupStageComplete(t)
-                      ? 'Generate knockout'
-                      : 'Confirm all group matches first'),
+                      ? context.l10n.generateKnockout
+                      : context.l10n.confirmGroupMatchesFirst),
                 ),
               ]),
             ),
@@ -187,7 +188,7 @@ class _ChampionBanner extends StatelessWidget {
         const SizedBox(width: 14),
         Expanded(
           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Text('CHAMPION', style: TextStyle(color: SpheraColors.gold, fontWeight: FontWeight.w800, letterSpacing: 2, fontSize: 12)),
+            Text(context.l10n.championCaps, style: TextStyle(color: SpheraColors.gold, fontWeight: FontWeight.w800, letterSpacing: 2, fontSize: 12)),
             const SizedBox(height: 2),
             Text(name, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w800)),
           ]),
@@ -208,7 +209,7 @@ class _GroupTable extends StatelessWidget {
     final qualifies = t.structure.hasKnockout && t.structure != ArenaStructure.knockoutOnly;
     final notes = [
       for (final r in rows)
-        if (r.rankedBy.isNotEmpty && r.rankedBy != 'Points' && r.note.isNotEmpty)
+        if (r.rankedBy.isNotEmpty && r.rankedBy != appL10n.arenaCritPoints && r.note.isNotEmpty)
           '#${r.position} ${t.participantName(r.id)}: ${r.note}',
     ];
     final allowed = t.gameMode?.standingColumns ?? StatColumn.values;
@@ -236,7 +237,7 @@ class _GroupTable extends StatelessWidget {
               child: Text(group.name, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w800)),
             ),
             if (qualifies)
-              Text('Top ${t.qualifiersPerGroup} qualify',
+              Text(context.l10n.topNQualify(t.qualifiersPerGroup),
                   style: TextStyle(color: SpheraColors.gold, fontSize: 11, fontWeight: FontWeight.w700)),
           ]),
           const SizedBox(height: 6),
@@ -251,7 +252,7 @@ class _GroupTable extends StatelessWidget {
               headingTextStyle: TextStyle(color: SpheraColors.muted, fontSize: 12, fontWeight: FontWeight.w700),
               columns: [
                 const DataColumn(label: Text('#')),
-                const DataColumn(label: Text('Name')),
+                DataColumn(label: Text(context.l10n.name)),
                 for (final c in cols) DataColumn(label: Text(c.short), numeric: true),
               ],
               rows: [
@@ -261,7 +262,7 @@ class _GroupTable extends StatelessWidget {
                       Container(
                         width: 3,
                         height: 22,
-                        margin: const EdgeInsets.only(right: 6),
+                        margin: const EdgeInsetsDirectional.only(end: 6),
                         color: qualifies && r.position <= t.qualifiersPerGroup ? SpheraColors.gold : Colors.transparent,
                       ),
                       Text('${r.position}'),
@@ -281,7 +282,7 @@ class _GroupTable extends StatelessWidget {
           ),
           if (notes.isNotEmpty) ...[
             const SizedBox(height: 8),
-            Text('How ties were resolved', style: TextStyle(color: SpheraColors.muted, fontSize: 11, fontWeight: FontWeight.w700)),
+            Text(context.l10n.howTiesResolved, style: TextStyle(color: SpheraColors.muted, fontSize: 11, fontWeight: FontWeight.w700)),
             for (final n in notes) Text(n, style: TextStyle(color: SpheraColors.muted, fontSize: 11)),
           ],
         ]),
@@ -329,7 +330,7 @@ class _MatchesTabState extends ConsumerState<_MatchesTab> {
             lastRound = m.round;
             children.add(Padding(
               padding: const EdgeInsets.only(top: 6, bottom: 4),
-              child: Text('Matchday ${m.round}', style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
+              child: Text(context.l10n.matchday(m.round), style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
             ));
           }
           children.add(_MatchTile(t: t, m: m));
@@ -356,9 +357,9 @@ class _MatchesTabState extends ConsumerState<_MatchesTab> {
           for (final f in _Filter.values)
             ChoiceChip(
               label: Text(switch (f) {
-                _Filter.all => 'All',
-                _Filter.pending => 'To play',
-                _Filter.played => 'Played',
+                _Filter.all => context.l10n.all,
+                _Filter.pending => context.l10n.toPlay,
+                _Filter.played => context.l10n.filterPlayed,
               }),
               selected: _filter == f,
               onSelected: (_) => setState(() => _filter = f),
@@ -367,7 +368,7 @@ class _MatchesTabState extends ConsumerState<_MatchesTab> {
       ),
       Expanded(
         child: children.isEmpty
-            ? Center(child: Text('No matches here.', style: TextStyle(color: SpheraColors.muted)))
+            ? Center(child: Text(context.l10n.noMatchesHere, style: TextStyle(color: SpheraColors.muted)))
             : ListView(padding: const EdgeInsets.fromLTRB(16, 4, 16, 24), children: children),
       ),
     ]);
@@ -389,9 +390,14 @@ class _MatchTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final winnerOnly = t.gameMode?.winnerOnly ?? false;
     final w = m.winnerId;
+    // The arrow points at the winner's side; sides swap in right-to-left.
+    final rtl = Directionality.of(context) == TextDirection.rtl;
+    final win = context.l10n.win;
+    final homeWin = rtl ? '$win ▶' : '◀ $win';
+    final awayWin = rtl ? '◀ $win' : '$win ▶';
     final score = m.bye
-        ? 'BYE'
-        : (m.isConfirmed ? (winnerOnly ? (w == m.homeId ? '◀ Win' : 'Win ▶') : m.scoreText) : 'vs');
+        ? context.l10n.bye
+        : (m.isConfirmed ? (winnerOnly ? (w == m.homeId ? homeWin : awayWin) : m.scoreText) : context.l10n.vs);
     return Card(
       margin: const EdgeInsets.only(bottom: 8),
       clipBehavior: Clip.antiAlias,
@@ -485,7 +491,7 @@ class _ResultSheetState extends ConsumerState<_ResultSheet> {
     final h = int.tryParse(_home.text.trim());
     final a = int.tryParse(_away.text.trim());
     if (h == null || a == null) {
-      setState(() => _error = 'Enter both scores as whole numbers.');
+      setState(() => _error = context.l10n.enterBothScores);
       return;
     }
     setState(() {
@@ -521,7 +527,7 @@ class _ResultSheetState extends ConsumerState<_ResultSheet> {
   Future<void> _saveWinner() async {
     final w = _winner;
     if (w == null) {
-      setState(() => _error = 'Pick the winner.');
+      setState(() => _error = context.l10n.pickWinner);
       return;
     }
     setState(() {
@@ -550,7 +556,7 @@ class _ResultSheetState extends ConsumerState<_ResultSheet> {
   Widget build(BuildContext context) {
     final t = ref.watch(arenaProvider).byId(widget.tournamentId);
     final m = t?.matches.where((x) => x.id == widget.matchId).firstOrNull;
-    if (t == null || m == null) return const SizedBox(height: 120, child: Center(child: Text('Match not found.')));
+    if (t == null || m == null) return SizedBox(height: 120, child: Center(child: Text(context.l10n.arenaErrMatchNotFound)));
     if (t.gameMode?.winnerOnly ?? false) {
       Widget side(String? id) {
         final picked = id != null && _winner == id;
@@ -587,15 +593,15 @@ class _ResultSheetState extends ConsumerState<_ResultSheet> {
       return Padding(
         padding: EdgeInsets.fromLTRB(20, 20, 20, 20 + MediaQuery.of(context).viewInsets.bottom),
         child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text(m.isConfirmed ? 'Amend result' : 'Who won?',
+          Text(m.isConfirmed ? context.l10n.amendResult : context.l10n.whoWon,
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800)),
           const SizedBox(height: 4),
-          Text('Pick the winning side.', style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
+          Text(context.l10n.pickWinningSide, style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
           const SizedBox(height: 12),
           side(m.homeId),
           side(m.awayId),
           if (m.isConfirmed)
-            Text('Amendments are recorded in the audit log.',
+            Text(context.l10n.amendmentsRecorded,
                 style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
           if (_error != null)
             Padding(
@@ -607,7 +613,7 @@ class _ResultSheetState extends ConsumerState<_ResultSheet> {
             width: double.infinity,
             child: FilledButton(
               onPressed: _saving ? null : _saveWinner,
-              child: Text(m.isConfirmed ? 'Save amendment' : 'Confirm result'),
+              child: Text(m.isConfirmed ? context.l10n.saveAmendment : context.l10n.confirmResult),
             ),
           ),
         ]),
@@ -629,7 +635,7 @@ class _ResultSheetState extends ConsumerState<_ResultSheet> {
     return Padding(
       padding: EdgeInsets.fromLTRB(20, 20, 20, 20 + MediaQuery.of(context).viewInsets.bottom),
       child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text(m.isConfirmed ? 'Amend result' : 'Enter result',
+        Text(m.isConfirmed ? context.l10n.amendResult : context.l10n.enterResult,
             style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800)),
         const SizedBox(height: 16),
         Row(children: [
@@ -649,13 +655,13 @@ class _ResultSheetState extends ConsumerState<_ResultSheet> {
           SwitchListTile(
             contentPadding: EdgeInsets.zero,
             dense: true,
-            title: const Text('Decided in extra time'),
+            title: Text(context.l10n.decidedInExtraTime),
             value: _extra,
             onChanged: (v) => setState(() => _extra = v),
           ),
         if (ko && level && rule != KnockoutDraw.replay) ...[
           const SizedBox(height: 12),
-          const Text('Penalty shoot-out', style: TextStyle(fontWeight: FontWeight.w700)),
+          Text(context.l10n.penaltyShootout, style: const TextStyle(fontWeight: FontWeight.w700)),
           const SizedBox(height: 6),
           Row(children: [
             Expanded(child: field(_homePens, size: 20)),
@@ -664,13 +670,13 @@ class _ResultSheetState extends ConsumerState<_ResultSheet> {
           ]),
         ],
         if (ko && level && rule == KnockoutDraw.replay)
-          Text('Level score: this match goes back to "to play" and is played again.',
+          Text(context.l10n.levelReplayNote,
               style: TextStyle(color: SpheraColors.gold, fontSize: 12)),
         if (m.replays.isNotEmpty)
-          Text('Earlier draws: ${m.replays.map((r) => '${r.home}-${r.away}').join(', ')}',
+          Text(context.l10n.earlierDraws(m.replays.map((r) => '${r.home}-${r.away}').join(', ')),
               style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
         if (m.isConfirmed)
-          Text('Amendments are recorded in the audit log.', style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
+          Text(context.l10n.amendmentsRecorded, style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
         if (_error != null)
           Padding(
             padding: const EdgeInsets.only(top: 8),
@@ -681,7 +687,7 @@ class _ResultSheetState extends ConsumerState<_ResultSheet> {
           width: double.infinity,
           child: FilledButton(
             onPressed: _saving ? null : _save,
-            child: Text(m.isConfirmed ? 'Save amendment' : 'Confirm result'),
+            child: Text(m.isConfirmed ? context.l10n.saveAmendment : context.l10n.confirmResult),
           ),
         ),
       ]),
@@ -702,7 +708,7 @@ class _BrStandingsTab extends StatelessWidget {
     final confirmed = t.brRounds.where((r) => r.confirmed).length;
     final notes = [
       for (final r in rows)
-        if (r.note.isNotEmpty && r.rankedBy != 'Points') '#${r.position} ${t.participantName(r.id)}: ${r.note}',
+        if (r.note.isNotEmpty && r.rankedBy != appL10n.arenaCritPoints) '#${r.position} ${t.participantName(r.id)}: ${r.note}',
     ];
     return ListView(
       padding: const EdgeInsets.all(16),
@@ -713,12 +719,12 @@ class _BrStandingsTab extends StatelessWidget {
             padding: const EdgeInsets.all(12),
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Row(children: [
-                const Expanded(child: Text('Overall standings', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w800))),
-                Text('$confirmed / ${t.brRounds.length} rounds',
+                Expanded(child: Text(context.l10n.overallStandings, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w800))),
+                Text(context.l10n.brRoundsProgress(confirmed, t.brRounds.length),
                     style: TextStyle(color: SpheraColors.gold, fontSize: 11, fontWeight: FontWeight.w700)),
               ]),
               const SizedBox(height: 2),
-              Text('Total = placement points + kills x ${t.brScoring.killPoints}',
+              Text(context.l10n.brTotalFormula(t.brScoring.killPoints),
                   style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
               const SizedBox(height: 6),
               SingleChildScrollView(
@@ -731,14 +737,14 @@ class _BrStandingsTab extends StatelessWidget {
                   dataRowMaxHeight: 44,
                   headingTextStyle:
                       TextStyle(color: SpheraColors.muted, fontSize: 12, fontWeight: FontWeight.w700),
-                  columns: const [
-                    DataColumn(label: Text('#')),
-                    DataColumn(label: Text('Name')),
-                    DataColumn(label: Text('Rnd'), numeric: true),
-                    DataColumn(label: Text('Place'), numeric: true),
-                    DataColumn(label: Text('Kills'), numeric: true),
-                    DataColumn(label: Text('Kill pts'), numeric: true),
-                    DataColumn(label: Text('Total'), numeric: true),
+                  columns: [
+                    const DataColumn(label: Text('#')),
+                    DataColumn(label: Text(context.l10n.name)),
+                    DataColumn(label: Text(context.l10n.colRnd), numeric: true),
+                    DataColumn(label: Text(context.l10n.colPlace), numeric: true),
+                    DataColumn(label: Text(context.l10n.colKills), numeric: true),
+                    DataColumn(label: Text(context.l10n.colKillPts), numeric: true),
+                    DataColumn(label: Text(context.l10n.colTotal), numeric: true),
                   ],
                   rows: [
                     for (final r in rows)
@@ -759,7 +765,7 @@ class _BrStandingsTab extends StatelessWidget {
               ),
               if (notes.isNotEmpty) ...[
                 const SizedBox(height: 8),
-                Text('How ties were resolved',
+                Text(context.l10n.howTiesResolved,
                     style: TextStyle(color: SpheraColors.muted, fontSize: 11, fontWeight: FontWeight.w700)),
                 for (final n in notes) Text(n, style: TextStyle(color: SpheraColors.muted, fontSize: 11)),
               ],
@@ -799,9 +805,9 @@ class _BrRoundsTab extends ConsumerWidget {
                   const SizedBox(width: 12),
                   Expanded(
                     child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                      Text('Round ${r.number}', style: const TextStyle(fontWeight: FontWeight.w700)),
+                      Text(context.l10n.roundN(r.number), style: const TextStyle(fontWeight: FontWeight.w700)),
                       const SizedBox(height: 2),
-                      Text(r.confirmed ? 'Confirmed · tap to amend' : 'Tap to enter placements and kills',
+                      Text(r.confirmed ? context.l10n.roundConfirmedTap : context.l10n.roundTapToEnter,
                           style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
                     ]),
                   ),
@@ -814,7 +820,7 @@ class _BrRoundsTab extends ConsumerWidget {
         OutlinedButton.icon(
           onPressed: () => _apply(context, ref, t.id, ArenaEngine.brAddRound),
           icon: const Icon(Icons.add),
-          label: const Text('Add a round'),
+          label: Text(context.l10n.addRound),
         ),
       ],
     );
@@ -867,7 +873,7 @@ class _BrRoundSheetState extends ConsumerState<_BrRoundSheet> {
       final place = int.tryParse(_place[p.id]?.text.trim() ?? '');
       final kills = int.tryParse(_kills[p.id]?.text.trim() ?? '');
       if (place == null || kills == null) {
-        setState(() => _error = 'Enter a placement and a kill count (0 or more) for "${p.name}".');
+        setState(() => _error = context.l10n.enterPlacementKills(p.name));
         return;
       }
       results[p.id] = BrResult(placement: place, kills: kills);
@@ -894,7 +900,7 @@ class _BrRoundSheetState extends ConsumerState<_BrRoundSheet> {
     final t = ref.watch(arenaProvider).byId(widget.tournamentId);
     final round = t?.brRounds.where((r) => r.id == widget.roundId).firstOrNull;
     if (t == null || round == null) {
-      return const SizedBox(height: 120, child: Center(child: Text('Round not found.')));
+      return SizedBox(height: 120, child: Center(child: Text(context.l10n.arenaErrRoundNotFound)));
     }
     Widget numField(TextEditingController c, String label) => SizedBox(
           width: 64,
@@ -909,9 +915,9 @@ class _BrRoundSheetState extends ConsumerState<_BrRoundSheet> {
     return Padding(
       padding: EdgeInsets.fromLTRB(20, 20, 20, 20 + MediaQuery.of(context).viewInsets.bottom),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text('Round ${round.number}', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800)),
+        Text(context.l10n.roundN(round.number), style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800)),
         const SizedBox(height: 4),
-        Text('Placement 1 to ${t.participants.length} (no repeats). Each kill = ${t.brScoring.killPoints} points.',
+        Text(context.l10n.placementHelp(t.participants.length, t.brScoring.killPoints),
             style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
         const SizedBox(height: 12),
         Expanded(
@@ -922,9 +928,9 @@ class _BrRoundSheetState extends ConsumerState<_BrRoundSheet> {
                 child: Row(children: [
                   Expanded(child: Text(p.display, overflow: TextOverflow.ellipsis, maxLines: 2)),
                   const SizedBox(width: 8),
-                  numField(_place[p.id]!, 'Place'),
+                  numField(_place[p.id]!, context.l10n.colPlace),
                   const SizedBox(width: 8),
-                  numField(_kills[p.id]!, 'Kills'),
+                  numField(_kills[p.id]!, context.l10n.colKills),
                 ]),
               ),
           ]),
@@ -939,7 +945,7 @@ class _BrRoundSheetState extends ConsumerState<_BrRoundSheet> {
           width: double.infinity,
           child: FilledButton(
             onPressed: _saving ? null : _save,
-            child: Text(round.confirmed ? 'Save amendment' : 'Confirm round'),
+            child: Text(round.confirmed ? context.l10n.saveAmendment : context.l10n.confirmRound),
           ),
         ),
       ]),
@@ -961,7 +967,7 @@ class _BracketTab extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(32),
           child: Text(
-            'The bracket appears after the group stage is complete.\nOpen Standings and tap "Generate knockout".',
+            context.l10n.bracketLater,
             textAlign: TextAlign.center,
             style: TextStyle(color: SpheraColors.muted),
           ),
@@ -1017,7 +1023,7 @@ class _BracketCard extends StatelessWidget {
       return Row(children: [
         Expanded(
           child: Text(
-            id == null ? (m.bye ? 'BYE' : 'TBD') : t.participantName(id),
+            id == null ? (m.bye ? context.l10n.bye : context.l10n.arenaTbd) : t.participantName(id),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
@@ -1063,15 +1069,15 @@ class _InfoTab extends ConsumerWidget {
     final ok = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Edit participant'),
+        title: Text(context.l10n.editParticipant),
         content: Column(mainAxisSize: MainAxisSize.min, children: [
-          TextField(controller: c, decoration: const InputDecoration(labelText: 'Name')),
+          TextField(controller: c, decoration: InputDecoration(labelText: context.l10n.name)),
           const SizedBox(height: 8),
-          TextField(controller: team, decoration: const InputDecoration(labelText: 'Team / club')),
+          TextField(controller: team, decoration: InputDecoration(labelText: context.l10n.teamClub)),
         ]),
         actions: [
-          TextButton(onPressed: () => Navigator.pop(ctx, false), child: const Text('Cancel')),
-          FilledButton(onPressed: () => Navigator.pop(ctx, true), child: const Text('Save')),
+          TextButton(onPressed: () => Navigator.pop(ctx, false), child: Text(context.l10n.cancel)),
+          FilledButton(onPressed: () => Navigator.pop(ctx, true), child: Text(context.l10n.save)),
         ],
       ),
     );
@@ -1082,11 +1088,11 @@ class _InfoTab extends ConsumerWidget {
     if (ok != true || name.isEmpty || !context.mounted) return;
     await _apply(context, ref, t.id, (cur) {
       if (cur.participants.any((x) => x.id != p.id && x.name.toLowerCase() == name.toLowerCase())) {
-        throw ArenaError('"$name" is already registered.');
+        throw ArenaError(appL10n.arenaErrAlreadyRegistered(name));
       }
       return cur.copyWith(
         participants: [for (final x in cur.participants) x.id == p.id ? x.copyWith(name: name, team: teamName) : x],
-        audit: [...cur.audit, AuditEvent(at: DateTime.now(), text: 'Participant edited: ${p.name} -> $name')],
+        audit: [...cur.audit, AuditEvent(at: DateTime.now(), text: appL10n.logParticipantEdited(p.name, name))],
       );
     });
   }
@@ -1109,32 +1115,32 @@ class _InfoTab extends ConsumerWidget {
             padding: const EdgeInsets.all(16),
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               if (t.description.isNotEmpty) ...[Text(t.description), const SizedBox(height: 10)],
-              row('Game', '${t.game} · ${t.mode}'),
+              row(context.l10n.game, '${t.game} · ${t.mode}'),
               if (t.isBattleRoyale)
-                row('Scoring',
-                    'Placement points + kills x ${t.brScoring.killPoints} (${t.brRoundsPlanned} planned rounds)')
+                row(context.l10n.rowScoring,
+                    context.l10n.scoringBr(t.brScoring.killPoints, t.brRoundsPlanned))
               else
-                row('Structure', t.structure.label),
-              row('Organizer', t.organizer.isEmpty ? '-' : t.organizer),
-              row('Start', _date(t.startDate)),
-              row('Registration', 'until ${_date(t.registrationDeadline)}'),
+                row(context.l10n.rowStructure, t.structure.label),
+              row(context.l10n.rowOrganizer, t.organizer.isEmpty ? '-' : t.organizer),
+              row(context.l10n.rowStart, _date(t.startDate)),
+              row(context.l10n.rowRegistration, context.l10n.untilDate(_date(t.registrationDeadline))),
               if (!t.isBattleRoyale && t.structure != ArenaStructure.knockoutOnly) ...[
                 row(
-                    'Points',
+                    context.l10n.arenaColPoints,
                     (t.gameMode?.winnerOnly ?? false)
-                        ? 'Win ${t.rules.pointsWin} · Loss ${t.rules.pointsLoss}'
-                        : 'W ${t.rules.pointsWin} · D ${t.rules.pointsDraw} · L ${t.rules.pointsLoss}'),
-                row('Ranking',
-                    'Pts → ${ArenaEngine.effectiveRules(t).tiebreakers.map((x) => x.short).join(' → ')}'),
+                        ? context.l10n.pointsWinLoss(t.rules.pointsWin, t.rules.pointsLoss)
+                        : context.l10n.pointsWdl(t.rules.pointsWin, t.rules.pointsDraw, t.rules.pointsLoss)),
+                row(context.l10n.rowRanking,
+                    '${context.l10n.arenaColPtsShort} → ${ArenaEngine.effectiveRules(t).tiebreakers.map((x) => x.short).join(' → ')}'),
               ],
               if (!t.isBattleRoyale && t.structure.hasKnockout && !(t.gameMode?.winnerOnly ?? false))
-                row('If level', t.rules.knockoutDraw.label),
+                row(context.l10n.rowIfLevel, t.rules.knockoutDraw.label),
             ]),
           ),
         ),
         if (t.rulesText.isNotEmpty) ...[
           const SizedBox(height: 12),
-          _Section(title: 'Rules', child: Text(t.rulesText)),
+          _Section(title: context.l10n.rulesTitle, child: Text(t.rulesText)),
         ],
         if (t.roomId.isNotEmpty || t.roomPassword.isNotEmpty) ...[
           const SizedBox(height: 12),
@@ -1142,15 +1148,15 @@ class _InfoTab extends ConsumerWidget {
         ],
         const SizedBox(height: 12),
         _Section(
-          title: 'Participants (${t.participants.length})',
+          title: context.l10n.participantsTitle(t.participants.length),
           child: Column(children: [
             Align(
-              alignment: Alignment.centerRight,
+              alignment: AlignmentDirectional.centerEnd,
               child: OutlinedButton.icon(
                 onPressed: () => Navigator.of(context).push(
                     MaterialPageRoute(builder: (_) => TeamManagementScreen(tournamentId: t.id))),
                 icon: const Icon(Icons.swap_horiz),
-                label: Text(t.gameMode?.isTeamMode ?? false ? 'Teams and players' : 'Edit and swap players'),
+                label: Text(t.gameMode?.isTeamMode ?? false ? context.l10n.teamsAndPlayers : context.l10n.editSwapPlayers),
               ),
             ),
             for (final p in t.participants)
@@ -1160,7 +1166,7 @@ class _InfoTab extends ConsumerWidget {
                 title: Text(p.display),
                 subtitle: p.roster.isNotEmpty
                     ? Text(p.roster.map((x) => x.name).join(', '))
-                    : (p.players > 1 ? Text('${p.players} players') : null),
+                    : (p.players > 1 ? Text(context.l10n.playersCount(p.players)) : null),
                 trailing: const Icon(Icons.edit_outlined, size: 18),
                 onTap: () => _rename(context, ref, p),
               ),
@@ -1168,9 +1174,9 @@ class _InfoTab extends ConsumerWidget {
         ),
         const SizedBox(height: 12),
         _Section(
-          title: 'Audit log',
+          title: context.l10n.auditLog,
           child: audit.isEmpty
-              ? Text('No events yet.', style: TextStyle(color: SpheraColors.muted))
+              ? Text(context.l10n.noEventsYet, style: TextStyle(color: SpheraColors.muted))
               : Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   for (final e in audit)
                     Padding(
@@ -1223,13 +1229,13 @@ class _RoomCardState extends State<_RoomCard> {
   @override
   Widget build(BuildContext context) {
     return _Section(
-      title: 'Room',
+      title: context.l10n.room,
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text('Room ID: ${widget.roomId.isEmpty ? '-' : widget.roomId}'),
+        Text(context.l10n.roomIdValue(widget.roomId.isEmpty ? '-' : widget.roomId)),
         const SizedBox(height: 6),
         Row(children: [
           Expanded(
-            child: Text('Password: ${widget.password.isEmpty ? '-' : (_reveal ? widget.password : '••••••')}'),
+            child: Text(context.l10n.passwordValue(widget.password.isEmpty ? '-' : (_reveal ? widget.password : '••••••'))),
           ),
           if (widget.password.isNotEmpty)
             IconButton(
@@ -1237,7 +1243,7 @@ class _RoomCardState extends State<_RoomCard> {
               onPressed: () => setState(() => _reveal = !_reveal),
             ),
         ]),
-        Text('Stored on this device only. Never shared automatically.',
+        Text(context.l10n.roomStoredNote,
             style: TextStyle(color: SpheraColors.muted, fontSize: 11)),
       ]),
     );

@@ -5385,6 +5385,1038 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No player names yet.'**
   String get noPlayerNamesYet;
+
+  /// No description provided for @tournament.
+  ///
+  /// In en, this message translates to:
+  /// **'Tournament'**
+  String get tournament;
+
+  /// No description provided for @tabStandings.
+  ///
+  /// In en, this message translates to:
+  /// **'Standings'**
+  String get tabStandings;
+
+  /// No description provided for @tabRounds.
+  ///
+  /// In en, this message translates to:
+  /// **'Rounds'**
+  String get tabRounds;
+
+  /// No description provided for @tabMatches.
+  ///
+  /// In en, this message translates to:
+  /// **'Matches'**
+  String get tabMatches;
+
+  /// No description provided for @tabBracket.
+  ///
+  /// In en, this message translates to:
+  /// **'Bracket'**
+  String get tabBracket;
+
+  /// No description provided for @tabInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Info'**
+  String get tabInfo;
+
+  /// No description provided for @resetAllResultsQ.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset all results?'**
+  String get resetAllResultsQ;
+
+  /// No description provided for @resetBodyKo.
+  ///
+  /// In en, this message translates to:
+  /// **'Every confirmed result is cleared and the knockout bracket is removed. The reset is recorded in the audit log.'**
+  String get resetBodyKo;
+
+  /// No description provided for @resetBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Every confirmed result is cleared. The reset is recorded in the audit log.'**
+  String get resetBody;
+
+  /// No description provided for @deleteTournamentQ.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete tournament?'**
+  String get deleteTournamentQ;
+
+  /// No description provided for @cannotBeUndone.
+  ///
+  /// In en, this message translates to:
+  /// **'This cannot be undone.'**
+  String get cannotBeUndone;
+
+  /// No description provided for @resetResults.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset results'**
+  String get resetResults;
+
+  /// No description provided for @deleteTournament.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete tournament'**
+  String get deleteTournament;
+
+  /// No description provided for @knockoutStage.
+  ///
+  /// In en, this message translates to:
+  /// **'Knockout stage'**
+  String get knockoutStage;
+
+  /// No description provided for @topNOfEveryGroup.
+  ///
+  /// In en, this message translates to:
+  /// **'Top {n} of every group qualify.'**
+  String topNOfEveryGroup(int n);
+
+  /// No description provided for @generateKnockout.
+  ///
+  /// In en, this message translates to:
+  /// **'Generate knockout'**
+  String get generateKnockout;
+
+  /// No description provided for @confirmGroupMatchesFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm all group matches first'**
+  String get confirmGroupMatchesFirst;
+
+  /// No description provided for @championCaps.
+  ///
+  /// In en, this message translates to:
+  /// **'CHAMPION'**
+  String get championCaps;
+
+  /// No description provided for @topNQualify.
+  ///
+  /// In en, this message translates to:
+  /// **'Top {n} qualify'**
+  String topNQualify(int n);
+
+  /// No description provided for @howTiesResolved.
+  ///
+  /// In en, this message translates to:
+  /// **'How ties were resolved'**
+  String get howTiesResolved;
+
+  /// No description provided for @matchday.
+  ///
+  /// In en, this message translates to:
+  /// **'Matchday {n}'**
+  String matchday(int n);
+
+  /// No description provided for @toPlay.
+  ///
+  /// In en, this message translates to:
+  /// **'To play'**
+  String get toPlay;
+
+  /// No description provided for @filterPlayed.
+  ///
+  /// In en, this message translates to:
+  /// **'Played'**
+  String get filterPlayed;
+
+  /// No description provided for @noMatchesHere.
+  ///
+  /// In en, this message translates to:
+  /// **'No matches here.'**
+  String get noMatchesHere;
+
+  /// No description provided for @bye.
+  ///
+  /// In en, this message translates to:
+  /// **'BYE'**
+  String get bye;
+
+  /// No description provided for @win.
+  ///
+  /// In en, this message translates to:
+  /// **'Win'**
+  String get win;
+
+  /// No description provided for @vs.
+  ///
+  /// In en, this message translates to:
+  /// **'vs'**
+  String get vs;
+
+  /// No description provided for @enterBothScores.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter both scores as whole numbers.'**
+  String get enterBothScores;
+
+  /// No description provided for @pickWinner.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick the winner.'**
+  String get pickWinner;
+
+  /// No description provided for @amendResult.
+  ///
+  /// In en, this message translates to:
+  /// **'Amend result'**
+  String get amendResult;
+
+  /// No description provided for @whoWon.
+  ///
+  /// In en, this message translates to:
+  /// **'Who won?'**
+  String get whoWon;
+
+  /// No description provided for @pickWinningSide.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick the winning side.'**
+  String get pickWinningSide;
+
+  /// No description provided for @amendmentsRecorded.
+  ///
+  /// In en, this message translates to:
+  /// **'Amendments are recorded in the audit log.'**
+  String get amendmentsRecorded;
+
+  /// No description provided for @saveAmendment.
+  ///
+  /// In en, this message translates to:
+  /// **'Save amendment'**
+  String get saveAmendment;
+
+  /// No description provided for @confirmResult.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm result'**
+  String get confirmResult;
+
+  /// No description provided for @enterResult.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter result'**
+  String get enterResult;
+
+  /// No description provided for @decidedInExtraTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Decided in extra time'**
+  String get decidedInExtraTime;
+
+  /// No description provided for @penaltyShootout.
+  ///
+  /// In en, this message translates to:
+  /// **'Penalty shoot-out'**
+  String get penaltyShootout;
+
+  /// No description provided for @levelReplayNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Level score: this match goes back to \"to play\" and is played again.'**
+  String get levelReplayNote;
+
+  /// No description provided for @earlierDraws.
+  ///
+  /// In en, this message translates to:
+  /// **'Earlier draws: {list}'**
+  String earlierDraws(String list);
+
+  /// No description provided for @overallStandings.
+  ///
+  /// In en, this message translates to:
+  /// **'Overall standings'**
+  String get overallStandings;
+
+  /// No description provided for @brRoundsProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'{done} / {total} rounds'**
+  String brRoundsProgress(int done, int total);
+
+  /// No description provided for @brTotalFormula.
+  ///
+  /// In en, this message translates to:
+  /// **'Total = placement points + kills x {k}'**
+  String brTotalFormula(int k);
+
+  /// No description provided for @colRnd.
+  ///
+  /// In en, this message translates to:
+  /// **'Rnd'**
+  String get colRnd;
+
+  /// No description provided for @colPlace.
+  ///
+  /// In en, this message translates to:
+  /// **'Place'**
+  String get colPlace;
+
+  /// No description provided for @colKills.
+  ///
+  /// In en, this message translates to:
+  /// **'Kills'**
+  String get colKills;
+
+  /// No description provided for @colKillPts.
+  ///
+  /// In en, this message translates to:
+  /// **'Kill pts'**
+  String get colKillPts;
+
+  /// No description provided for @colTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'Total'**
+  String get colTotal;
+
+  /// No description provided for @roundN.
+  ///
+  /// In en, this message translates to:
+  /// **'Round {n}'**
+  String roundN(int n);
+
+  /// No description provided for @roundConfirmedTap.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirmed · tap to amend'**
+  String get roundConfirmedTap;
+
+  /// No description provided for @roundTapToEnter.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to enter placements and kills'**
+  String get roundTapToEnter;
+
+  /// No description provided for @addRound.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a round'**
+  String get addRound;
+
+  /// No description provided for @enterPlacementKills.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a placement and a kill count (0 or more) for \"{name}\".'**
+  String enterPlacementKills(String name);
+
+  /// No description provided for @placementHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Placement 1 to {n} (no repeats). Each kill = {k} points.'**
+  String placementHelp(int n, int k);
+
+  /// No description provided for @confirmRound.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm round'**
+  String get confirmRound;
+
+  /// No description provided for @bracketLater.
+  ///
+  /// In en, this message translates to:
+  /// **'The bracket appears after the group stage is complete.\nOpen Standings and tap \"Generate knockout\".'**
+  String get bracketLater;
+
+  /// No description provided for @editParticipant.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit participant'**
+  String get editParticipant;
+
+  /// No description provided for @teamClub.
+  ///
+  /// In en, this message translates to:
+  /// **'Team / club'**
+  String get teamClub;
+
+  /// No description provided for @logParticipantEdited.
+  ///
+  /// In en, this message translates to:
+  /// **'Participant edited: {old} -> {name}'**
+  String logParticipantEdited(String old, String name);
+
+  /// No description provided for @rowScoring.
+  ///
+  /// In en, this message translates to:
+  /// **'Scoring'**
+  String get rowScoring;
+
+  /// No description provided for @scoringBr.
+  ///
+  /// In en, this message translates to:
+  /// **'Placement points + kills x {k} ({n} planned rounds)'**
+  String scoringBr(int k, int n);
+
+  /// No description provided for @rowStructure.
+  ///
+  /// In en, this message translates to:
+  /// **'Structure'**
+  String get rowStructure;
+
+  /// No description provided for @rowOrganizer.
+  ///
+  /// In en, this message translates to:
+  /// **'Organizer'**
+  String get rowOrganizer;
+
+  /// No description provided for @rowStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start'**
+  String get rowStart;
+
+  /// No description provided for @rowRegistration.
+  ///
+  /// In en, this message translates to:
+  /// **'Registration'**
+  String get rowRegistration;
+
+  /// No description provided for @untilDate.
+  ///
+  /// In en, this message translates to:
+  /// **'until {date}'**
+  String untilDate(String date);
+
+  /// No description provided for @pointsWinLoss.
+  ///
+  /// In en, this message translates to:
+  /// **'Win {w} · Loss {l}'**
+  String pointsWinLoss(int w, int l);
+
+  /// No description provided for @pointsWdl.
+  ///
+  /// In en, this message translates to:
+  /// **'W {w} · D {d} · L {l}'**
+  String pointsWdl(int w, int d, int l);
+
+  /// No description provided for @rowRanking.
+  ///
+  /// In en, this message translates to:
+  /// **'Ranking'**
+  String get rowRanking;
+
+  /// No description provided for @rowIfLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'If level'**
+  String get rowIfLevel;
+
+  /// No description provided for @rulesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Rules'**
+  String get rulesTitle;
+
+  /// No description provided for @participantsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Participants ({count})'**
+  String participantsTitle(int count);
+
+  /// No description provided for @editSwapPlayers.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit and swap players'**
+  String get editSwapPlayers;
+
+  /// No description provided for @auditLog.
+  ///
+  /// In en, this message translates to:
+  /// **'Audit log'**
+  String get auditLog;
+
+  /// No description provided for @noEventsYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No events yet.'**
+  String get noEventsYet;
+
+  /// No description provided for @room.
+  ///
+  /// In en, this message translates to:
+  /// **'Room'**
+  String get room;
+
+  /// No description provided for @roomIdValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Room ID: {id}'**
+  String roomIdValue(String id);
+
+  /// No description provided for @passwordValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Password: {pw}'**
+  String passwordValue(String pw);
+
+  /// No description provided for @roomStoredNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Stored on this device only. Never shared automatically.'**
+  String get roomStoredNote;
+
+  /// No description provided for @stepSelectGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Select game'**
+  String get stepSelectGame;
+
+  /// No description provided for @stepTypeMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Type and mode'**
+  String get stepTypeMode;
+
+  /// No description provided for @stepSetup.
+  ///
+  /// In en, this message translates to:
+  /// **'Setup'**
+  String get stepSetup;
+
+  /// No description provided for @stepDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Details and confirm'**
+  String get stepDetails;
+
+  /// No description provided for @maxReached.
+  ///
+  /// In en, this message translates to:
+  /// **'Maximum reached ({cap}).'**
+  String maxReached(int cap);
+
+  /// No description provided for @enterTeamPlayers.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the players of the team, separated by commas.'**
+  String get enterTeamPlayers;
+
+  /// No description provided for @everyTeamExactly.
+  ///
+  /// In en, this message translates to:
+  /// **'Every team needs exactly {size} players.'**
+  String everyTeamExactly(int size);
+
+  /// No description provided for @createTournament.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Tournament'**
+  String get createTournament;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// No description provided for @selectGameTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Game'**
+  String get selectGameTitle;
+
+  /// No description provided for @selectGameSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose the game for your tournament.'**
+  String get selectGameSub;
+
+  /// No description provided for @selectTypeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Tournament Type'**
+  String get selectTypeTitle;
+
+  /// No description provided for @selectTypeSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose the mode you want to organize in {game}.'**
+  String selectTypeSub(String game);
+
+  /// No description provided for @selectModeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Mode'**
+  String get selectModeTitle;
+
+  /// No description provided for @selectModeSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick the format for your {type}.'**
+  String selectModeSub(String type);
+
+  /// No description provided for @infoPointsSystem.
+  ///
+  /// In en, this message translates to:
+  /// **'Points system'**
+  String get infoPointsSystem;
+
+  /// No description provided for @infoTwoPlayers.
+  ///
+  /// In en, this message translates to:
+  /// **'Two players per match'**
+  String get infoTwoPlayers;
+
+  /// No description provided for @infoMin2Teams.
+  ///
+  /// In en, this message translates to:
+  /// **'Minimum: 2 teams'**
+  String get infoMin2Teams;
+
+  /// No description provided for @infoMinPlayers.
+  ///
+  /// In en, this message translates to:
+  /// **'Minimum players: {n}'**
+  String infoMinPlayers(int n);
+
+  /// No description provided for @infoHowItWorks.
+  ///
+  /// In en, this message translates to:
+  /// **'How it works'**
+  String get infoHowItWorks;
+
+  /// No description provided for @infoBrText.
+  ///
+  /// In en, this message translates to:
+  /// **'Total = placement points + 2 points per kill. The last three placements score 0 placement points. {detail}.'**
+  String infoBrText(String detail);
+
+  /// No description provided for @infoCs1v1.
+  ///
+  /// In en, this message translates to:
+  /// **'Each match needs two players, both slots filled. Register at least 2 players. A match is won or lost: no goals, no draws.'**
+  String get infoCs1v1;
+
+  /// No description provided for @infoCsTeams.
+  ///
+  /// In en, this message translates to:
+  /// **'At least 2 teams are needed. Teams can have different numbers of players (for example 2 against 1), up to {size} per team. A match is won or lost: no goals, no draws.'**
+  String infoCsTeams(int size);
+
+  /// No description provided for @infoMinTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'{n} registered players in total are needed to start. The team size ({size}) is a maximum: you do not have to fill every slot.'**
+  String infoMinTotal(int n, int size);
+
+  /// No description provided for @info1v1.
+  ///
+  /// In en, this message translates to:
+  /// **'Each match has two players. Results decide the standings.'**
+  String get info1v1;
+
+  /// No description provided for @setupSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Registration, format and rules.'**
+  String get setupSub;
+
+  /// No description provided for @setupValid.
+  ///
+  /// In en, this message translates to:
+  /// **'Setup is valid. Continue to the last step.'**
+  String get setupValid;
+
+  /// No description provided for @toContinue.
+  ///
+  /// In en, this message translates to:
+  /// **'To continue'**
+  String get toContinue;
+
+  /// No description provided for @registrationPanel.
+  ///
+  /// In en, this message translates to:
+  /// **'Registration'**
+  String get registrationPanel;
+
+  /// No description provided for @maxTeams.
+  ///
+  /// In en, this message translates to:
+  /// **'Maximum teams'**
+  String get maxTeams;
+
+  /// No description provided for @maxPlayers.
+  ///
+  /// In en, this message translates to:
+  /// **'Maximum players'**
+  String get maxPlayers;
+
+  /// No description provided for @limitTeams.
+  ///
+  /// In en, this message translates to:
+  /// **'Limit: up to {max} teams ({detail}).'**
+  String limitTeams(int max, String detail);
+
+  /// No description provided for @limitPlayers.
+  ///
+  /// In en, this message translates to:
+  /// **'Limit: up to {max} players ({detail}).'**
+  String limitPlayers(int max, String detail);
+
+  /// No description provided for @atLeastPlayersTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'At least {n} players in total. Teams do not have to be full.'**
+  String atLeastPlayersTotal(int n);
+
+  /// No description provided for @playersCommaLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Players (names separated by commas)'**
+  String get playersCommaLabel;
+
+  /// No description provided for @playersCommaHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Ali, Sara'**
+  String get playersCommaHint;
+
+  /// No description provided for @exactlyPerTeam.
+  ///
+  /// In en, this message translates to:
+  /// **'Exactly {size} players per team.'**
+  String exactlyPerTeam(int size);
+
+  /// No description provided for @oneToPerTeam.
+  ///
+  /// In en, this message translates to:
+  /// **'1 to {size} players per team. Teams do not have to be full.'**
+  String oneToPerTeam(int size);
+
+  /// No description provided for @teamsRegistered.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} / {cap} teams · {players} players'**
+  String teamsRegistered(int count, int cap, int players);
+
+  /// No description provided for @playersRegistered.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} / {cap} players'**
+  String playersRegistered(int count, int cap);
+
+  /// No description provided for @formatPanel.
+  ///
+  /// In en, this message translates to:
+  /// **'Format'**
+  String get formatPanel;
+
+  /// No description provided for @tournamentFormat.
+  ///
+  /// In en, this message translates to:
+  /// **'Tournament format'**
+  String get tournamentFormat;
+
+  /// No description provided for @numberOfLeagues.
+  ///
+  /// In en, this message translates to:
+  /// **'Number of leagues'**
+  String get numberOfLeagues;
+
+  /// No description provided for @groupsPerLeague.
+  ///
+  /// In en, this message translates to:
+  /// **'Groups per league'**
+  String get groupsPerLeague;
+
+  /// No description provided for @qualifiersPerGroup.
+  ///
+  /// In en, this message translates to:
+  /// **'Qualifiers per group'**
+  String get qualifiersPerGroup;
+
+  /// No description provided for @doubleRoundRobin.
+  ///
+  /// In en, this message translates to:
+  /// **'Double round-robin'**
+  String get doubleRoundRobin;
+
+  /// No description provided for @doubleRoundRobinSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Home and away: everyone plays everyone twice'**
+  String get doubleRoundRobinSub;
+
+  /// No description provided for @randomDraw.
+  ///
+  /// In en, this message translates to:
+  /// **'Random draw'**
+  String get randomDraw;
+
+  /// No description provided for @randomDrawSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Off: participants are placed in the order they were added'**
+  String get randomDrawSub;
+
+  /// No description provided for @ifKoLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'If a knockout match ends level'**
+  String get ifKoLevel;
+
+  /// No description provided for @pointsAndRanking.
+  ///
+  /// In en, this message translates to:
+  /// **'Points and ranking'**
+  String get pointsAndRanking;
+
+  /// No description provided for @draw.
+  ///
+  /// In en, this message translates to:
+  /// **'Draw'**
+  String get draw;
+
+  /// No description provided for @lossLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Loss'**
+  String get lossLabel;
+
+  /// No description provided for @tiebreakerOrder.
+  ///
+  /// In en, this message translates to:
+  /// **'Tie-breaker order'**
+  String get tiebreakerOrder;
+
+  /// No description provided for @directMatchFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Direct match first'**
+  String get directMatchFirst;
+
+  /// No description provided for @goalDiffFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Goal difference first'**
+  String get goalDiffFirst;
+
+  /// No description provided for @rulesNoteWinnerOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'The winner of a match takes the win points. Teams level on points are ranked by their direct match, then by name. Locked once the tournament starts.'**
+  String get rulesNoteWinnerOnly;
+
+  /// No description provided for @rulesNote.
+  ///
+  /// In en, this message translates to:
+  /// **'These rules are locked once the tournament starts. Teams still level after every criterion are ordered by name.'**
+  String get rulesNote;
+
+  /// No description provided for @standingsColumns.
+  ///
+  /// In en, this message translates to:
+  /// **'Standings columns'**
+  String get standingsColumns;
+
+  /// No description provided for @columnsSelected.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 column selected. Rank and name are always shown.} other{{count} columns selected. Rank and name are always shown.}}'**
+  String columnsSelected(int count);
+
+  /// No description provided for @roundsAndScoring.
+  ///
+  /// In en, this message translates to:
+  /// **'Rounds and scoring'**
+  String get roundsAndScoring;
+
+  /// No description provided for @plannedRounds.
+  ///
+  /// In en, this message translates to:
+  /// **'Planned rounds'**
+  String get plannedRounds;
+
+  /// No description provided for @brFormulaTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Total = placement points + kills x 2'**
+  String get brFormulaTitle;
+
+  /// No description provided for @brFormulaText.
+  ///
+  /// In en, this message translates to:
+  /// **'For duo and squad, the kills of all team members are added together.'**
+  String get brFormulaText;
+
+  /// No description provided for @placementPoints.
+  ///
+  /// In en, this message translates to:
+  /// **'Placement points'**
+  String get placementPoints;
+
+  /// No description provided for @registerTeamsFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Register at least {n} teams to configure the table (it has one row per team).'**
+  String registerTeamsFirst(int n);
+
+  /// No description provided for @registerPlayersFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Register at least {n} players to configure the table (it has one row per player).'**
+  String registerPlayersFirst(int n);
+
+  /// No description provided for @lastPlacementsZero.
+  ///
+  /// In en, this message translates to:
+  /// **'The last {n} placements always score 0 placement points.'**
+  String lastPlacementsZero(int n);
+
+  /// No description provided for @resetToDefault.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset to default'**
+  String get resetToDefault;
+
+  /// No description provided for @notSet.
+  ///
+  /// In en, this message translates to:
+  /// **'Not set'**
+  String get notSet;
+
+  /// No description provided for @tournamentSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Tournament Settings'**
+  String get tournamentSettings;
+
+  /// No description provided for @tournamentSettingsSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Set the final details of your tournament.'**
+  String get tournamentSettingsSub;
+
+  /// No description provided for @tournamentNameReq.
+  ///
+  /// In en, this message translates to:
+  /// **'Tournament name *'**
+  String get tournamentNameReq;
+
+  /// No description provided for @tournamentNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. SPHERA Cup'**
+  String get tournamentNameHint;
+
+  /// No description provided for @organizer.
+  ///
+  /// In en, this message translates to:
+  /// **'Organizer'**
+  String get organizer;
+
+  /// No description provided for @description.
+  ///
+  /// In en, this message translates to:
+  /// **'Description'**
+  String get description;
+
+  /// No description provided for @startDateTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Start date and time'**
+  String get startDateTime;
+
+  /// No description provided for @registrationDeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'Registration deadline'**
+  String get registrationDeadline;
+
+  /// No description provided for @rulesAndPenalties.
+  ///
+  /// In en, this message translates to:
+  /// **'Rules and penalties'**
+  String get rulesAndPenalties;
+
+  /// No description provided for @roomIdOptional.
+  ///
+  /// In en, this message translates to:
+  /// **'Room ID (optional)'**
+  String get roomIdOptional;
+
+  /// No description provided for @roomPasswordOptional.
+  ///
+  /// In en, this message translates to:
+  /// **'Room password (optional)'**
+  String get roomPasswordOptional;
+
+  /// No description provided for @review.
+  ///
+  /// In en, this message translates to:
+  /// **'Review'**
+  String get review;
+
+  /// No description provided for @participantsRow.
+  ///
+  /// In en, this message translates to:
+  /// **'Participants'**
+  String get participantsRow;
+
+  /// No description provided for @participantsSummaryTeams.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} ({players} players) · max {max}'**
+  String participantsSummaryTeams(int count, int players, int max);
+
+  /// No description provided for @participantsSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} · max {max}'**
+  String participantsSummary(int count, int max);
+
+  /// No description provided for @scoringBrShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Placement points + kills x 2'**
+  String get scoringBrShort;
+
+  /// No description provided for @columnsRow.
+  ///
+  /// In en, this message translates to:
+  /// **'Columns'**
+  String get columnsRow;
+
+  /// No description provided for @readAndConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Please read and confirm: the ranking rules lock when the tournament starts.'**
+  String get readAndConfirm;
+
+  /// No description provided for @validRounds.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything looks valid. Creating generates the rounds.'**
+  String get validRounds;
+
+  /// No description provided for @validFixtures.
+  ///
+  /// In en, this message translates to:
+  /// **'Everything looks valid. Creating generates the fixtures.'**
+  String get validFixtures;
+
+  /// No description provided for @stepOf.
+  ///
+  /// In en, this message translates to:
+  /// **'Step {step} of {total} · {title}'**
+  String stepOf(int step, int total, String title);
+
+  /// No description provided for @rankingOrder.
+  ///
+  /// In en, this message translates to:
+  /// **'Ranking order'**
+  String get rankingOrder;
+
+  /// No description provided for @teamColumn.
+  ///
+  /// In en, this message translates to:
+  /// **'Team'**
+  String get teamColumn;
 }
 
 class _AppLocalizationsDelegate

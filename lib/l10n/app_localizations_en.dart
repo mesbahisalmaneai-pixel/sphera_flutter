@@ -3172,4 +3172,621 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noPlayerNamesYet => 'No player names yet.';
+
+  @override
+  String get tournament => 'Tournament';
+
+  @override
+  String get tabStandings => 'Standings';
+
+  @override
+  String get tabRounds => 'Rounds';
+
+  @override
+  String get tabMatches => 'Matches';
+
+  @override
+  String get tabBracket => 'Bracket';
+
+  @override
+  String get tabInfo => 'Info';
+
+  @override
+  String get resetAllResultsQ => 'Reset all results?';
+
+  @override
+  String get resetBodyKo =>
+      'Every confirmed result is cleared and the knockout bracket is removed. The reset is recorded in the audit log.';
+
+  @override
+  String get resetBody =>
+      'Every confirmed result is cleared. The reset is recorded in the audit log.';
+
+  @override
+  String get deleteTournamentQ => 'Delete tournament?';
+
+  @override
+  String get cannotBeUndone => 'This cannot be undone.';
+
+  @override
+  String get resetResults => 'Reset results';
+
+  @override
+  String get deleteTournament => 'Delete tournament';
+
+  @override
+  String get knockoutStage => 'Knockout stage';
+
+  @override
+  String topNOfEveryGroup(int n) {
+    return 'Top $n of every group qualify.';
+  }
+
+  @override
+  String get generateKnockout => 'Generate knockout';
+
+  @override
+  String get confirmGroupMatchesFirst => 'Confirm all group matches first';
+
+  @override
+  String get championCaps => 'CHAMPION';
+
+  @override
+  String topNQualify(int n) {
+    return 'Top $n qualify';
+  }
+
+  @override
+  String get howTiesResolved => 'How ties were resolved';
+
+  @override
+  String matchday(int n) {
+    return 'Matchday $n';
+  }
+
+  @override
+  String get toPlay => 'To play';
+
+  @override
+  String get filterPlayed => 'Played';
+
+  @override
+  String get noMatchesHere => 'No matches here.';
+
+  @override
+  String get bye => 'BYE';
+
+  @override
+  String get win => 'Win';
+
+  @override
+  String get vs => 'vs';
+
+  @override
+  String get enterBothScores => 'Enter both scores as whole numbers.';
+
+  @override
+  String get pickWinner => 'Pick the winner.';
+
+  @override
+  String get amendResult => 'Amend result';
+
+  @override
+  String get whoWon => 'Who won?';
+
+  @override
+  String get pickWinningSide => 'Pick the winning side.';
+
+  @override
+  String get amendmentsRecorded => 'Amendments are recorded in the audit log.';
+
+  @override
+  String get saveAmendment => 'Save amendment';
+
+  @override
+  String get confirmResult => 'Confirm result';
+
+  @override
+  String get enterResult => 'Enter result';
+
+  @override
+  String get decidedInExtraTime => 'Decided in extra time';
+
+  @override
+  String get penaltyShootout => 'Penalty shoot-out';
+
+  @override
+  String get levelReplayNote =>
+      'Level score: this match goes back to \"to play\" and is played again.';
+
+  @override
+  String earlierDraws(String list) {
+    return 'Earlier draws: $list';
+  }
+
+  @override
+  String get overallStandings => 'Overall standings';
+
+  @override
+  String brRoundsProgress(int done, int total) {
+    return '$done / $total rounds';
+  }
+
+  @override
+  String brTotalFormula(int k) {
+    return 'Total = placement points + kills x $k';
+  }
+
+  @override
+  String get colRnd => 'Rnd';
+
+  @override
+  String get colPlace => 'Place';
+
+  @override
+  String get colKills => 'Kills';
+
+  @override
+  String get colKillPts => 'Kill pts';
+
+  @override
+  String get colTotal => 'Total';
+
+  @override
+  String roundN(int n) {
+    return 'Round $n';
+  }
+
+  @override
+  String get roundConfirmedTap => 'Confirmed · tap to amend';
+
+  @override
+  String get roundTapToEnter => 'Tap to enter placements and kills';
+
+  @override
+  String get addRound => 'Add a round';
+
+  @override
+  String enterPlacementKills(String name) {
+    return 'Enter a placement and a kill count (0 or more) for \"$name\".';
+  }
+
+  @override
+  String placementHelp(int n, int k) {
+    return 'Placement 1 to $n (no repeats). Each kill = $k points.';
+  }
+
+  @override
+  String get confirmRound => 'Confirm round';
+
+  @override
+  String get bracketLater =>
+      'The bracket appears after the group stage is complete.\nOpen Standings and tap \"Generate knockout\".';
+
+  @override
+  String get editParticipant => 'Edit participant';
+
+  @override
+  String get teamClub => 'Team / club';
+
+  @override
+  String logParticipantEdited(String old, String name) {
+    return 'Participant edited: $old -> $name';
+  }
+
+  @override
+  String get rowScoring => 'Scoring';
+
+  @override
+  String scoringBr(int k, int n) {
+    return 'Placement points + kills x $k ($n planned rounds)';
+  }
+
+  @override
+  String get rowStructure => 'Structure';
+
+  @override
+  String get rowOrganizer => 'Organizer';
+
+  @override
+  String get rowStart => 'Start';
+
+  @override
+  String get rowRegistration => 'Registration';
+
+  @override
+  String untilDate(String date) {
+    return 'until $date';
+  }
+
+  @override
+  String pointsWinLoss(int w, int l) {
+    return 'Win $w · Loss $l';
+  }
+
+  @override
+  String pointsWdl(int w, int d, int l) {
+    return 'W $w · D $d · L $l';
+  }
+
+  @override
+  String get rowRanking => 'Ranking';
+
+  @override
+  String get rowIfLevel => 'If level';
+
+  @override
+  String get rulesTitle => 'Rules';
+
+  @override
+  String participantsTitle(int count) {
+    return 'Participants ($count)';
+  }
+
+  @override
+  String get editSwapPlayers => 'Edit and swap players';
+
+  @override
+  String get auditLog => 'Audit log';
+
+  @override
+  String get noEventsYet => 'No events yet.';
+
+  @override
+  String get room => 'Room';
+
+  @override
+  String roomIdValue(String id) {
+    return 'Room ID: $id';
+  }
+
+  @override
+  String passwordValue(String pw) {
+    return 'Password: $pw';
+  }
+
+  @override
+  String get roomStoredNote =>
+      'Stored on this device only. Never shared automatically.';
+
+  @override
+  String get stepSelectGame => 'Select game';
+
+  @override
+  String get stepTypeMode => 'Type and mode';
+
+  @override
+  String get stepSetup => 'Setup';
+
+  @override
+  String get stepDetails => 'Details and confirm';
+
+  @override
+  String maxReached(int cap) {
+    return 'Maximum reached ($cap).';
+  }
+
+  @override
+  String get enterTeamPlayers =>
+      'Enter the players of the team, separated by commas.';
+
+  @override
+  String everyTeamExactly(int size) {
+    return 'Every team needs exactly $size players.';
+  }
+
+  @override
+  String get createTournament => 'Create Tournament';
+
+  @override
+  String get next => 'Next';
+
+  @override
+  String get selectGameTitle => 'Select Game';
+
+  @override
+  String get selectGameSub => 'Choose the game for your tournament.';
+
+  @override
+  String get selectTypeTitle => 'Select Tournament Type';
+
+  @override
+  String selectTypeSub(String game) {
+    return 'Choose the mode you want to organize in $game.';
+  }
+
+  @override
+  String get selectModeTitle => 'Select Mode';
+
+  @override
+  String selectModeSub(String type) {
+    return 'Pick the format for your $type.';
+  }
+
+  @override
+  String get infoPointsSystem => 'Points system';
+
+  @override
+  String get infoTwoPlayers => 'Two players per match';
+
+  @override
+  String get infoMin2Teams => 'Minimum: 2 teams';
+
+  @override
+  String infoMinPlayers(int n) {
+    return 'Minimum players: $n';
+  }
+
+  @override
+  String get infoHowItWorks => 'How it works';
+
+  @override
+  String infoBrText(String detail) {
+    return 'Total = placement points + 2 points per kill. The last three placements score 0 placement points. $detail.';
+  }
+
+  @override
+  String get infoCs1v1 =>
+      'Each match needs two players, both slots filled. Register at least 2 players. A match is won or lost: no goals, no draws.';
+
+  @override
+  String infoCsTeams(int size) {
+    return 'At least 2 teams are needed. Teams can have different numbers of players (for example 2 against 1), up to $size per team. A match is won or lost: no goals, no draws.';
+  }
+
+  @override
+  String infoMinTotal(int n, int size) {
+    return '$n registered players in total are needed to start. The team size ($size) is a maximum: you do not have to fill every slot.';
+  }
+
+  @override
+  String get info1v1 =>
+      'Each match has two players. Results decide the standings.';
+
+  @override
+  String get setupSub => 'Registration, format and rules.';
+
+  @override
+  String get setupValid => 'Setup is valid. Continue to the last step.';
+
+  @override
+  String get toContinue => 'To continue';
+
+  @override
+  String get registrationPanel => 'Registration';
+
+  @override
+  String get maxTeams => 'Maximum teams';
+
+  @override
+  String get maxPlayers => 'Maximum players';
+
+  @override
+  String limitTeams(int max, String detail) {
+    return 'Limit: up to $max teams ($detail).';
+  }
+
+  @override
+  String limitPlayers(int max, String detail) {
+    return 'Limit: up to $max players ($detail).';
+  }
+
+  @override
+  String atLeastPlayersTotal(int n) {
+    return 'At least $n players in total. Teams do not have to be full.';
+  }
+
+  @override
+  String get playersCommaLabel => 'Players (names separated by commas)';
+
+  @override
+  String get playersCommaHint => 'e.g. Ali, Sara';
+
+  @override
+  String exactlyPerTeam(int size) {
+    return 'Exactly $size players per team.';
+  }
+
+  @override
+  String oneToPerTeam(int size) {
+    return '1 to $size players per team. Teams do not have to be full.';
+  }
+
+  @override
+  String teamsRegistered(int count, int cap, int players) {
+    return '$count / $cap teams · $players players';
+  }
+
+  @override
+  String playersRegistered(int count, int cap) {
+    return '$count / $cap players';
+  }
+
+  @override
+  String get formatPanel => 'Format';
+
+  @override
+  String get tournamentFormat => 'Tournament format';
+
+  @override
+  String get numberOfLeagues => 'Number of leagues';
+
+  @override
+  String get groupsPerLeague => 'Groups per league';
+
+  @override
+  String get qualifiersPerGroup => 'Qualifiers per group';
+
+  @override
+  String get doubleRoundRobin => 'Double round-robin';
+
+  @override
+  String get doubleRoundRobinSub =>
+      'Home and away: everyone plays everyone twice';
+
+  @override
+  String get randomDraw => 'Random draw';
+
+  @override
+  String get randomDrawSub =>
+      'Off: participants are placed in the order they were added';
+
+  @override
+  String get ifKoLevel => 'If a knockout match ends level';
+
+  @override
+  String get pointsAndRanking => 'Points and ranking';
+
+  @override
+  String get draw => 'Draw';
+
+  @override
+  String get lossLabel => 'Loss';
+
+  @override
+  String get tiebreakerOrder => 'Tie-breaker order';
+
+  @override
+  String get directMatchFirst => 'Direct match first';
+
+  @override
+  String get goalDiffFirst => 'Goal difference first';
+
+  @override
+  String get rulesNoteWinnerOnly =>
+      'The winner of a match takes the win points. Teams level on points are ranked by their direct match, then by name. Locked once the tournament starts.';
+
+  @override
+  String get rulesNote =>
+      'These rules are locked once the tournament starts. Teams still level after every criterion are ordered by name.';
+
+  @override
+  String get standingsColumns => 'Standings columns';
+
+  @override
+  String columnsSelected(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count columns selected. Rank and name are always shown.',
+      one: '1 column selected. Rank and name are always shown.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get roundsAndScoring => 'Rounds and scoring';
+
+  @override
+  String get plannedRounds => 'Planned rounds';
+
+  @override
+  String get brFormulaTitle => 'Total = placement points + kills x 2';
+
+  @override
+  String get brFormulaText =>
+      'For duo and squad, the kills of all team members are added together.';
+
+  @override
+  String get placementPoints => 'Placement points';
+
+  @override
+  String registerTeamsFirst(int n) {
+    return 'Register at least $n teams to configure the table (it has one row per team).';
+  }
+
+  @override
+  String registerPlayersFirst(int n) {
+    return 'Register at least $n players to configure the table (it has one row per player).';
+  }
+
+  @override
+  String lastPlacementsZero(int n) {
+    return 'The last $n placements always score 0 placement points.';
+  }
+
+  @override
+  String get resetToDefault => 'Reset to default';
+
+  @override
+  String get notSet => 'Not set';
+
+  @override
+  String get tournamentSettings => 'Tournament Settings';
+
+  @override
+  String get tournamentSettingsSub =>
+      'Set the final details of your tournament.';
+
+  @override
+  String get tournamentNameReq => 'Tournament name *';
+
+  @override
+  String get tournamentNameHint => 'e.g. SPHERA Cup';
+
+  @override
+  String get organizer => 'Organizer';
+
+  @override
+  String get description => 'Description';
+
+  @override
+  String get startDateTime => 'Start date and time';
+
+  @override
+  String get registrationDeadline => 'Registration deadline';
+
+  @override
+  String get rulesAndPenalties => 'Rules and penalties';
+
+  @override
+  String get roomIdOptional => 'Room ID (optional)';
+
+  @override
+  String get roomPasswordOptional => 'Room password (optional)';
+
+  @override
+  String get review => 'Review';
+
+  @override
+  String get participantsRow => 'Participants';
+
+  @override
+  String participantsSummaryTeams(int count, int players, int max) {
+    return '$count ($players players) · max $max';
+  }
+
+  @override
+  String participantsSummary(int count, int max) {
+    return '$count · max $max';
+  }
+
+  @override
+  String get scoringBrShort => 'Placement points + kills x 2';
+
+  @override
+  String get columnsRow => 'Columns';
+
+  @override
+  String get readAndConfirm =>
+      'Please read and confirm: the ranking rules lock when the tournament starts.';
+
+  @override
+  String get validRounds =>
+      'Everything looks valid. Creating generates the rounds.';
+
+  @override
+  String get validFixtures =>
+      'Everything looks valid. Creating generates the fixtures.';
+
+  @override
+  String stepOf(int step, int total, String title) {
+    return 'Step $step of $total · $title';
+  }
+
+  @override
+  String get rankingOrder => 'Ranking order';
+
+  @override
+  String get teamColumn => 'Team';
 }

@@ -3235,4 +3235,616 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get noPlayerNamesYet => 'لا أسماء لاعبين بعد.';
+
+  @override
+  String get tournament => 'البطولة';
+
+  @override
+  String get tabStandings => 'الترتيب';
+
+  @override
+  String get tabRounds => 'الجولات';
+
+  @override
+  String get tabMatches => 'المباريات';
+
+  @override
+  String get tabBracket => 'الجدول الإقصائي';
+
+  @override
+  String get tabInfo => 'معلومات';
+
+  @override
+  String get resetAllResultsQ => 'إعادة تعيين كل النتائج؟';
+
+  @override
+  String get resetBodyKo =>
+      'تُمسح كل النتائج المؤكدة ويُحذف جدول الإقصائيات. تُسجَّل إعادة التعيين في سجل الأحداث.';
+
+  @override
+  String get resetBody =>
+      'تُمسح كل النتائج المؤكدة. تُسجَّل إعادة التعيين في سجل الأحداث.';
+
+  @override
+  String get deleteTournamentQ => 'حذف البطولة؟';
+
+  @override
+  String get cannotBeUndone => 'لا يمكن التراجع عن ذلك.';
+
+  @override
+  String get resetResults => 'إعادة تعيين النتائج';
+
+  @override
+  String get deleteTournament => 'حذف البطولة';
+
+  @override
+  String get knockoutStage => 'الأدوار الإقصائية';
+
+  @override
+  String topNOfEveryGroup(int n) {
+    return 'يتأهل أول $n من كل مجموعة.';
+  }
+
+  @override
+  String get generateKnockout => 'توليد الإقصائيات';
+
+  @override
+  String get confirmGroupMatchesFirst => 'أكّد كل مباريات المجموعات أولًا';
+
+  @override
+  String get championCaps => 'البطل';
+
+  @override
+  String topNQualify(int n) {
+    return 'يتأهل أول $n';
+  }
+
+  @override
+  String get howTiesResolved => 'كيف حُسمت حالات التعادل';
+
+  @override
+  String matchday(int n) {
+    return 'الجولة $n';
+  }
+
+  @override
+  String get toPlay => 'لم تُلعب';
+
+  @override
+  String get filterPlayed => 'لُعبت';
+
+  @override
+  String get noMatchesHere => 'لا توجد مباريات هنا.';
+
+  @override
+  String get bye => 'إعفاء';
+
+  @override
+  String get win => 'فوز';
+
+  @override
+  String get vs => 'ضد';
+
+  @override
+  String get enterBothScores => 'أدخل النتيجتين كأعداد صحيحة.';
+
+  @override
+  String get pickWinner => 'اختر الفائز.';
+
+  @override
+  String get amendResult => 'تعديل النتيجة';
+
+  @override
+  String get whoWon => 'من فاز؟';
+
+  @override
+  String get pickWinningSide => 'اختر الطرف الفائز.';
+
+  @override
+  String get amendmentsRecorded => 'تُسجَّل التعديلات في سجل الأحداث.';
+
+  @override
+  String get saveAmendment => 'حفظ التعديل';
+
+  @override
+  String get confirmResult => 'تأكيد النتيجة';
+
+  @override
+  String get enterResult => 'إدخال النتيجة';
+
+  @override
+  String get decidedInExtraTime => 'حُسمت في الوقت الإضافي';
+
+  @override
+  String get penaltyShootout => 'ركلات الترجيح';
+
+  @override
+  String get levelReplayNote =>
+      'نتيجة متعادلة: تعود هذه المباراة إلى «لم تُلعب» وتُعاد.';
+
+  @override
+  String earlierDraws(String list) {
+    return 'تعادلات سابقة: ⁦$list⁩';
+  }
+
+  @override
+  String get overallStandings => 'الترتيب العام';
+
+  @override
+  String brRoundsProgress(int done, int total) {
+    return '⁦$done / $total⁩ جولات';
+  }
+
+  @override
+  String brTotalFormula(int k) {
+    return 'المجموع = نقاط المركز + القتلى × $k';
+  }
+
+  @override
+  String get colRnd => 'جولات';
+
+  @override
+  String get colPlace => 'المركز';
+
+  @override
+  String get colKills => 'القتلى';
+
+  @override
+  String get colKillPts => 'نقاط القتل';
+
+  @override
+  String get colTotal => 'المجموع';
+
+  @override
+  String roundN(int n) {
+    return 'الجولة $n';
+  }
+
+  @override
+  String get roundConfirmedTap => 'مؤكدة · اضغط للتعديل';
+
+  @override
+  String get roundTapToEnter => 'اضغط لإدخال المراكز والقتلى';
+
+  @override
+  String get addRound => 'إضافة جولة';
+
+  @override
+  String enterPlacementKills(String name) {
+    return 'أدخل مركزًا وعدد قتلى (0 أو أكثر) لـ «$name».';
+  }
+
+  @override
+  String placementHelp(int n, int k) {
+    return 'المركز من 1 إلى $n (دون تكرار). كل قتل = $k نقاط.';
+  }
+
+  @override
+  String get confirmRound => 'تأكيد الجولة';
+
+  @override
+  String get bracketLater =>
+      'يظهر الجدول الإقصائي بعد اكتمال دور المجموعات.\nافتح «الترتيب» واضغط «توليد الإقصائيات».';
+
+  @override
+  String get editParticipant => 'تعديل المشارك';
+
+  @override
+  String get teamClub => 'الفريق / النادي';
+
+  @override
+  String logParticipantEdited(String old, String name) {
+    return 'عُدّل المشارك: $old ← $name';
+  }
+
+  @override
+  String get rowScoring => 'التنقيط';
+
+  @override
+  String scoringBr(int k, int n) {
+    return 'نقاط المركز + القتلى × $k ($n جولات مخططة)';
+  }
+
+  @override
+  String get rowStructure => 'الهيكل';
+
+  @override
+  String get rowOrganizer => 'المنظّم';
+
+  @override
+  String get rowStart => 'البداية';
+
+  @override
+  String get rowRegistration => 'التسجيل';
+
+  @override
+  String untilDate(String date) {
+    return 'حتى $date';
+  }
+
+  @override
+  String pointsWinLoss(int w, int l) {
+    return 'فوز $w · خسارة $l';
+  }
+
+  @override
+  String pointsWdl(int w, int d, int l) {
+    return 'فوز $w · تعادل $d · خسارة $l';
+  }
+
+  @override
+  String get rowRanking => 'الترتيب';
+
+  @override
+  String get rowIfLevel => 'عند التعادل';
+
+  @override
+  String get rulesTitle => 'القواعد';
+
+  @override
+  String participantsTitle(int count) {
+    return 'المشاركون ($count)';
+  }
+
+  @override
+  String get editSwapPlayers => 'تعديل اللاعبين وتبديلهم';
+
+  @override
+  String get auditLog => 'سجل الأحداث';
+
+  @override
+  String get noEventsYet => 'لا أحداث بعد.';
+
+  @override
+  String get room => 'الغرفة';
+
+  @override
+  String roomIdValue(String id) {
+    return 'معرّف الغرفة: $id';
+  }
+
+  @override
+  String passwordValue(String pw) {
+    return 'كلمة المرور: $pw';
+  }
+
+  @override
+  String get roomStoredNote =>
+      'محفوظ على هذا الجهاز فقط. لا يُشارَك تلقائيًا أبدًا.';
+
+  @override
+  String get stepSelectGame => 'اختيار اللعبة';
+
+  @override
+  String get stepTypeMode => 'النوع والوضع';
+
+  @override
+  String get stepSetup => 'الإعداد';
+
+  @override
+  String get stepDetails => 'التفاصيل والتأكيد';
+
+  @override
+  String maxReached(int cap) {
+    return 'تم بلوغ الحد الأقصى ($cap).';
+  }
+
+  @override
+  String get enterTeamPlayers => 'أدخل لاعبي الفريق مفصولين بفواصل.';
+
+  @override
+  String everyTeamExactly(int size) {
+    return 'يحتاج كل فريق $size لاعبين بالضبط.';
+  }
+
+  @override
+  String get createTournament => 'إنشاء البطولة';
+
+  @override
+  String get next => 'التالي';
+
+  @override
+  String get selectGameTitle => 'اختر اللعبة';
+
+  @override
+  String get selectGameSub => 'اختر لعبة بطولتك.';
+
+  @override
+  String get selectTypeTitle => 'اختر نوع البطولة';
+
+  @override
+  String selectTypeSub(String game) {
+    return 'اختر الوضع الذي تريد تنظيمه في $game.';
+  }
+
+  @override
+  String get selectModeTitle => 'اختر الوضع';
+
+  @override
+  String selectModeSub(String type) {
+    return 'اختر صيغة $type.';
+  }
+
+  @override
+  String get infoPointsSystem => 'نظام النقاط';
+
+  @override
+  String get infoTwoPlayers => 'لاعبان في كل مباراة';
+
+  @override
+  String get infoMin2Teams => 'الحد الأدنى: فريقان';
+
+  @override
+  String infoMinPlayers(int n) {
+    return 'الحد الأدنى للاعبين: $n';
+  }
+
+  @override
+  String get infoHowItWorks => 'طريقة العمل';
+
+  @override
+  String infoBrText(String detail) {
+    return 'المجموع = نقاط المركز + نقطتان لكل قتل. آخر ثلاثة مراكز تحصل على 0 نقطة. $detail.';
+  }
+
+  @override
+  String get infoCs1v1 =>
+      'تحتاج كل مباراة لاعبَين. سجّل لاعبَين على الأقل. المباراة فوز أو خسارة: لا أهداف ولا تعادل.';
+
+  @override
+  String infoCsTeams(int size) {
+    return 'يلزم فريقان على الأقل. يمكن أن تختلف أعداد اللاعبين (مثلًا 2 ضد 1)، حتى $size لكل فريق. المباراة فوز أو خسارة: لا أهداف ولا تعادل.';
+  }
+
+  @override
+  String infoMinTotal(int n, int size) {
+    return 'يلزم $n لاعبين مسجلين إجمالًا للبدء. حجم الفريق ($size) حد أقصى: لا يلزم ملء كل الأماكن.';
+  }
+
+  @override
+  String get info1v1 => 'كل مباراة بين لاعبَين. النتائج تحدد الترتيب.';
+
+  @override
+  String get setupSub => 'التسجيل والصيغة والقواعد.';
+
+  @override
+  String get setupValid => 'الإعداد صالح. انتقل إلى الخطوة الأخيرة.';
+
+  @override
+  String get toContinue => 'للمتابعة';
+
+  @override
+  String get registrationPanel => 'التسجيل';
+
+  @override
+  String get maxTeams => 'الحد الأقصى للفرق';
+
+  @override
+  String get maxPlayers => 'الحد الأقصى للاعبين';
+
+  @override
+  String limitTeams(int max, String detail) {
+    return 'الحد: حتى $max فريقًا ($detail).';
+  }
+
+  @override
+  String limitPlayers(int max, String detail) {
+    return 'الحد: حتى $max لاعبًا ($detail).';
+  }
+
+  @override
+  String atLeastPlayersTotal(int n) {
+    return '$n لاعبين على الأقل إجمالًا. لا يلزم أن تكون الفرق كاملة.';
+  }
+
+  @override
+  String get playersCommaLabel => 'اللاعبون (أسماء مفصولة بفواصل)';
+
+  @override
+  String get playersCommaHint => 'مثال: علي، سارة';
+
+  @override
+  String exactlyPerTeam(int size) {
+    return '$size لاعبين بالضبط لكل فريق.';
+  }
+
+  @override
+  String oneToPerTeam(int size) {
+    return 'من 1 إلى $size لاعبين لكل فريق. لا يلزم أن تكون الفرق كاملة.';
+  }
+
+  @override
+  String teamsRegistered(int count, int cap, int players) {
+    return '⁦$count / $cap⁩ فرق · $players لاعبين';
+  }
+
+  @override
+  String playersRegistered(int count, int cap) {
+    return '⁦$count / $cap⁩ لاعبين';
+  }
+
+  @override
+  String get formatPanel => 'الصيغة';
+
+  @override
+  String get tournamentFormat => 'صيغة البطولة';
+
+  @override
+  String get numberOfLeagues => 'عدد الدوريات';
+
+  @override
+  String get groupsPerLeague => 'المجموعات لكل دوري';
+
+  @override
+  String get qualifiersPerGroup => 'المتأهلون من كل مجموعة';
+
+  @override
+  String get doubleRoundRobin => 'ذهاب وإياب';
+
+  @override
+  String get doubleRoundRobinSub => 'ذهاب وإياب: يلعب الجميع ضد الجميع مرتين';
+
+  @override
+  String get randomDraw => 'قرعة عشوائية';
+
+  @override
+  String get randomDrawSub =>
+      'عند الإيقاف: يُرتَّب المشاركون حسب ترتيب إضافتهم';
+
+  @override
+  String get ifKoLevel => 'إذا انتهت مباراة إقصائية بالتعادل';
+
+  @override
+  String get pointsAndRanking => 'النقاط والترتيب';
+
+  @override
+  String get draw => 'تعادل';
+
+  @override
+  String get lossLabel => 'خسارة';
+
+  @override
+  String get tiebreakerOrder => 'ترتيب كسر التعادل';
+
+  @override
+  String get directMatchFirst => 'المواجهة المباشرة أولًا';
+
+  @override
+  String get goalDiffFirst => 'فارق الأهداف أولًا';
+
+  @override
+  String get rulesNoteWinnerOnly =>
+      'يأخذ الفائز نقاط الفوز. تُرتَّب الفرق المتساوية حسب مواجهتها المباشرة ثم حسب الاسم. تُقفل عند بدء البطولة.';
+
+  @override
+  String get rulesNote =>
+      'تُقفل هذه القواعد عند بدء البطولة. الفرق التي تبقى متعادلة بعد كل المعايير تُرتَّب حسب الاسم.';
+
+  @override
+  String get standingsColumns => 'أعمدة الترتيب';
+
+  @override
+  String columnsSelected(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count عمودًا محددًا. يظهر الترتيب والاسم دائمًا.',
+      few: '$count أعمدة محددة. يظهر الترتيب والاسم دائمًا.',
+      two: 'عمودان محددان. يظهر الترتيب والاسم دائمًا.',
+      one: 'عمود واحد محدد. يظهر الترتيب والاسم دائمًا.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get roundsAndScoring => 'الجولات والتنقيط';
+
+  @override
+  String get plannedRounds => 'الجولات المخططة';
+
+  @override
+  String get brFormulaTitle => 'المجموع = نقاط المركز + القتلى × 2';
+
+  @override
+  String get brFormulaText => 'في الثنائي والفريق، تُجمع قتلى كل أعضاء الفريق.';
+
+  @override
+  String get placementPoints => 'نقاط المراكز';
+
+  @override
+  String registerTeamsFirst(int n) {
+    return 'سجّل $n فرق على الأقل لإعداد الجدول (صف لكل فريق).';
+  }
+
+  @override
+  String registerPlayersFirst(int n) {
+    return 'سجّل $n لاعبين على الأقل لإعداد الجدول (صف لكل لاعب).';
+  }
+
+  @override
+  String lastPlacementsZero(int n) {
+    return 'آخر $n مراكز تحصل دائمًا على 0 نقطة.';
+  }
+
+  @override
+  String get resetToDefault => 'إعادة إلى الافتراضي';
+
+  @override
+  String get notSet => 'غير محدد';
+
+  @override
+  String get tournamentSettings => 'إعدادات البطولة';
+
+  @override
+  String get tournamentSettingsSub => 'حدّد التفاصيل الأخيرة لبطولتك.';
+
+  @override
+  String get tournamentNameReq => 'اسم البطولة *';
+
+  @override
+  String get tournamentNameHint => 'مثال: كأس SPHERA';
+
+  @override
+  String get organizer => 'المنظّم';
+
+  @override
+  String get description => 'الوصف';
+
+  @override
+  String get startDateTime => 'تاريخ ووقت البدء';
+
+  @override
+  String get registrationDeadline => 'آخر موعد للتسجيل';
+
+  @override
+  String get rulesAndPenalties => 'القواعد والعقوبات';
+
+  @override
+  String get roomIdOptional => 'معرّف الغرفة (اختياري)';
+
+  @override
+  String get roomPasswordOptional => 'كلمة مرور الغرفة (اختيارية)';
+
+  @override
+  String get review => 'المراجعة';
+
+  @override
+  String get participantsRow => 'المشاركون';
+
+  @override
+  String participantsSummaryTeams(int count, int players, int max) {
+    return '$count ($players لاعبين) · الحد $max';
+  }
+
+  @override
+  String participantsSummary(int count, int max) {
+    return '$count · الحد $max';
+  }
+
+  @override
+  String get scoringBrShort => 'نقاط المركز + القتلى × 2';
+
+  @override
+  String get columnsRow => 'الأعمدة';
+
+  @override
+  String get readAndConfirm =>
+      'يُرجى القراءة والتأكيد: تُقفل قواعد الترتيب عند بدء البطولة.';
+
+  @override
+  String get validRounds => 'كل شيء يبدو صالحًا. الإنشاء يولّد الجولات.';
+
+  @override
+  String get validFixtures => 'كل شيء يبدو صالحًا. الإنشاء يولّد المباريات.';
+
+  @override
+  String stepOf(int step, int total, String title) {
+    return 'الخطوة $step من $total · $title';
+  }
+
+  @override
+  String get rankingOrder => 'ترتيب التصنيف';
+
+  @override
+  String get teamColumn => 'الفريق';
 }

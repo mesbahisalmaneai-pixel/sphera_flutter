@@ -15,7 +15,8 @@ const _gameAssets = <String, String>{
   'eFootball': 'assets/images/games/efootball.jpg',
 };
 
-const _stepTitles = ['Select game', 'Type and mode', 'Setup', 'Details and confirm'];
+List<String> get _stepTitles =>
+    [appL10n.stepSelectGame, appL10n.stepTypeMode, appL10n.stepSetup, appL10n.stepDetails];
 
 class CreateTournamentScreen extends ConsumerStatefulWidget {
   const CreateTournamentScreen({super.key});
@@ -94,7 +95,7 @@ class _CreateTournamentScreenState extends ConsumerState<CreateTournamentScreen>
     final typed = _name.text.trim();
     return Tournament(
       id: _id,
-      name: typed.isEmpty && placeholderName ? 'Tournament' : typed,
+      name: typed.isEmpty && placeholderName ? appL10n.tournament : typed,
       description: _desc.text.trim(),
       game: _game ?? '',
       mode: mode?.label ?? '',
@@ -191,26 +192,26 @@ class _CreateTournamentScreenState extends ConsumerState<CreateTournamentScreen>
     if (name.isEmpty) return;
     final cap = mode.maxParticipants ?? _max;
     if (_participants.length >= cap) {
-      _snack('Maximum reached ($cap).');
+      _snack(context.l10n.maxReached(cap));
       return;
     }
     if (_participants.any((p) => p.name.toLowerCase() == name.toLowerCase())) {
-      _snack('"$name" is already registered.');
+      _snack(context.l10n.arenaErrAlreadyRegistered(name));
       return;
     }
     var roster = <ArenaPlayer>[];
     if (mode.isTeamMode) {
       final names = _pRoster.text.split(',').map((e) => e.trim()).where((e) => e.isNotEmpty).toList();
       if (names.isEmpty) {
-        _snack('Enter the players of the team, separated by commas.');
+        _snack(context.l10n.enterTeamPlayers);
         return;
       }
       if (names.length > mode.teamSize) {
-        _snack('${mode.label} allows at most ${mode.teamSize} players per team.');
+        _snack(context.l10n.arenaErrMaxPerTeam(mode.label, mode.teamSize));
         return;
       }
       if (mode.fixedTeamSize && names.length != mode.teamSize) {
-        _snack('Every team needs exactly ${mode.teamSize} players.');
+        _snack(context.l10n.everyTeamExactly(mode.teamSize));
         return;
       }
       final taken = {
@@ -273,7 +274,7 @@ class _CreateTournamentScreenState extends ConsumerState<CreateTournamentScreen>
     final last = _step == _stepTitles.length - 1;
     final canNext = _canGoNext();
     return Scaffold(
-      appBar: AppBar(title: const Text('Create Tournament')),
+      appBar: AppBar(title: Text(context.l10n.createTournament)),
       body: Column(children: [
         _StepHeader(step: _step, titles: _stepTitles),
         Expanded(
@@ -296,7 +297,7 @@ class _CreateTournamentScreenState extends ConsumerState<CreateTournamentScreen>
                 OutlinedButton(
                   style: OutlinedButton.styleFrom(minimumSize: const Size(88, 50)),
                   onPressed: () => setState(() => _step--),
-                  child: const Text('Back'),
+                  child: Text(context.l10n.back),
                 ),
                 const SizedBox(width: 12),
               ],
@@ -312,7 +313,7 @@ class _CreateTournamentScreenState extends ConsumerState<CreateTournamentScreen>
                     else if (last)
                       const Icon(Icons.emoji_events_outlined),
                     if (last) const SizedBox(width: 8),
-                    Text(last ? 'Create Tournament' : 'Next'),
+                    Text(last ? context.l10n.createTournament : context.l10n.next),
                     if (!last) ...[const SizedBox(width: 8), const Icon(Icons.arrow_forward, size: 18)],
                   ]),
                 ),
@@ -327,7 +328,7 @@ class _CreateTournamentScreenState extends ConsumerState<CreateTournamentScreen>
   // ------------------------------------------------------------ step 1: game
 
   List<Widget> _stepGame() => [
-        const _Heading('Select Game', 'Choose the game for your tournament.'),
+        _Heading(context.l10n.selectGameTitle, context.l10n.selectGameSub),
         GridView.count(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
@@ -354,7 +355,7 @@ class _CreateTournamentScreenState extends ConsumerState<CreateTournamentScreen>
     final types = ArenaGameMode.typesFor(game);
     final modes = _type == null ? const <ArenaGameMode>[] : ArenaGameMode.ofType(game, _type!);
     return [
-      _Heading('Select Tournament Type', 'Choose the mode you want to organize in $game.'),
+      _Heading(context.l10n.selectTypeTitle, context.l10n.selectTypeSub(game)),
       for (final type in types)
         _ChoiceTile(
           title: type,
@@ -364,7 +365,7 @@ class _CreateTournamentScreenState extends ConsumerState<CreateTournamentScreen>
         ),
       if (_type != null && modes.length > 1) ...[
         const SizedBox(height: 12),
-        _Heading('Select Mode', 'Pick the format for your $_type.'),
+        _Heading(context.l10n.selectModeTitle, context.l10n.selectModeSub(_type!)),
         GridView.count(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
@@ -387,33 +388,28 @@ class _CreateTournamentScreenState extends ConsumerState<CreateTournamentScreen>
 
   String _typeSubtitle(String game, String type) {
     final modes = ArenaGameMode.ofType(game, type);
-    return modes.length > 1 ? modes.map((m) => m.short).join(' / ') : modes.first.detail;
+    return modes.length > 1 ? modes.map((m) => m.short).join(' / ') : modes.first.localDetail;
   }
 
   String _infoTitle(ArenaGameMode m) => m.isBattleRoyale
-      ? 'Points system'
+      ? appL10n.infoPointsSystem
       : (m.type == 'Clash Squad'
-          ? (m.teamSize == 1 ? 'Two players per match' : 'Minimum: 2 teams')
-          : (m.minTotalPlayers > 0 ? 'Minimum players: ${m.minTotalPlayers}' : 'How it works'));
+          ? (m.teamSize == 1 ? appL10n.infoTwoPlayers : appL10n.infoMin2Teams)
+          : (m.minTotalPlayers > 0 ? appL10n.infoMinPlayers(m.minTotalPlayers) : appL10n.infoHowItWorks));
 
   String _infoText(ArenaGameMode m) {
     if (m.isBattleRoyale) {
-      return 'Total = placement points + 2 points per kill. The last three placements score 0 '
-          'placement points. ${m.detail}.';
+      return appL10n.infoBrText(m.localDetail);
     }
     if (m.type == 'Clash Squad') {
       return m.teamSize == 1
-          ? 'Each match needs two players, both slots filled. Register at least 2 players. '
-              'A match is won or lost: no goals, no draws.'
-          : 'At least 2 teams are needed. Teams can have different numbers of players '
-              '(for example 2 against 1), up to ${m.teamSize} per team. A match is won or lost: '
-              'no goals, no draws.';
+          ? appL10n.infoCs1v1
+          : appL10n.infoCsTeams(m.teamSize);
     }
     if (m.minTotalPlayers > 0) {
-      return '${m.minTotalPlayers} registered players in total are needed to start. '
-          'The team size (${m.teamSize}) is a maximum: you do not have to fill every slot.';
+      return appL10n.infoMinTotal(m.minTotalPlayers, m.teamSize);
     }
-    return 'Each match has two players. Results decide the standings.';
+    return appL10n.info1v1;
   }
 
   // ---------------------------------------------------------------- step 3
@@ -424,7 +420,7 @@ class _CreateTournamentScreenState extends ConsumerState<CreateTournamentScreen>
     final errors = _setupErrors();
     final standings = !br && _structure != ArenaStructure.knockoutOnly;
     return [
-      _Heading(mode.label, 'Registration, format and rules.'),
+      _Heading(mode.label, context.l10n.setupSub),
       _registration(mode),
       if (br) ..._brSetup(mode) else ..._formatSetup(),
       if (standings) ..._rankingSetup(),
@@ -433,10 +429,10 @@ class _CreateTournamentScreenState extends ConsumerState<CreateTournamentScreen>
         Row(children: [
           Icon(Icons.check_circle_outline, color: SpheraColors.gold),
           const SizedBox(width: 8),
-          const Expanded(child: Text('Setup is valid. Continue to the last step.')),
+          Expanded(child: Text(context.l10n.setupValid)),
         ])
       else ...[
-        Text('To continue', style: TextStyle(color: SpheraColors.muted, fontWeight: FontWeight.w700)),
+        Text(context.l10n.toContinue, style: TextStyle(color: SpheraColors.muted, fontWeight: FontWeight.w700)),
         const SizedBox(height: 6),
         for (final e in errors) _ErrorLine(e),
       ],
@@ -444,20 +440,22 @@ class _CreateTournamentScreenState extends ConsumerState<CreateTournamentScreen>
   }
 
   Widget _registration(ArenaGameMode mode) {
-    final unit = mode.isTeamMode ? 'team' : 'player';
     final cap = mode.maxParticipants ?? _max;
-    return _Panel(title: 'Registration', children: [
+    final l = context.l10n;
+    return _Panel(title: l.registrationPanel, children: [
       if (mode.maxParticipants == null)
         _NumberStepper(
-            label: 'Maximum ${unit}s', value: _max, min: 2, max: 128, onChanged: (v) => setState(() => _max = v))
+            label: mode.isTeamMode ? l.maxTeams : l.maxPlayers, value: _max, min: 2, max: 128, onChanged: (v) => setState(() => _max = v))
       else
-        Text('Limit: up to ${mode.maxParticipants} ${unit}s (${mode.detail}).',
+        Text(mode.isTeamMode
+                ? l.limitTeams(mode.maxParticipants!, mode.localDetail)
+                : l.limitPlayers(mode.maxParticipants!, mode.localDetail),
             style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
       if (mode.minTotalPlayers > 0)
         Padding(
           padding: const EdgeInsets.only(top: 4),
           child: Text(
-            'At least ${mode.minTotalPlayers} players in total. Teams do not have to be full.',
+            l.atLeastPlayersTotal(mode.minTotalPlayers),
             style: TextStyle(color: SpheraColors.muted, fontSize: 12),
           ),
         ),
@@ -466,7 +464,7 @@ class _CreateTournamentScreenState extends ConsumerState<CreateTournamentScreen>
         controller: _pName,
         textInputAction: TextInputAction.done,
         onSubmitted: (_) => _addParticipant(),
-        decoration: InputDecoration(labelText: mode.isTeamMode ? 'Team name' : 'Player name'),
+        decoration: InputDecoration(labelText: mode.isTeamMode ? l.teamName : l.playerName),
       ),
       if (mode.isTeamMode) ...[
         const SizedBox(height: 8),
@@ -475,24 +473,25 @@ class _CreateTournamentScreenState extends ConsumerState<CreateTournamentScreen>
           textInputAction: TextInputAction.done,
           onSubmitted: (_) => _addParticipant(),
           decoration: InputDecoration(
-            labelText: 'Players (names separated by commas)',
-            hintText: 'e.g. Ali, Sara',
+            labelText: l.playersCommaLabel,
+            hintText: l.playersCommaHint,
             helperText: mode.fixedTeamSize
-                ? 'Exactly ${mode.teamSize} players per team.'
-                : '1 to ${mode.teamSize} players per team. Teams do not have to be full.',
+                ? l.exactlyPerTeam(mode.teamSize)
+                : l.oneToPerTeam(mode.teamSize),
           ),
         ),
       ],
       const SizedBox(height: 8),
       Align(
-        alignment: Alignment.centerRight,
+        alignment: AlignmentDirectional.centerEnd,
         child: FilledButton.icon(
-            onPressed: _addParticipant, icon: const Icon(Icons.person_add_alt_1), label: const Text('Add')),
+            onPressed: _addParticipant, icon: const Icon(Icons.person_add_alt_1), label: Text(l.add)),
       ),
       const SizedBox(height: 8),
       Text(
-        '${_participants.length} / $cap ${unit}s'
-        '${mode.isTeamMode ? ' · $_totalPlayers players' : ''}',
+        mode.isTeamMode
+            ? l.teamsRegistered(_participants.length, cap, _totalPlayers)
+            : l.playersRegistered(_participants.length, cap),
         style: const TextStyle(fontWeight: FontWeight.w700),
       ),
       const SizedBox(height: 6),
@@ -525,11 +524,11 @@ class _CreateTournamentScreenState extends ConsumerState<CreateTournamentScreen>
   List<Widget> _formatSetup() {
     final s = _structure;
     return [
-      _Panel(title: 'Format', children: [
+      _Panel(title: context.l10n.formatPanel, children: [
         DropdownButtonFormField<ArenaStructure>(
           initialValue: _structure,
           isExpanded: true,
-          decoration: const InputDecoration(labelText: 'Tournament format'),
+          decoration: InputDecoration(labelText: context.l10n.tournamentFormat),
           items: [
             for (final v in ArenaStructure.values) DropdownMenuItem(value: v, child: Text(v.label)),
           ],
@@ -543,13 +542,13 @@ class _CreateTournamentScreenState extends ConsumerState<CreateTournamentScreen>
         ),
         if (s.usesLeagues)
           _NumberStepper(
-              label: 'Number of leagues', value: _leagues, min: 2, max: 8, onChanged: (v) => setState(() => _leagues = v)),
+              label: context.l10n.numberOfLeagues, value: _leagues, min: 2, max: 8, onChanged: (v) => setState(() => _leagues = v)),
         if (s.usesGroups)
           _NumberStepper(
-              label: 'Groups per league', value: _groups, min: 2, max: 8, onChanged: (v) => setState(() => _groups = v)),
+              label: context.l10n.groupsPerLeague, value: _groups, min: 2, max: 8, onChanged: (v) => setState(() => _groups = v)),
         if (s.hasKnockout && s != ArenaStructure.knockoutOnly)
           _NumberStepper(
-              label: 'Qualifiers per group',
+              label: context.l10n.qualifiersPerGroup,
               value: _qualifiers,
               min: 1,
               max: 8,
@@ -557,21 +556,21 @@ class _CreateTournamentScreenState extends ConsumerState<CreateTournamentScreen>
         if (s != ArenaStructure.knockoutOnly)
           SwitchListTile(
             contentPadding: EdgeInsets.zero,
-            title: const Text('Double round-robin'),
-            subtitle: const Text('Home and away: everyone plays everyone twice'),
+            title: Text(context.l10n.doubleRoundRobin),
+            subtitle: Text(context.l10n.doubleRoundRobinSub),
             value: _double,
             onChanged: (v) => setState(() => _double = v),
           ),
         SwitchListTile(
           contentPadding: EdgeInsets.zero,
-          title: const Text('Random draw'),
-          subtitle: const Text('Off: participants are placed in the order they were added'),
+          title: Text(context.l10n.randomDraw),
+          subtitle: Text(context.l10n.randomDrawSub),
           value: _random,
           onChanged: (v) => setState(() => _random = v),
         ),
         if (s.hasKnockout && !(_mode?.winnerOnly ?? false)) ...[
           const SizedBox(height: 8),
-          const Text('If a knockout match ends level', style: TextStyle(fontWeight: FontWeight.w700)),
+          Text(context.l10n.ifKoLevel, style: const TextStyle(fontWeight: FontWeight.w700)),
           const SizedBox(height: 8),
           Wrap(spacing: 8, children: [
             for (final k in KnockoutDraw.values)
@@ -606,23 +605,23 @@ class _CreateTournamentScreenState extends ConsumerState<CreateTournamentScreen>
         if (_columns.contains(c)) c
     ];
     return [
-      _Panel(title: 'Points and ranking', children: [
-        _NumberStepper(label: 'Win', value: _win, min: 0, max: 10, onChanged: (v) => setState(() => _win = v)),
+      _Panel(title: context.l10n.pointsAndRanking, children: [
+        _NumberStepper(label: context.l10n.win, value: _win, min: 0, max: 10, onChanged: (v) => setState(() => _win = v)),
         if (!wo)
-          _NumberStepper(label: 'Draw', value: _draw, min: 0, max: 10, onChanged: (v) => setState(() => _draw = v)),
-        _NumberStepper(label: 'Loss', value: _loss, min: 0, max: 10, onChanged: (v) => setState(() => _loss = v)),
+          _NumberStepper(label: context.l10n.draw, value: _draw, min: 0, max: 10, onChanged: (v) => setState(() => _draw = v)),
+        _NumberStepper(label: context.l10n.lossLabel, value: _loss, min: 0, max: 10, onChanged: (v) => setState(() => _loss = v)),
         if (!wo) ...[
           const SizedBox(height: 10),
-          const Text('Tie-breaker order', style: TextStyle(fontWeight: FontWeight.w700)),
+          Text(context.l10n.tiebreakerOrder, style: const TextStyle(fontWeight: FontWeight.w700)),
           const SizedBox(height: 8),
           Wrap(spacing: 8, runSpacing: 8, children: [
             ChoiceChip(
-              label: const Text('Direct match first'),
+              label: Text(context.l10n.directMatchFirst),
               selected: _sameOrder(_tiebreakers, kTiebreakDirectFirst),
               onSelected: (_) => setState(() => _tiebreakers = kTiebreakDirectFirst),
             ),
             ChoiceChip(
-              label: const Text('Goal difference first'),
+              label: Text(context.l10n.goalDiffFirst),
               selected: _sameOrder(_tiebreakers, kTiebreakClassic),
               onSelected: (_) => setState(() => _tiebreakers = kTiebreakClassic),
             ),
@@ -633,15 +632,13 @@ class _CreateTournamentScreenState extends ConsumerState<CreateTournamentScreen>
         const SizedBox(height: 6),
         Text(
           wo
-              ? 'The winner of a match takes the win points. Teams level on points are ranked by '
-                  'their direct match, then by name. Locked once the tournament starts.'
-              : 'These rules are locked once the tournament starts. Teams still level after every '
-                  'criterion are ordered by name.',
+              ? context.l10n.rulesNoteWinnerOnly
+              : context.l10n.rulesNote,
           style: TextStyle(color: SpheraColors.muted, fontSize: 12),
         ),
       ]),
-      _Panel(title: 'Standings columns', children: [
-        Text('${_columns.length} column${_columns.length == 1 ? '' : 's'} selected. Rank and name are always shown.',
+      _Panel(title: context.l10n.standingsColumns, children: [
+        Text(context.l10n.columnsSelected(_columns.length),
             style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
         const SizedBox(height: 8),
         Wrap(spacing: 8, runSpacing: 4, children: [
@@ -671,25 +668,26 @@ class _CreateTournamentScreenState extends ConsumerState<CreateTournamentScreen>
     final n = _participants.length;
     final table = _brTable();
     return [
-      _Panel(title: 'Rounds and scoring', children: [
+      _Panel(title: context.l10n.roundsAndScoring, children: [
         _NumberStepper(
-            label: 'Planned rounds', value: _brRounds, min: 1, max: 20, onChanged: (v) => setState(() => _brRounds = v)),
+            label: context.l10n.plannedRounds, value: _brRounds, min: 1, max: 20, onChanged: (v) => setState(() => _brRounds = v)),
         const SizedBox(height: 4),
-        const _InfoCard(
+        _InfoCard(
           icon: Icons.bolt_outlined,
-          title: 'Total = placement points + kills x 2',
-          text: 'For duo and squad, the kills of all team members are added together.',
+          title: context.l10n.brFormulaTitle,
+          text: context.l10n.brFormulaText,
         ),
       ]),
-      _Panel(title: 'Placement points', children: [
+      _Panel(title: context.l10n.placementPoints, children: [
         if (n < mode.minParticipants)
           Text(
-            'Register at least ${mode.minParticipants} ${mode.isTeamMode ? 'teams' : 'players'} to configure '
-            'the table (it has one row per ${mode.isTeamMode ? 'team' : 'player'}).',
+            mode.isTeamMode
+                ? context.l10n.registerTeamsFirst(mode.minParticipants)
+                : context.l10n.registerPlayersFirst(mode.minParticipants),
             style: TextStyle(color: SpheraColors.muted, fontSize: 12),
           )
         else ...[
-          Text('The last ${BrScoring.zeroTail} placements always score 0 placement points.',
+          Text(context.l10n.lastPlacementsZero(BrScoring.zeroTail),
               style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
           const SizedBox(height: 6),
           for (var i = 0; i < n; i++)
@@ -704,11 +702,11 @@ class _CreateTournamentScreenState extends ConsumerState<CreateTournamentScreen>
               }),
             ),
           Align(
-            alignment: Alignment.centerRight,
+            alignment: AlignmentDirectional.centerEnd,
             child: TextButton.icon(
               onPressed: _brCustom == null ? null : () => setState(() => _brCustom = null),
               icon: const Icon(Icons.restart_alt),
-              label: const Text('Reset to default'),
+              label: Text(context.l10n.resetToDefault),
             ),
           ),
         ],
@@ -719,7 +717,7 @@ class _CreateTournamentScreenState extends ConsumerState<CreateTournamentScreen>
   // ---------------------------------------------------------------- step 4
 
   String _fmt(DateTime? d) => d == null
-      ? 'Not set'
+      ? appL10n.notSet
       : '${d.year}-${d.month.toString().padLeft(2, '0')}-${d.day.toString().padLeft(2, '0')} '
           '${d.hour.toString().padLeft(2, '0')}:${d.minute.toString().padLeft(2, '0')}';
 
@@ -736,27 +734,27 @@ class _CreateTournamentScreenState extends ConsumerState<CreateTournamentScreen>
     final mode = _mode!;
     final standings = !_isBr && d.structure != ArenaStructure.knockoutOnly;
     return [
-      const _Heading('Tournament Settings', 'Set the final details of your tournament.'),
+      _Heading(context.l10n.tournamentSettings, context.l10n.tournamentSettingsSub),
       TextField(
         controller: _name,
         maxLength: 40,
         onChanged: (_) => setState(() {}),
-        decoration: const InputDecoration(labelText: 'Tournament name *', hintText: 'e.g. SPHERA Cup'),
+        decoration: InputDecoration(labelText: context.l10n.tournamentNameReq, hintText: context.l10n.tournamentNameHint),
       ),
       const SizedBox(height: 4),
-      TextField(controller: _organizer, decoration: const InputDecoration(labelText: 'Organizer')),
+      TextField(controller: _organizer, decoration: InputDecoration(labelText: context.l10n.organizer)),
       const SizedBox(height: 12),
-      TextField(controller: _desc, maxLines: 2, decoration: const InputDecoration(labelText: 'Description')),
+      TextField(controller: _desc, maxLines: 2, decoration: InputDecoration(labelText: context.l10n.description)),
       const SizedBox(height: 12),
       _DateTile(
-          label: 'Start date and time',
+          label: context.l10n.startDateTime,
           text: _fmt(_start),
           hasValue: _start != null,
           onTap: () => _pickDateTime(false),
           onClear: () => setState(() => _start = null)),
       const SizedBox(height: 8),
       _DateTile(
-          label: 'Registration deadline',
+          label: context.l10n.registrationDeadline,
           text: _fmt(_deadline),
           hasValue: _deadline != null,
           onTap: () => _pickDateTime(true),
@@ -765,40 +763,42 @@ class _CreateTournamentScreenState extends ConsumerState<CreateTournamentScreen>
       TextField(
         controller: _rulesText,
         maxLines: 4,
-        decoration: const InputDecoration(labelText: 'Rules and penalties', alignLabelWithHint: true),
+        decoration: InputDecoration(labelText: context.l10n.rulesAndPenalties, alignLabelWithHint: true),
       ),
       const SizedBox(height: 12),
-      TextField(controller: _roomId, decoration: const InputDecoration(labelText: 'Room ID (optional)')),
+      TextField(controller: _roomId, decoration: InputDecoration(labelText: context.l10n.roomIdOptional)),
       const SizedBox(height: 12),
       TextField(
         controller: _roomPassword,
         obscureText: true,
-        decoration: const InputDecoration(labelText: 'Room password (optional)'),
+        decoration: InputDecoration(labelText: context.l10n.roomPasswordOptional),
       ),
       const SizedBox(height: 16),
-      _Panel(title: 'Review', children: [
-        row('Game', '${d.game} · ${mode.label}'),
-        row('Participants',
-            '${d.participants.length}${mode.isTeamMode ? ' ($_totalPlayers players)' : ''} · max ${d.maxParticipants}'),
+      _Panel(title: context.l10n.review, children: [
+        row(context.l10n.game, '${d.game} · ${mode.label}'),
+        row(context.l10n.participantsRow,
+            mode.isTeamMode
+                ? context.l10n.participantsSummaryTeams(d.participants.length, _totalPlayers, d.maxParticipants)
+                : context.l10n.participantsSummary(d.participants.length, d.maxParticipants)),
         if (_isBr) ...[
-          row('Rounds', '$_brRounds'),
-          row('Scoring', 'Placement points + kills x 2'),
+          row(context.l10n.tabRounds, '$_brRounds'),
+          row(context.l10n.rowScoring, context.l10n.scoringBrShort),
         ] else ...[
-          row('Format', d.structure.label),
+          row(context.l10n.formatPanel, d.structure.label),
           if (d.structure != ArenaStructure.knockoutOnly)
             row(
-                'Points',
+                context.l10n.arenaColPoints,
                 mode.winnerOnly
-                    ? 'Win ${d.rules.pointsWin} · Loss ${d.rules.pointsLoss}'
-                    : 'W ${d.rules.pointsWin} · D ${d.rules.pointsDraw} · L ${d.rules.pointsLoss}'),
-          if (d.structure.hasKnockout && !mode.winnerOnly) row('If level', d.rules.knockoutDraw.label),
+                    ? context.l10n.pointsWinLoss(d.rules.pointsWin, d.rules.pointsLoss)
+                    : context.l10n.pointsWdl(d.rules.pointsWin, d.rules.pointsDraw, d.rules.pointsLoss)),
+          if (d.structure.hasKnockout && !mode.winnerOnly) row(context.l10n.rowIfLevel, d.rules.knockoutDraw.label),
         ],
         if (standings) ...[
-          row('Columns', d.standingsColumns.map((c) => c.short).join(', ')),
+          row(context.l10n.columnsRow, d.standingsColumns.map((c) => c.short).join(', ')),
           const SizedBox(height: 6),
           _RankingPreview(order: d.rules.tiebreakers),
           const SizedBox(height: 6),
-          Text('Please read and confirm: the ranking rules lock when the tournament starts.',
+          Text(context.l10n.readAndConfirm,
               style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
         ],
       ]),
@@ -809,8 +809,8 @@ class _CreateTournamentScreenState extends ConsumerState<CreateTournamentScreen>
           const SizedBox(width: 8),
           Expanded(
               child: Text(_isBr
-                  ? 'Everything looks valid. Creating generates the rounds.'
-                  : 'Everything looks valid. Creating generates the fixtures.')),
+                  ? context.l10n.validRounds
+                  : context.l10n.validFixtures)),
         ])
       else
         for (final e in errors) _ErrorLine(e),
@@ -830,7 +830,7 @@ class _StepHeader extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 4, 20, 12),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text('Step ${step + 1} of ${titles.length} · ${titles[step]}',
+        Text(context.l10n.stepOf(step + 1, titles.length, titles[step]),
             style: TextStyle(color: SpheraColors.gold, fontWeight: FontWeight.w700)),
         const SizedBox(height: 10),
         Row(children: [
@@ -1118,9 +1118,9 @@ class _RankingPreview extends StatelessWidget {
         color: SpheraColors.gold.withValues(alpha: 0.08),
       ),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text('Ranking order', style: TextStyle(color: SpheraColors.gold, fontWeight: FontWeight.w800, fontSize: 12)),
+        Text(context.l10n.rankingOrder, style: TextStyle(color: SpheraColors.gold, fontWeight: FontWeight.w800, fontSize: 12)),
         const SizedBox(height: 4),
-        Text('Pts → ${order.map((t) => t.short).join(' → ')}',
+        Text('${context.l10n.arenaColPtsShort} → ${order.map((t) => t.short).join(' → ')}',
             style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 15)),
         const SizedBox(height: 4),
         for (final t in order)
@@ -1162,7 +1162,7 @@ class _TablePreview extends StatelessWidget {
           headingTextStyle: TextStyle(color: SpheraColors.muted, fontSize: 12, fontWeight: FontWeight.w700),
           columns: [
             const DataColumn(label: Text('#')),
-            const DataColumn(label: Text('Team')),
+            DataColumn(label: Text(context.l10n.teamColumn)),
             for (final c in columns) DataColumn(label: Text(c.short), numeric: true),
           ],
           rows: [

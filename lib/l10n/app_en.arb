@@ -2248,5 +2248,504 @@
       }
     }
   },
-  "noPlayerNamesYet": "No player names yet."
+  "noPlayerNamesYet": "No player names yet.",
+  "tournament": "Tournament",
+  "tabStandings": "Standings",
+  "tabRounds": "Rounds",
+  "tabMatches": "Matches",
+  "tabBracket": "Bracket",
+  "tabInfo": "Info",
+  "resetAllResultsQ": "Reset all results?",
+  "resetBodyKo": "Every confirmed result is cleared and the knockout bracket is removed. The reset is recorded in the audit log.",
+  "resetBody": "Every confirmed result is cleared. The reset is recorded in the audit log.",
+  "deleteTournamentQ": "Delete tournament?",
+  "cannotBeUndone": "This cannot be undone.",
+  "resetResults": "Reset results",
+  "deleteTournament": "Delete tournament",
+  "knockoutStage": "Knockout stage",
+  "topNOfEveryGroup": "Top {n} of every group qualify.",
+  "@topNOfEveryGroup": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "generateKnockout": "Generate knockout",
+  "confirmGroupMatchesFirst": "Confirm all group matches first",
+  "championCaps": "CHAMPION",
+  "topNQualify": "Top {n} qualify",
+  "@topNQualify": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "howTiesResolved": "How ties were resolved",
+  "matchday": "Matchday {n}",
+  "@matchday": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "toPlay": "To play",
+  "filterPlayed": "Played",
+  "noMatchesHere": "No matches here.",
+  "bye": "BYE",
+  "win": "Win",
+  "vs": "vs",
+  "enterBothScores": "Enter both scores as whole numbers.",
+  "pickWinner": "Pick the winner.",
+  "amendResult": "Amend result",
+  "whoWon": "Who won?",
+  "pickWinningSide": "Pick the winning side.",
+  "amendmentsRecorded": "Amendments are recorded in the audit log.",
+  "saveAmendment": "Save amendment",
+  "confirmResult": "Confirm result",
+  "enterResult": "Enter result",
+  "decidedInExtraTime": "Decided in extra time",
+  "penaltyShootout": "Penalty shoot-out",
+  "levelReplayNote": "Level score: this match goes back to \"to play\" and is played again.",
+  "earlierDraws": "Earlier draws: {list}",
+  "@earlierDraws": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "overallStandings": "Overall standings",
+  "brRoundsProgress": "{done} / {total} rounds",
+  "@brRoundsProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "brTotalFormula": "Total = placement points + kills x {k}",
+  "@brTotalFormula": {
+    "placeholders": {
+      "k": {
+        "type": "int"
+      }
+    }
+  },
+  "colRnd": "Rnd",
+  "colPlace": "Place",
+  "colKills": "Kills",
+  "colKillPts": "Kill pts",
+  "colTotal": "Total",
+  "roundN": "Round {n}",
+  "@roundN": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "roundConfirmedTap": "Confirmed · tap to amend",
+  "roundTapToEnter": "Tap to enter placements and kills",
+  "addRound": "Add a round",
+  "enterPlacementKills": "Enter a placement and a kill count (0 or more) for \"{name}\".",
+  "@enterPlacementKills": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "placementHelp": "Placement 1 to {n} (no repeats). Each kill = {k} points.",
+  "@placementHelp": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "k": {
+        "type": "int"
+      }
+    }
+  },
+  "confirmRound": "Confirm round",
+  "bracketLater": "The bracket appears after the group stage is complete.\nOpen Standings and tap \"Generate knockout\".",
+  "editParticipant": "Edit participant",
+  "teamClub": "Team / club",
+  "logParticipantEdited": "Participant edited: {old} -> {name}",
+  "@logParticipantEdited": {
+    "placeholders": {
+      "old": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "rowScoring": "Scoring",
+  "scoringBr": "Placement points + kills x {k} ({n} planned rounds)",
+  "@scoringBr": {
+    "placeholders": {
+      "k": {
+        "type": "int"
+      },
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "rowStructure": "Structure",
+  "rowOrganizer": "Organizer",
+  "rowStart": "Start",
+  "rowRegistration": "Registration",
+  "untilDate": "until {date}",
+  "@untilDate": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "pointsWinLoss": "Win {w} · Loss {l}",
+  "@pointsWinLoss": {
+    "placeholders": {
+      "w": {
+        "type": "int"
+      },
+      "l": {
+        "type": "int"
+      }
+    }
+  },
+  "pointsWdl": "W {w} · D {d} · L {l}",
+  "@pointsWdl": {
+    "placeholders": {
+      "w": {
+        "type": "int"
+      },
+      "d": {
+        "type": "int"
+      },
+      "l": {
+        "type": "int"
+      }
+    }
+  },
+  "rowRanking": "Ranking",
+  "rowIfLevel": "If level",
+  "rulesTitle": "Rules",
+  "participantsTitle": "Participants ({count})",
+  "@participantsTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "editSwapPlayers": "Edit and swap players",
+  "auditLog": "Audit log",
+  "noEventsYet": "No events yet.",
+  "room": "Room",
+  "roomIdValue": "Room ID: {id}",
+  "@roomIdValue": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  },
+  "passwordValue": "Password: {pw}",
+  "@passwordValue": {
+    "placeholders": {
+      "pw": {
+        "type": "String"
+      }
+    }
+  },
+  "roomStoredNote": "Stored on this device only. Never shared automatically.",
+  "stepSelectGame": "Select game",
+  "stepTypeMode": "Type and mode",
+  "stepSetup": "Setup",
+  "stepDetails": "Details and confirm",
+  "maxReached": "Maximum reached ({cap}).",
+  "@maxReached": {
+    "placeholders": {
+      "cap": {
+        "type": "int"
+      }
+    }
+  },
+  "enterTeamPlayers": "Enter the players of the team, separated by commas.",
+  "everyTeamExactly": "Every team needs exactly {size} players.",
+  "@everyTeamExactly": {
+    "placeholders": {
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "createTournament": "Create Tournament",
+  "next": "Next",
+  "selectGameTitle": "Select Game",
+  "selectGameSub": "Choose the game for your tournament.",
+  "selectTypeTitle": "Select Tournament Type",
+  "selectTypeSub": "Choose the mode you want to organize in {game}.",
+  "@selectTypeSub": {
+    "placeholders": {
+      "game": {
+        "type": "String"
+      }
+    }
+  },
+  "selectModeTitle": "Select Mode",
+  "selectModeSub": "Pick the format for your {type}.",
+  "@selectModeSub": {
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "infoPointsSystem": "Points system",
+  "infoTwoPlayers": "Two players per match",
+  "infoMin2Teams": "Minimum: 2 teams",
+  "infoMinPlayers": "Minimum players: {n}",
+  "@infoMinPlayers": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "infoHowItWorks": "How it works",
+  "infoBrText": "Total = placement points + 2 points per kill. The last three placements score 0 placement points. {detail}.",
+  "@infoBrText": {
+    "placeholders": {
+      "detail": {
+        "type": "String"
+      }
+    }
+  },
+  "infoCs1v1": "Each match needs two players, both slots filled. Register at least 2 players. A match is won or lost: no goals, no draws.",
+  "infoCsTeams": "At least 2 teams are needed. Teams can have different numbers of players (for example 2 against 1), up to {size} per team. A match is won or lost: no goals, no draws.",
+  "@infoCsTeams": {
+    "placeholders": {
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "infoMinTotal": "{n} registered players in total are needed to start. The team size ({size}) is a maximum: you do not have to fill every slot.",
+  "@infoMinTotal": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "info1v1": "Each match has two players. Results decide the standings.",
+  "setupSub": "Registration, format and rules.",
+  "setupValid": "Setup is valid. Continue to the last step.",
+  "toContinue": "To continue",
+  "registrationPanel": "Registration",
+  "maxTeams": "Maximum teams",
+  "maxPlayers": "Maximum players",
+  "limitTeams": "Limit: up to {max} teams ({detail}).",
+  "@limitTeams": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      },
+      "detail": {
+        "type": "String"
+      }
+    }
+  },
+  "limitPlayers": "Limit: up to {max} players ({detail}).",
+  "@limitPlayers": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      },
+      "detail": {
+        "type": "String"
+      }
+    }
+  },
+  "atLeastPlayersTotal": "At least {n} players in total. Teams do not have to be full.",
+  "@atLeastPlayersTotal": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "playersCommaLabel": "Players (names separated by commas)",
+  "playersCommaHint": "e.g. Ali, Sara",
+  "exactlyPerTeam": "Exactly {size} players per team.",
+  "@exactlyPerTeam": {
+    "placeholders": {
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "oneToPerTeam": "1 to {size} players per team. Teams do not have to be full.",
+  "@oneToPerTeam": {
+    "placeholders": {
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "teamsRegistered": "{count} / {cap} teams · {players} players",
+  "@teamsRegistered": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "cap": {
+        "type": "int"
+      },
+      "players": {
+        "type": "int"
+      }
+    }
+  },
+  "playersRegistered": "{count} / {cap} players",
+  "@playersRegistered": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "cap": {
+        "type": "int"
+      }
+    }
+  },
+  "formatPanel": "Format",
+  "tournamentFormat": "Tournament format",
+  "numberOfLeagues": "Number of leagues",
+  "groupsPerLeague": "Groups per league",
+  "qualifiersPerGroup": "Qualifiers per group",
+  "doubleRoundRobin": "Double round-robin",
+  "doubleRoundRobinSub": "Home and away: everyone plays everyone twice",
+  "randomDraw": "Random draw",
+  "randomDrawSub": "Off: participants are placed in the order they were added",
+  "ifKoLevel": "If a knockout match ends level",
+  "pointsAndRanking": "Points and ranking",
+  "draw": "Draw",
+  "lossLabel": "Loss",
+  "tiebreakerOrder": "Tie-breaker order",
+  "directMatchFirst": "Direct match first",
+  "goalDiffFirst": "Goal difference first",
+  "rulesNoteWinnerOnly": "The winner of a match takes the win points. Teams level on points are ranked by their direct match, then by name. Locked once the tournament starts.",
+  "rulesNote": "These rules are locked once the tournament starts. Teams still level after every criterion are ordered by name.",
+  "standingsColumns": "Standings columns",
+  "columnsSelected": "{count, plural, =1{1 column selected. Rank and name are always shown.} other{{count} columns selected. Rank and name are always shown.}}",
+  "@columnsSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "roundsAndScoring": "Rounds and scoring",
+  "plannedRounds": "Planned rounds",
+  "brFormulaTitle": "Total = placement points + kills x 2",
+  "brFormulaText": "For duo and squad, the kills of all team members are added together.",
+  "placementPoints": "Placement points",
+  "registerTeamsFirst": "Register at least {n} teams to configure the table (it has one row per team).",
+  "@registerTeamsFirst": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "registerPlayersFirst": "Register at least {n} players to configure the table (it has one row per player).",
+  "@registerPlayersFirst": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "lastPlacementsZero": "The last {n} placements always score 0 placement points.",
+  "@lastPlacementsZero": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "resetToDefault": "Reset to default",
+  "notSet": "Not set",
+  "tournamentSettings": "Tournament Settings",
+  "tournamentSettingsSub": "Set the final details of your tournament.",
+  "tournamentNameReq": "Tournament name *",
+  "tournamentNameHint": "e.g. SPHERA Cup",
+  "organizer": "Organizer",
+  "description": "Description",
+  "startDateTime": "Start date and time",
+  "registrationDeadline": "Registration deadline",
+  "rulesAndPenalties": "Rules and penalties",
+  "roomIdOptional": "Room ID (optional)",
+  "roomPasswordOptional": "Room password (optional)",
+  "review": "Review",
+  "participantsRow": "Participants",
+  "participantsSummaryTeams": "{count} ({players} players) · max {max}",
+  "@participantsSummaryTeams": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "players": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "participantsSummary": "{count} · max {max}",
+  "@participantsSummary": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "scoringBrShort": "Placement points + kills x 2",
+  "columnsRow": "Columns",
+  "readAndConfirm": "Please read and confirm: the ranking rules lock when the tournament starts.",
+  "validRounds": "Everything looks valid. Creating generates the rounds.",
+  "validFixtures": "Everything looks valid. Creating generates the fixtures.",
+  "stepOf": "Step {step} of {total} · {title}",
+  "@stepOf": {
+    "placeholders": {
+      "step": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      },
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "rankingOrder": "Ranking order",
+  "teamColumn": "Team"
 }
