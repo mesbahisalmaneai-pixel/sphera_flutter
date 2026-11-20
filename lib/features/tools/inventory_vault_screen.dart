@@ -100,13 +100,13 @@ class _InventoryVaultScreenState extends ConsumerState<InventoryVaultScreen> {
           height: 44,
           child: ListView(scrollDirection: Axis.horizontal, children: [
             Padding(
-              padding: EdgeInsets.only(right: 8),
+              padding: EdgeInsetsDirectional.only(end: 8),
               child: FilterChip(
                   label: Text(context.l10n.all), selected: _filter == null, onSelected: (_) => setState(() => _filter = null)),
             ),
             for (final t in VaultTag.values)
               Padding(
-                padding: EdgeInsets.only(right: 8),
+                padding: EdgeInsetsDirectional.only(end: 8),
                 child: FilterChip(
                   avatar: Icon(t.icon, size: 16),
                   label: Text('${t.label} (${count(t)})'),
@@ -235,7 +235,7 @@ class _PickerState extends State<_Picker> {
             Padding(
               padding: EdgeInsets.fromLTRB(20, 0, 20, 4),
               child: Align(
-                alignment: Alignment.centerLeft,
+                alignment: AlignmentDirectional.centerStart,
                 child: Text(context.l10n.highestSaleFirst,
                     style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
               ),

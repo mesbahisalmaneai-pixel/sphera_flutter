@@ -408,7 +408,7 @@ class _MatchTile extends StatelessWidget {
           child: Row(children: [
             Expanded(
               child: Text(t.participantName(m.homeId),
-                  textAlign: TextAlign.right,
+                  textAlign: TextAlign.end,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(fontWeight: FontWeight.w600, color: m.homeId == null ? SpheraColors.muted : null)),
@@ -984,7 +984,7 @@ class _BracketTab extends StatelessWidget {
         child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
           for (final r in rounds)
             Padding(
-              padding: const EdgeInsets.only(right: 12),
+              padding: const EdgeInsetsDirectional.only(end: 12),
               child: SizedBox(
                 width: 200,
                 child: Column(children: [

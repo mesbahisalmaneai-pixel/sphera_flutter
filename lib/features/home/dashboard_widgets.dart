@@ -88,7 +88,7 @@ class KpiCard extends StatelessWidget {
           ] else ...[
             FittedBox(
               fit: BoxFit.scaleDown,
-              alignment: Alignment.centerLeft,
+              alignment: AlignmentDirectional.centerStart,
               child: Text(value,
                   style: TextStyle(
                       fontSize: 24,

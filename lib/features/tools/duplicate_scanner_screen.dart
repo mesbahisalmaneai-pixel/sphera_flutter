@@ -103,7 +103,7 @@ class DuplicateScannerScreen extends ConsumerWidget {
             Expanded(child: Text(title, style: TextStyle(fontWeight: FontWeight.w600))),
           ]),
           Padding(
-            padding: EdgeInsets.only(left: 26, top: 2),
+            padding: EdgeInsetsDirectional.only(start: 26, top: 2),
             child: Text(sub, style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
           ),
         ]),
@@ -135,7 +135,7 @@ class DuplicateScannerScreen extends ConsumerWidget {
               ),
             ),
           Align(
-            alignment: Alignment.centerRight,
+            alignment: AlignmentDirectional.centerEnd,
             child: TextButton(
               onPressed: () {
                 notifier.dismiss(g.key);

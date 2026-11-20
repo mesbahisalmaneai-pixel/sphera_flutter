@@ -587,7 +587,7 @@ class _OrbitScreenState extends ConsumerState<OrbitScreen> with TickerProviderSt
         const SizedBox(height: 2),
         FittedBox(
           fit: BoxFit.scaleDown,
-          alignment: Alignment.centerLeft,
+          alignment: AlignmentDirectional.centerStart,
           child: Text(m.value, style: OrbitText.value(size: 15)),
         ),
       ],
@@ -796,7 +796,7 @@ class _OrbitScreenState extends ConsumerState<OrbitScreen> with TickerProviderSt
       itemExtent: w + 10,
       itemCount: dests.length,
       itemBuilder: (context, i) => Padding(
-        padding: const EdgeInsets.only(right: 10),
+        padding: const EdgeInsetsDirectional.only(end: 10),
         child: DestinationCard(dest: dests[i], selected: _node == i, onTap: () => _openDest(dests[i])),
       ),
     );

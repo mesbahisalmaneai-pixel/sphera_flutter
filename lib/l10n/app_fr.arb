@@ -1052,5 +1052,12 @@
   "validFixtures": "Tout semble valide. La création génère les matchs.",
   "stepOf": "Étape {step} sur {total} · {title}",
   "rankingOrder": "Ordre de classement",
-  "teamColumn": "Équipe"
+  "teamColumn": "Équipe",
+  "filterAllCount": "Tous {count}",
+  "filterActiveCount": "Actifs {count}",
+  "filterSoldCount": "Vendus {count}",
+  "arenaLoadError": "Impossible de lire les tournois enregistrés ({error}).",
+  "ratesServerError": "Le serveur des taux a répondu {code}.",
+  "ratesUnavailable": "Les taux ne sont pas disponibles pour le moment.",
+  "ratesNoInternet": "Impossible de mettre à jour les taux. Vérifiez votre connexion internet."
 }

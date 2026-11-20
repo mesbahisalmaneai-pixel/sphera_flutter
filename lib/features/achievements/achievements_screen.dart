@@ -15,7 +15,7 @@ class _AchievementsScreenState extends ConsumerState<AchievementsScreen> {
   AchievementStatus? _filter; // null = all
 
   Widget _chip(String label, AchievementStatus? value) => Padding(
-        padding: EdgeInsets.only(right: 8),
+        padding: EdgeInsetsDirectional.only(end: 8),
         child: FilterChip(
           label: Text(label),
           selected: _filter == value,

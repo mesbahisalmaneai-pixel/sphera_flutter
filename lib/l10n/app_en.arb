@@ -2747,5 +2747,47 @@
     }
   },
   "rankingOrder": "Ranking order",
-  "teamColumn": "Team"
+  "teamColumn": "Team",
+  "filterAllCount": "All {count}",
+  "@filterAllCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "filterActiveCount": "Active {count}",
+  "@filterActiveCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "filterSoldCount": "Sold {count}",
+  "@filterSoldCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "arenaLoadError": "Saved tournaments could not be read ({error}).",
+  "@arenaLoadError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "ratesServerError": "Rates server answered {code}.",
+  "@ratesServerError": {
+    "placeholders": {
+      "code": {
+        "type": "int"
+      }
+    }
+  },
+  "ratesUnavailable": "Rates are not available right now.",
+  "ratesNoInternet": "Could not update rates. Check your internet connection."
 }

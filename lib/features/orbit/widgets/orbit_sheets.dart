@@ -50,7 +50,7 @@ class _SheetFrame extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 14, 20, 8),
               child: Align(
-                alignment: Alignment.centerLeft,
+                alignment: AlignmentDirectional.centerStart,
                 child: Text(title, style: OrbitText.value(size: 18)),
               ),
             ),

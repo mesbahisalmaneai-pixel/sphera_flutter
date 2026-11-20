@@ -113,7 +113,7 @@ class _ForSaleScreenState extends ConsumerState<ForSaleScreen> {
                 height: 38,
                 child: ListView(scrollDirection: Axis.horizontal, children: [
                   Padding(
-                    padding: EdgeInsets.only(right: 8),
+                    padding: EdgeInsetsDirectional.only(end: 8),
                     child: ChoiceChip(
                       label: Text(context.l10n.allCount(all.length)),
                       selected: _gameId == null,
@@ -122,7 +122,7 @@ class _ForSaleScreenState extends ConsumerState<ForSaleScreen> {
                   ),
                   for (final id in gameIds)
                     Padding(
-                      padding: EdgeInsets.only(right: 8),
+                      padding: EdgeInsetsDirectional.only(end: 8),
                       child: ChoiceChip(
                         label: Text('${games[id]?.name ?? id} (${perGame[id]})'),
                         selected: _gameId == id,

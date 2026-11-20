@@ -3842,4 +3842,37 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get teamColumn => 'Équipe';
+
+  @override
+  String filterAllCount(int count) {
+    return 'Tous $count';
+  }
+
+  @override
+  String filterActiveCount(int count) {
+    return 'Actifs $count';
+  }
+
+  @override
+  String filterSoldCount(int count) {
+    return 'Vendus $count';
+  }
+
+  @override
+  String arenaLoadError(String error) {
+    return 'Impossible de lire les tournois enregistrés ($error).';
+  }
+
+  @override
+  String ratesServerError(int code) {
+    return 'Le serveur des taux a répondu $code.';
+  }
+
+  @override
+  String get ratesUnavailable =>
+      'Les taux ne sont pas disponibles pour le moment.';
+
+  @override
+  String get ratesNoInternet =>
+      'Impossible de mettre à jour les taux. Vérifiez votre connexion internet.';
 }

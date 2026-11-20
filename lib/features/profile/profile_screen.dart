@@ -333,7 +333,7 @@ class _StatTile extends StatelessWidget {
           SizedBox(height: 4),
           FittedBox(
             fit: BoxFit.scaleDown,
-            alignment: Alignment.centerLeft,
+            alignment: AlignmentDirectional.centerStart,
             child: Text(value, style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: color)),
           ),
         ]),

@@ -73,7 +73,7 @@ class _SmartOrganizerScreenState extends ConsumerState<SmartOrganizerScreen> {
   _ASort _aSort = _ASort.newest;
 
   Widget _chip(String label, bool selected, VoidCallback onTap) => Padding(
-        padding: EdgeInsets.only(right: 8),
+        padding: EdgeInsetsDirectional.only(end: 8),
         child: FilterChip(label: Text(label), selected: selected, onSelected: (_) => onTap()),
       );
 
@@ -140,7 +140,7 @@ class _SmartOrganizerScreenState extends ConsumerState<SmartOrganizerScreen> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(left: 16, top: 4),
+          padding: EdgeInsetsDirectional.only(start: 16, top: 4),
           child: Column(children: [
             _row([
               _chip(context.l10n.allGames, _game == null, () => setState(() => _game = null)),

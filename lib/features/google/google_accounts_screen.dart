@@ -153,7 +153,7 @@ class _GoogleAccountsScreenState extends ConsumerState<GoogleAccountsScreen> {
   }
 
   Widget _chip(String label, bool selected, VoidCallback onTap) => Padding(
-        padding: EdgeInsets.only(right: 8),
+        padding: EdgeInsetsDirectional.only(end: 8),
         child: FilterChip(label: Text(label), selected: selected, onSelected: (_) => onTap()),
       );
 }
@@ -195,7 +195,7 @@ class _AccountCard extends StatelessWidget {
         onTap: onTap,
         child: Stack(children: [
           // Grade-coloured accent bar on the left edge.
-          Positioned(left: 0, top: 0, bottom: 0, child: Container(width: 4, color: c)),
+          PositionedDirectional(start: 0, top: 0, bottom: 0, child: Container(width: 4, color: c)),
           Padding(
             padding: EdgeInsets.fromLTRB(18, 14, 4, 14),
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -233,7 +233,7 @@ class _AccountCard extends StatelessWidget {
               ]),
               SizedBox(height: 12),
               Padding(
-                padding: EdgeInsets.only(right: 14),
+                padding: EdgeInsetsDirectional.only(end: 14),
                 child: Wrap(spacing: 8, runSpacing: 8, children: [
                   for (final g in shown)
                     _BoxPill(name: g.name, status: statuses[g.id]!, onTap: () => onBox(gameId: g.id)),

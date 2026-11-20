@@ -144,7 +144,7 @@ class _Bubble extends StatelessWidget {
     final user = m.role == ChatRole.user;
     final maxW = MediaQuery.sizeOf(context).width * 0.82;
     return Align(
-      alignment: user ? Alignment.centerRight : Alignment.centerLeft,
+      alignment: user ? AlignmentDirectional.centerEnd : AlignmentDirectional.centerStart,
       child: ConstrainedBox(
         constraints: BoxConstraints(maxWidth: maxW),
         child: Container(

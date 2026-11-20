@@ -1,3 +1,4 @@
+import '../../core/l10n.dart';
 import 'dart:convert';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -47,7 +48,7 @@ class ArenaNotifier extends Notifier<ArenaState> {
     } catch (e) {
       // Never overwrite unreadable data: keep a backup copy first.
       await p.setString('${_kKey}_corrupt', raw);
-      state = ArenaState(loaded: true, error: 'Saved tournaments could not be read ($e).');
+      state = ArenaState(loaded: true, error: appL10n.arenaLoadError('$e'));
     }
   }
 

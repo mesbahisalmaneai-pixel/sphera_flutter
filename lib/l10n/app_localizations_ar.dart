@@ -3847,4 +3847,36 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get teamColumn => 'الفريق';
+
+  @override
+  String filterAllCount(int count) {
+    return 'الكل $count';
+  }
+
+  @override
+  String filterActiveCount(int count) {
+    return 'النشطة $count';
+  }
+
+  @override
+  String filterSoldCount(int count) {
+    return 'المبيعة $count';
+  }
+
+  @override
+  String arenaLoadError(String error) {
+    return 'تعذّرت قراءة البطولات المحفوظة ($error).';
+  }
+
+  @override
+  String ratesServerError(int code) {
+    return 'ردّ خادم الأسعار بالرمز $code.';
+  }
+
+  @override
+  String get ratesUnavailable => 'الأسعار غير متاحة حاليًا.';
+
+  @override
+  String get ratesNoInternet =>
+      'تعذّر تحديث الأسعار. تحقّق من اتصالك بالإنترنت.';
 }

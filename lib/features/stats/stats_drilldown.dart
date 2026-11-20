@@ -82,9 +82,9 @@ class _GameStatusAccountsScreenState extends ConsumerState<GameStatusAccountsScr
               padding: EdgeInsets.all(12),
               child: SegmentedButton<String>(
                 segments: [
-                  ButtonSegment(value: 'all', label: Text('All ${live.length}')),
-                  ButtonSegment(value: 'active', label: Text('Active $nActive')),
-                  ButtonSegment(value: 'sell', label: Text('Sold $nSell')),
+                  ButtonSegment(value: 'all', label: Text(context.l10n.filterAllCount(live.length))),
+                  ButtonSegment(value: 'active', label: Text(context.l10n.filterActiveCount(nActive))),
+                  ButtonSegment(value: 'sell', label: Text(context.l10n.filterSoldCount(nSell))),
                 ],
                 selected: {_filter},
                 onSelectionChanged: (s) => setState(() => _filter = s.first),

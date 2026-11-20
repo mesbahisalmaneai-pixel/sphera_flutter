@@ -3789,4 +3789,36 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get teamColumn => 'Team';
+
+  @override
+  String filterAllCount(int count) {
+    return 'All $count';
+  }
+
+  @override
+  String filterActiveCount(int count) {
+    return 'Active $count';
+  }
+
+  @override
+  String filterSoldCount(int count) {
+    return 'Sold $count';
+  }
+
+  @override
+  String arenaLoadError(String error) {
+    return 'Saved tournaments could not be read ($error).';
+  }
+
+  @override
+  String ratesServerError(int code) {
+    return 'Rates server answered $code.';
+  }
+
+  @override
+  String get ratesUnavailable => 'Rates are not available right now.';
+
+  @override
+  String get ratesNoInternet =>
+      'Could not update rates. Check your internet connection.';
 }

@@ -84,9 +84,9 @@ class _ProfitCenterScreenState extends ConsumerState<ProfitCenterScreen> {
       body: ListView(padding: EdgeInsets.all(16), children: [
         SegmentedButton<String>(
           segments: [
-            ButtonSegment(value: 'all', label: Text('All')),
-            ButtonSegment(value: 'active', label: Text('Active')),
-            ButtonSegment(value: 'sell', label: Text('Sold')),
+            ButtonSegment(value: 'all', label: Text(context.l10n.all)),
+            ButtonSegment(value: 'active', label: Text(context.l10n.orbActive)),
+            ButtonSegment(value: 'sell', label: Text(context.l10n.orbSold)),
           ],
           selected: {_filter},
           onSelectionChanged: (s) => setState(() => _filter = s.first),

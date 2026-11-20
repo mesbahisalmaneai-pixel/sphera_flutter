@@ -1052,5 +1052,12 @@
   "validFixtures": "كل شيء يبدو صالحًا. الإنشاء يولّد المباريات.",
   "stepOf": "الخطوة {step} من {total} · {title}",
   "rankingOrder": "ترتيب التصنيف",
-  "teamColumn": "الفريق"
+  "teamColumn": "الفريق",
+  "filterAllCount": "الكل {count}",
+  "filterActiveCount": "النشطة {count}",
+  "filterSoldCount": "المبيعة {count}",
+  "arenaLoadError": "تعذّرت قراءة البطولات المحفوظة ({error}).",
+  "ratesServerError": "ردّ خادم الأسعار بالرمز {code}.",
+  "ratesUnavailable": "الأسعار غير متاحة حاليًا.",
+  "ratesNoInternet": "تعذّر تحديث الأسعار. تحقّق من اتصالك بالإنترنت."
 }

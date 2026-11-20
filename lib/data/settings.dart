@@ -1,3 +1,4 @@
+import '../core/l10n.dart';
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -77,10 +78,10 @@ class CurrencyNotifier extends Notifier<CurrencySettings> {
     try {
       final req = await client.getUrl(Uri.parse('https://open.er-api.com/v6/latest/MAD'));
       final res = await req.close().timeout(const Duration(seconds: 12));
-      if (res.statusCode != 200) return 'Rates server answered ${res.statusCode}.';
+      if (res.statusCode != 200) return appL10n.ratesServerError(res.statusCode);
       final body = await res.transform(utf8.decoder).join();
       final json = jsonDecode(body) as Map<String, dynamic>;
-      if (json['result'] != 'success') return 'Rates are not available right now.';
+      if (json['result'] != 'success') return appL10n.ratesUnavailable;
       final r = (json['rates'] as Map).cast<String, dynamic>();
       final rates = <String, double>{
         for (final c in kDefaultRates.keys) c: (r[c] as num).toDouble(),
@@ -93,7 +94,7 @@ class CurrencyNotifier extends Notifier<CurrencySettings> {
       state = state.copyWith(rates: rates, updatedAt: now, source: 'live');
       return null;
     } catch (_) {
-      return 'Could not update rates. Check your internet connection.';
+      return appL10n.ratesNoInternet;
     } finally {
       client.close();
     }

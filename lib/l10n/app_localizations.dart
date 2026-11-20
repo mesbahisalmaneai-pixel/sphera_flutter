@@ -6417,6 +6417,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Team'**
   String get teamColumn;
+
+  /// No description provided for @filterAllCount.
+  ///
+  /// In en, this message translates to:
+  /// **'All {count}'**
+  String filterAllCount(int count);
+
+  /// No description provided for @filterActiveCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Active {count}'**
+  String filterActiveCount(int count);
+
+  /// No description provided for @filterSoldCount.
+  ///
+  /// In en, this message translates to:
+  /// **'Sold {count}'**
+  String filterSoldCount(int count);
+
+  /// No description provided for @arenaLoadError.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved tournaments could not be read ({error}).'**
+  String arenaLoadError(String error);
+
+  /// No description provided for @ratesServerError.
+  ///
+  /// In en, this message translates to:
+  /// **'Rates server answered {code}.'**
+  String ratesServerError(int code);
+
+  /// No description provided for @ratesUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Rates are not available right now.'**
+  String get ratesUnavailable;
+
+  /// No description provided for @ratesNoInternet.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not update rates. Check your internet connection.'**
+  String get ratesNoInternet;
 }
 
 class _AppLocalizationsDelegate

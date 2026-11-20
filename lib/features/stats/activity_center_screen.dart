@@ -101,10 +101,10 @@ class _ActivityCenterScreenState extends ConsumerState<ActivityCenterScreen> {
           padding: EdgeInsets.fromLTRB(16, 12, 16, 4),
           child: SegmentedButton<String>(
             segments: [
-              ButtonSegment(value: 'today', label: Text('Today')),
+              ButtonSegment(value: 'today', label: Text(context.l10n.todayCap)),
               ButtonSegment(value: '7', label: Text(context.l10n.last7Days)),
               ButtonSegment(value: '30', label: Text(context.l10n.last30Days)),
-              ButtonSegment(value: 'all', label: Text('All')),
+              ButtonSegment(value: 'all', label: Text(context.l10n.all)),
             ],
             selected: {_range},
             onSelectionChanged: (s) => setState(() => _range = s.first),
@@ -115,7 +115,7 @@ class _ActivityCenterScreenState extends ConsumerState<ActivityCenterScreen> {
           padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
           child: Row(children: [
             Padding(
-              padding: EdgeInsets.only(right: 8),
+              padding: EdgeInsetsDirectional.only(end: 8),
               child: ChoiceChip(
                 label: Text(context.l10n.allTypes),
                 selected: _type == null,
@@ -124,7 +124,7 @@ class _ActivityCenterScreenState extends ConsumerState<ActivityCenterScreen> {
             ),
             for (final t in ActivityType.values)
               Padding(
-                padding: EdgeInsets.only(right: 8),
+                padding: EdgeInsetsDirectional.only(end: 8),
                 child: ChoiceChip(
                   label: Text(_typeLabel(t)),
                   selected: _type == t,

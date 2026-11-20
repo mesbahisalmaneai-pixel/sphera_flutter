@@ -269,7 +269,7 @@ class OrbitSearchBar extends StatelessWidget {
                     child: InkWell(
                       onTap: onTap,
                       child: Align(
-                        alignment: Alignment.centerLeft,
+                        alignment: AlignmentDirectional.centerStart,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 12),
                           child: Text(
@@ -563,7 +563,7 @@ class MetricBar extends StatelessWidget {
                     color: const Color(0x1FFFFFFF),
                     borderRadius: BorderRadius.circular(2),
                   ),
-                  alignment: Alignment.centerLeft,
+                  alignment: AlignmentDirectional.centerStart,
                   child: FractionallySizedBox(
                     widthFactor: f,
                     child: Container(
@@ -583,7 +583,7 @@ class MetricBar extends StatelessWidget {
                   bar.value,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.right,
+                  textAlign: TextAlign.end,
                   style: OrbitText.value(size: 13),
                 ),
               ),
@@ -642,7 +642,7 @@ class InsightCard extends StatelessWidget {
                 const SizedBox(height: 1),
                 FittedBox(
                   fit: BoxFit.scaleDown,
-                  alignment: Alignment.centerLeft,
+                  alignment: AlignmentDirectional.centerStart,
                   child: Text(insight.value, style: OrbitText.value(size: 15)),
                 ),
                 const SizedBox(height: 5),

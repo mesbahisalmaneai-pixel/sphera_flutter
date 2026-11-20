@@ -108,7 +108,7 @@ class InsightTile extends StatelessWidget {
             Container(
               width: 8,
               height: 8,
-              margin: const EdgeInsets.only(left: 8),
+              margin: const EdgeInsetsDirectional.only(start: 8),
               decoration: BoxDecoration(
                   color: SpheraColors.gold, shape: BoxShape.circle),
             ),
