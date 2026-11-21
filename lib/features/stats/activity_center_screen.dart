@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/l10n.dart';
 import '../../core/theme.dart';
+import '../../data/activity_text.dart';
 import '../../data/activity_providers.dart';
 import '../../data/database.dart';
 
@@ -82,7 +83,7 @@ class _ActivityCenterScreenState extends ConsumerState<ActivityCenterScreen> {
             child: Icon(icon, color: color, size: 20),
           ),
           title: Text(e.title, overflow: TextOverflow.ellipsis),
-          subtitle: Text(e.detail == null ? label : '$label · ${e.detail}',
+          subtitle: Text(e.detail == null ? label : '$label · ${describeActivityDetail(e.detail, context.l10n)}',
               style: TextStyle(color: SpheraColors.muted, fontSize: 12)),
           trailing: Column(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.end, children: [
             Text('${_two(e.createdAt.hour)}:${_two(e.createdAt.minute)}',

@@ -1111,5 +1111,7 @@
   "suggestBestGame": "Quel jeu rapporte le plus ?",
   "suggestForSale": "Combien de comptes sont à vendre ?",
   "suggestProblems": "Y a-t-il des problèmes dans mes données ?",
-  "suggestRestore": "Comment restaurer un compte ?"
+  "suggestRestore": "Comment restaurer un compte ?",
+  "activityGrade": "Grade {grade}",
+  "activityBoxes": "{count, plural, =1{1 boîte} other{{count} boîtes}}"
 }

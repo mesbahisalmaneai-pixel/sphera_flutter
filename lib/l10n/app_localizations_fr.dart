@@ -4148,4 +4148,20 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get suggestRestore => 'Comment restaurer un compte ?';
+
+  @override
+  String activityGrade(String grade) {
+    return 'Grade $grade';
+  }
+
+  @override
+  String activityBoxes(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count boîtes',
+      one: '1 boîte',
+    );
+    return '$_temp0';
+  }
 }

@@ -4170,4 +4170,22 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get suggestRestore => 'كيف أستعيد حسابًا؟';
+
+  @override
+  String activityGrade(String grade) {
+    return 'الدرجة $grade';
+  }
+
+  @override
+  String activityBoxes(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count صندوقًا',
+      few: '$count صناديق',
+      two: 'صندوقان',
+      one: 'صندوق واحد',
+    );
+    return '$_temp0';
+  }
 }

@@ -1044,7 +1044,7 @@ class _ModeTile extends StatelessWidget {
           const SizedBox(height: 6),
           Text(mode.short, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16)),
           const SizedBox(height: 2),
-          Text(mode.detail,
+          Text(mode.localDetail,
               textAlign: TextAlign.center,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,

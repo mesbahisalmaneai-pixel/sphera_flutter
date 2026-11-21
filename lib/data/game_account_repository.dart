@@ -1,3 +1,4 @@
+import 'activity_text.dart';
 import 'dart:io';
 import 'package:drift/drift.dart';
 import 'package:uuid/uuid.dart';
@@ -8,12 +9,6 @@ import 'database.dart';
 /// FOR SALE accounts have no price yet, so they count 0.
 double profitOf(GameAccount a) =>
     a.status == GameAccountStatus.forSale ? 0 : a.salePrice - a.purchasePrice;
-
-String _statusText(GameAccountStatus s) => switch (s) {
-      GameAccountStatus.active => 'Active',
-      GameAccountStatus.sell => 'Sold',
-      GameAccountStatus.forSale => 'For sale',
-    };
 
 class GameAccountRepository {
   GameAccountRepository(this.db, this.ownerId);
@@ -57,7 +52,7 @@ class GameAccountRepository {
         notes: Value(notes == null || notes.trim().isEmpty ? null : notes.trim()),
         createdAt: now, updatedAt: now));
     await _log(ActivityAction.created, name.trim(),
-        detail: '${await _gameName(gameId)} · ${_statusText(status)}');
+        detail: joinDetail([await _gameName(gameId), codeStatus(status)]));
     return id;
   }
 
@@ -88,7 +83,7 @@ class GameAccountRepository {
     if (now == null) return;
     if (old != null && old.status != now.status) {
       await _log(ActivityAction.statusChanged, now.name,
-          detail: '${_statusText(old.status)} → ${_statusText(now.status)}');
+          detail: codeStatusChange(old.status, now.status));
     } else {
       await _log(ActivityAction.updated, now.name, detail: await _gameName(now.gameId));
     }

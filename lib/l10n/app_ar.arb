@@ -1111,5 +1111,7 @@
   "suggestBestGame": "أي لعبة تربح أكثر؟",
   "suggestForSale": "كم حسابًا معروضًا للبيع؟",
   "suggestProblems": "هل توجد مشاكل في بياناتي؟",
-  "suggestRestore": "كيف أستعيد حسابًا؟"
+  "suggestRestore": "كيف أستعيد حسابًا؟",
+  "activityGrade": "الدرجة {grade}",
+  "activityBoxes": "{count, plural, =1{صندوق واحد} =2{صندوقان} few{{count} صناديق} other{{count} صندوقًا}}"
 }

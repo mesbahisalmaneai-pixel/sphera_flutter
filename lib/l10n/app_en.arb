@@ -3048,5 +3048,21 @@
   "suggestBestGame": "Which game makes the most money?",
   "suggestForSale": "How many accounts are for sale?",
   "suggestProblems": "Any problems with my data?",
-  "suggestRestore": "How do I restore an account?"
+  "suggestRestore": "How do I restore an account?",
+  "activityGrade": "Grade {grade}",
+  "@activityGrade": {
+    "placeholders": {
+      "grade": {
+        "type": "String"
+      }
+    }
+  },
+  "activityBoxes": "{count, plural, =1{1 box} other{{count} boxes}}",
+  "@activityBoxes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

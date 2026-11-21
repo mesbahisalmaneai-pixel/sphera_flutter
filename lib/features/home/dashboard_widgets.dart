@@ -6,6 +6,7 @@ import 'package:intl/intl.dart' show DateFormat;
 import '../../core/format.dart';
 import '../../core/l10n.dart';
 import '../../core/theme.dart';
+import '../../data/activity_text.dart';
 import '../../data/activity_providers.dart';
 import '../../data/dashboard.dart';
 import '../../data/database.dart';
@@ -470,7 +471,7 @@ class RecentActivityCard extends ConsumerWidget {
                       child: Icon(icon, color: color, size: 18),
                     ),
                     title: Text(e.title, maxLines: 1, overflow: TextOverflow.ellipsis),
-                    subtitle: Text(e.detail == null ? label : '$label · ${e.detail}',
+                    subtitle: Text(e.detail == null ? label : '$label · ${describeActivityDetail(e.detail, l)}',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(color: SpheraColors.muted, fontSize: 12)),

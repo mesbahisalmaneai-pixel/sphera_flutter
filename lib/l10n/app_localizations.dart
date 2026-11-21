@@ -6771,6 +6771,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'How do I restore an account?'**
   String get suggestRestore;
+
+  /// No description provided for @activityGrade.
+  ///
+  /// In en, this message translates to:
+  /// **'Grade {grade}'**
+  String activityGrade(String grade);
+
+  /// No description provided for @activityBoxes.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 box} other{{count} boxes}}'**
+  String activityBoxes(int count);
 }
 
 class _AppLocalizationsDelegate

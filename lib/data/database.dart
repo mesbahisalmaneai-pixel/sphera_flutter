@@ -1,6 +1,8 @@
 import 'package:drift/drift.dart';
 import 'package:drift_flutter/drift_flutter.dart';
 
+import 'activity_text.dart' show migrateLegacyActivityDetails;
+
 part 'database.g.dart';
 
 /// Status of a Google account's box for one game.
@@ -124,7 +126,7 @@ class AppDatabase extends _$AppDatabase {
             ));
 
   @override
-  int get schemaVersion => 4;
+  int get schemaVersion => 5;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -132,6 +134,8 @@ class AppDatabase extends _$AppDatabase {
           if (from < 2) await m.addColumn(games, games.accountImagePath);
           if (from < 3) await m.addColumn(gameAccounts, gameAccounts.photoPath);
           if (from < 4) await m.createTable(activityLogs);
+          // v5: activity details are stored as codes (see activity_text.dart).
+          if (from < 5) await migrateLegacyActivityDetails(this);
         },
         beforeOpen: (details) async => customStatement('PRAGMA foreign_keys = ON'),
       );

@@ -1,3 +1,4 @@
+import 'activity_text.dart';
 import 'package:drift/drift.dart';
 import 'package:uuid/uuid.dart';
 import 'activity_log.dart';
@@ -63,7 +64,7 @@ class GoogleRepository {
       for (final g in games) {
         await _upsertBox(id, g.id, statuses[g.id] ?? BoxStatus.empty, now);
       }
-      await _log(ActivityAction.created, e, detail: 'Grade ${grade.name}');
+      await _log(ActivityAction.created, e, detail: codeGrade(grade));
     });
     return id;
   }
@@ -90,10 +91,10 @@ class GoogleRepository {
       final acc = await _acc(id);
       if (acc != null) {
         final parts = <String>[
-          if (grade != null) 'Grade ${grade.name}',
-          if (statuses.isNotEmpty) '${statuses.length} box${statuses.length == 1 ? '' : 'es'}',
+          if (grade != null) codeGrade(grade),
+          if (statuses.isNotEmpty) codeBoxes(statuses.length),
         ];
-        await _log(ActivityAction.updated, acc.email, detail: parts.isEmpty ? null : parts.join(' · '));
+        await _log(ActivityAction.updated, acc.email, detail: parts.isEmpty ? null : joinDetail(parts));
       }
     });
   }
@@ -103,7 +104,7 @@ class GoogleRepository {
     final acc = await _acc(accountId);
     if (acc == null) return;
     final game = await (db.select(db.games)..where((g) => g.id.equals(gameId))).getSingleOrNull();
-    await _log(ActivityAction.statusChanged, acc.email, detail: '${game?.name ?? gameId} → ${s.name}');
+    await _log(ActivityAction.statusChanged, acc.email, detail: joinDetail([game?.name ?? gameId, codeBoxTo(s)]));
   }
 
   /// Move to Trash (soft delete). Boxes and grade are kept for restoring.
