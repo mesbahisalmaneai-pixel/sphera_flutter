@@ -3064,5 +3064,491 @@
         "type": "int"
       }
     }
+  },
+  "abEmpty": "Ask me anything about your accounts or about SPHERA.",
+  "abThanks": "You are welcome! Ask me anything else about your accounts or the app.",
+  "abHello": "Hello! {capabilities}",
+  "@abHello": {
+    "placeholders": {
+      "capabilities": {
+        "type": "String"
+      }
+    }
+  },
+  "abGamingAccounts": "{count, plural, =1{1 gaming account} other{{count} gaming accounts}}",
+  "@abGamingAccounts": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "abCapabilities": "I can answer questions about your {gaming} and {google} (profit by day, week or month, best and losing games, for sale, grades, boxes, goals, data problems) and explain how to use any part of SPHERA. Try: \"profit this month\", \"how many Free Fire accounts\", \"how do I add a game\".",
+  "@abCapabilities": {
+    "placeholders": {
+      "gaming": {
+        "type": "String"
+      },
+      "google": {
+        "type": "String"
+      }
+    }
+  },
+  "abLastMonth": "Last month: {amount} from {accounts} added.",
+  "@abLastMonth": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      },
+      "accounts": {
+        "type": "String"
+      }
+    }
+  },
+  "abForSale": "{count, plural, =1{1 account is FOR SALE right now.} other{{count} accounts are FOR SALE right now.}} They count 0 in profit until they have a price.",
+  "@abForSale": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "abSold": "You have sold {accounts}.",
+  "@abSold": {
+    "placeholders": {
+      "accounts": {
+        "type": "String"
+      }
+    }
+  },
+  "abActive": "{count, plural, =1{1 account is ACTIVE.} other{{count} accounts are ACTIVE.}}",
+  "@abActive": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "abAchievements": "You unlocked {done} of {total} achievements.",
+  "@abAchievements": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "abNotUnderstood": "I did not understand that one. Try asking about your profit, a game, your accounts, grades, boxes, goals, problems in your data, or how to do something in the app.",
+  "abNoGameAccounts": "You have no {game} accounts yet.",
+  "@abNoGameAccounts": {
+    "placeholders": {
+      "game": {
+        "type": "String"
+      }
+    }
+  },
+  "abGameLine": "{game}: {accounts} ({active} active, {sold} sold, {forSale} for sale). Net profit {profit}, sales {sales}, expenses {expenses}.",
+  "@abGameLine": {
+    "placeholders": {
+      "game": {
+        "type": "String"
+      },
+      "accounts": {
+        "type": "String"
+      },
+      "active": {
+        "type": "int"
+      },
+      "sold": {
+        "type": "int"
+      },
+      "forSale": {
+        "type": "int"
+      },
+      "profit": {
+        "type": "String"
+      },
+      "sales": {
+        "type": "String"
+      },
+      "expenses": {
+        "type": "String"
+      }
+    }
+  },
+  "abGameMargin": " Margin {pct}%.",
+  "@abGameMargin": {
+    "placeholders": {
+      "pct": {
+        "type": "String"
+      }
+    }
+  },
+  "abGameRank": " It ranks #{rank} of your games by profit.",
+  "@abGameRank": {
+    "placeholders": {
+      "rank": {
+        "type": "int"
+      }
+    }
+  },
+  "abGradeAnswer": "You have {parts} (out of {google}).",
+  "@abGradeAnswer": {
+    "placeholders": {
+      "parts": {
+        "type": "String"
+      },
+      "google": {
+        "type": "String"
+      }
+    }
+  },
+  "abBoxes": "Game boxes: {parts}.",
+  "@abBoxes": {
+    "placeholders": {
+      "parts": {
+        "type": "String"
+      }
+    }
+  },
+  "abNoGoals": "You have no monthly goals yet. Open Performance Center and tap Set goals.",
+  "abGoalProfit": "Profit: {current} of {target} ({pct}%)",
+  "@abGoalProfit": {
+    "placeholders": {
+      "current": {
+        "type": "String"
+      },
+      "target": {
+        "type": "String"
+      },
+      "pct": {
+        "type": "String"
+      }
+    }
+  },
+  "abGoalAccounts": "Accounts added: {current} of {target}",
+  "@abGoalAccounts": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "target": {
+        "type": "int"
+      }
+    }
+  },
+  "abBehindPace": " You are behind pace this month.",
+  "abNoStreak": "No add streak right now. Add an account today to start one.",
+  "abStreak": "Your add streak is {days} in a row.",
+  "@abStreak": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "abNoAlerts": "No warnings or reminders right now. All clear.",
+  "abAlertsCount": "{count, plural, =1{1 alert} other{{count} alerts}}",
+  "@abAlertsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "abHGoogleDup": "{count, plural, =1{1 Google duplicate group} other{{count} Google duplicate groups}}",
+  "@abHGoogleDup": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "abHGameDup": "{count, plural, =1{1 gaming duplicate group} other{{count} gaming duplicate groups}}",
+  "@abHGameDup": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "abHMissingId": "{accounts} without Account ID",
+  "@abHMissingId": {
+    "placeholders": {
+      "accounts": {
+        "type": "String"
+      }
+    }
+  },
+  "abHNoBoxes": "{google} with no box set",
+  "@abHNoBoxes": {
+    "placeholders": {
+      "google": {
+        "type": "String"
+      }
+    }
+  },
+  "abHealthy": "Your data looks healthy: no duplicates, no invalid emails, every account has an ID.",
+  "abInTrash": " {items} in the Trash.",
+  "@abInTrash": {
+    "placeholders": {
+      "items": {
+        "type": "String"
+      }
+    }
+  },
+  "abFound": "Found: {list}.",
+  "@abFound": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "abNoGamingAccounts": "No gaming accounts yet.",
+  "abNoLosing": "No game is losing money. The least profitable is {game} ({amount}).",
+  "@abNoLosing": {
+    "placeholders": {
+      "game": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "abLosing": "Losing money: {list}.",
+  "@abLosing": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "abMakesMost": "{game} makes the most: {amount} from {accounts}.",
+  "@abMakesMost": {
+    "placeholders": {
+      "game": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      },
+      "accounts": {
+        "type": "String"
+      }
+    }
+  },
+  "abThen": " Then {list}.",
+  "@abThen": {
+    "placeholders": {
+      "list": {
+        "type": "String"
+      }
+    }
+  },
+  "abNoLoss": "No account is at a loss.",
+  "abNoProfitYet": "No account has made a profit yet.",
+  "abBiggestLosses": "Biggest losses",
+  "abMostProfitable": "Most profitable accounts",
+  "abPeriod": "{label}: {amount} from {accounts} added. {prevLabel}: {prev}{pct}.",
+  "@abPeriod": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "amount": {
+        "type": "String"
+      },
+      "accounts": {
+        "type": "String"
+      },
+      "prevLabel": {
+        "type": "String"
+      },
+      "prev": {
+        "type": "String"
+      },
+      "pct": {
+        "type": "String"
+      }
+    }
+  },
+  "abLastWeekCap": "Last week",
+  "abLastMonthCap": "Last month",
+  "abProfit": "Net profit: {net} (sales {sales} - expenses {expenses}{margin}). This month: {month}{pct} vs last month.",
+  "@abProfit": {
+    "placeholders": {
+      "net": {
+        "type": "String"
+      },
+      "sales": {
+        "type": "String"
+      },
+      "expenses": {
+        "type": "String"
+      },
+      "margin": {
+        "type": "String"
+      },
+      "month": {
+        "type": "String"
+      },
+      "pct": {
+        "type": "String"
+      }
+    }
+  },
+  "abMarginSuffix": ", margin {pct}%",
+  "@abMarginSuffix": {
+    "placeholders": {
+      "pct": {
+        "type": "String"
+      }
+    }
+  },
+  "abGoogle": "You have {google}{grades}.",
+  "@abGoogle": {
+    "placeholders": {
+      "google": {
+        "type": "String"
+      },
+      "grades": {
+        "type": "String"
+      }
+    }
+  },
+  "abCount": "You have {gaming} ({active} active, {sold} sold, {forSale} for sale) across {games}, and {google}.",
+  "@abCount": {
+    "placeholders": {
+      "gaming": {
+        "type": "String"
+      },
+      "active": {
+        "type": "int"
+      },
+      "sold": {
+        "type": "int"
+      },
+      "forSale": {
+        "type": "int"
+      },
+      "games": {
+        "type": "String"
+      },
+      "google": {
+        "type": "String"
+      }
+    }
+  },
+  "abNothingToFix": "Nothing to fix right now. Keep adding accounts and set a monthly goal to track your pace.",
+  "abSummaryCounts": "{gaming} and {google}. ",
+  "@abSummaryCounts": {
+    "placeholders": {
+      "gaming": {
+        "type": "String"
+      },
+      "google": {
+        "type": "String"
+      }
+    }
+  },
+  "abSummaryProfit": "Net profit {net}; this month {month}{pct}. ",
+  "@abSummaryProfit": {
+    "placeholders": {
+      "net": {
+        "type": "String"
+      },
+      "month": {
+        "type": "String"
+      },
+      "pct": {
+        "type": "String"
+      }
+    }
+  },
+  "abBestGame": "Best game: {game}. ",
+  "@abBestGame": {
+    "placeholders": {
+      "game": {
+        "type": "String"
+      }
+    }
+  },
+  "abNoAlertsShort": "No alerts.",
+  "abAlertsAttention": "{alerts} need your attention.",
+  "@abAlertsAttention": {
+    "placeholders": {
+      "alerts": {
+        "type": "String"
+      }
+    }
+  },
+  "helpAbout": "SPHERA keeps your Google Play accounts and your gaming accounts in one place: grades, game boxes, purchase and sale prices, profit, statistics, smart tools and tournaments. Everything is stored on this phone (local mode).",
+  "helpTabs": "The bottom bar has 5 tabs: Home (dashboard, quick actions, KPIs, performance graph, recent activity), Stats (Analytics Center and statistics), ORBIT (the gold Earth: tap a glowing node, then Explore, to reach every screen of a section), Cards (smart tools and the Tournament Arena) and Profile (rank, achievements, session). Settings is the gear icon at the top right; the bell is Notifications.",
+  "helpOrbit": "Orbit is the center tab: a gold dotted Earth with one continent per section. Drag to turn it, tap a glowing node to see a glass card with live stats, then tap Explore to dive in. The bottom sheet has a Screens tab (one card per screen) and a Stats tab (gauges). Use the search button to jump to any screen.",
+  "helpGoogleAdd": "Open Google Play Accounts (Home card or Orbit) and tap Add Google Account. Enter the email and pick a grade. SPHERA creates one box per game automatically, all EMPTY. Duplicate emails are refused.",
+  "helpGrades": "Each Google account has one grade: Bronze, Silver, Gold, Platinum, Diamond, or Interdit (banned / not usable). Change it by editing the account. Grade Statistics shows how many accounts you have per grade.",
+  "helpBoxes": "Every Google account has one box per game. A box is EMPTY, DONE, NOT YET or COMING. Tap an account to open its boxes and change a status. A box is never a gaming account; Status Statistics counts boxes and gaming accounts separately. COMING boxes appear as reminders in Notifications.",
+  "helpGames": "Open Games (Home quick action \"Manage Games\"). You can add a game, rename it (its accounts and boxes stay), archive it (it disappears from counts and stats) and set a card image or an account photo. New games get an EMPTY box in every Google account. Game names must be unique.",
+  "helpAccountAdd": "Tap Add Account on Home (or open a game and tap +). Choose the game, then enter the Account ID, a name, the purchase price, the sale price, a status and optional notes or a photo. Profit = sale price - purchase price.",
+  "helpPhotos": "One account: open it (Games > the game > tap the account) and tap Change photo; Reset puts the game's photo back. Every account of a game: in Games, open the game's menu and pick Change account photo. Change game image sets the game's card picture, and Reset images removes both.",
+  "helpPrivacy": "Your data stays on this phone: accounts, prices, notes and photos are saved in the app's own database and are not sent to any server. The only exception is AI mode (off unless you turn it on): then your question and a summary of your numbers go to Claude, never your emails, Account IDs or notes. Make a backup in Settings > Backup and keep the file somewhere safe: uninstalling the app or losing the phone deletes the data on it.",
+  "helpMissing": "If an account is missing: 1) open Settings > Trash: deleted accounts go there and can be restored; 2) if you removed its game in Games, its accounts are kept but hidden with the game; 3) clear the search text and filters in Google Play Accounts or Smart Organizer.",
+  "helpStatuses": "A gaming account is ACTIVE (you own it), SOLD, or FOR SALE (listed, no final price yet). FOR SALE accounts count 0 in profit until they have a price. Listings untouched for 14 days come back as reminders.",
+  "helpProfit": "Profit of an account = sale price - purchase price (0 for FOR SALE). Net profit is the sum over all accounts not in the Trash, from games that are not archived. Expenses = purchase prices, Sales = sale prices, margin = net profit / expenses. Periods use the date the account was added.",
+  "helpSearch": "Use Search Account on Home for a quick search. Smart Organizer (Cards tab) searches, filters and sorts Google and gaming accounts together. Google Play Accounts also has search plus grade and status filters.",
+  "helpTrash": "Deleting moves an account to the Trash (you can tap Undo right away). Trashed accounts are excluded from all counts and stats. Open Settings > Trash to restore one (grade, boxes and prices are kept) or delete it forever.",
+  "helpStats": "The Stats tab has the Analytics Center (Profit Center, Activity Center, Performance Center, SPHERA Intelligence) and Statistics (Grade, Status and Games statistics). Home also has a performance graph: daily, weekly or monthly profit.",
+  "helpActivity": "Activity Center lists every action (added, updated, status changed, trashed, restored, deleted), grouped by day and filterable by date range and type. Home shows the latest entries.",
+  "helpGoals": "Open Performance Center and tap Set goals. You can set a monthly profit goal and a number of accounts to add. The bars show your progress and where you should be today; falling behind creates a reminder.",
+  "helpDuplicates": "Duplicate Scanner (Cards tab) finds Google accounts with the same email (Gmail dots and +tags ignored) and gaming accounts with the same Account ID in the same game. Nothing is merged automatically: you review each group or dismiss it.",
+  "helpVault": "Inventory Vault (Cards tab) lets you tag accounts as Favorite, Rare or High value and see them together, with the highest sale price first.",
+  "helpSecurity": "Security Center shows data health (duplicates, invalid emails, accounts without ID, accounts without boxes, trash). Settings > Backup saves all your data to a file you can keep or share, and restores it later. Cloud sync is not available yet.",
+  "helpArena": "Tournament Arena (Cards tab) creates leagues, groups and knockout competitions, plus Battle Royale events (placement + kills per round). Tap Create, pick the game and mode (for example Clash Squad or Battle Royale Solo/Duo/Squad), add teams, then enter results; standings update automatically.",
+  "helpAchievements": "Achievements unlock as you add accounts and games, sell, make profit and organize. They give achievement points. Your rank on the Profile tab uses separate rank points. Neither is related to Google Play grades.",
+  "helpCurrency": "Amounts are stored in DH. In Settings > Currency choose DH, USD or EUR; values are converted for display. Tap Update rates (needs internet) to download live rates; otherwise approximate default rates are used.",
+  "helpTheme": "Settings > Appearance: pick a style (Gold, Silver, Rose Gold, Midnight) and a mode (Dark, Light, or Auto to follow your phone).",
+  "helpLanguage": "Settings > Language switches SPHERA to English, Français or العربية (Arabic reads right to left). Every screen, the assistant's answers, insights and notifications follow it. The assistant understands questions in all three languages.",
+  "helpNotifications": "The bell shows warnings (losses, duplicates, invalid emails, profit dropping) and reminders (stale FOR SALE listings, COMING boxes, goals behind pace). With phone notifications on, new alerts also appear on your phone, and a daily summary arrives at the time you choose. Configure it in Settings > Notifications.",
+  "helpProfile": "The Profile tab shows your name, photo, rank, achievements and current session. Tap Edit profile to change name, email or photo. Log out is at the bottom; your accounts and games stay on the phone. Forgot password is on the login screen.",
+  "helpAssistant": "I am the SPHERA Assistant. Offline, I answer from your own data and from this app guide, with nothing leaving the phone. You can also turn on AI mode (tune icon) with your own Anthropic API key: then Claude answers any question, using a summary of your numbers (never emails, account IDs or notes).",
+  "chatAiTip": "\n\nTip: turn on AI mode (tune icon above) and Claude can answer any question.",
+  "chatAnsweredOffline": "({error} Answered offline.)",
+  "@chatAnsweredOffline": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "chatSomethingWrong": "Something went wrong. Please try again.",
+  "aiErrGeneric": "The AI service reported an error.",
+  "aiErrBrowser": "AI mode works in the phone app, not in the browser.",
+  "aiErrDeclined": "Claude declined to answer this question.",
+  "aiErrNoInternet": "No internet connection.",
+  "aiErrTimeout": "The AI service took too long to answer.",
+  "aiErrTls": "Secure connection failed. Check the phone date and your network.",
+  "aiErrKey": "The API key is not valid. Check it in AI settings.",
+  "aiErrForbidden": "This API key is not allowed to use Claude.",
+  "aiErrRate": "Too many requests or no credit left on this API key. Try again later.",
+  "aiErrBusy": "Claude is busy right now. Try again in a moment.",
+  "aiErrServer": "The AI service had a problem ({status}).",
+  "@aiErrServer": {
+    "placeholders": {
+      "status": {
+        "type": "int"
+      }
+    }
+  },
+  "aiErrRefused": "The AI service refused the request ({status}).",
+  "@aiErrRefused": {
+    "placeholders": {
+      "status": {
+        "type": "int"
+      }
+    }
   }
 }

@@ -170,6 +170,28 @@ void main() {
       expect(r.understood, isFalse);
     });
 
+    test('help answers: English source matches the translation, fr/ar exist', () {
+      addTearDown(() => appL10n = l10nFor('en'));
+      for (final t in kHelpTopics) {
+        appL10n = l10nFor('en');
+        expect(helpAnswer(t), t.answer, reason: t.id);
+        appL10n = l10nFor('fr');
+        expect(helpAnswer(t), isNot(t.answer), reason: 'fr ${t.id}');
+        appL10n = l10nFor('ar');
+        expect(helpAnswer(t), isNot(t.answer), reason: 'ar ${t.id}');
+      }
+    });
+
+    test('answers follow the app language', () {
+      addTearDown(() => appL10n = l10nFor('en'));
+      appL10n = l10nFor('fr');
+      expect(answerOffline('profit this month', d).text, startsWith('Ce mois-ci : +250 DH sur 3 comptes ajoutés.'));
+      expect(answerOffline('combien de comptes', d).text, startsWith('Vous avez 4 comptes de jeu'));
+      appL10n = l10nFor('ar');
+      expect(answerOffline('كم ربح هذا الشهر', d).text, startsWith('هذا الشهر:'));
+      expect(answerOffline('qwerty zxcv', d).text, startsWith('لم أفهم'));
+    });
+
     test('every help topic is reachable from its own keywords', () {
       for (final t in kHelpTopics) {
         final r = answerOffline('how ${t.keywords.first}', d);

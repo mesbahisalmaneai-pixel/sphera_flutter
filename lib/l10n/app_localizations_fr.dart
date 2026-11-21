@@ -4164,4 +4164,463 @@ class AppLocalizationsFr extends AppLocalizations {
     );
     return '$_temp0';
   }
+
+  @override
+  String get abEmpty => 'Posez-moi une question sur vos comptes ou sur SPHERA.';
+
+  @override
+  String get abThanks =>
+      'Avec plaisir ! Posez-moi d\'autres questions sur vos comptes ou l\'application.';
+
+  @override
+  String abHello(String capabilities) {
+    return 'Bonjour ! $capabilities';
+  }
+
+  @override
+  String abGamingAccounts(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count comptes de jeu',
+      one: '1 compte de jeu',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String abCapabilities(String gaming, String google) {
+    return 'Je réponds aux questions sur vos $gaming et vos $google (bénéfice par jour, semaine ou mois, meilleurs jeux et jeux en perte, comptes à vendre, grades, boîtes, objectifs, problèmes de données) et j\'explique comment utiliser SPHERA. Essayez : « bénéfice ce mois-ci », « combien de comptes Free Fire », « comment ajouter un jeu ».';
+  }
+
+  @override
+  String abLastMonth(String amount, String accounts) {
+    return 'Le mois dernier : $amount sur $accounts ajoutés.';
+  }
+
+  @override
+  String abForSale(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count comptes sont À VENDRE pour l\'instant.',
+      one: '1 compte est À VENDRE pour l\'instant.',
+      zero: 'Aucun compte n\'est À VENDRE pour l\'instant.',
+    );
+    return '$_temp0 Ils comptent 0 dans le bénéfice tant qu\'ils n\'ont pas de prix.';
+  }
+
+  @override
+  String abSold(String accounts) {
+    return 'Vous avez vendu $accounts.';
+  }
+
+  @override
+  String abActive(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count comptes sont ACTIFS.',
+      one: '1 compte est ACTIF.',
+      zero: 'Aucun compte n\'est ACTIF.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String abAchievements(int done, int total) {
+    return 'Vous avez débloqué $done succès sur $total.';
+  }
+
+  @override
+  String get abNotUnderstood =>
+      'Je n\'ai pas compris. Essayez de demander votre bénéfice, un jeu, vos comptes, les grades, les boîtes, les objectifs, les problèmes dans vos données, ou comment faire quelque chose dans l\'application.';
+
+  @override
+  String abNoGameAccounts(String game) {
+    return 'Vous n\'avez pas encore de compte $game.';
+  }
+
+  @override
+  String abGameLine(String game, String accounts, int active, int sold,
+      int forSale, String profit, String sales, String expenses) {
+    return '$game : $accounts ($active actifs, $sold vendus, $forSale à vendre). Bénéfice net $profit, ventes $sales, dépenses $expenses.';
+  }
+
+  @override
+  String abGameMargin(String pct) {
+    return ' Marge $pct %.';
+  }
+
+  @override
+  String abGameRank(int rank) {
+    return ' C\'est votre jeu n°$rank par bénéfice.';
+  }
+
+  @override
+  String abGradeAnswer(String parts, String google) {
+    return 'Vous avez $parts (sur $google).';
+  }
+
+  @override
+  String abBoxes(String parts) {
+    return 'Boîtes de jeux : $parts.';
+  }
+
+  @override
+  String get abNoGoals =>
+      'Vous n\'avez pas encore d\'objectifs mensuels. Ouvrez le Centre de performance et touchez « Définir des objectifs ».';
+
+  @override
+  String abGoalProfit(String current, String target, String pct) {
+    return 'Bénéfice : $current sur $target ($pct %)';
+  }
+
+  @override
+  String abGoalAccounts(int current, int target) {
+    return 'Comptes ajoutés : $current sur $target';
+  }
+
+  @override
+  String get abBehindPace => ' Vous êtes en retard ce mois-ci.';
+
+  @override
+  String get abNoStreak =>
+      'Pas de série d\'ajouts en ce moment. Ajoutez un compte aujourd\'hui pour en commencer une.';
+
+  @override
+  String abStreak(String days) {
+    return 'Votre série d\'ajouts est de $days d\'affilée.';
+  }
+
+  @override
+  String get abNoAlerts =>
+      'Aucune alerte ni aucun rappel pour l\'instant. Tout va bien.';
+
+  @override
+  String abAlertsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count alertes',
+      one: '1 alerte',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String abHGoogleDup(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count groupes de doublons Google',
+      one: '1 groupe de doublons Google',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String abHGameDup(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count groupes de doublons de jeu',
+      one: '1 groupe de doublons de jeu',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String abHMissingId(String accounts) {
+    return '$accounts sans ID compte';
+  }
+
+  @override
+  String abHNoBoxes(String google) {
+    return '$google sans boîte définie';
+  }
+
+  @override
+  String get abHealthy =>
+      'Vos données semblent saines : aucun doublon, aucun e-mail invalide, chaque compte a un ID.';
+
+  @override
+  String abInTrash(String items) {
+    return ' $items dans la corbeille.';
+  }
+
+  @override
+  String abFound(String list) {
+    return 'Trouvé : $list.';
+  }
+
+  @override
+  String get abNoGamingAccounts => 'Aucun compte de jeu pour l\'instant.';
+
+  @override
+  String abNoLosing(String game, String amount) {
+    return 'Aucun jeu ne perd d\'argent. Le moins rentable est $game ($amount).';
+  }
+
+  @override
+  String abLosing(String list) {
+    return 'En perte : $list.';
+  }
+
+  @override
+  String abMakesMost(String game, String amount, String accounts) {
+    return '$game rapporte le plus : $amount sur $accounts.';
+  }
+
+  @override
+  String abThen(String list) {
+    return ' Ensuite $list.';
+  }
+
+  @override
+  String get abNoLoss => 'Aucun compte n\'est en perte.';
+
+  @override
+  String get abNoProfitYet => 'Aucun compte n\'a encore fait de bénéfice.';
+
+  @override
+  String get abBiggestLosses => 'Plus grosses pertes';
+
+  @override
+  String get abMostProfitable => 'Comptes les plus rentables';
+
+  @override
+  String abPeriod(String label, String amount, String accounts,
+      String prevLabel, String prev, String pct) {
+    return '$label : $amount sur $accounts ajoutés. $prevLabel : $prev$pct.';
+  }
+
+  @override
+  String get abLastWeekCap => 'La semaine dernière';
+
+  @override
+  String get abLastMonthCap => 'Le mois dernier';
+
+  @override
+  String abProfit(String net, String sales, String expenses, String margin,
+      String month, String pct) {
+    return 'Bénéfice net : $net (ventes $sales - dépenses $expenses$margin). Ce mois-ci : $month$pct par rapport au mois dernier.';
+  }
+
+  @override
+  String abMarginSuffix(String pct) {
+    return ', marge $pct %';
+  }
+
+  @override
+  String abGoogle(String google, String grades) {
+    return 'Vous avez $google$grades.';
+  }
+
+  @override
+  String abCount(String gaming, int active, int sold, int forSale, String games,
+      String google) {
+    return 'Vous avez $gaming ($active actifs, $sold vendus, $forSale à vendre) sur $games, et $google.';
+  }
+
+  @override
+  String get abNothingToFix =>
+      'Rien à corriger pour l\'instant. Continuez à ajouter des comptes et fixez un objectif mensuel pour suivre votre rythme.';
+
+  @override
+  String abSummaryCounts(String gaming, String google) {
+    return '$gaming et $google. ';
+  }
+
+  @override
+  String abSummaryProfit(String net, String month, String pct) {
+    return 'Bénéfice net $net ; ce mois-ci $month$pct. ';
+  }
+
+  @override
+  String abBestGame(String game) {
+    return 'Meilleur jeu : $game. ';
+  }
+
+  @override
+  String get abNoAlertsShort => 'Aucune alerte.';
+
+  @override
+  String abAlertsAttention(String alerts) {
+    return '$alerts demandent votre attention.';
+  }
+
+  @override
+  String get helpAbout =>
+      'SPHERA réunit vos comptes Google Play et vos comptes de jeu au même endroit : grades, boîtes de jeux, prix d\'achat et de vente, bénéfice, statistiques, outils intelligents et tournois. Tout est enregistré sur ce téléphone (mode local).';
+
+  @override
+  String get helpTabs =>
+      'La barre du bas a 5 onglets : Accueil (tableau de bord, actions rapides, indicateurs, graphique de performance, activité récente), Stats (Centre d\'analyse et statistiques), ORBIT (la Terre dorée : touchez un point lumineux, puis Explorer, pour atteindre chaque écran d\'une section), Cartes (outils intelligents et Tournament Arena) et Profil (rang, succès, session). Les paramètres sont l\'icône d\'engrenage en haut ; la cloche ouvre les notifications.';
+
+  @override
+  String get helpOrbit =>
+      'Orbit est l\'onglet central : une Terre en points dorés, un continent par section. Faites-la glisser pour la tourner, touchez un point lumineux pour voir une carte avec des statistiques en direct, puis touchez Explorer. Le panneau du bas a un onglet Écrans (une carte par écran) et un onglet Stats (jauges). Le bouton de recherche mène à n\'importe quel écran.';
+
+  @override
+  String get helpGoogleAdd =>
+      'Ouvrez Comptes Google Play (carte de l\'accueil ou Orbit) et touchez « Ajouter un compte Google ». Saisissez l\'e-mail et choisissez un grade. SPHERA crée automatiquement une boîte par jeu, toutes VIDES. Les e-mails en double sont refusés.';
+
+  @override
+  String get helpGrades =>
+      'Chaque compte Google a un grade : Bronze, Argent, Or, Platine, Diamant ou Interdit (banni / inutilisable). Changez-le en modifiant le compte. Les statistiques des grades montrent combien de comptes vous avez par grade.';
+
+  @override
+  String get helpBoxes =>
+      'Chaque compte Google a une boîte par jeu. Une boîte est VIDE, FAIT, PAS ENCORE ou BIENTÔT. Touchez un compte pour ouvrir ses boîtes et changer un statut. Une boîte n\'est jamais un compte de jeu ; les statistiques des statuts comptent séparément les boîtes et les comptes de jeu. Les boîtes BIENTÔT apparaissent comme rappels dans les notifications.';
+
+  @override
+  String get helpGames =>
+      'Ouvrez Jeux (action rapide de l\'accueil « Gérer les jeux »). Vous pouvez ajouter un jeu, le renommer (ses comptes et boîtes restent), l\'archiver (il disparaît des nombres et statistiques) et définir une image de carte ou une photo de compte. Les nouveaux jeux reçoivent une boîte VIDE dans chaque compte Google. Les noms de jeux doivent être uniques.';
+
+  @override
+  String get helpAccountAdd =>
+      'Touchez « Ajouter un compte » sur l\'accueil (ou ouvrez un jeu et touchez +). Choisissez le jeu, puis saisissez l\'ID compte, un nom, le prix d\'achat, le prix de vente, un statut et, si vous voulez, des notes ou une photo. Bénéfice = prix de vente - prix d\'achat.';
+
+  @override
+  String get helpPhotos =>
+      'Un seul compte : ouvrez-le (Jeux > le jeu > touchez le compte) et touchez « Changer la photo » ; « Réinitialiser » remet la photo du jeu. Tous les comptes d\'un jeu : dans Jeux, ouvrez le menu du jeu et choisissez « Changer la photo des comptes ». « Changer l\'image du jeu » définit l\'image de sa carte, et « Réinitialiser les images » retire les deux.';
+
+  @override
+  String get helpPrivacy =>
+      'Vos données restent sur ce téléphone : comptes, prix, notes et photos sont enregistrés dans la base de données de l\'application et ne sont envoyés à aucun serveur. Seule exception : le mode IA (désactivé sauf si vous l\'activez) ; votre question et un résumé de vos chiffres sont alors envoyés à Claude, jamais vos e-mails, ID compte ou notes. Faites une sauvegarde dans Paramètres > Sauvegarde et gardez le fichier en lieu sûr : désinstaller l\'application ou perdre le téléphone efface ses données.';
+
+  @override
+  String get helpMissing =>
+      'Si un compte a disparu : 1) ouvrez Paramètres > Corbeille : les comptes supprimés y vont et peuvent être restaurés ; 2) si vous avez retiré son jeu dans Jeux, ses comptes sont conservés mais masqués avec le jeu ; 3) effacez le texte de recherche et les filtres dans Comptes Google Play ou l\'Organiseur intelligent.';
+
+  @override
+  String get helpStatuses =>
+      'Un compte de jeu est ACTIF (vous le possédez), VENDU ou À VENDRE (en vente, sans prix final). Les comptes À VENDRE comptent 0 dans le bénéfice tant qu\'ils n\'ont pas de prix. Les annonces inchangées depuis 14 jours reviennent comme rappels.';
+
+  @override
+  String get helpProfit =>
+      'Bénéfice d\'un compte = prix de vente - prix d\'achat (0 pour À VENDRE). Le bénéfice net est la somme sur tous les comptes hors corbeille, des jeux non archivés. Dépenses = prix d\'achat, Ventes = prix de vente, marge = bénéfice net / dépenses. Les périodes utilisent la date d\'ajout du compte.';
+
+  @override
+  String get helpSearch =>
+      'Utilisez « Chercher un compte » sur l\'accueil pour une recherche rapide. L\'Organiseur intelligent (onglet Cartes) cherche, filtre et trie ensemble les comptes Google et de jeu. Comptes Google Play a aussi une recherche et des filtres par grade et statut.';
+
+  @override
+  String get helpTrash =>
+      'Supprimer met un compte à la corbeille (vous pouvez toucher Annuler aussitôt). Les comptes à la corbeille sont exclus de tous les nombres et statistiques. Ouvrez Paramètres > Corbeille pour en restaurer un (grade, boîtes et prix sont conservés) ou le supprimer définitivement.';
+
+  @override
+  String get helpStats =>
+      'L\'onglet Stats contient le Centre d\'analyse (Centre des bénéfices, Centre d\'activité, Centre de performance, SPHERA Intelligence) et les Statistiques (grades, statuts et jeux). L\'accueil a aussi un graphique de performance : bénéfice par jour, semaine ou mois.';
+
+  @override
+  String get helpActivity =>
+      'Le Centre d\'activité liste chaque action (ajout, modification, changement de statut, mise à la corbeille, restauration, suppression), groupée par jour et filtrable par période et par type. L\'accueil montre les dernières entrées.';
+
+  @override
+  String get helpGoals =>
+      'Ouvrez le Centre de performance et touchez « Définir des objectifs ». Vous pouvez fixer un objectif mensuel de bénéfice et un nombre de comptes à ajouter. Les barres montrent votre progression et où vous devriez en être aujourd\'hui ; prendre du retard crée un rappel.';
+
+  @override
+  String get helpDuplicates =>
+      'Le Détecteur de doublons (onglet Cartes) trouve les comptes Google avec le même e-mail (points Gmail et +tags ignorés) et les comptes de jeu avec le même ID compte dans le même jeu. Rien n\'est fusionné automatiquement : vous vérifiez chaque groupe ou l\'écartez.';
+
+  @override
+  String get helpVault =>
+      'Le Coffre d\'inventaire (onglet Cartes) permet de marquer des comptes comme Favori, Rare ou Grande valeur et de les voir ensemble, le prix de vente le plus élevé d\'abord.';
+
+  @override
+  String get helpSecurity =>
+      'Le Centre de sécurité montre la santé des données (doublons, e-mails invalides, comptes sans ID, comptes sans boîte, corbeille). Paramètres > Sauvegarde enregistre toutes vos données dans un fichier que vous pouvez garder ou partager, et les restaure plus tard. La synchronisation cloud n\'est pas encore disponible.';
+
+  @override
+  String get helpArena =>
+      'Tournament Arena (onglet Cartes) crée des ligues, des groupes et des compétitions à élimination directe, ainsi que des événements Battle Royale (place + éliminations par manche). Touchez Créer, choisissez le jeu et le mode (par exemple Clash Squad ou Battle Royale Solo/Duo/Squad), ajoutez les équipes puis saisissez les résultats ; le classement se met à jour automatiquement.';
+
+  @override
+  String get helpAchievements =>
+      'Les succès se débloquent quand vous ajoutez des comptes et des jeux, vendez, faites du bénéfice et vous organisez. Ils donnent des points de succès. Votre rang dans l\'onglet Profil utilise des points de rang séparés. Aucun des deux n\'est lié aux grades Google Play.';
+
+  @override
+  String get helpCurrency =>
+      'Les montants sont enregistrés en DH. Dans Paramètres > Devise, choisissez DH, USD ou EUR ; les valeurs sont converties à l\'affichage. Touchez « Mettre à jour les taux » (internet nécessaire) pour télécharger les taux en direct ; sinon des taux approximatifs sont utilisés.';
+
+  @override
+  String get helpTheme =>
+      'Paramètres > Apparence : choisissez un style (Gold, Silver, Rose Gold, Midnight) et un mode (Sombre, Clair ou Auto pour suivre le téléphone).';
+
+  @override
+  String get helpLanguage =>
+      'Paramètres > Langue passe SPHERA en English, Français ou العربية (l\'arabe se lit de droite à gauche). Tous les écrans, les réponses de l\'assistant, les analyses et les notifications suivent ce choix. L\'assistant comprend les questions dans les trois langues.';
+
+  @override
+  String get helpNotifications =>
+      'La cloche montre les alertes (pertes, doublons, e-mails invalides, bénéfice en baisse) et les rappels (annonces À VENDRE anciennes, boîtes BIENTÔT, objectifs en retard). Avec les notifications du téléphone activées, les nouvelles alertes apparaissent aussi sur le téléphone, et un résumé quotidien arrive à l\'heure choisie. Réglez-le dans Paramètres > Notifications.';
+
+  @override
+  String get helpProfile =>
+      'L\'onglet Profil montre votre nom, votre photo, votre rang, vos succès et la session en cours. Touchez « Modifier le profil » pour changer le nom, l\'e-mail ou la photo. « Se déconnecter » est en bas ; vos comptes et jeux restent sur le téléphone. « Mot de passe oublié » est sur l\'écran de connexion.';
+
+  @override
+  String get helpAssistant =>
+      'Je suis l\'assistant SPHERA. Hors ligne, je réponds à partir de vos données et de ce guide, sans que rien ne quitte le téléphone. Vous pouvez aussi activer le mode IA (icône de réglage) avec votre propre clé API Anthropic : Claude répond alors à toute question, à partir d\'un résumé de vos chiffres (jamais les e-mails, ID compte ou notes).';
+
+  @override
+  String get chatAiTip =>
+      '\n\nAstuce : activez le mode IA (icône de réglage en haut) et Claude pourra répondre à toute question.';
+
+  @override
+  String chatAnsweredOffline(String error) {
+    return '($error Réponse hors ligne.)';
+  }
+
+  @override
+  String get chatSomethingWrong => 'Un problème est survenu. Réessayez.';
+
+  @override
+  String get aiErrGeneric => 'Le service d\'IA a signalé une erreur.';
+
+  @override
+  String get aiErrBrowser =>
+      'Le mode IA fonctionne dans l\'application mobile, pas dans le navigateur.';
+
+  @override
+  String get aiErrDeclined => 'Claude a refusé de répondre à cette question.';
+
+  @override
+  String get aiErrNoInternet => 'Pas de connexion internet.';
+
+  @override
+  String get aiErrTimeout => 'Le service d\'IA a mis trop de temps à répondre.';
+
+  @override
+  String get aiErrTls =>
+      'La connexion sécurisée a échoué. Vérifiez la date du téléphone et votre réseau.';
+
+  @override
+  String get aiErrKey =>
+      'La clé API n\'est pas valide. Vérifiez-la dans les réglages IA.';
+
+  @override
+  String get aiErrForbidden =>
+      'Cette clé API n\'est pas autorisée à utiliser Claude.';
+
+  @override
+  String get aiErrRate =>
+      'Trop de requêtes ou plus de crédit sur cette clé API. Réessayez plus tard.';
+
+  @override
+  String get aiErrBusy =>
+      'Claude est occupé pour le moment. Réessayez dans un instant.';
+
+  @override
+  String aiErrServer(int status) {
+    return 'Le service d\'IA a rencontré un problème ($status).';
+  }
+
+  @override
+  String aiErrRefused(int status) {
+    return 'Le service d\'IA a refusé la requête ($status).';
+  }
 }

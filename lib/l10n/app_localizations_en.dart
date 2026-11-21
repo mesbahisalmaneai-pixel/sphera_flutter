@@ -4110,4 +4110,457 @@ class AppLocalizationsEn extends AppLocalizations {
     );
     return '$_temp0';
   }
+
+  @override
+  String get abEmpty => 'Ask me anything about your accounts or about SPHERA.';
+
+  @override
+  String get abThanks =>
+      'You are welcome! Ask me anything else about your accounts or the app.';
+
+  @override
+  String abHello(String capabilities) {
+    return 'Hello! $capabilities';
+  }
+
+  @override
+  String abGamingAccounts(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count gaming accounts',
+      one: '1 gaming account',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String abCapabilities(String gaming, String google) {
+    return 'I can answer questions about your $gaming and $google (profit by day, week or month, best and losing games, for sale, grades, boxes, goals, data problems) and explain how to use any part of SPHERA. Try: \"profit this month\", \"how many Free Fire accounts\", \"how do I add a game\".';
+  }
+
+  @override
+  String abLastMonth(String amount, String accounts) {
+    return 'Last month: $amount from $accounts added.';
+  }
+
+  @override
+  String abForSale(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count accounts are FOR SALE right now.',
+      one: '1 account is FOR SALE right now.',
+    );
+    return '$_temp0 They count 0 in profit until they have a price.';
+  }
+
+  @override
+  String abSold(String accounts) {
+    return 'You have sold $accounts.';
+  }
+
+  @override
+  String abActive(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count accounts are ACTIVE.',
+      one: '1 account is ACTIVE.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String abAchievements(int done, int total) {
+    return 'You unlocked $done of $total achievements.';
+  }
+
+  @override
+  String get abNotUnderstood =>
+      'I did not understand that one. Try asking about your profit, a game, your accounts, grades, boxes, goals, problems in your data, or how to do something in the app.';
+
+  @override
+  String abNoGameAccounts(String game) {
+    return 'You have no $game accounts yet.';
+  }
+
+  @override
+  String abGameLine(String game, String accounts, int active, int sold,
+      int forSale, String profit, String sales, String expenses) {
+    return '$game: $accounts ($active active, $sold sold, $forSale for sale). Net profit $profit, sales $sales, expenses $expenses.';
+  }
+
+  @override
+  String abGameMargin(String pct) {
+    return ' Margin $pct%.';
+  }
+
+  @override
+  String abGameRank(int rank) {
+    return ' It ranks #$rank of your games by profit.';
+  }
+
+  @override
+  String abGradeAnswer(String parts, String google) {
+    return 'You have $parts (out of $google).';
+  }
+
+  @override
+  String abBoxes(String parts) {
+    return 'Game boxes: $parts.';
+  }
+
+  @override
+  String get abNoGoals =>
+      'You have no monthly goals yet. Open Performance Center and tap Set goals.';
+
+  @override
+  String abGoalProfit(String current, String target, String pct) {
+    return 'Profit: $current of $target ($pct%)';
+  }
+
+  @override
+  String abGoalAccounts(int current, int target) {
+    return 'Accounts added: $current of $target';
+  }
+
+  @override
+  String get abBehindPace => ' You are behind pace this month.';
+
+  @override
+  String get abNoStreak =>
+      'No add streak right now. Add an account today to start one.';
+
+  @override
+  String abStreak(String days) {
+    return 'Your add streak is $days in a row.';
+  }
+
+  @override
+  String get abNoAlerts => 'No warnings or reminders right now. All clear.';
+
+  @override
+  String abAlertsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count alerts',
+      one: '1 alert',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String abHGoogleDup(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Google duplicate groups',
+      one: '1 Google duplicate group',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String abHGameDup(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count gaming duplicate groups',
+      one: '1 gaming duplicate group',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String abHMissingId(String accounts) {
+    return '$accounts without Account ID';
+  }
+
+  @override
+  String abHNoBoxes(String google) {
+    return '$google with no box set';
+  }
+
+  @override
+  String get abHealthy =>
+      'Your data looks healthy: no duplicates, no invalid emails, every account has an ID.';
+
+  @override
+  String abInTrash(String items) {
+    return ' $items in the Trash.';
+  }
+
+  @override
+  String abFound(String list) {
+    return 'Found: $list.';
+  }
+
+  @override
+  String get abNoGamingAccounts => 'No gaming accounts yet.';
+
+  @override
+  String abNoLosing(String game, String amount) {
+    return 'No game is losing money. The least profitable is $game ($amount).';
+  }
+
+  @override
+  String abLosing(String list) {
+    return 'Losing money: $list.';
+  }
+
+  @override
+  String abMakesMost(String game, String amount, String accounts) {
+    return '$game makes the most: $amount from $accounts.';
+  }
+
+  @override
+  String abThen(String list) {
+    return ' Then $list.';
+  }
+
+  @override
+  String get abNoLoss => 'No account is at a loss.';
+
+  @override
+  String get abNoProfitYet => 'No account has made a profit yet.';
+
+  @override
+  String get abBiggestLosses => 'Biggest losses';
+
+  @override
+  String get abMostProfitable => 'Most profitable accounts';
+
+  @override
+  String abPeriod(String label, String amount, String accounts,
+      String prevLabel, String prev, String pct) {
+    return '$label: $amount from $accounts added. $prevLabel: $prev$pct.';
+  }
+
+  @override
+  String get abLastWeekCap => 'Last week';
+
+  @override
+  String get abLastMonthCap => 'Last month';
+
+  @override
+  String abProfit(String net, String sales, String expenses, String margin,
+      String month, String pct) {
+    return 'Net profit: $net (sales $sales - expenses $expenses$margin). This month: $month$pct vs last month.';
+  }
+
+  @override
+  String abMarginSuffix(String pct) {
+    return ', margin $pct%';
+  }
+
+  @override
+  String abGoogle(String google, String grades) {
+    return 'You have $google$grades.';
+  }
+
+  @override
+  String abCount(String gaming, int active, int sold, int forSale, String games,
+      String google) {
+    return 'You have $gaming ($active active, $sold sold, $forSale for sale) across $games, and $google.';
+  }
+
+  @override
+  String get abNothingToFix =>
+      'Nothing to fix right now. Keep adding accounts and set a monthly goal to track your pace.';
+
+  @override
+  String abSummaryCounts(String gaming, String google) {
+    return '$gaming and $google. ';
+  }
+
+  @override
+  String abSummaryProfit(String net, String month, String pct) {
+    return 'Net profit $net; this month $month$pct. ';
+  }
+
+  @override
+  String abBestGame(String game) {
+    return 'Best game: $game. ';
+  }
+
+  @override
+  String get abNoAlertsShort => 'No alerts.';
+
+  @override
+  String abAlertsAttention(String alerts) {
+    return '$alerts need your attention.';
+  }
+
+  @override
+  String get helpAbout =>
+      'SPHERA keeps your Google Play accounts and your gaming accounts in one place: grades, game boxes, purchase and sale prices, profit, statistics, smart tools and tournaments. Everything is stored on this phone (local mode).';
+
+  @override
+  String get helpTabs =>
+      'The bottom bar has 5 tabs: Home (dashboard, quick actions, KPIs, performance graph, recent activity), Stats (Analytics Center and statistics), ORBIT (the gold Earth: tap a glowing node, then Explore, to reach every screen of a section), Cards (smart tools and the Tournament Arena) and Profile (rank, achievements, session). Settings is the gear icon at the top right; the bell is Notifications.';
+
+  @override
+  String get helpOrbit =>
+      'Orbit is the center tab: a gold dotted Earth with one continent per section. Drag to turn it, tap a glowing node to see a glass card with live stats, then tap Explore to dive in. The bottom sheet has a Screens tab (one card per screen) and a Stats tab (gauges). Use the search button to jump to any screen.';
+
+  @override
+  String get helpGoogleAdd =>
+      'Open Google Play Accounts (Home card or Orbit) and tap Add Google Account. Enter the email and pick a grade. SPHERA creates one box per game automatically, all EMPTY. Duplicate emails are refused.';
+
+  @override
+  String get helpGrades =>
+      'Each Google account has one grade: Bronze, Silver, Gold, Platinum, Diamond, or Interdit (banned / not usable). Change it by editing the account. Grade Statistics shows how many accounts you have per grade.';
+
+  @override
+  String get helpBoxes =>
+      'Every Google account has one box per game. A box is EMPTY, DONE, NOT YET or COMING. Tap an account to open its boxes and change a status. A box is never a gaming account; Status Statistics counts boxes and gaming accounts separately. COMING boxes appear as reminders in Notifications.';
+
+  @override
+  String get helpGames =>
+      'Open Games (Home quick action \"Manage Games\"). You can add a game, rename it (its accounts and boxes stay), archive it (it disappears from counts and stats) and set a card image or an account photo. New games get an EMPTY box in every Google account. Game names must be unique.';
+
+  @override
+  String get helpAccountAdd =>
+      'Tap Add Account on Home (or open a game and tap +). Choose the game, then enter the Account ID, a name, the purchase price, the sale price, a status and optional notes or a photo. Profit = sale price - purchase price.';
+
+  @override
+  String get helpPhotos =>
+      'One account: open it (Games > the game > tap the account) and tap Change photo; Reset puts the game\'s photo back. Every account of a game: in Games, open the game\'s menu and pick Change account photo. Change game image sets the game\'s card picture, and Reset images removes both.';
+
+  @override
+  String get helpPrivacy =>
+      'Your data stays on this phone: accounts, prices, notes and photos are saved in the app\'s own database and are not sent to any server. The only exception is AI mode (off unless you turn it on): then your question and a summary of your numbers go to Claude, never your emails, Account IDs or notes. Make a backup in Settings > Backup and keep the file somewhere safe: uninstalling the app or losing the phone deletes the data on it.';
+
+  @override
+  String get helpMissing =>
+      'If an account is missing: 1) open Settings > Trash: deleted accounts go there and can be restored; 2) if you removed its game in Games, its accounts are kept but hidden with the game; 3) clear the search text and filters in Google Play Accounts or Smart Organizer.';
+
+  @override
+  String get helpStatuses =>
+      'A gaming account is ACTIVE (you own it), SOLD, or FOR SALE (listed, no final price yet). FOR SALE accounts count 0 in profit until they have a price. Listings untouched for 14 days come back as reminders.';
+
+  @override
+  String get helpProfit =>
+      'Profit of an account = sale price - purchase price (0 for FOR SALE). Net profit is the sum over all accounts not in the Trash, from games that are not archived. Expenses = purchase prices, Sales = sale prices, margin = net profit / expenses. Periods use the date the account was added.';
+
+  @override
+  String get helpSearch =>
+      'Use Search Account on Home for a quick search. Smart Organizer (Cards tab) searches, filters and sorts Google and gaming accounts together. Google Play Accounts also has search plus grade and status filters.';
+
+  @override
+  String get helpTrash =>
+      'Deleting moves an account to the Trash (you can tap Undo right away). Trashed accounts are excluded from all counts and stats. Open Settings > Trash to restore one (grade, boxes and prices are kept) or delete it forever.';
+
+  @override
+  String get helpStats =>
+      'The Stats tab has the Analytics Center (Profit Center, Activity Center, Performance Center, SPHERA Intelligence) and Statistics (Grade, Status and Games statistics). Home also has a performance graph: daily, weekly or monthly profit.';
+
+  @override
+  String get helpActivity =>
+      'Activity Center lists every action (added, updated, status changed, trashed, restored, deleted), grouped by day and filterable by date range and type. Home shows the latest entries.';
+
+  @override
+  String get helpGoals =>
+      'Open Performance Center and tap Set goals. You can set a monthly profit goal and a number of accounts to add. The bars show your progress and where you should be today; falling behind creates a reminder.';
+
+  @override
+  String get helpDuplicates =>
+      'Duplicate Scanner (Cards tab) finds Google accounts with the same email (Gmail dots and +tags ignored) and gaming accounts with the same Account ID in the same game. Nothing is merged automatically: you review each group or dismiss it.';
+
+  @override
+  String get helpVault =>
+      'Inventory Vault (Cards tab) lets you tag accounts as Favorite, Rare or High value and see them together, with the highest sale price first.';
+
+  @override
+  String get helpSecurity =>
+      'Security Center shows data health (duplicates, invalid emails, accounts without ID, accounts without boxes, trash). Settings > Backup saves all your data to a file you can keep or share, and restores it later. Cloud sync is not available yet.';
+
+  @override
+  String get helpArena =>
+      'Tournament Arena (Cards tab) creates leagues, groups and knockout competitions, plus Battle Royale events (placement + kills per round). Tap Create, pick the game and mode (for example Clash Squad or Battle Royale Solo/Duo/Squad), add teams, then enter results; standings update automatically.';
+
+  @override
+  String get helpAchievements =>
+      'Achievements unlock as you add accounts and games, sell, make profit and organize. They give achievement points. Your rank on the Profile tab uses separate rank points. Neither is related to Google Play grades.';
+
+  @override
+  String get helpCurrency =>
+      'Amounts are stored in DH. In Settings > Currency choose DH, USD or EUR; values are converted for display. Tap Update rates (needs internet) to download live rates; otherwise approximate default rates are used.';
+
+  @override
+  String get helpTheme =>
+      'Settings > Appearance: pick a style (Gold, Silver, Rose Gold, Midnight) and a mode (Dark, Light, or Auto to follow your phone).';
+
+  @override
+  String get helpLanguage =>
+      'Settings > Language switches SPHERA to English, Français or العربية (Arabic reads right to left). Every screen, the assistant\'s answers, insights and notifications follow it. The assistant understands questions in all three languages.';
+
+  @override
+  String get helpNotifications =>
+      'The bell shows warnings (losses, duplicates, invalid emails, profit dropping) and reminders (stale FOR SALE listings, COMING boxes, goals behind pace). With phone notifications on, new alerts also appear on your phone, and a daily summary arrives at the time you choose. Configure it in Settings > Notifications.';
+
+  @override
+  String get helpProfile =>
+      'The Profile tab shows your name, photo, rank, achievements and current session. Tap Edit profile to change name, email or photo. Log out is at the bottom; your accounts and games stay on the phone. Forgot password is on the login screen.';
+
+  @override
+  String get helpAssistant =>
+      'I am the SPHERA Assistant. Offline, I answer from your own data and from this app guide, with nothing leaving the phone. You can also turn on AI mode (tune icon) with your own Anthropic API key: then Claude answers any question, using a summary of your numbers (never emails, account IDs or notes).';
+
+  @override
+  String get chatAiTip =>
+      '\n\nTip: turn on AI mode (tune icon above) and Claude can answer any question.';
+
+  @override
+  String chatAnsweredOffline(String error) {
+    return '($error Answered offline.)';
+  }
+
+  @override
+  String get chatSomethingWrong => 'Something went wrong. Please try again.';
+
+  @override
+  String get aiErrGeneric => 'The AI service reported an error.';
+
+  @override
+  String get aiErrBrowser =>
+      'AI mode works in the phone app, not in the browser.';
+
+  @override
+  String get aiErrDeclined => 'Claude declined to answer this question.';
+
+  @override
+  String get aiErrNoInternet => 'No internet connection.';
+
+  @override
+  String get aiErrTimeout => 'The AI service took too long to answer.';
+
+  @override
+  String get aiErrTls =>
+      'Secure connection failed. Check the phone date and your network.';
+
+  @override
+  String get aiErrKey => 'The API key is not valid. Check it in AI settings.';
+
+  @override
+  String get aiErrForbidden => 'This API key is not allowed to use Claude.';
+
+  @override
+  String get aiErrRate =>
+      'Too many requests or no credit left on this API key. Try again later.';
+
+  @override
+  String get aiErrBusy => 'Claude is busy right now. Try again in a moment.';
+
+  @override
+  String aiErrServer(int status) {
+    return 'The AI service had a problem ($status).';
+  }
+
+  @override
+  String aiErrRefused(int status) {
+    return 'The AI service refused the request ($status).';
+  }
 }

@@ -1,3 +1,4 @@
+import '../../core/l10n.dart';
 import '../insights.dart' show InsightTarget;
 
 /// Everything the SPHERA Assistant knows about how the app works.
@@ -211,8 +212,8 @@ const kHelpTopics = <HelpTopic>[
     answer:
         'Your data stays on this phone: accounts, prices, notes and photos are saved in the app\'s own database and are not '
         'sent to any server. The only exception is AI mode (off unless you turn it on): then your question and a summary of '
-        'your numbers go to Claude, never your emails, Account IDs or notes. There is no backup yet, so uninstalling the app '
-        'or losing the phone deletes the data.',
+        'your numbers go to Claude, never your emails, Account IDs or notes. Make a backup in Settings > Backup and keep the '
+        'file somewhere safe: uninstalling the app or losing the phone deletes the data on it.',
     targets: [InsightTarget.security],
   ),
   HelpTopic(
@@ -413,8 +414,8 @@ const kHelpTopics = <HelpTopic>[
     ],
     answer:
         'Security Center shows data health (duplicates, invalid emails, accounts without ID, accounts without boxes, trash). '
-        'Backup and cloud sync are not available yet: data lives only on this phone, so do not uninstall the app '
-        'without keeping a copy of your information.',
+        'Settings > Backup saves all your data to a file you can keep or share, and restores it later. '
+        'Cloud sync is not available yet.',
     targets: [InsightTarget.security],
   ),
   HelpTopic(
@@ -513,7 +514,7 @@ const kHelpTopics = <HelpTopic>[
     ],
     answer:
         'Settings > Language switches SPHERA to English, Français or العربية (Arabic reads right to left). '
-        'Home, the bottom bar, Stats, Cards and Settings are translated; other screens are still in English for now. '
+        "Every screen, the assistant's answers, insights and notifications follow it. "
         'The assistant understands questions in all three languages.',
     targets: [InsightTarget.settings],
   ),
@@ -612,3 +613,39 @@ String buildSystemPrompt() {
   b.writeln('</app_guide>');
   return b.toString();
 }
+
+/// [t]'s answer in the app language, for the offline assistant. The English
+/// [HelpTopic.answer] stays the source (and goes to Claude in AI mode); a
+/// test checks that it matches the English translation.
+String helpAnswer(HelpTopic t) => switch (t.id) {
+      'about' => appL10n.helpAbout,
+      'tabs' => appL10n.helpTabs,
+      'orbit' => appL10n.helpOrbit,
+      'google-add' => appL10n.helpGoogleAdd,
+      'grades' => appL10n.helpGrades,
+      'boxes' => appL10n.helpBoxes,
+      'games' => appL10n.helpGames,
+      'account-add' => appL10n.helpAccountAdd,
+      'photos' => appL10n.helpPhotos,
+      'privacy' => appL10n.helpPrivacy,
+      'missing' => appL10n.helpMissing,
+      'statuses' => appL10n.helpStatuses,
+      'profit' => appL10n.helpProfit,
+      'search' => appL10n.helpSearch,
+      'trash' => appL10n.helpTrash,
+      'stats' => appL10n.helpStats,
+      'activity' => appL10n.helpActivity,
+      'goals' => appL10n.helpGoals,
+      'duplicates' => appL10n.helpDuplicates,
+      'vault' => appL10n.helpVault,
+      'security' => appL10n.helpSecurity,
+      'arena' => appL10n.helpArena,
+      'achievements' => appL10n.helpAchievements,
+      'currency' => appL10n.helpCurrency,
+      'theme' => appL10n.helpTheme,
+      'language' => appL10n.helpLanguage,
+      'notifications' => appL10n.helpNotifications,
+      'profile' => appL10n.helpProfile,
+      'assistant' => appL10n.helpAssistant,
+      _ => t.answer,
+    };

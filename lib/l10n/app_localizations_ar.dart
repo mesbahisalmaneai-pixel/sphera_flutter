@@ -4188,4 +4188,472 @@ class AppLocalizationsAr extends AppLocalizations {
     );
     return '$_temp0';
   }
+
+  @override
+  String get abEmpty => 'اسألني أي شيء عن حساباتك أو عن SPHERA.';
+
+  @override
+  String get abThanks =>
+      'على الرحب والسعة! اسألني أي شيء آخر عن حساباتك أو التطبيق.';
+
+  @override
+  String abHello(String capabilities) {
+    return 'مرحبًا! $capabilities';
+  }
+
+  @override
+  String abGamingAccounts(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count حساب ألعاب',
+      few: '$count حسابات ألعاب',
+      two: 'حسابا ألعاب',
+      one: 'حساب ألعاب واحد',
+      zero: 'لا حسابات ألعاب',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String abCapabilities(String gaming, String google) {
+    return 'أستطيع الإجابة عن أسئلة حول $gaming و$google (الربح حسب اليوم أو الأسبوع أو الشهر، أفضل الألعاب والخاسرة، المعروض للبيع، الدرجات، الصناديق، الأهداف، مشاكل البيانات) وشرح طريقة استعمال أي جزء من SPHERA. جرّب: «ربح هذا الشهر»، «كم حساب Free Fire»، «كيف أضيف لعبة».';
+  }
+
+  @override
+  String abLastMonth(String amount, String accounts) {
+    return 'الشهر الماضي: $amount من $accounts مضافة.';
+  }
+
+  @override
+  String abForSale(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count حسابًا معروضًا للبيع الآن.',
+      few: '$count حسابات معروضة للبيع الآن.',
+      two: 'حسابان معروضان للبيع الآن.',
+      one: 'حساب واحد معروض للبيع الآن.',
+      zero: 'لا يوجد حساب معروض للبيع الآن.',
+    );
+    return '$_temp0 تُحتسب بصفر في الربح حتى يكون لها سعر.';
+  }
+
+  @override
+  String abSold(String accounts) {
+    return 'لقد بعت $accounts.';
+  }
+
+  @override
+  String abActive(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count حسابًا نشطًا.',
+      few: '$count حسابات نشطة.',
+      two: 'حسابان نشطان.',
+      one: 'حساب واحد نشط.',
+      zero: 'لا يوجد حساب نشط.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String abAchievements(int done, int total) {
+    return 'فتحت $done من أصل $total إنجازًا.';
+  }
+
+  @override
+  String get abNotUnderstood =>
+      'لم أفهم ذلك. جرّب السؤال عن ربحك، أو لعبة، أو حساباتك، أو الدرجات، أو الصناديق، أو الأهداف، أو مشاكل بياناتك، أو طريقة القيام بشيء في التطبيق.';
+
+  @override
+  String abNoGameAccounts(String game) {
+    return 'ليس لديك حسابات $game بعد.';
+  }
+
+  @override
+  String abGameLine(String game, String accounts, int active, int sold,
+      int forSale, String profit, String sales, String expenses) {
+    return '$game: $accounts ($active نشطة، $sold مُباعة، $forSale للبيع). صافي الربح $profit، المبيعات $sales، المصاريف $expenses.';
+  }
+
+  @override
+  String abGameMargin(String pct) {
+    return ' الهامش ⁦$pct%⁩.';
+  }
+
+  @override
+  String abGameRank(int rank) {
+    return ' ترتيبها $rank بين ألعابك حسب الربح.';
+  }
+
+  @override
+  String abGradeAnswer(String parts, String google) {
+    return 'لديك $parts (من أصل $google).';
+  }
+
+  @override
+  String abBoxes(String parts) {
+    return 'صناديق الألعاب: $parts.';
+  }
+
+  @override
+  String get abNoGoals =>
+      'ليست لديك أهداف شهرية بعد. افتح «مركز الأداء» واضغط «تحديد الأهداف».';
+
+  @override
+  String abGoalProfit(String current, String target, String pct) {
+    return 'الربح: $current من $target (⁦$pct%⁩)';
+  }
+
+  @override
+  String abGoalAccounts(int current, int target) {
+    return 'الحسابات المضافة: $current من $target';
+  }
+
+  @override
+  String get abBehindPace => ' أنت متأخر عن الوتيرة هذا الشهر.';
+
+  @override
+  String get abNoStreak =>
+      'لا توجد سلسلة إضافة الآن. أضف حسابًا اليوم لتبدأ واحدة.';
+
+  @override
+  String abStreak(String days) {
+    return 'سلسلة إضافتك $days متتالية.';
+  }
+
+  @override
+  String get abNoAlerts => 'لا تحذيرات ولا تذكيرات الآن. كل شيء على ما يرام.';
+
+  @override
+  String abAlertsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count تنبيهًا',
+      few: '$count تنبيهات',
+      two: 'تنبيهان',
+      one: 'تنبيه واحد',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String abHGoogleDup(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count مجموعة تكرار Google',
+      few: '$count مجموعات تكرار Google',
+      two: 'مجموعتا تكرار Google',
+      one: 'مجموعة تكرار Google واحدة',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String abHGameDup(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count مجموعة تكرار ألعاب',
+      few: '$count مجموعات تكرار ألعاب',
+      two: 'مجموعتا تكرار ألعاب',
+      one: 'مجموعة تكرار ألعاب واحدة',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String abHMissingId(String accounts) {
+    return '$accounts بدون معرّف';
+  }
+
+  @override
+  String abHNoBoxes(String google) {
+    return '$google بدون صناديق محددة';
+  }
+
+  @override
+  String get abHealthy =>
+      'بياناتك تبدو سليمة: لا تكرار ولا بريد غير صالح، ولكل حساب معرّف.';
+
+  @override
+  String abInTrash(String items) {
+    return ' $items في المهملات.';
+  }
+
+  @override
+  String abFound(String list) {
+    return 'وُجد: $list.';
+  }
+
+  @override
+  String get abNoGamingAccounts => 'لا توجد حسابات ألعاب بعد.';
+
+  @override
+  String abNoLosing(String game, String amount) {
+    return 'لا توجد لعبة تخسر المال. الأقل ربحًا هي $game ($amount).';
+  }
+
+  @override
+  String abLosing(String list) {
+    return 'تخسر المال: $list.';
+  }
+
+  @override
+  String abMakesMost(String game, String amount, String accounts) {
+    return '$game تربح أكثر: $amount من $accounts.';
+  }
+
+  @override
+  String abThen(String list) {
+    return ' ثم $list.';
+  }
+
+  @override
+  String get abNoLoss => 'لا يوجد حساب بخسارة.';
+
+  @override
+  String get abNoProfitYet => 'لم يحقق أي حساب ربحًا بعد.';
+
+  @override
+  String get abBiggestLosses => 'أكبر الخسائر';
+
+  @override
+  String get abMostProfitable => 'الحسابات الأكثر ربحًا';
+
+  @override
+  String abPeriod(String label, String amount, String accounts,
+      String prevLabel, String prev, String pct) {
+    return '$label: $amount من $accounts مضافة. $prevLabel: $prev$pct.';
+  }
+
+  @override
+  String get abLastWeekCap => 'الأسبوع الماضي';
+
+  @override
+  String get abLastMonthCap => 'الشهر الماضي';
+
+  @override
+  String abProfit(String net, String sales, String expenses, String margin,
+      String month, String pct) {
+    return 'صافي الربح: $net (المبيعات $sales - المصاريف $expenses$margin). هذا الشهر: $month$pct مقارنة بالشهر الماضي.';
+  }
+
+  @override
+  String abMarginSuffix(String pct) {
+    return '، الهامش ⁦$pct%⁩';
+  }
+
+  @override
+  String abGoogle(String google, String grades) {
+    return 'لديك $google$grades.';
+  }
+
+  @override
+  String abCount(String gaming, int active, int sold, int forSale, String games,
+      String google) {
+    return 'لديك $gaming ($active نشطة، $sold مُباعة، $forSale للبيع) في $games، و$google.';
+  }
+
+  @override
+  String get abNothingToFix =>
+      'لا شيء يحتاج إصلاحًا الآن. واصل إضافة الحسابات وحدّد هدفًا شهريًا لمتابعة وتيرتك.';
+
+  @override
+  String abSummaryCounts(String gaming, String google) {
+    return '$gaming و$google. ';
+  }
+
+  @override
+  String abSummaryProfit(String net, String month, String pct) {
+    return 'صافي الربح $net؛ هذا الشهر $month$pct. ';
+  }
+
+  @override
+  String abBestGame(String game) {
+    return 'أفضل لعبة: $game. ';
+  }
+
+  @override
+  String get abNoAlertsShort => 'لا تنبيهات.';
+
+  @override
+  String abAlertsAttention(String alerts) {
+    return '$alerts تحتاج انتباهك.';
+  }
+
+  @override
+  String get helpAbout =>
+      'يجمع SPHERA حسابات Google Play وحسابات ألعابك في مكان واحد: الدرجات، صناديق الألعاب، أسعار الشراء والبيع، الربح، الإحصائيات، الأدوات الذكية والبطولات. كل شيء محفوظ على هذا الهاتف (الوضع المحلي).';
+
+  @override
+  String get helpTabs =>
+      'يحتوي الشريط السفلي على 5 تبويبات: الرئيسية (لوحة المعلومات، الإجراءات السريعة، المؤشرات، رسم الأداء، النشاط الأخير)، الإحصائيات (مركز التحليلات والإحصائيات)، المدار (الأرض الذهبية: اضغط نقطة مضيئة ثم «استكشاف» للوصول إلى كل شاشات القسم)، البطاقات (الأدوات الذكية وساحة البطولات) والملف الشخصي (الرتبة، الإنجازات، الجلسة). الإعدادات هي أيقونة الترس في الأعلى، والجرس للإشعارات.';
+
+  @override
+  String get helpOrbit =>
+      'المدار هو التبويب الأوسط: أرض من نقاط ذهبية، قارة لكل قسم. اسحبها لتدويرها، واضغط نقطة مضيئة لترى بطاقة بإحصائيات مباشرة، ثم اضغط «استكشاف». في اللوحة السفلية تبويب «الشاشات» (بطاقة لكل شاشة) وتبويب «الإحصائيات» (مؤشرات). زر البحث يوصلك إلى أي شاشة.';
+
+  @override
+  String get helpGoogleAdd =>
+      'افتح «حسابات Google Play» (بطاقة الرئيسية أو المدار) واضغط «إضافة حساب Google». أدخل البريد الإلكتروني واختر درجة. ينشئ SPHERA تلقائيًا صندوقًا لكل لعبة، كلها فارغة. يُرفض البريد المكرر.';
+
+  @override
+  String get helpGrades =>
+      'لكل حساب Google درجة واحدة: برونزي، فضي، ذهبي، بلاتيني، ماسي أو ممنوع (محظور / غير صالح للاستعمال). غيّرها بتعديل الحساب. تُظهر «إحصائيات الدرجات» عدد حساباتك لكل درجة.';
+
+  @override
+  String get helpBoxes =>
+      'لكل حساب Google صندوق لكل لعبة. الصندوق إما فارغ أو تم أو ليس بعد أو قريبًا. اضغط حسابًا لفتح صناديقه وتغيير الحالة. الصندوق ليس حساب ألعاب أبدًا؛ «إحصائيات الحالات» تعدّ الصناديق وحسابات الألعاب كلًّا على حدة. تظهر صناديق «قريبًا» كتذكيرات في الإشعارات.';
+
+  @override
+  String get helpGames =>
+      'افتح «الألعاب» (الإجراء السريع «إدارة الألعاب» في الرئيسية). يمكنك إضافة لعبة، أو إعادة تسميتها (تبقى حساباتها وصناديقها)، أو أرشفتها (تختفي من الأعداد والإحصائيات)، وتعيين صورة بطاقة أو صورة حساب. تحصل الألعاب الجديدة على صندوق فارغ في كل حساب Google. يجب أن تكون أسماء الألعاب فريدة.';
+
+  @override
+  String get helpAccountAdd =>
+      'اضغط «إضافة حساب» في الرئيسية (أو افتح لعبة واضغط +). اختر اللعبة، ثم أدخل معرّف الحساب والاسم وسعر الشراء وسعر البيع والحالة، وملاحظات أو صورة إن أردت. الربح = سعر البيع - سعر الشراء.';
+
+  @override
+  String get helpPhotos =>
+      'لحساب واحد: افتحه (الألعاب > اللعبة > اضغط الحساب) واضغط «تغيير الصورة»؛ «إعادة تعيين» تعيد صورة اللعبة. لكل حسابات لعبة: في «الألعاب» افتح قائمة اللعبة واختر «تغيير صورة الحسابات». «تغيير صورة اللعبة» يعيّن صورة بطاقتها، و«إعادة تعيين الصور» يزيل الاثنتين.';
+
+  @override
+  String get helpPrivacy =>
+      'بياناتك تبقى على هذا الهاتف: الحسابات والأسعار والملاحظات والصور محفوظة في قاعدة بيانات التطبيق ولا تُرسل إلى أي خادم. الاستثناء الوحيد هو وضع الذكاء الاصطناعي (متوقف ما لم تفعّله): عندها يُرسل سؤالك وملخص أرقامك إلى Claude، دون بريدك أو معرّفات الحسابات أو الملاحظات أبدًا. أنشئ نسخة احتياطية من الإعدادات > النسخ الاحتياطي واحفظ الملف في مكان آمن: حذف التطبيق أو فقدان الهاتف يمحو بياناته.';
+
+  @override
+  String get helpMissing =>
+      'إذا اختفى حساب: 1) افتح الإعدادات > المهملات: الحسابات المحذوفة تذهب إليها ويمكن استعادتها؛ 2) إذا أزلت لعبته من «الألعاب» فحساباتها محفوظة لكنها مخفية مع اللعبة؛ 3) امسح نص البحث وعوامل التصفية في «حسابات Google Play» أو «المنظم الذكي».';
+
+  @override
+  String get helpStatuses =>
+      'حساب الألعاب إما نشط (تملكه) أو مُباع أو للبيع (معروض دون سعر نهائي). الحسابات المعروضة للبيع تُحتسب بصفر في الربح حتى يكون لها سعر. العروض التي لم تتغير منذ 14 يومًا تعود كتذكيرات.';
+
+  @override
+  String get helpProfit =>
+      'ربح الحساب = سعر البيع - سعر الشراء (صفر للمعروض للبيع). صافي الربح هو مجموع كل الحسابات خارج المهملات، من الألعاب غير المؤرشفة. المصاريف = أسعار الشراء، المبيعات = أسعار البيع، الهامش = صافي الربح / المصاريف. تعتمد الفترات على تاريخ إضافة الحساب.';
+
+  @override
+  String get helpSearch =>
+      'استعمل «البحث عن حساب» في الرئيسية للبحث السريع. «المنظم الذكي» (تبويب البطاقات) يبحث ويصفّي ويرتب حسابات Google والألعاب معًا. في «حسابات Google Play» أيضًا بحث وعوامل تصفية حسب الدرجة والحالة.';
+
+  @override
+  String get helpTrash =>
+      'الحذف ينقل الحساب إلى المهملات (يمكنك الضغط على «تراجع» فورًا). الحسابات في المهملات مستبعدة من كل الأعداد والإحصائيات. افتح الإعدادات > المهملات لاستعادة حساب (تبقى الدرجة والصناديق والأسعار) أو حذفه نهائيًا.';
+
+  @override
+  String get helpStats =>
+      'يضم تبويب الإحصائيات «مركز التحليلات» (مركز الأرباح، مركز النشاط، مركز الأداء، SPHERA Intelligence) و«الإحصائيات» (الدرجات والحالات والألعاب). وفي الرئيسية رسم للأداء: الربح يوميًا أو أسبوعيًا أو شهريًا.';
+
+  @override
+  String get helpActivity =>
+      'يسرد «مركز النشاط» كل إجراء (إضافة، تعديل، تغيير حالة، نقل إلى المهملات، استعادة، حذف)، مجمّعًا حسب اليوم وقابلًا للتصفية حسب الفترة والنوع. تعرض الرئيسية آخر الإدخالات.';
+
+  @override
+  String get helpGoals =>
+      'افتح «مركز الأداء» واضغط «تحديد الأهداف». يمكنك تحديد هدف ربح شهري وعدد حسابات للإضافة. تُظهر الأشرطة تقدّمك وأين يجب أن تكون اليوم؛ التأخر يُنشئ تذكيرًا.';
+
+  @override
+  String get helpDuplicates =>
+      'يجد «كاشف التكرار» (تبويب البطاقات) حسابات Google بنفس البريد (مع تجاهل نقاط Gmail و+tags) وحسابات الألعاب بنفس المعرّف في نفس اللعبة. لا يُدمج شيء تلقائيًا: تراجع كل مجموعة أو تستبعدها.';
+
+  @override
+  String get helpVault =>
+      'تتيح «خزنة المخزون» (تبويب البطاقات) تمييز الحسابات كمفضلة أو نادرة أو عالية القيمة ورؤيتها معًا، بدءًا بأعلى سعر بيع.';
+
+  @override
+  String get helpSecurity =>
+      'يُظهر «مركز الأمان» سلامة البيانات (التكرار، البريد غير الصالح، الحسابات بدون معرّف، الحسابات بدون صناديق، المهملات). الإعدادات > النسخ الاحتياطي يحفظ كل بياناتك في ملف يمكنك الاحتفاظ به أو مشاركته، ثم استعادته لاحقًا. المزامنة السحابية غير متوفرة بعد.';
+
+  @override
+  String get helpArena =>
+      'تُنشئ «ساحة البطولات» (تبويب البطاقات) دوريات ومجموعات ومنافسات إقصائية، وأحداث Battle Royale (المركز + القتلى في كل جولة). اضغط «إنشاء»، واختر اللعبة والوضع (مثل Clash Squad أو Battle Royale Solo/Duo/Squad)، وأضف الفرق ثم أدخل النتائج؛ يتحدّث الترتيب تلقائيًا.';
+
+  @override
+  String get helpAchievements =>
+      'تُفتح الإنجازات كلما أضفت حسابات وألعابًا وبعت وحققت ربحًا ونظّمت. تمنح نقاط إنجاز. رتبتك في تبويب الملف الشخصي تعتمد على نقاط رتبة منفصلة. ولا علاقة لأيٍّ منهما بدرجات Google Play.';
+
+  @override
+  String get helpCurrency =>
+      'تُحفظ المبالغ بالدرهم. من الإعدادات > العملة اختر DH أو USD أو EUR؛ تُحوَّل القيم عند العرض. اضغط «تحديث الأسعار» (يحتاج إنترنت) لتنزيل الأسعار المباشرة؛ وإلا تُستعمل أسعار تقريبية.';
+
+  @override
+  String get helpTheme =>
+      'الإعدادات > المظهر: اختر نمطًا (Gold أو Silver أو Rose Gold أو Midnight) ووضعًا (داكن أو فاتح أو تلقائي ليتبع هاتفك).';
+
+  @override
+  String get helpLanguage =>
+      'الإعدادات > اللغة تحوّل SPHERA إلى English أو Français أو العربية (العربية تُقرأ من اليمين إلى اليسار). كل الشاشات وإجابات المساعد والتحليلات والإشعارات تتبع هذا الاختيار. يفهم المساعد الأسئلة باللغات الثلاث.';
+
+  @override
+  String get helpNotifications =>
+      'يعرض الجرس التحذيرات (الخسائر، التكرار، البريد غير الصالح، انخفاض الربح) والتذكيرات (عروض البيع القديمة، صناديق «قريبًا»، الأهداف المتأخرة). عند تفعيل إشعارات الهاتف تظهر التنبيهات الجديدة على هاتفك أيضًا، ويصل ملخص يومي في الوقت الذي تختاره. اضبط ذلك من الإعدادات > الإشعارات.';
+
+  @override
+  String get helpProfile =>
+      'يعرض تبويب الملف الشخصي اسمك وصورتك ورتبتك وإنجازاتك والجلسة الحالية. اضغط «تعديل الملف الشخصي» لتغيير الاسم أو البريد أو الصورة. «تسجيل الخروج» في الأسفل؛ تبقى حساباتك وألعابك على الهاتف. «نسيت كلمة المرور» في شاشة الدخول.';
+
+  @override
+  String get helpAssistant =>
+      'أنا مساعد SPHERA. دون إنترنت أجيب من بياناتك ومن دليل التطبيق هذا، دون أن يغادر أي شيء الهاتف. يمكنك أيضًا تفعيل وضع الذكاء الاصطناعي (أيقونة الضبط) بمفتاح API الخاص بك من Anthropic: عندها يجيب Claude عن أي سؤال اعتمادًا على ملخص لأرقامك (دون البريد أو معرّفات الحسابات أو الملاحظات أبدًا).';
+
+  @override
+  String get chatAiTip =>
+      '\n\nنصيحة: فعّل وضع الذكاء الاصطناعي (أيقونة الضبط في الأعلى) ليجيب Claude عن أي سؤال.';
+
+  @override
+  String chatAnsweredOffline(String error) {
+    return '($error أُجيب دون إنترنت.)';
+  }
+
+  @override
+  String get chatSomethingWrong => 'حدث خطأ ما. حاول مرة أخرى.';
+
+  @override
+  String get aiErrGeneric => 'أبلغت خدمة الذكاء الاصطناعي عن خطأ.';
+
+  @override
+  String get aiErrBrowser =>
+      'وضع الذكاء الاصطناعي يعمل في تطبيق الهاتف، وليس في المتصفح.';
+
+  @override
+  String get aiErrDeclined => 'رفض Claude الإجابة عن هذا السؤال.';
+
+  @override
+  String get aiErrNoInternet => 'لا يوجد اتصال بالإنترنت.';
+
+  @override
+  String get aiErrTimeout => 'استغرقت خدمة الذكاء الاصطناعي وقتًا طويلًا للرد.';
+
+  @override
+  String get aiErrTls => 'فشل الاتصال الآمن. تحقّق من تاريخ الهاتف وشبكتك.';
+
+  @override
+  String get aiErrKey =>
+      'مفتاح API غير صالح. تحقّق منه في إعدادات الذكاء الاصطناعي.';
+
+  @override
+  String get aiErrForbidden => 'هذا المفتاح غير مسموح له باستعمال Claude.';
+
+  @override
+  String get aiErrRate =>
+      'طلبات كثيرة جدًا أو لا رصيد متبقٍ في هذا المفتاح. حاول لاحقًا.';
+
+  @override
+  String get aiErrBusy => 'Claude مشغول الآن. حاول بعد لحظة.';
+
+  @override
+  String aiErrServer(int status) {
+    return 'واجهت خدمة الذكاء الاصطناعي مشكلة ($status).';
+  }
+
+  @override
+  String aiErrRefused(int status) {
+    return 'رفضت خدمة الذكاء الاصطناعي الطلب ($status).';
+  }
 }

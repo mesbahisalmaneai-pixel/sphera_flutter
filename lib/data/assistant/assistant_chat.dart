@@ -1,3 +1,4 @@
+import '../../core/l10n.dart';
 import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -256,7 +257,7 @@ class AssistantChatNotifier extends Notifier<ChatState> {
     if (!ai.active) {
       final hint = offline.understood || ai.hasKey
           ? ''
-          : '\n\nTip: turn on AI mode (tune icon above) and Claude can answer any question.';
+          : appL10n.chatAiTip;
       state = state.copyWith(
         messages: [
           ...state.messages,
@@ -347,7 +348,7 @@ class AssistantChatNotifier extends Notifier<ChatState> {
       _replaceLast(ChatMessage(
         role: ChatRole.assistant,
         text: offline.understood
-            ? '${offline.text}\n\n(${e.message} Answered offline.)'
+            ? '${offline.text}\n\n${appL10n.chatAnsweredOffline(e.message)}'
             : e.message,
         targets: offline.targets,
         source: offline.understood ? ReplySource.offline : ReplySource.notice,
@@ -357,7 +358,7 @@ class AssistantChatNotifier extends Notifier<ChatState> {
         role: ChatRole.assistant,
         text: offline.understood
             ? offline.text
-            : 'Something went wrong. Please try again.',
+            : appL10n.chatSomethingWrong,
         targets: offline.targets,
         source: ReplySource.notice,
       ));

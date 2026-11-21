@@ -6783,6 +6783,598 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count, plural, =1{1 box} other{{count} boxes}}'**
   String activityBoxes(int count);
+
+  /// No description provided for @abEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask me anything about your accounts or about SPHERA.'**
+  String get abEmpty;
+
+  /// No description provided for @abThanks.
+  ///
+  /// In en, this message translates to:
+  /// **'You are welcome! Ask me anything else about your accounts or the app.'**
+  String get abThanks;
+
+  /// No description provided for @abHello.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello! {capabilities}'**
+  String abHello(String capabilities);
+
+  /// No description provided for @abGamingAccounts.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 gaming account} other{{count} gaming accounts}}'**
+  String abGamingAccounts(int count);
+
+  /// No description provided for @abCapabilities.
+  ///
+  /// In en, this message translates to:
+  /// **'I can answer questions about your {gaming} and {google} (profit by day, week or month, best and losing games, for sale, grades, boxes, goals, data problems) and explain how to use any part of SPHERA. Try: \"profit this month\", \"how many Free Fire accounts\", \"how do I add a game\".'**
+  String abCapabilities(String gaming, String google);
+
+  /// No description provided for @abLastMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'Last month: {amount} from {accounts} added.'**
+  String abLastMonth(String amount, String accounts);
+
+  /// No description provided for @abForSale.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 account is FOR SALE right now.} other{{count} accounts are FOR SALE right now.}} They count 0 in profit until they have a price.'**
+  String abForSale(int count);
+
+  /// No description provided for @abSold.
+  ///
+  /// In en, this message translates to:
+  /// **'You have sold {accounts}.'**
+  String abSold(String accounts);
+
+  /// No description provided for @abActive.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 account is ACTIVE.} other{{count} accounts are ACTIVE.}}'**
+  String abActive(int count);
+
+  /// No description provided for @abAchievements.
+  ///
+  /// In en, this message translates to:
+  /// **'You unlocked {done} of {total} achievements.'**
+  String abAchievements(int done, int total);
+
+  /// No description provided for @abNotUnderstood.
+  ///
+  /// In en, this message translates to:
+  /// **'I did not understand that one. Try asking about your profit, a game, your accounts, grades, boxes, goals, problems in your data, or how to do something in the app.'**
+  String get abNotUnderstood;
+
+  /// No description provided for @abNoGameAccounts.
+  ///
+  /// In en, this message translates to:
+  /// **'You have no {game} accounts yet.'**
+  String abNoGameAccounts(String game);
+
+  /// No description provided for @abGameLine.
+  ///
+  /// In en, this message translates to:
+  /// **'{game}: {accounts} ({active} active, {sold} sold, {forSale} for sale). Net profit {profit}, sales {sales}, expenses {expenses}.'**
+  String abGameLine(String game, String accounts, int active, int sold,
+      int forSale, String profit, String sales, String expenses);
+
+  /// No description provided for @abGameMargin.
+  ///
+  /// In en, this message translates to:
+  /// **' Margin {pct}%.'**
+  String abGameMargin(String pct);
+
+  /// No description provided for @abGameRank.
+  ///
+  /// In en, this message translates to:
+  /// **' It ranks #{rank} of your games by profit.'**
+  String abGameRank(int rank);
+
+  /// No description provided for @abGradeAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'You have {parts} (out of {google}).'**
+  String abGradeAnswer(String parts, String google);
+
+  /// No description provided for @abBoxes.
+  ///
+  /// In en, this message translates to:
+  /// **'Game boxes: {parts}.'**
+  String abBoxes(String parts);
+
+  /// No description provided for @abNoGoals.
+  ///
+  /// In en, this message translates to:
+  /// **'You have no monthly goals yet. Open Performance Center and tap Set goals.'**
+  String get abNoGoals;
+
+  /// No description provided for @abGoalProfit.
+  ///
+  /// In en, this message translates to:
+  /// **'Profit: {current} of {target} ({pct}%)'**
+  String abGoalProfit(String current, String target, String pct);
+
+  /// No description provided for @abGoalAccounts.
+  ///
+  /// In en, this message translates to:
+  /// **'Accounts added: {current} of {target}'**
+  String abGoalAccounts(int current, int target);
+
+  /// No description provided for @abBehindPace.
+  ///
+  /// In en, this message translates to:
+  /// **' You are behind pace this month.'**
+  String get abBehindPace;
+
+  /// No description provided for @abNoStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'No add streak right now. Add an account today to start one.'**
+  String get abNoStreak;
+
+  /// No description provided for @abStreak.
+  ///
+  /// In en, this message translates to:
+  /// **'Your add streak is {days} in a row.'**
+  String abStreak(String days);
+
+  /// No description provided for @abNoAlerts.
+  ///
+  /// In en, this message translates to:
+  /// **'No warnings or reminders right now. All clear.'**
+  String get abNoAlerts;
+
+  /// No description provided for @abAlertsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 alert} other{{count} alerts}}'**
+  String abAlertsCount(int count);
+
+  /// No description provided for @abHGoogleDup.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 Google duplicate group} other{{count} Google duplicate groups}}'**
+  String abHGoogleDup(int count);
+
+  /// No description provided for @abHGameDup.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 gaming duplicate group} other{{count} gaming duplicate groups}}'**
+  String abHGameDup(int count);
+
+  /// No description provided for @abHMissingId.
+  ///
+  /// In en, this message translates to:
+  /// **'{accounts} without Account ID'**
+  String abHMissingId(String accounts);
+
+  /// No description provided for @abHNoBoxes.
+  ///
+  /// In en, this message translates to:
+  /// **'{google} with no box set'**
+  String abHNoBoxes(String google);
+
+  /// No description provided for @abHealthy.
+  ///
+  /// In en, this message translates to:
+  /// **'Your data looks healthy: no duplicates, no invalid emails, every account has an ID.'**
+  String get abHealthy;
+
+  /// No description provided for @abInTrash.
+  ///
+  /// In en, this message translates to:
+  /// **' {items} in the Trash.'**
+  String abInTrash(String items);
+
+  /// No description provided for @abFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Found: {list}.'**
+  String abFound(String list);
+
+  /// No description provided for @abNoGamingAccounts.
+  ///
+  /// In en, this message translates to:
+  /// **'No gaming accounts yet.'**
+  String get abNoGamingAccounts;
+
+  /// No description provided for @abNoLosing.
+  ///
+  /// In en, this message translates to:
+  /// **'No game is losing money. The least profitable is {game} ({amount}).'**
+  String abNoLosing(String game, String amount);
+
+  /// No description provided for @abLosing.
+  ///
+  /// In en, this message translates to:
+  /// **'Losing money: {list}.'**
+  String abLosing(String list);
+
+  /// No description provided for @abMakesMost.
+  ///
+  /// In en, this message translates to:
+  /// **'{game} makes the most: {amount} from {accounts}.'**
+  String abMakesMost(String game, String amount, String accounts);
+
+  /// No description provided for @abThen.
+  ///
+  /// In en, this message translates to:
+  /// **' Then {list}.'**
+  String abThen(String list);
+
+  /// No description provided for @abNoLoss.
+  ///
+  /// In en, this message translates to:
+  /// **'No account is at a loss.'**
+  String get abNoLoss;
+
+  /// No description provided for @abNoProfitYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No account has made a profit yet.'**
+  String get abNoProfitYet;
+
+  /// No description provided for @abBiggestLosses.
+  ///
+  /// In en, this message translates to:
+  /// **'Biggest losses'**
+  String get abBiggestLosses;
+
+  /// No description provided for @abMostProfitable.
+  ///
+  /// In en, this message translates to:
+  /// **'Most profitable accounts'**
+  String get abMostProfitable;
+
+  /// No description provided for @abPeriod.
+  ///
+  /// In en, this message translates to:
+  /// **'{label}: {amount} from {accounts} added. {prevLabel}: {prev}{pct}.'**
+  String abPeriod(String label, String amount, String accounts,
+      String prevLabel, String prev, String pct);
+
+  /// No description provided for @abLastWeekCap.
+  ///
+  /// In en, this message translates to:
+  /// **'Last week'**
+  String get abLastWeekCap;
+
+  /// No description provided for @abLastMonthCap.
+  ///
+  /// In en, this message translates to:
+  /// **'Last month'**
+  String get abLastMonthCap;
+
+  /// No description provided for @abProfit.
+  ///
+  /// In en, this message translates to:
+  /// **'Net profit: {net} (sales {sales} - expenses {expenses}{margin}). This month: {month}{pct} vs last month.'**
+  String abProfit(String net, String sales, String expenses, String margin,
+      String month, String pct);
+
+  /// No description provided for @abMarginSuffix.
+  ///
+  /// In en, this message translates to:
+  /// **', margin {pct}%'**
+  String abMarginSuffix(String pct);
+
+  /// No description provided for @abGoogle.
+  ///
+  /// In en, this message translates to:
+  /// **'You have {google}{grades}.'**
+  String abGoogle(String google, String grades);
+
+  /// No description provided for @abCount.
+  ///
+  /// In en, this message translates to:
+  /// **'You have {gaming} ({active} active, {sold} sold, {forSale} for sale) across {games}, and {google}.'**
+  String abCount(String gaming, int active, int sold, int forSale, String games,
+      String google);
+
+  /// No description provided for @abNothingToFix.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing to fix right now. Keep adding accounts and set a monthly goal to track your pace.'**
+  String get abNothingToFix;
+
+  /// No description provided for @abSummaryCounts.
+  ///
+  /// In en, this message translates to:
+  /// **'{gaming} and {google}. '**
+  String abSummaryCounts(String gaming, String google);
+
+  /// No description provided for @abSummaryProfit.
+  ///
+  /// In en, this message translates to:
+  /// **'Net profit {net}; this month {month}{pct}. '**
+  String abSummaryProfit(String net, String month, String pct);
+
+  /// No description provided for @abBestGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Best game: {game}. '**
+  String abBestGame(String game);
+
+  /// No description provided for @abNoAlertsShort.
+  ///
+  /// In en, this message translates to:
+  /// **'No alerts.'**
+  String get abNoAlertsShort;
+
+  /// No description provided for @abAlertsAttention.
+  ///
+  /// In en, this message translates to:
+  /// **'{alerts} need your attention.'**
+  String abAlertsAttention(String alerts);
+
+  /// No description provided for @helpAbout.
+  ///
+  /// In en, this message translates to:
+  /// **'SPHERA keeps your Google Play accounts and your gaming accounts in one place: grades, game boxes, purchase and sale prices, profit, statistics, smart tools and tournaments. Everything is stored on this phone (local mode).'**
+  String get helpAbout;
+
+  /// No description provided for @helpTabs.
+  ///
+  /// In en, this message translates to:
+  /// **'The bottom bar has 5 tabs: Home (dashboard, quick actions, KPIs, performance graph, recent activity), Stats (Analytics Center and statistics), ORBIT (the gold Earth: tap a glowing node, then Explore, to reach every screen of a section), Cards (smart tools and the Tournament Arena) and Profile (rank, achievements, session). Settings is the gear icon at the top right; the bell is Notifications.'**
+  String get helpTabs;
+
+  /// No description provided for @helpOrbit.
+  ///
+  /// In en, this message translates to:
+  /// **'Orbit is the center tab: a gold dotted Earth with one continent per section. Drag to turn it, tap a glowing node to see a glass card with live stats, then tap Explore to dive in. The bottom sheet has a Screens tab (one card per screen) and a Stats tab (gauges). Use the search button to jump to any screen.'**
+  String get helpOrbit;
+
+  /// No description provided for @helpGoogleAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Google Play Accounts (Home card or Orbit) and tap Add Google Account. Enter the email and pick a grade. SPHERA creates one box per game automatically, all EMPTY. Duplicate emails are refused.'**
+  String get helpGoogleAdd;
+
+  /// No description provided for @helpGrades.
+  ///
+  /// In en, this message translates to:
+  /// **'Each Google account has one grade: Bronze, Silver, Gold, Platinum, Diamond, or Interdit (banned / not usable). Change it by editing the account. Grade Statistics shows how many accounts you have per grade.'**
+  String get helpGrades;
+
+  /// No description provided for @helpBoxes.
+  ///
+  /// In en, this message translates to:
+  /// **'Every Google account has one box per game. A box is EMPTY, DONE, NOT YET or COMING. Tap an account to open its boxes and change a status. A box is never a gaming account; Status Statistics counts boxes and gaming accounts separately. COMING boxes appear as reminders in Notifications.'**
+  String get helpBoxes;
+
+  /// No description provided for @helpGames.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Games (Home quick action \"Manage Games\"). You can add a game, rename it (its accounts and boxes stay), archive it (it disappears from counts and stats) and set a card image or an account photo. New games get an EMPTY box in every Google account. Game names must be unique.'**
+  String get helpGames;
+
+  /// No description provided for @helpAccountAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap Add Account on Home (or open a game and tap +). Choose the game, then enter the Account ID, a name, the purchase price, the sale price, a status and optional notes or a photo. Profit = sale price - purchase price.'**
+  String get helpAccountAdd;
+
+  /// No description provided for @helpPhotos.
+  ///
+  /// In en, this message translates to:
+  /// **'One account: open it (Games > the game > tap the account) and tap Change photo; Reset puts the game\'s photo back. Every account of a game: in Games, open the game\'s menu and pick Change account photo. Change game image sets the game\'s card picture, and Reset images removes both.'**
+  String get helpPhotos;
+
+  /// No description provided for @helpPrivacy.
+  ///
+  /// In en, this message translates to:
+  /// **'Your data stays on this phone: accounts, prices, notes and photos are saved in the app\'s own database and are not sent to any server. The only exception is AI mode (off unless you turn it on): then your question and a summary of your numbers go to Claude, never your emails, Account IDs or notes. Make a backup in Settings > Backup and keep the file somewhere safe: uninstalling the app or losing the phone deletes the data on it.'**
+  String get helpPrivacy;
+
+  /// No description provided for @helpMissing.
+  ///
+  /// In en, this message translates to:
+  /// **'If an account is missing: 1) open Settings > Trash: deleted accounts go there and can be restored; 2) if you removed its game in Games, its accounts are kept but hidden with the game; 3) clear the search text and filters in Google Play Accounts or Smart Organizer.'**
+  String get helpMissing;
+
+  /// No description provided for @helpStatuses.
+  ///
+  /// In en, this message translates to:
+  /// **'A gaming account is ACTIVE (you own it), SOLD, or FOR SALE (listed, no final price yet). FOR SALE accounts count 0 in profit until they have a price. Listings untouched for 14 days come back as reminders.'**
+  String get helpStatuses;
+
+  /// No description provided for @helpProfit.
+  ///
+  /// In en, this message translates to:
+  /// **'Profit of an account = sale price - purchase price (0 for FOR SALE). Net profit is the sum over all accounts not in the Trash, from games that are not archived. Expenses = purchase prices, Sales = sale prices, margin = net profit / expenses. Periods use the date the account was added.'**
+  String get helpProfit;
+
+  /// No description provided for @helpSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Use Search Account on Home for a quick search. Smart Organizer (Cards tab) searches, filters and sorts Google and gaming accounts together. Google Play Accounts also has search plus grade and status filters.'**
+  String get helpSearch;
+
+  /// No description provided for @helpTrash.
+  ///
+  /// In en, this message translates to:
+  /// **'Deleting moves an account to the Trash (you can tap Undo right away). Trashed accounts are excluded from all counts and stats. Open Settings > Trash to restore one (grade, boxes and prices are kept) or delete it forever.'**
+  String get helpTrash;
+
+  /// No description provided for @helpStats.
+  ///
+  /// In en, this message translates to:
+  /// **'The Stats tab has the Analytics Center (Profit Center, Activity Center, Performance Center, SPHERA Intelligence) and Statistics (Grade, Status and Games statistics). Home also has a performance graph: daily, weekly or monthly profit.'**
+  String get helpStats;
+
+  /// No description provided for @helpActivity.
+  ///
+  /// In en, this message translates to:
+  /// **'Activity Center lists every action (added, updated, status changed, trashed, restored, deleted), grouped by day and filterable by date range and type. Home shows the latest entries.'**
+  String get helpActivity;
+
+  /// No description provided for @helpGoals.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Performance Center and tap Set goals. You can set a monthly profit goal and a number of accounts to add. The bars show your progress and where you should be today; falling behind creates a reminder.'**
+  String get helpGoals;
+
+  /// No description provided for @helpDuplicates.
+  ///
+  /// In en, this message translates to:
+  /// **'Duplicate Scanner (Cards tab) finds Google accounts with the same email (Gmail dots and +tags ignored) and gaming accounts with the same Account ID in the same game. Nothing is merged automatically: you review each group or dismiss it.'**
+  String get helpDuplicates;
+
+  /// No description provided for @helpVault.
+  ///
+  /// In en, this message translates to:
+  /// **'Inventory Vault (Cards tab) lets you tag accounts as Favorite, Rare or High value and see them together, with the highest sale price first.'**
+  String get helpVault;
+
+  /// No description provided for @helpSecurity.
+  ///
+  /// In en, this message translates to:
+  /// **'Security Center shows data health (duplicates, invalid emails, accounts without ID, accounts without boxes, trash). Settings > Backup saves all your data to a file you can keep or share, and restores it later. Cloud sync is not available yet.'**
+  String get helpSecurity;
+
+  /// No description provided for @helpArena.
+  ///
+  /// In en, this message translates to:
+  /// **'Tournament Arena (Cards tab) creates leagues, groups and knockout competitions, plus Battle Royale events (placement + kills per round). Tap Create, pick the game and mode (for example Clash Squad or Battle Royale Solo/Duo/Squad), add teams, then enter results; standings update automatically.'**
+  String get helpArena;
+
+  /// No description provided for @helpAchievements.
+  ///
+  /// In en, this message translates to:
+  /// **'Achievements unlock as you add accounts and games, sell, make profit and organize. They give achievement points. Your rank on the Profile tab uses separate rank points. Neither is related to Google Play grades.'**
+  String get helpAchievements;
+
+  /// No description provided for @helpCurrency.
+  ///
+  /// In en, this message translates to:
+  /// **'Amounts are stored in DH. In Settings > Currency choose DH, USD or EUR; values are converted for display. Tap Update rates (needs internet) to download live rates; otherwise approximate default rates are used.'**
+  String get helpCurrency;
+
+  /// No description provided for @helpTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings > Appearance: pick a style (Gold, Silver, Rose Gold, Midnight) and a mode (Dark, Light, or Auto to follow your phone).'**
+  String get helpTheme;
+
+  /// No description provided for @helpLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings > Language switches SPHERA to English, Français or العربية (Arabic reads right to left). Every screen, the assistant\'s answers, insights and notifications follow it. The assistant understands questions in all three languages.'**
+  String get helpLanguage;
+
+  /// No description provided for @helpNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'The bell shows warnings (losses, duplicates, invalid emails, profit dropping) and reminders (stale FOR SALE listings, COMING boxes, goals behind pace). With phone notifications on, new alerts also appear on your phone, and a daily summary arrives at the time you choose. Configure it in Settings > Notifications.'**
+  String get helpNotifications;
+
+  /// No description provided for @helpProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'The Profile tab shows your name, photo, rank, achievements and current session. Tap Edit profile to change name, email or photo. Log out is at the bottom; your accounts and games stay on the phone. Forgot password is on the login screen.'**
+  String get helpProfile;
+
+  /// No description provided for @helpAssistant.
+  ///
+  /// In en, this message translates to:
+  /// **'I am the SPHERA Assistant. Offline, I answer from your own data and from this app guide, with nothing leaving the phone. You can also turn on AI mode (tune icon) with your own Anthropic API key: then Claude answers any question, using a summary of your numbers (never emails, account IDs or notes).'**
+  String get helpAssistant;
+
+  /// No description provided for @chatAiTip.
+  ///
+  /// In en, this message translates to:
+  /// **'\n\nTip: turn on AI mode (tune icon above) and Claude can answer any question.'**
+  String get chatAiTip;
+
+  /// No description provided for @chatAnsweredOffline.
+  ///
+  /// In en, this message translates to:
+  /// **'({error} Answered offline.)'**
+  String chatAnsweredOffline(String error);
+
+  /// No description provided for @chatSomethingWrong.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong. Please try again.'**
+  String get chatSomethingWrong;
+
+  /// No description provided for @aiErrGeneric.
+  ///
+  /// In en, this message translates to:
+  /// **'The AI service reported an error.'**
+  String get aiErrGeneric;
+
+  /// No description provided for @aiErrBrowser.
+  ///
+  /// In en, this message translates to:
+  /// **'AI mode works in the phone app, not in the browser.'**
+  String get aiErrBrowser;
+
+  /// No description provided for @aiErrDeclined.
+  ///
+  /// In en, this message translates to:
+  /// **'Claude declined to answer this question.'**
+  String get aiErrDeclined;
+
+  /// No description provided for @aiErrNoInternet.
+  ///
+  /// In en, this message translates to:
+  /// **'No internet connection.'**
+  String get aiErrNoInternet;
+
+  /// No description provided for @aiErrTimeout.
+  ///
+  /// In en, this message translates to:
+  /// **'The AI service took too long to answer.'**
+  String get aiErrTimeout;
+
+  /// No description provided for @aiErrTls.
+  ///
+  /// In en, this message translates to:
+  /// **'Secure connection failed. Check the phone date and your network.'**
+  String get aiErrTls;
+
+  /// No description provided for @aiErrKey.
+  ///
+  /// In en, this message translates to:
+  /// **'The API key is not valid. Check it in AI settings.'**
+  String get aiErrKey;
+
+  /// No description provided for @aiErrForbidden.
+  ///
+  /// In en, this message translates to:
+  /// **'This API key is not allowed to use Claude.'**
+  String get aiErrForbidden;
+
+  /// No description provided for @aiErrRate.
+  ///
+  /// In en, this message translates to:
+  /// **'Too many requests or no credit left on this API key. Try again later.'**
+  String get aiErrRate;
+
+  /// No description provided for @aiErrBusy.
+  ///
+  /// In en, this message translates to:
+  /// **'Claude is busy right now. Try again in a moment.'**
+  String get aiErrBusy;
+
+  /// No description provided for @aiErrServer.
+  ///
+  /// In en, this message translates to:
+  /// **'The AI service had a problem ({status}).'**
+  String aiErrServer(int status);
+
+  /// No description provided for @aiErrRefused.
+  ///
+  /// In en, this message translates to:
+  /// **'The AI service refused the request ({status}).'**
+  String aiErrRefused(int status);
 }
 
 class _AppLocalizationsDelegate

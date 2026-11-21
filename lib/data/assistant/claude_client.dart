@@ -1,3 +1,4 @@
+import '../../core/l10n.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'dart:async';
 import 'dart:convert';
@@ -58,7 +59,7 @@ class StreamAccumulator {
         stopReason = d?['stop_reason'] as String? ?? stopReason;
       case 'error':
         error = ((e['error'] as Map?)?['message'] as String?) ??
-            'The AI service reported an error.';
+            appL10n.aiErrGeneric;
     }
   }
 
@@ -112,7 +113,7 @@ class ClaudeClient {
     void Function(String textSoFar)? onText,
   }) async {
     if (kIsWeb) {
-      throw const ClaudeException('AI mode works in the phone app, not in the browser.');
+      throw ClaudeException(appL10n.aiErrBrowser);
     }
     final client = _http()..connectionTimeout = const Duration(seconds: 15);
     try {
@@ -161,7 +162,7 @@ class ClaudeClient {
       }
 
       if (acc.stopReason == 'refusal') {
-        throw const ClaudeException('Claude declined to answer this question.',
+        throw ClaudeException(appL10n.aiErrDeclined,
             refusal: true);
       }
       var text = acc.text.trim();
@@ -170,12 +171,11 @@ class ClaudeClient {
       }
       return ClaudeReply(text, acc.replayContent, acc.stopReason);
     } on SocketException {
-      throw const ClaudeException('No internet connection.');
+      throw ClaudeException(appL10n.aiErrNoInternet);
     } on TimeoutException {
-      throw const ClaudeException('The AI service took too long to answer.');
+      throw ClaudeException(appL10n.aiErrTimeout);
     } on HandshakeException {
-      throw const ClaudeException(
-          'Secure connection failed. Check the phone date and your network.');
+      throw ClaudeException(appL10n.aiErrTls);
     } finally {
       client.close();
     }
@@ -195,14 +195,14 @@ class ClaudeClient {
             lower.contains('prefix'));
     return ClaudeException(
       switch (status) {
-        401 => 'The API key is not valid. Check it in AI settings.',
-        403 => 'This API key is not allowed to use Claude.',
+        401 => appL10n.aiErrKey,
+        403 => appL10n.aiErrForbidden,
         429 =>
-          'Too many requests or no credit left on this API key. Try again later.',
-        529 || 503 => 'Claude is busy right now. Try again in a moment.',
-        _ when status >= 500 => 'The AI service had a problem ($status).',
+          appL10n.aiErrRate,
+        529 || 503 => appL10n.aiErrBusy,
+        _ when status >= 500 => appL10n.aiErrServer(status),
         _ =>
-          msg.isEmpty ? 'The AI service refused the request ($status).' : msg,
+          msg.isEmpty ? appL10n.aiErrRefused(status) : msg,
       },
       status: status,
       historyMismatch: mismatch,
