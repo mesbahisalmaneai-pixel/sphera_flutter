@@ -11,19 +11,13 @@ Stage 1 status: theme, logo reveal splash, home with live counts, Drift schema +
 
 Stage 2 (Google accounts): repository + form + inventory (search, grade/status filters, trash with undo), game repository (add/rename). Not yet compiled or tested - run the commands above.
 
-## Earth hub (center tab)
+## Dotted-Earth engine
 
-`lib/features/earth/` replaces the Orbit tab: a giant dotted Earth, one section per continent.
-Drag to rotate, tap a continent (or a chip) and the camera dives in; a panel lists everything inside.
+`lib/features/earth/` holds the engine the Orbit tab is built on (the old standalone Earth screen was removed).
 
 - `earth_sections.dart`: which section lives on which continent (`kSectionContinent`).
-- `earth_continents.dart`: continent borders, anchors, zoom and colors.
+- `earth_continents.dart`: continent borders, anchors, zoom, colors and translated names.
 - `earth_scene.dart`: projection, dotted Earth, drawing and hit-testing.
-- `earth_screen.dart`: camera, gestures and UI.
-- Section content still comes from `orbit/orbit_sections.dart` (add a screen there once).
-- To go back to Orbit: use `OrbitScreen()` instead of `EarthScreen()` in `shell/main_shell.dart`.
-
-Not yet compiled: run `flutter analyze && flutter test test/earth_hub_test.dart`.
 
 ## Orbit tab: the gold Earth (current center tab)
 
@@ -39,8 +33,7 @@ camera dives in, bottom sheet with gauges, **Screens** / **Stats** tabs and one 
 - `widgets/orbit_sheets.dart`: search, all sections, all insights, help.
 - `orbit_insights.dart`: live stats per section and the Insights row (from the same providers as Home/Stats).
 - Screens still come from `orbit_sections.dart`: add a screen there once and it appears as a card and a node.
-- `widgets/orbit_scene.dart` (the old Saturn scene) is no longer used by the Orbit tab and can be deleted.
-  `planet_painters.dart` is still used (palette, stars, nav bar icon).
+- `widgets/planet_painters.dart`: palette, stars, nav bar icon.
 
 Not yet compiled: run `flutter analyze && flutter test test/orbit_globe_test.dart`.
 
@@ -58,10 +51,6 @@ All three run offline, from the local database. Nothing leaves the device.
   opening the center marks them read. A notification comes back when its numbers change.
 
 Android: the project uses built-in Kotlin (`android.builtInKotlin=true`, AGP 9, Flutter 3.47+).
-
-Unused files that can be deleted: `features/home/statistics_screen.dart` (old Stats hub),
-`features/orbit/widgets/orbit_scene.dart` (old Saturn scene), `features/earth/earth_screen.dart`
-(alternative center tab; its `earth_scene.dart` / `earth_continents.dart` are still used by Orbit).
 
 Tests: `flutter test` (includes `performance_insights_test.dart` and `new_screens_test.dart`).
 
