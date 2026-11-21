@@ -188,6 +188,35 @@ void main() {
       expect(s, isNot(contains('secret note')));
     });
 
+    test('tells Claude the app language', () {
+      expect(d.toPromptText(), contains('App language: English.'));
+      final fr = AssistantData(
+        language: 'fr',
+        now: d.now,
+        currency: d.currency,
+        kpis: d.kpis,
+        today: d.today,
+        week: d.week,
+        month: d.month,
+        sales: d.sales,
+        expenses: d.expenses,
+        games: d.games,
+        top: d.top,
+        losses: d.losses,
+        googleTotal: d.googleTotal,
+        byGrade: d.byGrade,
+        byBox: d.byBox,
+        health: d.health,
+        goals: d.goals,
+        streak: d.streak,
+        insights: d.insights,
+        alerts: d.alerts,
+        achievementsDone: d.achievementsDone,
+        achievementsTotal: d.achievementsTotal,
+      );
+      expect(fr.toPromptText(), contains('App language: French. Reply in this language'));
+    });
+
     test('system prompt is stable and contains the guide', () {
       expect(buildSystemPrompt(), buildSystemPrompt());
       expect(buildSystemPrompt(), contains('## Trash and restore'));

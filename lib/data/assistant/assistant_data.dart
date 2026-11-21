@@ -39,6 +39,7 @@ class AccountLine {
 /// Deliberately excludes emails, Account IDs and notes.
 class AssistantData {
   const AssistantData({
+    this.language = 'en',
     required this.now,
     required this.currency,
     required this.kpis,
@@ -62,6 +63,8 @@ class AssistantData {
     required this.achievementsTotal,
   });
 
+  /// App language code (Settings > Language): AI mode answers in it.
+  final String language;
   final DateTime now;
   final CurrencySettings? currency;
   final DashboardKpis kpis;
@@ -87,6 +90,10 @@ class AssistantData {
     final b = StringBuffer()
       ..writeln(
           '<sphera_data date="${fmtDate(now)}" currency="${currency?.code ?? 'DH'}">')
+      // Sent again only when it changes, so switching the app language
+      // reaches Claude without editing the frozen system prompt.
+      ..writeln('App language: ${_languageNames[language] ?? 'English'}. Reply in this language '
+          'unless the user writes in another one.')
       ..writeln(
           'Gaming accounts: ${kpis.total} (active ${kpis.active}, sold ${kpis.sold}, for sale ${kpis.forSale}).')
       ..writeln(
@@ -167,6 +174,7 @@ AssistantData buildAssistantData({
   required int achievementsTotal,
   CurrencySettings? currency,
   DateTime? now,
+  String language = 'en',
 }) {
   final n = now ?? DateTime.now();
   final name = {for (final g in games) g.id: g.name};
@@ -211,6 +219,7 @@ AssistantData buildAssistantData({
   final priced = accounts.where((a) => a.status != GameAccountStatus.forSale);
 
   return AssistantData(
+    language: language,
     now: n,
     currency: currency,
     kpis: computeKpis(accounts, now: n),
@@ -250,5 +259,8 @@ final assistantDataProvider = Provider<AssistantData>((ref) {
     achievementsDone: ach.where((a) => a.done).length,
     achievementsTotal: ach.length,
     currency: ref.watch(currencyProvider),
+    language: ref.watch(languageProvider),
   );
 });
+
+const _languageNames = {'en': 'English', 'fr': 'French', 'ar': 'Arabic'};
